@@ -9,6 +9,7 @@ venv/
 # 例外:data/ 下的标签表、元数据等小 CSV/JSON 需要版本管理,允许入库
 data/*
 !data/.gitkeep
+!data/README.md
 !data/*.csv
 !data/*.json
 !data/**/*.csv
