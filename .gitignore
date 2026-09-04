@@ -6,8 +6,13 @@ venv/
 .ipynb_checkpoints/
 
 # 大数据与结果不入库(见 XAI01-04_小组工作指导.md §7.2,大文件走网盘共享)
+# 例外:data/ 下的标签表、元数据等小 CSV/JSON 需要版本管理,允许入库
 data/*
 !data/.gitkeep
+!data/*.csv
+!data/*.json
+!data/**/*.csv
+!data/**/*.json
 results/*
 !results/.gitkeep
 models/*.pt
