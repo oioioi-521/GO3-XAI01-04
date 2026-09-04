@@ -49,11 +49,13 @@ data/
 - **来源**:NLM 深圳胸片数据集(Jaeger et al., 2014;见 prior/毕设论文.pdf §4.1.2),公开数据。662 张后前位胸片:336 结核 + 326 正常。
 - **标签约定**:文件名 `CHNCXR_XXXX_1.png` = 结核,_`0` = 正常。
 - **重要**:`mask_overlaid_不可用于评估/` 里的 330 张是学长把病灶 mask 叠加进图像后的版本(已像素比对证实),**不得用于归因评估**(叠加的 mask 就是"标准答案",会污染结果)。
-- **状态**:完整 662 张原始图正在从 NLM 官网下载(data_share_v2 数据包),下载完成后标签表按文件名后缀生成。
+- **状态**:任务书要求数据集 ≥2,主体实验用 ImageNet + VOC 即可。CHNCXR 为**选做第三数据集**:
+  拿到完整 662 张原始图后放入 `raw/`,运行 `extract_chncxr_labels.py` + 重新运行 `sample_eval_set.py` 即可入矩阵。
+  当前 16 张原始图只够定性演示,不进主矩阵。
 
 ## 数据共享方式
 
-- **图像数据不进 GitHub**(被 .gitignore 忽略),通过网盘数据包分发:`data_share_v2.zip`(发布后替换 v1)。
+- **图像数据不进 GitHub**(被 .gitignore 忽略),通过网盘数据包分发:`data_share_v1.zip`(已满足组员需求;若拿到 CHNCXR 完整集再发 v2)。
 - 标签表(CSV/JSON)很小,**进 GitHub 版本管理**。
 - 更新流程:数据负责人更新本地 → 重打数据包 → 群通知 → 组员替换对应目录。
 
@@ -64,8 +66,8 @@ data/
 3. **评估集只采样一次**:`preprocessing/sample_eval_set.py` 生成 `metadata.csv`(seed=42,按类别分层),全组共用同一评估集,保证 54 个实验单元可比。
 4. 评估集目标规模:每数据集 300–500 张;另建 30–50 张 debug 集供开发期调试。
 
-## 待办
+## 待办 / 状态
 
-- [ ] CHNCXR 完整集下载完成 → 生成 `chncxr_labels.csv` → 发布 data_share_v2
-- [ ] 运行 `sample_eval_set.py` 生成 `metadata.csv`(评估集 + debug 集)
-- [ ] 完成 `preprocessing/dataset.py` 统一加载入口,与模型/实验负责人接口联调
+- [x] 运行 `sample_eval_set.py` 生成 `metadata.csv`(ImageNet/VOC 已入矩阵,各 460 eval + 40 debug)
+- [x] `preprocessing/dataset.py` 统一加载入口(已联调测试)
+- [ ] (选做)CHNCXR 完整集:向学长/老师索取 662 张原始图 → 生成 `chncxr_labels.csv` → 重跑采样 → 发布 data_share_v2
