@@ -35,9 +35,9 @@ def sample_dataset(dataset, labels_path, target_eval):
     # debug 集:每类按比例抽,共 DEBUG_PER_DATASET 张
     debug = (
         df.groupby("class_id", group_keys=False)
-        .apply(lambda g: g.sample(n=max(1, int(round(len(g) / len(df) * DEBUG_PER_DATASET))),
+        .apply(lambda g: g.sample(n=min(len(g), max(1, int(round(len(g) / len(df) * DEBUG_PER_DATASET)))),
                                   random_state=SEED), include_groups=False)
-        .sample(n=DEBUG_PER_DATASET, random_state=SEED)
+        .sample(n=min(DEBUG_PER_DATASET, len(df)), random_state=SEED)
     )
     debug_ids = set(debug["image_id"])
     rest = df[~df["image_id"].isin(debug_ids)]
