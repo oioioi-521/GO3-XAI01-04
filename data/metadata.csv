@@ -1,0 +1,1001 @@
+image_id,dataset,class_id,class_name,image_path,split,bbox_x1y1x2y2
+ILSVRC2012_val_00000025,imagenet,23.0,vulture,imagenet\raw\ILSVRC2012_val_00000025.JPEG,eval,
+ILSVRC2012_val_00000060,imagenet,588.0,hamper,imagenet\raw\ILSVRC2012_val_00000060.JPEG,eval,
+ILSVRC2012_val_00000091,imagenet,270.0,white_wolf,imagenet\raw\ILSVRC2012_val_00000091.JPEG,eval,
+ILSVRC2012_val_00000133,imagenet,276.0,hyena,imagenet\raw\ILSVRC2012_val_00000133.JPEG,eval,
+ILSVRC2012_val_00000177,imagenet,140.0,red-backed_sandpiper,imagenet\raw\ILSVRC2012_val_00000177.JPEG,eval,
+ILSVRC2012_val_00000242,imagenet,366.0,gorilla,imagenet\raw\ILSVRC2012_val_00000242.JPEG,eval,
+ILSVRC2012_val_00000306,imagenet,346.0,water_buffalo,imagenet\raw\ILSVRC2012_val_00000306.JPEG,eval,
+ILSVRC2012_val_00000319,imagenet,102.0,echidna,imagenet\raw\ILSVRC2012_val_00000319.JPEG,eval,
+ILSVRC2012_val_00000327,imagenet,165.0,black-and-tan_coonhound,imagenet\raw\ILSVRC2012_val_00000327.JPEG,eval,
+ILSVRC2012_val_00000355,imagenet,260.0,chow,imagenet\raw\ILSVRC2012_val_00000355.JPEG,eval,
+ILSVRC2012_val_00000451,imagenet,606.0,iron,imagenet\raw\ILSVRC2012_val_00000451.JPEG,eval,
+ILSVRC2012_val_00000502,imagenet,335.0,fox_squirrel,imagenet\raw\ILSVRC2012_val_00000502.JPEG,eval,
+ILSVRC2012_val_00000518,imagenet,298.0,mongoose,imagenet\raw\ILSVRC2012_val_00000518.JPEG,eval,
+ILSVRC2012_val_00000603,imagenet,227.0,kelpie,imagenet\raw\ILSVRC2012_val_00000603.JPEG,eval,
+ILSVRC2012_val_00000604,imagenet,273.0,dingo,imagenet\raw\ILSVRC2012_val_00000604.JPEG,eval,
+ILSVRC2012_val_00000744,imagenet,97.0,drake,imagenet\raw\ILSVRC2012_val_00000744.JPEG,eval,
+ILSVRC2012_val_00000758,imagenet,240.0,Appenzeller,imagenet\raw\ILSVRC2012_val_00000758.JPEG,eval,
+ILSVRC2012_val_00000837,imagenet,19.0,chickadee,imagenet\raw\ILSVRC2012_val_00000837.JPEG,eval,
+ILSVRC2012_val_00001067,imagenet,132.0,American_egret,imagenet\raw\ILSVRC2012_val_00001067.JPEG,eval,
+ILSVRC2012_val_00001069,imagenet,154.0,Pekinese,imagenet\raw\ILSVRC2012_val_00001069.JPEG,eval,
+ILSVRC2012_val_00001218,imagenet,21.0,kite,imagenet\raw\ILSVRC2012_val_00001218.JPEG,eval,
+ILSVRC2012_val_00002263,imagenet,91.0,coucal,imagenet\raw\ILSVRC2012_val_00002263.JPEG,eval,
+ILSVRC2012_val_00002277,imagenet,241.0,EntleBucher,imagenet\raw\ILSVRC2012_val_00002277.JPEG,eval,
+ILSVRC2012_val_00002357,imagenet,12.0,house_finch,imagenet\raw\ILSVRC2012_val_00002357.JPEG,eval,
+ILSVRC2012_val_00002468,imagenet,275.0,African_hunting_dog,imagenet\raw\ILSVRC2012_val_00002468.JPEG,eval,
+ILSVRC2012_val_00002769,imagenet,155.0,Shih-Tzu,imagenet\raw\ILSVRC2012_val_00002769.JPEG,eval,
+ILSVRC2012_val_00002953,imagenet,129.0,spoonbill,imagenet\raw\ILSVRC2012_val_00002953.JPEG,eval,
+ILSVRC2012_val_00003732,imagenet,518.0,crash_helmet,imagenet\raw\ILSVRC2012_val_00003732.JPEG,eval,
+ILSVRC2012_val_00003924,imagenet,627.0,limousine,imagenet\raw\ILSVRC2012_val_00003924.JPEG,eval,
+ILSVRC2012_val_00004210,imagenet,314.0,cockroach,imagenet\raw\ILSVRC2012_val_00004210.JPEG,eval,
+ILSVRC2012_val_00004258,imagenet,124.0,crayfish,imagenet\raw\ILSVRC2012_val_00004258.JPEG,eval,
+ILSVRC2012_val_00004344,imagenet,17.0,jay,imagenet\raw\ILSVRC2012_val_00004344.JPEG,eval,
+ILSVRC2012_val_00004437,imagenet,991.0,coral_fungus,imagenet\raw\ILSVRC2012_val_00004437.JPEG,eval,
+ILSVRC2012_val_00004451,imagenet,141.0,redshank,imagenet\raw\ILSVRC2012_val_00004451.JPEG,eval,
+ILSVRC2012_val_00004559,imagenet,18.0,magpie,imagenet\raw\ILSVRC2012_val_00004559.JPEG,eval,
+ILSVRC2012_val_00004563,imagenet,235.0,German_shepherd,imagenet\raw\ILSVRC2012_val_00004563.JPEG,eval,
+ILSVRC2012_val_00004572,imagenet,133.0,bittern,imagenet\raw\ILSVRC2012_val_00004572.JPEG,eval,
+ILSVRC2012_val_00004582,imagenet,56.0,king_snake,imagenet\raw\ILSVRC2012_val_00004582.JPEG,eval,
+ILSVRC2012_val_00004584,imagenet,360.0,otter,imagenet\raw\ILSVRC2012_val_00004584.JPEG,eval,
+ILSVRC2012_val_00004674,imagenet,195.0,Boston_bull,imagenet\raw\ILSVRC2012_val_00004674.JPEG,eval,
+ILSVRC2012_val_00004684,imagenet,175.0,otterhound,imagenet\raw\ILSVRC2012_val_00004684.JPEG,eval,
+ILSVRC2012_val_00004747,imagenet,12.0,house_finch,imagenet\raw\ILSVRC2012_val_00004747.JPEG,eval,
+ILSVRC2012_val_00004986,imagenet,334.0,porcupine,imagenet\raw\ILSVRC2012_val_00004986.JPEG,eval,
+ILSVRC2012_val_00004996,imagenet,174.0,Norwegian_elkhound,imagenet\raw\ILSVRC2012_val_00004996.JPEG,eval,
+ILSVRC2012_val_00005238,imagenet,267.0,standard_poodle,imagenet\raw\ILSVRC2012_val_00005238.JPEG,eval,
+ILSVRC2012_val_00005291,imagenet,162.0,beagle,imagenet\raw\ILSVRC2012_val_00005291.JPEG,eval,
+ILSVRC2012_val_00005454,imagenet,346.0,water_buffalo,imagenet\raw\ILSVRC2012_val_00005454.JPEG,eval,
+ILSVRC2012_val_00005567,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00005567.JPEG,eval,
+ILSVRC2012_val_00005575,imagenet,249.0,malamute,imagenet\raw\ILSVRC2012_val_00005575.JPEG,eval,
+ILSVRC2012_val_00005634,imagenet,92.0,bee_eater,imagenet\raw\ILSVRC2012_val_00005634.JPEG,eval,
+ILSVRC2012_val_00005746,imagenet,263.0,Pembroke,imagenet\raw\ILSVRC2012_val_00005746.JPEG,eval,
+ILSVRC2012_val_00005767,imagenet,206.0,curly-coated_retriever,imagenet\raw\ILSVRC2012_val_00005767.JPEG,eval,
+ILSVRC2012_val_00005786,imagenet,322.0,ringlet,imagenet\raw\ILSVRC2012_val_00005786.JPEG,eval,
+ILSVRC2012_val_00005844,imagenet,994.0,stinkhorn,imagenet\raw\ILSVRC2012_val_00005844.JPEG,eval,
+ILSVRC2012_val_00005852,imagenet,334.0,porcupine,imagenet\raw\ILSVRC2012_val_00005852.JPEG,eval,
+ILSVRC2012_val_00005873,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00005873.JPEG,eval,
+ILSVRC2012_val_00005904,imagenet,325.0,sulphur_butterfly,imagenet\raw\ILSVRC2012_val_00005904.JPEG,eval,
+ILSVRC2012_val_00005986,imagenet,546.0,electric_guitar,imagenet\raw\ILSVRC2012_val_00005986.JPEG,eval,
+ILSVRC2012_val_00006024,imagenet,82.0,ruffed_grouse,imagenet\raw\ILSVRC2012_val_00006024.JPEG,eval,
+ILSVRC2012_val_00006035,imagenet,185.0,Norfolk_terrier,imagenet\raw\ILSVRC2012_val_00006035.JPEG,eval,
+ILSVRC2012_val_00006048,imagenet,599.0,honeycomb,imagenet\raw\ILSVRC2012_val_00006048.JPEG,eval,
+ILSVRC2012_val_00006049,imagenet,100.0,black_swan,imagenet\raw\ILSVRC2012_val_00006049.JPEG,eval,
+ILSVRC2012_val_00006125,imagenet,338.0,guinea_pig,imagenet\raw\ILSVRC2012_val_00006125.JPEG,eval,
+ILSVRC2012_val_00006187,imagenet,841.0,sweatshirt,imagenet\raw\ILSVRC2012_val_00006187.JPEG,eval,
+ILSVRC2012_val_00006192,imagenet,136.0,European_gallinule,imagenet\raw\ILSVRC2012_val_00006192.JPEG,eval,
+ILSVRC2012_val_00006200,imagenet,354.0,Arabian_camel,imagenet\raw\ILSVRC2012_val_00006200.JPEG,eval,
+ILSVRC2012_val_00006231,imagenet,137.0,American_coot,imagenet\raw\ILSVRC2012_val_00006231.JPEG,eval,
+ILSVRC2012_val_00006283,imagenet,361.0,skunk,imagenet\raw\ILSVRC2012_val_00006283.JPEG,eval,
+ILSVRC2012_val_00006321,imagenet,16.0,bulbul,imagenet\raw\ILSVRC2012_val_00006321.JPEG,eval,
+ILSVRC2012_val_00006350,imagenet,295.0,American_black_bear,imagenet\raw\ILSVRC2012_val_00006350.JPEG,eval,
+ILSVRC2012_val_00006382,imagenet,170.0,Irish_wolfhound,imagenet\raw\ILSVRC2012_val_00006382.JPEG,eval,
+ILSVRC2012_val_00006396,imagenet,168.0,redbone,imagenet\raw\ILSVRC2012_val_00006396.JPEG,eval,
+ILSVRC2012_val_00006427,imagenet,346.0,water_buffalo,imagenet\raw\ILSVRC2012_val_00006427.JPEG,eval,
+ILSVRC2012_val_00006480,imagenet,68.0,sidewinder,imagenet\raw\ILSVRC2012_val_00006480.JPEG,eval,
+ILSVRC2012_val_00006484,imagenet,263.0,Pembroke,imagenet\raw\ILSVRC2012_val_00006484.JPEG,eval,
+ILSVRC2012_val_00006487,imagenet,128.0,black_stork,imagenet\raw\ILSVRC2012_val_00006487.JPEG,eval,
+ILSVRC2012_val_00006544,imagenet,158.0,toy_terrier,imagenet\raw\ILSVRC2012_val_00006544.JPEG,eval,
+ILSVRC2012_val_00006551,imagenet,897.0,washer,imagenet\raw\ILSVRC2012_val_00006551.JPEG,eval,
+ILSVRC2012_val_00006565,imagenet,965.0,burrito,imagenet\raw\ILSVRC2012_val_00006565.JPEG,eval,
+ILSVRC2012_val_00006617,imagenet,412.0,ashcan,imagenet\raw\ILSVRC2012_val_00006617.JPEG,eval,
+ILSVRC2012_val_00006630,imagenet,218.0,Welsh_springer_spaniel,imagenet\raw\ILSVRC2012_val_00006630.JPEG,eval,
+ILSVRC2012_val_00006663,imagenet,418.0,ballpoint,imagenet\raw\ILSVRC2012_val_00006663.JPEG,eval,
+ILSVRC2012_val_00006690,imagenet,68.0,sidewinder,imagenet\raw\ILSVRC2012_val_00006690.JPEG,eval,
+ILSVRC2012_val_00006749,imagenet,928.0,ice_cream,imagenet\raw\ILSVRC2012_val_00006749.JPEG,eval,
+ILSVRC2012_val_00006756,imagenet,950.0,orange,imagenet\raw\ILSVRC2012_val_00006756.JPEG,eval,
+ILSVRC2012_val_00006793,imagenet,295.0,American_black_bear,imagenet\raw\ILSVRC2012_val_00006793.JPEG,eval,
+ILSVRC2012_val_00006817,imagenet,65.0,sea_snake,imagenet\raw\ILSVRC2012_val_00006817.JPEG,eval,
+ILSVRC2012_val_00006861,imagenet,433.0,bathing_cap,imagenet\raw\ILSVRC2012_val_00006861.JPEG,eval,
+ILSVRC2012_val_00006864,imagenet,745.0,projector,imagenet\raw\ILSVRC2012_val_00006864.JPEG,eval,
+ILSVRC2012_val_00006866,imagenet,261.0,keeshond,imagenet\raw\ILSVRC2012_val_00006866.JPEG,eval,
+ILSVRC2012_val_00006920,imagenet,241.0,EntleBucher,imagenet\raw\ILSVRC2012_val_00006920.JPEG,eval,
+ILSVRC2012_val_00006935,imagenet,176.0,Saluki,imagenet\raw\ILSVRC2012_val_00006935.JPEG,eval,
+ILSVRC2012_val_00006981,imagenet,207.0,golden_retriever,imagenet\raw\ILSVRC2012_val_00006981.JPEG,eval,
+ILSVRC2012_val_00007002,imagenet,176.0,Saluki,imagenet\raw\ILSVRC2012_val_00007002.JPEG,eval,
+ILSVRC2012_val_00007056,imagenet,233.0,Bouvier_des_Flandres,imagenet\raw\ILSVRC2012_val_00007056.JPEG,eval,
+ILSVRC2012_val_00007064,imagenet,609.0,jeep,imagenet\raw\ILSVRC2012_val_00007064.JPEG,eval,
+ILSVRC2012_val_00007082,imagenet,308.0,fly,imagenet\raw\ILSVRC2012_val_00007082.JPEG,eval,
+ILSVRC2012_val_00007172,imagenet,142.0,dowitcher,imagenet\raw\ILSVRC2012_val_00007172.JPEG,eval,
+ILSVRC2012_val_00007216,imagenet,249.0,malamute,imagenet\raw\ILSVRC2012_val_00007216.JPEG,eval,
+ILSVRC2012_val_00007231,imagenet,18.0,magpie,imagenet\raw\ILSVRC2012_val_00007231.JPEG,eval,
+ILSVRC2012_val_00007247,imagenet,944.0,artichoke,imagenet\raw\ILSVRC2012_val_00007247.JPEG,eval,
+ILSVRC2012_val_00007254,imagenet,412.0,ashcan,imagenet\raw\ILSVRC2012_val_00007254.JPEG,eval,
+ILSVRC2012_val_00007275,imagenet,814.0,speedboat,imagenet\raw\ILSVRC2012_val_00007275.JPEG,eval,
+ILSVRC2012_val_00007312,imagenet,80.0,black_grouse,imagenet\raw\ILSVRC2012_val_00007312.JPEG,eval,
+ILSVRC2012_val_00007334,imagenet,138.0,bustard,imagenet\raw\ILSVRC2012_val_00007334.JPEG,eval,
+ILSVRC2012_val_00007345,imagenet,109.0,brain_coral,imagenet\raw\ILSVRC2012_val_00007345.JPEG,eval,
+ILSVRC2012_val_00007356,imagenet,189.0,Lakeland_terrier,imagenet\raw\ILSVRC2012_val_00007356.JPEG,eval,
+ILSVRC2012_val_00007406,imagenet,278.0,kit_fox,imagenet\raw\ILSVRC2012_val_00007406.JPEG,eval,
+ILSVRC2012_val_00007524,imagenet,140.0,red-backed_sandpiper,imagenet\raw\ILSVRC2012_val_00007524.JPEG,eval,
+ILSVRC2012_val_00007535,imagenet,239.0,Bernese_mountain_dog,imagenet\raw\ILSVRC2012_val_00007535.JPEG,eval,
+ILSVRC2012_val_00007651,imagenet,141.0,redshank,imagenet\raw\ILSVRC2012_val_00007651.JPEG,eval,
+ILSVRC2012_val_00007782,imagenet,273.0,dingo,imagenet\raw\ILSVRC2012_val_00007782.JPEG,eval,
+ILSVRC2012_val_00007806,imagenet,749.0,quill,imagenet\raw\ILSVRC2012_val_00007806.JPEG,eval,
+ILSVRC2012_val_00007808,imagenet,283.0,Persian_cat,imagenet\raw\ILSVRC2012_val_00007808.JPEG,eval,
+ILSVRC2012_val_00007837,imagenet,232.0,Border_collie,imagenet\raw\ILSVRC2012_val_00007837.JPEG,eval,
+ILSVRC2012_val_00007858,imagenet,273.0,dingo,imagenet\raw\ILSVRC2012_val_00007858.JPEG,eval,
+ILSVRC2012_val_00007916,imagenet,317.0,leafhopper,imagenet\raw\ILSVRC2012_val_00007916.JPEG,eval,
+ILSVRC2012_val_00007930,imagenet,110.0,flatworm,imagenet\raw\ILSVRC2012_val_00007930.JPEG,eval,
+ILSVRC2012_val_00007980,imagenet,333.0,hamster,imagenet\raw\ILSVRC2012_val_00007980.JPEG,eval,
+ILSVRC2012_val_00008035,imagenet,132.0,American_egret,imagenet\raw\ILSVRC2012_val_00008035.JPEG,eval,
+ILSVRC2012_val_00008137,imagenet,268.0,Mexican_hairless,imagenet\raw\ILSVRC2012_val_00008137.JPEG,eval,
+ILSVRC2012_val_00008209,imagenet,24.0,great_grey_owl,imagenet\raw\ILSVRC2012_val_00008209.JPEG,eval,
+ILSVRC2012_val_00008217,imagenet,228.0,komondor,imagenet\raw\ILSVRC2012_val_00008217.JPEG,eval,
+ILSVRC2012_val_00008236,imagenet,92.0,bee_eater,imagenet\raw\ILSVRC2012_val_00008236.JPEG,eval,
+ILSVRC2012_val_00008302,imagenet,133.0,bittern,imagenet\raw\ILSVRC2012_val_00008302.JPEG,eval,
+ILSVRC2012_val_00008375,imagenet,163.0,bloodhound,imagenet\raw\ILSVRC2012_val_00008375.JPEG,eval,
+ILSVRC2012_val_00008502,imagenet,183.0,Kerry_blue_terrier,imagenet\raw\ILSVRC2012_val_00008502.JPEG,eval,
+ILSVRC2012_val_00008566,imagenet,87.0,African_grey,imagenet\raw\ILSVRC2012_val_00008566.JPEG,eval,
+ILSVRC2012_val_00008588,imagenet,103.0,platypus,imagenet\raw\ILSVRC2012_val_00008588.JPEG,eval,
+ILSVRC2012_val_00008636,imagenet,356.0,weasel,imagenet\raw\ILSVRC2012_val_00008636.JPEG,eval,
+ILSVRC2012_val_00008737,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00008737.JPEG,eval,
+ILSVRC2012_val_00008842,imagenet,137.0,American_coot,imagenet\raw\ILSVRC2012_val_00008842.JPEG,eval,
+ILSVRC2012_val_00008880,imagenet,261.0,keeshond,imagenet\raw\ILSVRC2012_val_00008880.JPEG,eval,
+ILSVRC2012_val_00008885,imagenet,229.0,Old_English_sheepdog,imagenet\raw\ILSVRC2012_val_00008885.JPEG,eval,
+ILSVRC2012_val_00008997,imagenet,171.0,Italian_greyhound,imagenet\raw\ILSVRC2012_val_00008997.JPEG,eval,
+ILSVRC2012_val_00009067,imagenet,361.0,skunk,imagenet\raw\ILSVRC2012_val_00009067.JPEG,eval,
+ILSVRC2012_val_00009092,imagenet,15.0,robin,imagenet\raw\ILSVRC2012_val_00009092.JPEG,eval,
+ILSVRC2012_val_00009093,imagenet,253.0,basenji,imagenet\raw\ILSVRC2012_val_00009093.JPEG,eval,
+ILSVRC2012_val_00009100,imagenet,23.0,vulture,imagenet\raw\ILSVRC2012_val_00009100.JPEG,eval,
+ILSVRC2012_val_00009239,imagenet,12.0,house_finch,imagenet\raw\ILSVRC2012_val_00009239.JPEG,eval,
+ILSVRC2012_val_00009314,imagenet,274.0,dhole,imagenet\raw\ILSVRC2012_val_00009314.JPEG,eval,
+ILSVRC2012_val_00009324,imagenet,261.0,keeshond,imagenet\raw\ILSVRC2012_val_00009324.JPEG,eval,
+ILSVRC2012_val_00009336,imagenet,278.0,kit_fox,imagenet\raw\ILSVRC2012_val_00009336.JPEG,eval,
+ILSVRC2012_val_00009471,imagenet,405.0,airship,imagenet\raw\ILSVRC2012_val_00009471.JPEG,eval,
+ILSVRC2012_val_00009485,imagenet,125.0,hermit_crab,imagenet\raw\ILSVRC2012_val_00009485.JPEG,eval,
+ILSVRC2012_val_00009624,imagenet,176.0,Saluki,imagenet\raw\ILSVRC2012_val_00009624.JPEG,eval,
+ILSVRC2012_val_00009660,imagenet,230.0,Shetland_sheepdog,imagenet\raw\ILSVRC2012_val_00009660.JPEG,eval,
+ILSVRC2012_val_00009781,imagenet,91.0,coucal,imagenet\raw\ILSVRC2012_val_00009781.JPEG,eval,
+ILSVRC2012_val_00009848,imagenet,201.0,silky_terrier,imagenet\raw\ILSVRC2012_val_00009848.JPEG,eval,
+ILSVRC2012_val_00009991,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00009991.JPEG,eval,
+ILSVRC2012_val_00009998,imagenet,100.0,black_swan,imagenet\raw\ILSVRC2012_val_00009998.JPEG,eval,
+ILSVRC2012_val_00010020,imagenet,384.0,indri,imagenet\raw\ILSVRC2012_val_00010020.JPEG,eval,
+ILSVRC2012_val_00010023,imagenet,370.0,guenon,imagenet\raw\ILSVRC2012_val_00010023.JPEG,eval,
+ILSVRC2012_val_00010037,imagenet,141.0,redshank,imagenet\raw\ILSVRC2012_val_00010037.JPEG,eval,
+ILSVRC2012_val_00010038,imagenet,159.0,Rhodesian_ridgeback,imagenet\raw\ILSVRC2012_val_00010038.JPEG,eval,
+ILSVRC2012_val_00010107,imagenet,206.0,curly-coated_retriever,imagenet\raw\ILSVRC2012_val_00010107.JPEG,eval,
+ILSVRC2012_val_00010158,imagenet,441.0,beer_glass,imagenet\raw\ILSVRC2012_val_00010158.JPEG,eval,
+ILSVRC2012_val_00010176,imagenet,140.0,red-backed_sandpiper,imagenet\raw\ILSVRC2012_val_00010176.JPEG,eval,
+ILSVRC2012_val_00010183,imagenet,247.0,Saint_Bernard,imagenet\raw\ILSVRC2012_val_00010183.JPEG,eval,
+ILSVRC2012_val_00010220,imagenet,967.0,espresso,imagenet\raw\ILSVRC2012_val_00010220.JPEG,eval,
+ILSVRC2012_val_00010245,imagenet,247.0,Saint_Bernard,imagenet\raw\ILSVRC2012_val_00010245.JPEG,eval,
+ILSVRC2012_val_00010310,imagenet,12.0,house_finch,imagenet\raw\ILSVRC2012_val_00010310.JPEG,eval,
+ILSVRC2012_val_00010352,imagenet,14.0,indigo_bunting,imagenet\raw\ILSVRC2012_val_00010352.JPEG,eval,
+ILSVRC2012_val_00010424,imagenet,305.0,dung_beetle,imagenet\raw\ILSVRC2012_val_00010424.JPEG,eval,
+ILSVRC2012_val_00010768,imagenet,227.0,kelpie,imagenet\raw\ILSVRC2012_val_00010768.JPEG,eval,
+ILSVRC2012_val_00010825,imagenet,390.0,eel,imagenet\raw\ILSVRC2012_val_00010825.JPEG,eval,
+ILSVRC2012_val_00010845,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00010845.JPEG,eval,
+ILSVRC2012_val_00010917,imagenet,80.0,black_grouse,imagenet\raw\ILSVRC2012_val_00010917.JPEG,eval,
+ILSVRC2012_val_00010950,imagenet,166.0,Walker_hound,imagenet\raw\ILSVRC2012_val_00010950.JPEG,eval,
+ILSVRC2012_val_00010994,imagenet,217.0,English_springer,imagenet\raw\ILSVRC2012_val_00010994.JPEG,eval,
+ILSVRC2012_val_00011006,imagenet,537.0,dogsled,imagenet\raw\ILSVRC2012_val_00011006.JPEG,eval,
+ILSVRC2012_val_00011024,imagenet,212.0,English_setter,imagenet\raw\ILSVRC2012_val_00011024.JPEG,eval,
+ILSVRC2012_val_00011077,imagenet,216.0,clumber,imagenet\raw\ILSVRC2012_val_00011077.JPEG,eval,
+ILSVRC2012_val_00011086,imagenet,997.0,bolete,imagenet\raw\ILSVRC2012_val_00011086.JPEG,eval,
+ILSVRC2012_val_00011150,imagenet,36.0,terrapin,imagenet\raw\ILSVRC2012_val_00011150.JPEG,eval,
+ILSVRC2012_val_00011175,imagenet,324.0,cabbage_butterfly,imagenet\raw\ILSVRC2012_val_00011175.JPEG,eval,
+ILSVRC2012_val_00011178,imagenet,13.0,junco,imagenet\raw\ILSVRC2012_val_00011178.JPEG,eval,
+ILSVRC2012_val_00011205,imagenet,232.0,Border_collie,imagenet\raw\ILSVRC2012_val_00011205.JPEG,eval,
+ILSVRC2012_val_00011216,imagenet,360.0,otter,imagenet\raw\ILSVRC2012_val_00011216.JPEG,eval,
+ILSVRC2012_val_00011229,imagenet,256.0,Newfoundland,imagenet\raw\ILSVRC2012_val_00011229.JPEG,eval,
+ILSVRC2012_val_00011296,imagenet,260.0,chow,imagenet\raw\ILSVRC2012_val_00011296.JPEG,eval,
+ILSVRC2012_val_00011357,imagenet,127.0,white_stork,imagenet\raw\ILSVRC2012_val_00011357.JPEG,eval,
+ILSVRC2012_val_00011375,imagenet,96.0,toucan,imagenet\raw\ILSVRC2012_val_00011375.JPEG,eval,
+ILSVRC2012_val_00011385,imagenet,182.0,Border_terrier,imagenet\raw\ILSVRC2012_val_00011385.JPEG,eval,
+ILSVRC2012_val_00011414,imagenet,24.0,great_grey_owl,imagenet\raw\ILSVRC2012_val_00011414.JPEG,eval,
+ILSVRC2012_val_00011421,imagenet,531.0,digital_watch,imagenet\raw\ILSVRC2012_val_00011421.JPEG,eval,
+ILSVRC2012_val_00011436,imagenet,975.0,lakeside,imagenet\raw\ILSVRC2012_val_00011436.JPEG,eval,
+ILSVRC2012_val_00011468,imagenet,147.0,grey_whale,imagenet\raw\ILSVRC2012_val_00011468.JPEG,eval,
+ILSVRC2012_val_00011498,imagenet,229.0,Old_English_sheepdog,imagenet\raw\ILSVRC2012_val_00011498.JPEG,eval,
+ILSVRC2012_val_00011510,imagenet,403.0,aircraft_carrier,imagenet\raw\ILSVRC2012_val_00011510.JPEG,eval,
+ILSVRC2012_val_00011528,imagenet,284.0,Siamese_cat,imagenet\raw\ILSVRC2012_val_00011528.JPEG,eval,
+ILSVRC2012_val_00011535,imagenet,317.0,leafhopper,imagenet\raw\ILSVRC2012_val_00011535.JPEG,eval,
+ILSVRC2012_val_00011584,imagenet,97.0,drake,imagenet\raw\ILSVRC2012_val_00011584.JPEG,eval,
+ILSVRC2012_val_00011633,imagenet,392.0,rock_beauty,imagenet\raw\ILSVRC2012_val_00011633.JPEG,eval,
+ILSVRC2012_val_00011642,imagenet,144.0,pelican,imagenet\raw\ILSVRC2012_val_00011642.JPEG,eval,
+ILSVRC2012_val_00011772,imagenet,321.0,admiral,imagenet\raw\ILSVRC2012_val_00011772.JPEG,eval,
+ILSVRC2012_val_00011792,imagenet,166.0,Walker_hound,imagenet\raw\ILSVRC2012_val_00011792.JPEG,eval,
+ILSVRC2012_val_00011805,imagenet,153.0,Maltese_dog,imagenet\raw\ILSVRC2012_val_00011805.JPEG,eval,
+ILSVRC2012_val_00011818,imagenet,993.0,gyromitra,imagenet\raw\ILSVRC2012_val_00011818.JPEG,eval,
+ILSVRC2012_val_00011870,imagenet,779.0,school_bus,imagenet\raw\ILSVRC2012_val_00011870.JPEG,eval,
+ILSVRC2012_val_00011996,imagenet,34.0,leatherback_turtle,imagenet\raw\ILSVRC2012_val_00011996.JPEG,eval,
+ILSVRC2012_val_00012042,imagenet,460.0,breakwater,imagenet\raw\ILSVRC2012_val_00012042.JPEG,eval,
+ILSVRC2012_val_00012043,imagenet,164.0,bluetick,imagenet\raw\ILSVRC2012_val_00012043.JPEG,eval,
+ILSVRC2012_val_00012049,imagenet,994.0,stinkhorn,imagenet\raw\ILSVRC2012_val_00012049.JPEG,eval,
+ILSVRC2012_val_00012161,imagenet,157.0,papillon,imagenet\raw\ILSVRC2012_val_00012161.JPEG,eval,
+ILSVRC2012_val_00012165,imagenet,334.0,porcupine,imagenet\raw\ILSVRC2012_val_00012165.JPEG,eval,
+ILSVRC2012_val_00012267,imagenet,38.0,banded_gecko,imagenet\raw\ILSVRC2012_val_00012267.JPEG,eval,
+ILSVRC2012_val_00012331,imagenet,52.0,thunder_snake,imagenet\raw\ILSVRC2012_val_00012331.JPEG,eval,
+ILSVRC2012_val_00012365,imagenet,42.0,agama,imagenet\raw\ILSVRC2012_val_00012365.JPEG,eval,
+ILSVRC2012_val_00012372,imagenet,106.0,wombat,imagenet\raw\ILSVRC2012_val_00012372.JPEG,eval,
+ILSVRC2012_val_00012394,imagenet,155.0,Shih-Tzu,imagenet\raw\ILSVRC2012_val_00012394.JPEG,eval,
+ILSVRC2012_val_00012404,imagenet,289.0,snow_leopard,imagenet\raw\ILSVRC2012_val_00012404.JPEG,eval,
+ILSVRC2012_val_00012418,imagenet,113.0,snail,imagenet\raw\ILSVRC2012_val_00012418.JPEG,eval,
+ILSVRC2012_val_00012435,imagenet,137.0,American_coot,imagenet\raw\ILSVRC2012_val_00012435.JPEG,eval,
+ILSVRC2012_val_00012484,imagenet,7.0,cock,imagenet\raw\ILSVRC2012_val_00012484.JPEG,eval,
+ILSVRC2012_val_00012511,imagenet,147.0,grey_whale,imagenet\raw\ILSVRC2012_val_00012511.JPEG,eval,
+ILSVRC2012_val_00012944,imagenet,405.0,airship,imagenet\raw\ILSVRC2012_val_00012944.JPEG,eval,
+ILSVRC2012_val_00013111,imagenet,86.0,partridge,imagenet\raw\ILSVRC2012_val_00013111.JPEG,eval,
+ILSVRC2012_val_00013120,imagenet,349.0,bighorn,imagenet\raw\ILSVRC2012_val_00013120.JPEG,eval,
+ILSVRC2012_val_00013201,imagenet,31.0,tree_frog,imagenet\raw\ILSVRC2012_val_00013201.JPEG,eval,
+ILSVRC2012_val_00013248,imagenet,225.0,malinois,imagenet\raw\ILSVRC2012_val_00013248.JPEG,eval,
+ILSVRC2012_val_00013407,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00013407.JPEG,eval,
+ILSVRC2012_val_00013432,imagenet,21.0,kite,imagenet\raw\ILSVRC2012_val_00013432.JPEG,eval,
+ILSVRC2012_val_00013515,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00013515.JPEG,eval,
+ILSVRC2012_val_00013583,imagenet,232.0,Border_collie,imagenet\raw\ILSVRC2012_val_00013583.JPEG,eval,
+ILSVRC2012_val_00013689,imagenet,103.0,platypus,imagenet\raw\ILSVRC2012_val_00013689.JPEG,eval,
+ILSVRC2012_val_00013784,imagenet,676.0,muzzle,imagenet\raw\ILSVRC2012_val_00013784.JPEG,eval,
+ILSVRC2012_val_00013800,imagenet,160.0,Afghan_hound,imagenet\raw\ILSVRC2012_val_00013800.JPEG,eval,
+ILSVRC2012_val_00013808,imagenet,141.0,redshank,imagenet\raw\ILSVRC2012_val_00013808.JPEG,eval,
+ILSVRC2012_val_00013993,imagenet,609.0,jeep,imagenet\raw\ILSVRC2012_val_00013993.JPEG,eval,
+ILSVRC2012_val_00014005,imagenet,134.0,crane,imagenet\raw\ILSVRC2012_val_00014005.JPEG,eval,
+ILSVRC2012_val_00014108,imagenet,13.0,junco,imagenet\raw\ILSVRC2012_val_00014108.JPEG,eval,
+ILSVRC2012_val_00014391,imagenet,361.0,skunk,imagenet\raw\ILSVRC2012_val_00014391.JPEG,eval,
+ILSVRC2012_val_00014403,imagenet,260.0,chow,imagenet\raw\ILSVRC2012_val_00014403.JPEG,eval,
+ILSVRC2012_val_00014450,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00014450.JPEG,eval,
+ILSVRC2012_val_00014505,imagenet,369.0,siamang,imagenet\raw\ILSVRC2012_val_00014505.JPEG,eval,
+ILSVRC2012_val_00014730,imagenet,182.0,Border_terrier,imagenet\raw\ILSVRC2012_val_00014730.JPEG,eval,
+ILSVRC2012_val_00014779,imagenet,215.0,Brittany_spaniel,imagenet\raw\ILSVRC2012_val_00014779.JPEG,eval,
+ILSVRC2012_val_00014806,imagenet,384.0,indri,imagenet\raw\ILSVRC2012_val_00014806.JPEG,eval,
+ILSVRC2012_val_00014909,imagenet,324.0,cabbage_butterfly,imagenet\raw\ILSVRC2012_val_00014909.JPEG,eval,
+ILSVRC2012_val_00014940,imagenet,371.0,patas,imagenet\raw\ILSVRC2012_val_00014940.JPEG,eval,
+ILSVRC2012_val_00015124,imagenet,340.0,zebra,imagenet\raw\ILSVRC2012_val_00015124.JPEG,eval,
+ILSVRC2012_val_00015128,imagenet,279.0,Arctic_fox,imagenet\raw\ILSVRC2012_val_00015128.JPEG,eval,
+ILSVRC2012_val_00015135,imagenet,202.0,soft-coated_wheaten_terrier,imagenet\raw\ILSVRC2012_val_00015135.JPEG,eval,
+ILSVRC2012_val_00015139,imagenet,4.0,hammerhead,imagenet\raw\ILSVRC2012_val_00015139.JPEG,eval,
+ILSVRC2012_val_00015141,imagenet,72.0,black_and_gold_garden_spider,imagenet\raw\ILSVRC2012_val_00015141.JPEG,eval,
+ILSVRC2012_val_00015152,imagenet,192.0,cairn,imagenet\raw\ILSVRC2012_val_00015152.JPEG,eval,
+ILSVRC2012_val_00015181,imagenet,333.0,hamster,imagenet\raw\ILSVRC2012_val_00015181.JPEG,eval,
+ILSVRC2012_val_00015195,imagenet,17.0,jay,imagenet\raw\ILSVRC2012_val_00015195.JPEG,eval,
+ILSVRC2012_val_00015223,imagenet,10.0,brambling,imagenet\raw\ILSVRC2012_val_00015223.JPEG,eval,
+ILSVRC2012_val_00015307,imagenet,214.0,Gordon_setter,imagenet\raw\ILSVRC2012_val_00015307.JPEG,eval,
+ILSVRC2012_val_00015324,imagenet,87.0,African_grey,imagenet\raw\ILSVRC2012_val_00015324.JPEG,eval,
+ILSVRC2012_val_00015358,imagenet,183.0,Kerry_blue_terrier,imagenet\raw\ILSVRC2012_val_00015358.JPEG,eval,
+ILSVRC2012_val_00015605,imagenet,274.0,dhole,imagenet\raw\ILSVRC2012_val_00015605.JPEG,eval,
+ILSVRC2012_val_00015607,imagenet,192.0,cairn,imagenet\raw\ILSVRC2012_val_00015607.JPEG,eval,
+ILSVRC2012_val_00015653,imagenet,967.0,espresso,imagenet\raw\ILSVRC2012_val_00015653.JPEG,eval,
+ILSVRC2012_val_00015674,imagenet,417.0,balloon,imagenet\raw\ILSVRC2012_val_00015674.JPEG,eval,
+ILSVRC2012_val_00015690,imagenet,91.0,coucal,imagenet\raw\ILSVRC2012_val_00015690.JPEG,eval,
+ILSVRC2012_val_00015739,imagenet,91.0,coucal,imagenet\raw\ILSVRC2012_val_00015739.JPEG,eval,
+ILSVRC2012_val_00015802,imagenet,304.0,leaf_beetle,imagenet\raw\ILSVRC2012_val_00015802.JPEG,eval,
+ILSVRC2012_val_00015821,imagenet,273.0,dingo,imagenet\raw\ILSVRC2012_val_00015821.JPEG,eval,
+ILSVRC2012_val_00015824,imagenet,532.0,dining_table,imagenet\raw\ILSVRC2012_val_00015824.JPEG,eval,
+ILSVRC2012_val_00015888,imagenet,274.0,dhole,imagenet\raw\ILSVRC2012_val_00015888.JPEG,eval,
+ILSVRC2012_val_00015908,imagenet,140.0,red-backed_sandpiper,imagenet\raw\ILSVRC2012_val_00015908.JPEG,eval,
+ILSVRC2012_val_00015975,imagenet,301.0,ladybug,imagenet\raw\ILSVRC2012_val_00015975.JPEG,eval,
+ILSVRC2012_val_00015981,imagenet,43.0,frilled_lizard,imagenet\raw\ILSVRC2012_val_00015981.JPEG,eval,
+ILSVRC2012_val_00016067,imagenet,358.0,polecat,imagenet\raw\ILSVRC2012_val_00016067.JPEG,eval,
+ILSVRC2012_val_00016076,imagenet,200.0,Tibetan_terrier,imagenet\raw\ILSVRC2012_val_00016076.JPEG,eval,
+ILSVRC2012_val_00016092,imagenet,224.0,groenendael,imagenet\raw\ILSVRC2012_val_00016092.JPEG,eval,
+ILSVRC2012_val_00016104,imagenet,270.0,white_wolf,imagenet\raw\ILSVRC2012_val_00016104.JPEG,eval,
+ILSVRC2012_val_00016148,imagenet,208.0,Labrador_retriever,imagenet\raw\ILSVRC2012_val_00016148.JPEG,eval,
+ILSVRC2012_val_00016157,imagenet,237.0,miniature_pinscher,imagenet\raw\ILSVRC2012_val_00016157.JPEG,eval,
+ILSVRC2012_val_00016245,imagenet,153.0,Maltese_dog,imagenet\raw\ILSVRC2012_val_00016245.JPEG,eval,
+ILSVRC2012_val_00016254,imagenet,278.0,kit_fox,imagenet\raw\ILSVRC2012_val_00016254.JPEG,eval,
+ILSVRC2012_val_00016277,imagenet,358.0,polecat,imagenet\raw\ILSVRC2012_val_00016277.JPEG,eval,
+ILSVRC2012_val_00016552,imagenet,203.0,West_Highland_white_terrier,imagenet\raw\ILSVRC2012_val_00016552.JPEG,eval,
+ILSVRC2012_val_00016631,imagenet,97.0,drake,imagenet\raw\ILSVRC2012_val_00016631.JPEG,eval,
+ILSVRC2012_val_00016684,imagenet,131.0,little_blue_heron,imagenet\raw\ILSVRC2012_val_00016684.JPEG,eval,
+ILSVRC2012_val_00016929,imagenet,139.0,ruddy_turnstone,imagenet\raw\ILSVRC2012_val_00016929.JPEG,eval,
+ILSVRC2012_val_00016973,imagenet,187.0,Yorkshire_terrier,imagenet\raw\ILSVRC2012_val_00016973.JPEG,eval,
+ILSVRC2012_val_00017104,imagenet,219.0,cocker_spaniel,imagenet\raw\ILSVRC2012_val_00017104.JPEG,eval,
+ILSVRC2012_val_00017222,imagenet,37.0,box_turtle,imagenet\raw\ILSVRC2012_val_00017222.JPEG,eval,
+ILSVRC2012_val_00017313,imagenet,273.0,dingo,imagenet\raw\ILSVRC2012_val_00017313.JPEG,eval,
+ILSVRC2012_val_00017495,imagenet,256.0,Newfoundland,imagenet\raw\ILSVRC2012_val_00017495.JPEG,eval,
+ILSVRC2012_val_00017759,imagenet,80.0,black_grouse,imagenet\raw\ILSVRC2012_val_00017759.JPEG,eval,
+ILSVRC2012_val_00017964,imagenet,187.0,Yorkshire_terrier,imagenet\raw\ILSVRC2012_val_00017964.JPEG,eval,
+ILSVRC2012_val_00018131,imagenet,375.0,colobus,imagenet\raw\ILSVRC2012_val_00018131.JPEG,eval,
+ILSVRC2012_val_00018145,imagenet,16.0,bulbul,imagenet\raw\ILSVRC2012_val_00018145.JPEG,eval,
+ILSVRC2012_val_00018183,imagenet,18.0,magpie,imagenet\raw\ILSVRC2012_val_00018183.JPEG,eval,
+ILSVRC2012_val_00018480,imagenet,162.0,beagle,imagenet\raw\ILSVRC2012_val_00018480.JPEG,eval,
+ILSVRC2012_val_00018890,imagenet,185.0,Norfolk_terrier,imagenet\raw\ILSVRC2012_val_00018890.JPEG,eval,
+ILSVRC2012_val_00018991,imagenet,127.0,white_stork,imagenet\raw\ILSVRC2012_val_00018991.JPEG,eval,
+ILSVRC2012_val_00019024,imagenet,95.0,jacamar,imagenet\raw\ILSVRC2012_val_00019024.JPEG,eval,
+ILSVRC2012_val_00019041,imagenet,183.0,Kerry_blue_terrier,imagenet\raw\ILSVRC2012_val_00019041.JPEG,eval,
+ILSVRC2012_val_00019153,imagenet,239.0,Bernese_mountain_dog,imagenet\raw\ILSVRC2012_val_00019153.JPEG,eval,
+ILSVRC2012_val_00019744,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00019744.JPEG,eval,
+ILSVRC2012_val_00019821,imagenet,214.0,Gordon_setter,imagenet\raw\ILSVRC2012_val_00019821.JPEG,eval,
+ILSVRC2012_val_00020132,imagenet,222.0,kuvasz,imagenet\raw\ILSVRC2012_val_00020132.JPEG,eval,
+ILSVRC2012_val_00020173,imagenet,212.0,English_setter,imagenet\raw\ILSVRC2012_val_00020173.JPEG,eval,
+ILSVRC2012_val_00020225,imagenet,277.0,red_fox,imagenet\raw\ILSVRC2012_val_00020225.JPEG,eval,
+ILSVRC2012_val_00020375,imagenet,170.0,Irish_wolfhound,imagenet\raw\ILSVRC2012_val_00020375.JPEG,eval,
+ILSVRC2012_val_00020460,imagenet,161.0,basset,imagenet\raw\ILSVRC2012_val_00020460.JPEG,eval,
+ILSVRC2012_val_00020610,imagenet,15.0,robin,imagenet\raw\ILSVRC2012_val_00020610.JPEG,eval,
+ILSVRC2012_val_00020786,imagenet,249.0,malamute,imagenet\raw\ILSVRC2012_val_00020786.JPEG,eval,
+ILSVRC2012_val_00020916,imagenet,30.0,bullfrog,imagenet\raw\ILSVRC2012_val_00020916.JPEG,eval,
+ILSVRC2012_val_00021281,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00021281.JPEG,eval,
+ILSVRC2012_val_00021340,imagenet,434.0,bath_towel,imagenet\raw\ILSVRC2012_val_00021340.JPEG,eval,
+ILSVRC2012_val_00021365,imagenet,159.0,Rhodesian_ridgeback,imagenet\raw\ILSVRC2012_val_00021365.JPEG,eval,
+ILSVRC2012_val_00021599,imagenet,197.0,giant_schnauzer,imagenet\raw\ILSVRC2012_val_00021599.JPEG,eval,
+ILSVRC2012_val_00021624,imagenet,346.0,water_buffalo,imagenet\raw\ILSVRC2012_val_00021624.JPEG,eval,
+ILSVRC2012_val_00021744,imagenet,248.0,Eskimo_dog,imagenet\raw\ILSVRC2012_val_00021744.JPEG,eval,
+ILSVRC2012_val_00022142,imagenet,235.0,German_shepherd,imagenet\raw\ILSVRC2012_val_00022142.JPEG,eval,
+ILSVRC2012_val_00022283,imagenet,280.0,grey_fox,imagenet\raw\ILSVRC2012_val_00022283.JPEG,eval,
+ILSVRC2012_val_00022367,imagenet,210.0,German_short-haired_pointer,imagenet\raw\ILSVRC2012_val_00022367.JPEG,eval,
+ILSVRC2012_val_00022503,imagenet,437.0,beacon,imagenet\raw\ILSVRC2012_val_00022503.JPEG,eval,
+ILSVRC2012_val_00022505,imagenet,17.0,jay,imagenet\raw\ILSVRC2012_val_00022505.JPEG,eval,
+ILSVRC2012_val_00022725,imagenet,260.0,chow,imagenet\raw\ILSVRC2012_val_00022725.JPEG,eval,
+ILSVRC2012_val_00022843,imagenet,233.0,Bouvier_des_Flandres,imagenet\raw\ILSVRC2012_val_00022843.JPEG,eval,
+ILSVRC2012_val_00022856,imagenet,198.0,standard_schnauzer,imagenet\raw\ILSVRC2012_val_00022856.JPEG,eval,
+ILSVRC2012_val_00023164,imagenet,192.0,cairn,imagenet\raw\ILSVRC2012_val_00023164.JPEG,eval,
+ILSVRC2012_val_00023218,imagenet,196.0,miniature_schnauzer,imagenet\raw\ILSVRC2012_val_00023218.JPEG,eval,
+ILSVRC2012_val_00023289,imagenet,225.0,malinois,imagenet\raw\ILSVRC2012_val_00023289.JPEG,eval,
+ILSVRC2012_val_00023528,imagenet,180.0,American_Staffordshire_terrier,imagenet\raw\ILSVRC2012_val_00023528.JPEG,eval,
+ILSVRC2012_val_00023546,imagenet,263.0,Pembroke,imagenet\raw\ILSVRC2012_val_00023546.JPEG,eval,
+ILSVRC2012_val_00023634,imagenet,206.0,curly-coated_retriever,imagenet\raw\ILSVRC2012_val_00023634.JPEG,eval,
+ILSVRC2012_val_00023695,imagenet,136.0,European_gallinule,imagenet\raw\ILSVRC2012_val_00023695.JPEG,eval,
+ILSVRC2012_val_00024012,imagenet,19.0,chickadee,imagenet\raw\ILSVRC2012_val_00024012.JPEG,eval,
+ILSVRC2012_val_00024040,imagenet,84.0,peacock,imagenet\raw\ILSVRC2012_val_00024040.JPEG,eval,
+ILSVRC2012_val_00024090,imagenet,163.0,bloodhound,imagenet\raw\ILSVRC2012_val_00024090.JPEG,eval,
+ILSVRC2012_val_00024178,imagenet,196.0,miniature_schnauzer,imagenet\raw\ILSVRC2012_val_00024178.JPEG,eval,
+ILSVRC2012_val_00024185,imagenet,279.0,Arctic_fox,imagenet\raw\ILSVRC2012_val_00024185.JPEG,eval,
+ILSVRC2012_val_00024239,imagenet,356.0,weasel,imagenet\raw\ILSVRC2012_val_00024239.JPEG,eval,
+ILSVRC2012_val_00024635,imagenet,138.0,bustard,imagenet\raw\ILSVRC2012_val_00024635.JPEG,eval,
+ILSVRC2012_val_00024637,imagenet,203.0,West_Highland_white_terrier,imagenet\raw\ILSVRC2012_val_00024637.JPEG,eval,
+ILSVRC2012_val_00024740,imagenet,137.0,American_coot,imagenet\raw\ILSVRC2012_val_00024740.JPEG,eval,
+ILSVRC2012_val_00024846,imagenet,730.0,plow,imagenet\raw\ILSVRC2012_val_00024846.JPEG,eval,
+ILSVRC2012_val_00025151,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00025151.JPEG,eval,
+ILSVRC2012_val_00025180,imagenet,243.0,bull_mastiff,imagenet\raw\ILSVRC2012_val_00025180.JPEG,eval,
+ILSVRC2012_val_00025539,imagenet,161.0,basset,imagenet\raw\ILSVRC2012_val_00025539.JPEG,eval,
+ILSVRC2012_val_00025549,imagenet,216.0,clumber,imagenet\raw\ILSVRC2012_val_00025549.JPEG,eval,
+ILSVRC2012_val_00025660,imagenet,221.0,Irish_water_spaniel,imagenet\raw\ILSVRC2012_val_00025660.JPEG,eval,
+ILSVRC2012_val_00025665,imagenet,270.0,white_wolf,imagenet\raw\ILSVRC2012_val_00025665.JPEG,eval,
+ILSVRC2012_val_00025928,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00025928.JPEG,eval,
+ILSVRC2012_val_00026173,imagenet,355.0,llama,imagenet\raw\ILSVRC2012_val_00026173.JPEG,eval,
+ILSVRC2012_val_00026202,imagenet,35.0,mud_turtle,imagenet\raw\ILSVRC2012_val_00026202.JPEG,eval,
+ILSVRC2012_val_00026228,imagenet,272.0,coyote,imagenet\raw\ILSVRC2012_val_00026228.JPEG,eval,
+ILSVRC2012_val_00026958,imagenet,332.0,Angora,imagenet\raw\ILSVRC2012_val_00026958.JPEG,eval,
+ILSVRC2012_val_00026967,imagenet,98.0,red-breasted_merganser,imagenet\raw\ILSVRC2012_val_00026967.JPEG,eval,
+ILSVRC2012_val_00027064,imagenet,229.0,Old_English_sheepdog,imagenet\raw\ILSVRC2012_val_00027064.JPEG,eval,
+ILSVRC2012_val_00027810,imagenet,176.0,Saluki,imagenet\raw\ILSVRC2012_val_00027810.JPEG,eval,
+ILSVRC2012_val_00027996,imagenet,137.0,American_coot,imagenet\raw\ILSVRC2012_val_00027996.JPEG,eval,
+ILSVRC2012_val_00028429,imagenet,157.0,papillon,imagenet\raw\ILSVRC2012_val_00028429.JPEG,eval,
+ILSVRC2012_val_00028521,imagenet,21.0,kite,imagenet\raw\ILSVRC2012_val_00028521.JPEG,eval,
+ILSVRC2012_val_00028600,imagenet,80.0,black_grouse,imagenet\raw\ILSVRC2012_val_00028600.JPEG,eval,
+ILSVRC2012_val_00028766,imagenet,199.0,Scotch_terrier,imagenet\raw\ILSVRC2012_val_00028766.JPEG,eval,
+ILSVRC2012_val_00028801,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00028801.JPEG,eval,
+ILSVRC2012_val_00028892,imagenet,203.0,West_Highland_white_terrier,imagenet\raw\ILSVRC2012_val_00028892.JPEG,eval,
+ILSVRC2012_val_00028920,imagenet,133.0,bittern,imagenet\raw\ILSVRC2012_val_00028920.JPEG,eval,
+ILSVRC2012_val_00028945,imagenet,203.0,West_Highland_white_terrier,imagenet\raw\ILSVRC2012_val_00028945.JPEG,eval,
+ILSVRC2012_val_00029024,imagenet,202.0,soft-coated_wheaten_terrier,imagenet\raw\ILSVRC2012_val_00029024.JPEG,eval,
+ILSVRC2012_val_00029223,imagenet,146.0,albatross,imagenet\raw\ILSVRC2012_val_00029223.JPEG,eval,
+ILSVRC2012_val_00029262,imagenet,152.0,Japanese_spaniel,imagenet\raw\ILSVRC2012_val_00029262.JPEG,eval,
+ILSVRC2012_val_00029861,imagenet,160.0,Afghan_hound,imagenet\raw\ILSVRC2012_val_00029861.JPEG,eval,
+ILSVRC2012_val_00029875,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00029875.JPEG,eval,
+ILSVRC2012_val_00029970,imagenet,242.0,boxer,imagenet\raw\ILSVRC2012_val_00029970.JPEG,eval,
+ILSVRC2012_val_00030035,imagenet,47.0,African_chameleon,imagenet\raw\ILSVRC2012_val_00030035.JPEG,eval,
+ILSVRC2012_val_00030049,imagenet,127.0,white_stork,imagenet\raw\ILSVRC2012_val_00030049.JPEG,eval,
+ILSVRC2012_val_00030087,imagenet,214.0,Gordon_setter,imagenet\raw\ILSVRC2012_val_00030087.JPEG,eval,
+ILSVRC2012_val_00030196,imagenet,213.0,Irish_setter,imagenet\raw\ILSVRC2012_val_00030196.JPEG,eval,
+ILSVRC2012_val_00030199,imagenet,191.0,Airedale,imagenet\raw\ILSVRC2012_val_00030199.JPEG,eval,
+ILSVRC2012_val_00030200,imagenet,229.0,Old_English_sheepdog,imagenet\raw\ILSVRC2012_val_00030200.JPEG,eval,
+ILSVRC2012_val_00030213,imagenet,198.0,standard_schnauzer,imagenet\raw\ILSVRC2012_val_00030213.JPEG,eval,
+ILSVRC2012_val_00030377,imagenet,190.0,Sealyham_terrier,imagenet\raw\ILSVRC2012_val_00030377.JPEG,eval,
+ILSVRC2012_val_00030527,imagenet,221.0,Irish_water_spaniel,imagenet\raw\ILSVRC2012_val_00030527.JPEG,eval,
+ILSVRC2012_val_00030571,imagenet,139.0,ruddy_turnstone,imagenet\raw\ILSVRC2012_val_00030571.JPEG,eval,
+ILSVRC2012_val_00030734,imagenet,89.0,sulphur-crested_cockatoo,imagenet\raw\ILSVRC2012_val_00030734.JPEG,eval,
+ILSVRC2012_val_00031006,imagenet,265.0,toy_poodle,imagenet\raw\ILSVRC2012_val_00031006.JPEG,eval,
+ILSVRC2012_val_00031145,imagenet,263.0,Pembroke,imagenet\raw\ILSVRC2012_val_00031145.JPEG,eval,
+ILSVRC2012_val_00031395,imagenet,199.0,Scotch_terrier,imagenet\raw\ILSVRC2012_val_00031395.JPEG,eval,
+ILSVRC2012_val_00031718,imagenet,235.0,German_shepherd,imagenet\raw\ILSVRC2012_val_00031718.JPEG,eval,
+ILSVRC2012_val_00032985,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00032985.JPEG,eval,
+ILSVRC2012_val_00032995,imagenet,235.0,German_shepherd,imagenet\raw\ILSVRC2012_val_00032995.JPEG,eval,
+ILSVRC2012_val_00033200,imagenet,152.0,Japanese_spaniel,imagenet\raw\ILSVRC2012_val_00033200.JPEG,eval,
+ILSVRC2012_val_00033235,imagenet,386.0,African_elephant,imagenet\raw\ILSVRC2012_val_00033235.JPEG,eval,
+ILSVRC2012_val_00033343,imagenet,975.0,lakeside,imagenet\raw\ILSVRC2012_val_00033343.JPEG,eval,
+ILSVRC2012_val_00033437,imagenet,27.0,eft,imagenet\raw\ILSVRC2012_val_00033437.JPEG,eval,
+ILSVRC2012_val_00033479,imagenet,89.0,sulphur-crested_cockatoo,imagenet\raw\ILSVRC2012_val_00033479.JPEG,eval,
+ILSVRC2012_val_00033530,imagenet,158.0,toy_terrier,imagenet\raw\ILSVRC2012_val_00033530.JPEG,eval,
+ILSVRC2012_val_00033553,imagenet,241.0,EntleBucher,imagenet\raw\ILSVRC2012_val_00033553.JPEG,eval,
+ILSVRC2012_val_00033911,imagenet,271.0,red_wolf,imagenet\raw\ILSVRC2012_val_00033911.JPEG,eval,
+ILSVRC2012_val_00034040,imagenet,152.0,Japanese_spaniel,imagenet\raw\ILSVRC2012_val_00034040.JPEG,eval,
+ILSVRC2012_val_00034049,imagenet,192.0,cairn,imagenet\raw\ILSVRC2012_val_00034049.JPEG,eval,
+ILSVRC2012_val_00034141,imagenet,647.0,measuring_cup,imagenet\raw\ILSVRC2012_val_00034141.JPEG,eval,
+ILSVRC2012_val_00034515,imagenet,81.0,ptarmigan,imagenet\raw\ILSVRC2012_val_00034515.JPEG,eval,
+ILSVRC2012_val_00034676,imagenet,281.0,tabby,imagenet\raw\ILSVRC2012_val_00034676.JPEG,eval,
+ILSVRC2012_val_00035473,imagenet,192.0,cairn,imagenet\raw\ILSVRC2012_val_00035473.JPEG,eval,
+ILSVRC2012_val_00035844,imagenet,194.0,Dandie_Dinmont,imagenet\raw\ILSVRC2012_val_00035844.JPEG,eval,
+ILSVRC2012_val_00036284,imagenet,12.0,house_finch,imagenet\raw\ILSVRC2012_val_00036284.JPEG,eval,
+ILSVRC2012_val_00036563,imagenet,186.0,Norwich_terrier,imagenet\raw\ILSVRC2012_val_00036563.JPEG,eval,
+ILSVRC2012_val_00036664,imagenet,218.0,Welsh_springer_spaniel,imagenet\raw\ILSVRC2012_val_00036664.JPEG,eval,
+ILSVRC2012_val_00037075,imagenet,231.0,collie,imagenet\raw\ILSVRC2012_val_00037075.JPEG,eval,
+ILSVRC2012_val_00037116,imagenet,10.0,brambling,imagenet\raw\ILSVRC2012_val_00037116.JPEG,eval,
+ILSVRC2012_val_00037328,imagenet,19.0,chickadee,imagenet\raw\ILSVRC2012_val_00037328.JPEG,eval,
+ILSVRC2012_val_00038443,imagenet,94.0,hummingbird,imagenet\raw\ILSVRC2012_val_00038443.JPEG,eval,
+ILSVRC2012_val_00038615,imagenet,128.0,black_stork,imagenet\raw\ILSVRC2012_val_00038615.JPEG,eval,
+ILSVRC2012_val_00038697,imagenet,301.0,ladybug,imagenet\raw\ILSVRC2012_val_00038697.JPEG,eval,
+ILSVRC2012_val_00038794,imagenet,13.0,junco,imagenet\raw\ILSVRC2012_val_00038794.JPEG,eval,
+ILSVRC2012_val_00038814,imagenet,228.0,komondor,imagenet\raw\ILSVRC2012_val_00038814.JPEG,eval,
+ILSVRC2012_val_00038926,imagenet,188.0,wire-haired_fox_terrier,imagenet\raw\ILSVRC2012_val_00038926.JPEG,eval,
+ILSVRC2012_val_00038981,imagenet,144.0,pelican,imagenet\raw\ILSVRC2012_val_00038981.JPEG,eval,
+ILSVRC2012_val_00039247,imagenet,166.0,Walker_hound,imagenet\raw\ILSVRC2012_val_00039247.JPEG,eval,
+ILSVRC2012_val_00039743,imagenet,179.0,Staffordshire_bullterrier,imagenet\raw\ILSVRC2012_val_00039743.JPEG,eval,
+ILSVRC2012_val_00039761,imagenet,231.0,collie,imagenet\raw\ILSVRC2012_val_00039761.JPEG,eval,
+ILSVRC2012_val_00040286,imagenet,224.0,groenendael,imagenet\raw\ILSVRC2012_val_00040286.JPEG,eval,
+ILSVRC2012_val_00040524,imagenet,86.0,partridge,imagenet\raw\ILSVRC2012_val_00040524.JPEG,eval,
+ILSVRC2012_val_00040618,imagenet,226.0,briard,imagenet\raw\ILSVRC2012_val_00040618.JPEG,eval,
+ILSVRC2012_val_00040903,imagenet,20.0,water_ouzel,imagenet\raw\ILSVRC2012_val_00040903.JPEG,eval,
+ILSVRC2012_val_00040937,imagenet,211.0,vizsla,imagenet\raw\ILSVRC2012_val_00040937.JPEG,eval,
+ILSVRC2012_val_00041152,imagenet,15.0,robin,imagenet\raw\ILSVRC2012_val_00041152.JPEG,eval,
+ILSVRC2012_val_00041288,imagenet,81.0,ptarmigan,imagenet\raw\ILSVRC2012_val_00041288.JPEG,eval,
+ILSVRC2012_val_00041836,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00041836.JPEG,eval,
+ILSVRC2012_val_00043201,imagenet,152.0,Japanese_spaniel,imagenet\raw\ILSVRC2012_val_00043201.JPEG,eval,
+ILSVRC2012_val_00043307,imagenet,128.0,black_stork,imagenet\raw\ILSVRC2012_val_00043307.JPEG,eval,
+ILSVRC2012_val_00043388,imagenet,168.0,redbone,imagenet\raw\ILSVRC2012_val_00043388.JPEG,eval,
+ILSVRC2012_val_00043520,imagenet,803.0,snowplow,imagenet\raw\ILSVRC2012_val_00043520.JPEG,eval,
+ILSVRC2012_val_00043534,imagenet,236.0,Doberman,imagenet\raw\ILSVRC2012_val_00043534.JPEG,eval,
+ILSVRC2012_val_00043538,imagenet,228.0,komondor,imagenet\raw\ILSVRC2012_val_00043538.JPEG,eval,
+ILSVRC2012_val_00043633,imagenet,85.0,quail,imagenet\raw\ILSVRC2012_val_00043633.JPEG,eval,
+ILSVRC2012_val_00043727,imagenet,222.0,kuvasz,imagenet\raw\ILSVRC2012_val_00043727.JPEG,eval,
+ILSVRC2012_val_00043779,imagenet,22.0,bald_eagle,imagenet\raw\ILSVRC2012_val_00043779.JPEG,eval,
+ILSVRC2012_val_00043823,imagenet,83.0,prairie_chicken,imagenet\raw\ILSVRC2012_val_00043823.JPEG,eval,
+ILSVRC2012_val_00044238,imagenet,98.0,red-breasted_merganser,imagenet\raw\ILSVRC2012_val_00044238.JPEG,eval,
+ILSVRC2012_val_00044387,imagenet,221.0,Irish_water_spaniel,imagenet\raw\ILSVRC2012_val_00044387.JPEG,eval,
+ILSVRC2012_val_00044453,imagenet,201.0,silky_terrier,imagenet\raw\ILSVRC2012_val_00044453.JPEG,eval,
+ILSVRC2012_val_00044507,imagenet,18.0,magpie,imagenet\raw\ILSVRC2012_val_00044507.JPEG,eval,
+ILSVRC2012_val_00044513,imagenet,166.0,Walker_hound,imagenet\raw\ILSVRC2012_val_00044513.JPEG,eval,
+ILSVRC2012_val_00044646,imagenet,334.0,porcupine,imagenet\raw\ILSVRC2012_val_00044646.JPEG,eval,
+ILSVRC2012_val_00045151,imagenet,208.0,Labrador_retriever,imagenet\raw\ILSVRC2012_val_00045151.JPEG,eval,
+ILSVRC2012_val_00045743,imagenet,80.0,black_grouse,imagenet\raw\ILSVRC2012_val_00045743.JPEG,eval,
+ILSVRC2012_val_00045961,imagenet,270.0,white_wolf,imagenet\raw\ILSVRC2012_val_00045961.JPEG,eval,
+ILSVRC2012_val_00046420,imagenet,169.0,borzoi,imagenet\raw\ILSVRC2012_val_00046420.JPEG,eval,
+ILSVRC2012_val_00046462,imagenet,143.0,oystercatcher,imagenet\raw\ILSVRC2012_val_00046462.JPEG,eval,
+ILSVRC2012_val_00046768,imagenet,249.0,malamute,imagenet\raw\ILSVRC2012_val_00046768.JPEG,eval,
+ILSVRC2012_val_00047153,imagenet,133.0,bittern,imagenet\raw\ILSVRC2012_val_00047153.JPEG,eval,
+ILSVRC2012_val_00047333,imagenet,13.0,junco,imagenet\raw\ILSVRC2012_val_00047333.JPEG,eval,
+ILSVRC2012_val_00047509,imagenet,135.0,limpkin,imagenet\raw\ILSVRC2012_val_00047509.JPEG,eval,
+ILSVRC2012_val_00048436,imagenet,262.0,Brabancon_griffon,imagenet\raw\ILSVRC2012_val_00048436.JPEG,eval,
+ILSVRC2012_val_00048575,imagenet,138.0,bustard,imagenet\raw\ILSVRC2012_val_00048575.JPEG,eval,
+ILSVRC2012_val_00048627,imagenet,222.0,kuvasz,imagenet\raw\ILSVRC2012_val_00048627.JPEG,eval,
+ILSVRC2012_val_00048640,imagenet,134.0,crane,imagenet\raw\ILSVRC2012_val_00048640.JPEG,eval,
+ILSVRC2012_val_00048710,imagenet,11.0,goldfinch,imagenet\raw\ILSVRC2012_val_00048710.JPEG,eval,
+ILSVRC2012_val_00048894,imagenet,304.0,leaf_beetle,imagenet\raw\ILSVRC2012_val_00048894.JPEG,eval,
+ILSVRC2012_val_00048908,imagenet,128.0,black_stork,imagenet\raw\ILSVRC2012_val_00048908.JPEG,eval,
+ILSVRC2012_val_00048940,imagenet,296.0,ice_bear,imagenet\raw\ILSVRC2012_val_00048940.JPEG,eval,
+ILSVRC2012_val_00049021,imagenet,700.0,paper_towel,imagenet\raw\ILSVRC2012_val_00049021.JPEG,eval,
+ILSVRC2012_val_00049217,imagenet,105.0,koala,imagenet\raw\ILSVRC2012_val_00049217.JPEG,eval,
+ILSVRC2012_val_00049721,imagenet,437.0,beacon,imagenet\raw\ILSVRC2012_val_00049721.JPEG,eval,
+ILSVRC2012_val_00049822,imagenet,294.0,brown_bear,imagenet\raw\ILSVRC2012_val_00049822.JPEG,eval,
+ILSVRC2012_val_00049886,imagenet,277.0,red_fox,imagenet\raw\ILSVRC2012_val_00049886.JPEG,eval,
+ILSVRC2012_val_00049942,imagenet,232.0,Border_collie,imagenet\raw\ILSVRC2012_val_00049942.JPEG,eval,
+ILSVRC2012_val_00012132,imagenet,,jay,imagenet\raw\ILSVRC2012_val_00012132.JPEG,debug,
+ILSVRC2012_val_00000140,imagenet,,flute,imagenet\raw\ILSVRC2012_val_00000140.JPEG,debug,
+ILSVRC2012_val_00031295,imagenet,,miniature_pinscher,imagenet\raw\ILSVRC2012_val_00031295.JPEG,debug,
+ILSVRC2012_val_00004300,imagenet,,wood_rabbit,imagenet\raw\ILSVRC2012_val_00004300.JPEG,debug,
+ILSVRC2012_val_00007011,imagenet,,red-backed_sandpiper,imagenet\raw\ILSVRC2012_val_00007011.JPEG,debug,
+ILSVRC2012_val_00008228,imagenet,,spider_monkey,imagenet\raw\ILSVRC2012_val_00008228.JPEG,debug,
+ILSVRC2012_val_00016006,imagenet,,Polaroid_camera,imagenet\raw\ILSVRC2012_val_00016006.JPEG,debug,
+ILSVRC2012_val_00023543,imagenet,,pug,imagenet\raw\ILSVRC2012_val_00023543.JPEG,debug,
+ILSVRC2012_val_00023347,imagenet,,sulphur-crested_cockatoo,imagenet\raw\ILSVRC2012_val_00023347.JPEG,debug,
+ILSVRC2012_val_00011253,imagenet,,armadillo,imagenet\raw\ILSVRC2012_val_00011253.JPEG,debug,
+ILSVRC2012_val_00003259,imagenet,,hummingbird,imagenet\raw\ILSVRC2012_val_00003259.JPEG,debug,
+ILSVRC2012_val_00004482,imagenet,,quilt,imagenet\raw\ILSVRC2012_val_00004482.JPEG,debug,
+ILSVRC2012_val_00008860,imagenet,,schipperke,imagenet\raw\ILSVRC2012_val_00008860.JPEG,debug,
+ILSVRC2012_val_00014374,imagenet,,affenpinscher,imagenet\raw\ILSVRC2012_val_00014374.JPEG,debug,
+ILSVRC2012_val_00011915,imagenet,,junco,imagenet\raw\ILSVRC2012_val_00011915.JPEG,debug,
+ILSVRC2012_val_00019344,imagenet,,bighorn,imagenet\raw\ILSVRC2012_val_00019344.JPEG,debug,
+ILSVRC2012_val_00015926,imagenet,,macaque,imagenet\raw\ILSVRC2012_val_00015926.JPEG,debug,
+ILSVRC2012_val_00007971,imagenet,,Sussex_spaniel,imagenet\raw\ILSVRC2012_val_00007971.JPEG,debug,
+ILSVRC2012_val_00015160,imagenet,,Rottweiler,imagenet\raw\ILSVRC2012_val_00015160.JPEG,debug,
+ILSVRC2012_val_00013600,imagenet,,tick,imagenet\raw\ILSVRC2012_val_00013600.JPEG,debug,
+ILSVRC2012_val_00000391,imagenet,,Norfolk_terrier,imagenet\raw\ILSVRC2012_val_00000391.JPEG,debug,
+ILSVRC2012_val_00044836,imagenet,,rock_crab,imagenet\raw\ILSVRC2012_val_00044836.JPEG,debug,
+ILSVRC2012_val_00008135,imagenet,,bittern,imagenet\raw\ILSVRC2012_val_00008135.JPEG,debug,
+ILSVRC2012_val_00010132,imagenet,,impala,imagenet\raw\ILSVRC2012_val_00010132.JPEG,debug,
+ILSVRC2012_val_00007283,imagenet,,jellyfish,imagenet\raw\ILSVRC2012_val_00007283.JPEG,debug,
+ILSVRC2012_val_00007178,imagenet,,bloodhound,imagenet\raw\ILSVRC2012_val_00007178.JPEG,debug,
+ILSVRC2012_val_00020205,imagenet,,dowitcher,imagenet\raw\ILSVRC2012_val_00020205.JPEG,debug,
+ILSVRC2012_val_00012313,imagenet,,mushroom,imagenet\raw\ILSVRC2012_val_00012313.JPEG,debug,
+ILSVRC2012_val_00007854,imagenet,,yurt,imagenet\raw\ILSVRC2012_val_00007854.JPEG,debug,
+ILSVRC2012_val_00005867,imagenet,,Irish_terrier,imagenet\raw\ILSVRC2012_val_00005867.JPEG,debug,
+ILSVRC2012_val_00049131,imagenet,,crane,imagenet\raw\ILSVRC2012_val_00049131.JPEG,debug,
+ILSVRC2012_val_00002794,imagenet,,Greater_Swiss_Mountain_dog,imagenet\raw\ILSVRC2012_val_00002794.JPEG,debug,
+ILSVRC2012_val_00020015,imagenet,,dalmatian,imagenet\raw\ILSVRC2012_val_00020015.JPEG,debug,
+ILSVRC2012_val_00006457,imagenet,,hornbill,imagenet\raw\ILSVRC2012_val_00006457.JPEG,debug,
+ILSVRC2012_val_00005363,imagenet,,pelican,imagenet\raw\ILSVRC2012_val_00005363.JPEG,debug,
+ILSVRC2012_val_00029916,imagenet,,sea_cucumber,imagenet\raw\ILSVRC2012_val_00029916.JPEG,debug,
+ILSVRC2012_val_00030940,imagenet,,little_blue_heron,imagenet\raw\ILSVRC2012_val_00030940.JPEG,debug,
+ILSVRC2012_val_00007404,imagenet,,killer_whale,imagenet\raw\ILSVRC2012_val_00007404.JPEG,debug,
+ILSVRC2012_val_00013911,imagenet,,white_wolf,imagenet\raw\ILSVRC2012_val_00013911.JPEG,debug,
+ILSVRC2012_val_00008938,imagenet,,red_fox,imagenet\raw\ILSVRC2012_val_00008938.JPEG,debug,
+36,voc,11.0,dog,voc\raw\000036.jpg,eval,"[27, 79, 319, 344]"
+113,voc,14.0,person,voc\raw\000113.jpg,eval,"[277, 101, 354, 260]"
+118,voc,7.0,cat,voc\raw\000118.jpg,eval,"[164, 97, 281, 375]"
+132,voc,5.0,bus,voc\raw\000132.jpg,eval,"[43, 66, 279, 363]"
+211,voc,9.0,cow,voc\raw\000211.jpg,eval,"[48, 262, 244, 349]"
+215,voc,7.0,cat,voc\raw\000215.jpg,eval,"[144, 81, 338, 411]"
+221,voc,6.0,car,voc\raw\000221.jpg,eval,"[72, 77, 432, 253]"
+228,voc,0.0,aeroplane,voc\raw\000228.jpg,eval,"[92, 82, 314, 228]"
+236,voc,2.0,bird,voc\raw\000236.jpg,eval,"[88, 169, 275, 314]"
+244,voc,16.0,sheep,voc\raw\000244.jpg,eval,"[116, 202, 157, 230]"
+246,voc,11.0,dog,voc\raw\000246.jpg,eval,"[60, 44, 331, 310]"
+262,voc,6.0,car,voc\raw\000262.jpg,eval,"[343, 96, 500, 196]"
+270,voc,18.0,train,voc\raw\000270.jpg,eval,"[150, 120, 443, 183]"
+298,voc,14.0,person,voc\raw\000298.jpg,eval,"[180, 32, 339, 359]"
+317,voc,6.0,car,voc\raw\000317.jpg,eval,"[118, 151, 407, 221]"
+321,voc,14.0,person,voc\raw\000321.jpg,eval,"[44, 167, 249, 458]"
+332,voc,12.0,horse,voc\raw\000332.jpg,eval,"[54, 50, 285, 262]"
+403,voc,7.0,cat,voc\raw\000403.jpg,eval,"[157, 90, 486, 372]"
+522,voc,6.0,car,voc\raw\000522.jpg,eval,"[36, 128, 434, 271]"
+540,voc,18.0,train,voc\raw\000540.jpg,eval,"[135, 93, 321, 298]"
+622,voc,9.0,cow,voc\raw\000622.jpg,eval,"[156, 87, 401, 339]"
+656,voc,11.0,dog,voc\raw\000656.jpg,eval,"[230, 61, 447, 174]"
+712,voc,18.0,train,voc\raw\000712.jpg,eval,"[3, 93, 383, 273]"
+714,voc,2.0,bird,voc\raw\000714.jpg,eval,"[190, 56, 439, 300]"
+720,voc,11.0,dog,voc\raw\000720.jpg,eval,"[217, 118, 305, 263]"
+738,voc,0.0,aeroplane,voc\raw\000738.jpg,eval,"[1, 124, 496, 235]"
+748,voc,5.0,bus,voc\raw\000748.jpg,eval,"[47, 100, 440, 246]"
+764,voc,12.0,horse,voc\raw\000764.jpg,eval,"[79, 80, 366, 271]"
+823,voc,6.0,car,voc\raw\000823.jpg,eval,"[49, 160, 343, 265]"
+831,voc,18.0,train,voc\raw\000831.jpg,eval,"[83, 124, 239, 377]"
+845,voc,0.0,aeroplane,voc\raw\000845.jpg,eval,"[9, 97, 493, 206]"
+871,voc,6.0,car,voc\raw\000871.jpg,eval,"[8, 114, 491, 292]"
+899,voc,18.0,train,voc\raw\000899.jpg,eval,"[92, 139, 473, 243]"
+1008,voc,13.0,motorbike,voc\raw\001008.jpg,eval,"[220, 154, 300, 280]"
+1012,voc,0.0,aeroplane,voc\raw\001012.jpg,eval,"[225, 117, 307, 206]"
+1078,voc,7.0,cat,voc\raw\001078.jpg,eval,"[2, 101, 245, 375]"
+1130,voc,9.0,cow,voc\raw\001130.jpg,eval,"[114, 107, 296, 266]"
+1205,voc,3.0,boat,voc\raw\001205.jpg,eval,"[88, 76, 314, 263]"
+1225,voc,11.0,dog,voc\raw\001225.jpg,eval,"[100, 212, 303, 414]"
+1260,voc,2.0,bird,voc\raw\001260.jpg,eval,"[167, 85, 245, 140]"
+1274,voc,7.0,cat,voc\raw\001274.jpg,eval,"[138, 196, 230, 344]"
+1289,voc,2.0,bird,voc\raw\001289.jpg,eval,"[157, 98, 355, 188]"
+1323,voc,18.0,train,voc\raw\001323.jpg,eval,"[33, 188, 481, 322]"
+1332,voc,0.0,aeroplane,voc\raw\001332.jpg,eval,"[20, 26, 82, 72]"
+1360,voc,6.0,car,voc\raw\001360.jpg,eval,"[7, 91, 448, 272]"
+1383,voc,18.0,train,voc\raw\001383.jpg,eval,"[100, 138, 431, 312]"
+1397,voc,11.0,dog,voc\raw\001397.jpg,eval,"[128, 121, 214, 263]"
+1453,voc,2.0,bird,voc\raw\001453.jpg,eval,"[176, 29, 297, 306]"
+1466,voc,6.0,car,voc\raw\001466.jpg,eval,"[2, 114, 452, 264]"
+1467,voc,11.0,dog,voc\raw\001467.jpg,eval,"[253, 81, 475, 241]"
+1470,voc,19.0,tvmonitor,voc\raw\001470.jpg,eval,"[103, 30, 311, 234]"
+1481,voc,3.0,boat,voc\raw\001481.jpg,eval,"[225, 161, 281, 252]"
+1486,voc,7.0,cat,voc\raw\001486.jpg,eval,"[110, 61, 461, 269]"
+1528,voc,2.0,bird,voc\raw\001528.jpg,eval,"[46, 76, 372, 348]"
+1539,voc,1.0,bicycle,voc\raw\001539.jpg,eval,"[102, 167, 357, 350]"
+1555,voc,7.0,cat,voc\raw\001555.jpg,eval,"[333, 294, 390, 368]"
+1576,voc,6.0,car,voc\raw\001576.jpg,eval,"[51, 172, 458, 280]"
+1597,voc,2.0,bird,voc\raw\001597.jpg,eval,"[227, 135, 330, 291]"
+1610,voc,7.0,cat,voc\raw\001610.jpg,eval,"[16, 56, 368, 276]"
+1627,voc,14.0,person,voc\raw\001627.jpg,eval,"[104, 7, 280, 475]"
+1638,voc,0.0,aeroplane,voc\raw\001638.jpg,eval,"[187, 83, 337, 236]"
+1661,voc,16.0,sheep,voc\raw\001661.jpg,eval,"[107, 199, 330, 374]"
+1669,voc,7.0,cat,voc\raw\001669.jpg,eval,"[21, 75, 364, 337]"
+1708,voc,0.0,aeroplane,voc\raw\001708.jpg,eval,"[6, 93, 498, 245]"
+1734,voc,16.0,sheep,voc\raw\001734.jpg,eval,"[100, 84, 441, 313]"
+1768,voc,7.0,cat,voc\raw\001768.jpg,eval,"[1, 63, 261, 344]"
+1840,voc,7.0,cat,voc\raw\001840.jpg,eval,"[128, 174, 321, 296]"
+1853,voc,2.0,bird,voc\raw\001853.jpg,eval,"[202, 63, 343, 286]"
+1872,voc,16.0,sheep,voc\raw\001872.jpg,eval,"[153, 22, 355, 342]"
+1875,voc,19.0,tvmonitor,voc\raw\001875.jpg,eval,"[36, 138, 143, 234]"
+1888,voc,7.0,cat,voc\raw\001888.jpg,eval,"[78, 32, 276, 413]"
+1922,voc,0.0,aeroplane,voc\raw\001922.jpg,eval,"[65, 75, 470, 269]"
+1931,voc,6.0,car,voc\raw\001931.jpg,eval,"[44, 114, 489, 288]"
+1933,voc,2.0,bird,voc\raw\001933.jpg,eval,"[70, 43, 399, 319]"
+1937,voc,6.0,car,voc\raw\001937.jpg,eval,"[11, 211, 332, 433]"
+1960,voc,12.0,horse,voc\raw\001960.jpg,eval,"[108, 138, 264, 332]"
+1981,voc,7.0,cat,voc\raw\001981.jpg,eval,"[36, 1, 329, 273]"
+1982,voc,7.0,cat,voc\raw\001982.jpg,eval,"[85, 50, 379, 348]"
+2042,voc,12.0,horse,voc\raw\002042.jpg,eval,"[75, 182, 260, 360]"
+2153,voc,6.0,car,voc\raw\002153.jpg,eval,"[83, 166, 375, 291]"
+2178,voc,6.0,car,voc\raw\002178.jpg,eval,"[100, 136, 460, 320]"
+2182,voc,6.0,car,voc\raw\002182.jpg,eval,"[15, 121, 438, 252]"
+2199,voc,11.0,dog,voc\raw\002199.jpg,eval,"[69, 163, 477, 372]"
+2212,voc,2.0,bird,voc\raw\002212.jpg,eval,"[42, 72, 459, 247]"
+2318,voc,13.0,motorbike,voc\raw\002318.jpg,eval,"[29, 167, 188, 340]"
+2320,voc,15.0,pottedplant,voc\raw\002320.jpg,eval,"[69, 33, 282, 202]"
+2321,voc,18.0,train,voc\raw\002321.jpg,eval,"[117, 197, 242, 306]"
+2328,voc,19.0,tvmonitor,voc\raw\002328.jpg,eval,"[107, 61, 351, 315]"
+2345,voc,11.0,dog,voc\raw\002345.jpg,eval,"[78, 144, 282, 477]"
+2354,voc,0.0,aeroplane,voc\raw\002354.jpg,eval,"[64, 128, 451, 252]"
+2364,voc,11.0,dog,voc\raw\002364.jpg,eval,"[169, 108, 397, 276]"
+2392,voc,3.0,boat,voc\raw\002392.jpg,eval,"[60, 106, 412, 177]"
+2411,voc,6.0,car,voc\raw\002411.jpg,eval,"[129, 163, 300, 259]"
+2420,voc,6.0,car,voc\raw\002420.jpg,eval,"[81, 48, 475, 251]"
+2454,voc,6.0,car,voc\raw\002454.jpg,eval,"[100, 73, 263, 200]"
+2459,voc,14.0,person,voc\raw\002459.jpg,eval,"[121, 205, 192, 237]"
+2462,voc,18.0,train,voc\raw\002462.jpg,eval,"[54, 75, 500, 158]"
+2466,voc,11.0,dog,voc\raw\002466.jpg,eval,"[125, 92, 421, 217]"
+2502,voc,18.0,train,voc\raw\002502.jpg,eval,"[12, 114, 275, 412]"
+2525,voc,18.0,train,voc\raw\002525.jpg,eval,"[1, 234, 461, 372]"
+2598,voc,15.0,pottedplant,voc\raw\002598.jpg,eval,"[89, 49, 244, 394]"
+2603,voc,2.0,bird,voc\raw\002603.jpg,eval,"[185, 99, 304, 245]"
+2683,voc,16.0,sheep,voc\raw\002683.jpg,eval,"[130, 123, 348, 293]"
+2689,voc,14.0,person,voc\raw\002689.jpg,eval,"[199, 21, 336, 344]"
+2690,voc,11.0,dog,voc\raw\002690.jpg,eval,"[82, 296, 327, 500]"
+2706,voc,7.0,cat,voc\raw\002706.jpg,eval,"[119, 61, 351, 330]"
+2714,voc,14.0,person,voc\raw\002714.jpg,eval,"[168, 91, 246, 357]"
+2717,voc,2.0,bird,voc\raw\002717.jpg,eval,"[170, 103, 278, 300]"
+2718,voc,2.0,bird,voc\raw\002718.jpg,eval,"[138, 38, 407, 298]"
+2721,voc,2.0,bird,voc\raw\002721.jpg,eval,"[274, 86, 453, 220]"
+2785,voc,7.0,cat,voc\raw\002785.jpg,eval,"[222, 1, 475, 178]"
+2796,voc,7.0,cat,voc\raw\002796.jpg,eval,"[130, 227, 306, 364]"
+2810,voc,11.0,dog,voc\raw\002810.jpg,eval,"[84, 59, 360, 256]"
+2844,voc,18.0,train,voc\raw\002844.jpg,eval,"[141, 37, 500, 248]"
+2848,voc,13.0,motorbike,voc\raw\002848.jpg,eval,"[201, 15, 278, 82]"
+2854,voc,6.0,car,voc\raw\002854.jpg,eval,"[3, 175, 500, 331]"
+2869,voc,0.0,aeroplane,voc\raw\002869.jpg,eval,"[21, 94, 489, 226]"
+2891,voc,18.0,train,voc\raw\002891.jpg,eval,"[68, 50, 381, 324]"
+2896,voc,2.0,bird,voc\raw\002896.jpg,eval,"[124, 71, 253, 500]"
+2932,voc,14.0,person,voc\raw\002932.jpg,eval,"[103, 369, 195, 468]"
+2938,voc,2.0,bird,voc\raw\002938.jpg,eval,"[46, 139, 259, 260]"
+2942,voc,0.0,aeroplane,voc\raw\002942.jpg,eval,"[222, 153, 312, 192]"
+2960,voc,14.0,person,voc\raw\002960.jpg,eval,"[47, 75, 271, 315]"
+2969,voc,2.0,bird,voc\raw\002969.jpg,eval,"[139, 125, 500, 374]"
+3009,voc,6.0,car,voc\raw\003009.jpg,eval,"[135, 294, 386, 363]"
+3015,voc,12.0,horse,voc\raw\003015.jpg,eval,"[182, 128, 274, 218]"
+3064,voc,14.0,person,voc\raw\003064.jpg,eval,"[79, 103, 215, 500]"
+3090,voc,18.0,train,voc\raw\003090.jpg,eval,"[79, 116, 301, 206]"
+3112,voc,2.0,bird,voc\raw\003112.jpg,eval,"[164, 87, 306, 332]"
+3126,voc,2.0,bird,voc\raw\003126.jpg,eval,"[132, 156, 280, 248]"
+3133,voc,0.0,aeroplane,voc\raw\003133.jpg,eval,"[32, 55, 435, 213]"
+3135,voc,18.0,train,voc\raw\003135.jpg,eval,"[2, 114, 497, 276]"
+3154,voc,5.0,bus,voc\raw\003154.jpg,eval,"[162, 102, 468, 302]"
+3157,voc,19.0,tvmonitor,voc\raw\003157.jpg,eval,"[137, 57, 303, 185]"
+3163,voc,5.0,bus,voc\raw\003163.jpg,eval,"[56, 66, 441, 240]"
+3204,voc,19.0,tvmonitor,voc\raw\003204.jpg,eval,"[172, 195, 278, 299]"
+3244,voc,18.0,train,voc\raw\003244.jpg,eval,"[1, 142, 498, 245]"
+3250,voc,2.0,bird,voc\raw\003250.jpg,eval,"[174, 24, 355, 333]"
+3274,voc,11.0,dog,voc\raw\003274.jpg,eval,"[148, 77, 298, 239]"
+3338,voc,2.0,bird,voc\raw\003338.jpg,eval,"[196, 75, 334, 285]"
+3349,voc,2.0,bird,voc\raw\003349.jpg,eval,"[88, 55, 327, 289]"
+3351,voc,7.0,cat,voc\raw\003351.jpg,eval,"[160, 83, 461, 347]"
+3354,voc,9.0,cow,voc\raw\003354.jpg,eval,"[93, 75, 256, 223]"
+3365,voc,0.0,aeroplane,voc\raw\003365.jpg,eval,"[118, 108, 450, 197]"
+3370,voc,18.0,train,voc\raw\003370.jpg,eval,"[162, 93, 289, 276]"
+3377,voc,2.0,bird,voc\raw\003377.jpg,eval,"[135, 141, 292, 360]"
+3410,voc,9.0,cow,voc\raw\003410.jpg,eval,"[66, 149, 240, 237]"
+3421,voc,8.0,chair,voc\raw\003421.jpg,eval,"[107, 322, 300, 500]"
+3441,voc,5.0,bus,voc\raw\003441.jpg,eval,"[105, 98, 378, 274]"
+3443,voc,11.0,dog,voc\raw\003443.jpg,eval,"[59, 96, 229, 233]"
+3444,voc,17.0,sofa,voc\raw\003444.jpg,eval,"[36, 91, 304, 263]"
+3489,voc,11.0,dog,voc\raw\003489.jpg,eval,"[280, 32, 456, 257]"
+3493,voc,0.0,aeroplane,voc\raw\003493.jpg,eval,"[137, 119, 440, 234]"
+3509,voc,15.0,pottedplant,voc\raw\003509.jpg,eval,"[184, 28, 375, 499]"
+3519,voc,2.0,bird,voc\raw\003519.jpg,eval,"[114, 84, 316, 375]"
+3522,voc,7.0,cat,voc\raw\003522.jpg,eval,"[249, 2, 500, 328]"
+3546,voc,7.0,cat,voc\raw\003546.jpg,eval,"[132, 82, 257, 228]"
+3554,voc,0.0,aeroplane,voc\raw\003554.jpg,eval,"[75, 126, 436, 250]"
+3565,voc,2.0,bird,voc\raw\003565.jpg,eval,"[280, 218, 500, 317]"
+3597,voc,18.0,train,voc\raw\003597.jpg,eval,"[9, 135, 392, 399]"
+3627,voc,11.0,dog,voc\raw\003627.jpg,eval,"[135, 1, 365, 333]"
+3640,voc,9.0,cow,voc\raw\003640.jpg,eval,"[274, 184, 444, 287]"
+3695,voc,18.0,train,voc\raw\003695.jpg,eval,"[1, 145, 480, 283]"
+3704,voc,2.0,bird,voc\raw\003704.jpg,eval,"[220, 62, 458, 347]"
+3705,voc,16.0,sheep,voc\raw\003705.jpg,eval,"[196, 100, 270, 176]"
+3773,voc,0.0,aeroplane,voc\raw\003773.jpg,eval,"[13, 121, 485, 230]"
+3786,voc,5.0,bus,voc\raw\003786.jpg,eval,"[171, 165, 287, 273]"
+3790,voc,6.0,car,voc\raw\003790.jpg,eval,"[54, 115, 462, 269]"
+3803,voc,2.0,bird,voc\raw\003803.jpg,eval,"[156, 186, 249, 341]"
+3828,voc,2.0,bird,voc\raw\003828.jpg,eval,"[168, 53, 223, 86]"
+3868,voc,14.0,person,voc\raw\003868.jpg,eval,"[2, 235, 500, 374]"
+3871,voc,2.0,bird,voc\raw\003871.jpg,eval,"[119, 82, 313, 433]"
+3890,voc,7.0,cat,voc\raw\003890.jpg,eval,"[7, 270, 282, 500]"
+3905,voc,2.0,bird,voc\raw\003905.jpg,eval,"[236, 66, 376, 267]"
+3935,voc,11.0,dog,voc\raw\003935.jpg,eval,"[98, 55, 347, 340]"
+3971,voc,6.0,car,voc\raw\003971.jpg,eval,"[26, 125, 479, 273]"
+3991,voc,7.0,cat,voc\raw\003991.jpg,eval,"[79, 53, 500, 264]"
+3993,voc,0.0,aeroplane,voc\raw\003993.jpg,eval,"[45, 87, 418, 245]"
+4015,voc,11.0,dog,voc\raw\004015.jpg,eval,"[73, 23, 302, 375]"
+4052,voc,0.0,aeroplane,voc\raw\004052.jpg,eval,"[47, 108, 398, 213]"
+4076,voc,7.0,cat,voc\raw\004076.jpg,eval,"[77, 53, 415, 280]"
+4082,voc,1.0,bicycle,voc\raw\004082.jpg,eval,"[170, 74, 261, 331]"
+4133,voc,14.0,person,voc\raw\004133.jpg,eval,"[97, 18, 224, 334]"
+4163,voc,19.0,tvmonitor,voc\raw\004163.jpg,eval,"[248, 197, 355, 316]"
+4171,voc,2.0,bird,voc\raw\004171.jpg,eval,"[97, 302, 272, 433]"
+4174,voc,5.0,bus,voc\raw\004174.jpg,eval,"[3, 233, 136, 381]"
+4190,voc,19.0,tvmonitor,voc\raw\004190.jpg,eval,"[1, 115, 201, 326]"
+4192,voc,19.0,tvmonitor,voc\raw\004192.jpg,eval,"[138, 220, 233, 300]"
+4220,voc,2.0,bird,voc\raw\004220.jpg,eval,"[152, 132, 380, 214]"
+4221,voc,2.0,bird,voc\raw\004221.jpg,eval,"[240, 155, 321, 240]"
+4300,voc,13.0,motorbike,voc\raw\004300.jpg,eval,"[79, 201, 235, 317]"
+4318,voc,11.0,dog,voc\raw\004318.jpg,eval,"[1, 61, 365, 283]"
+4325,voc,3.0,boat,voc\raw\004325.jpg,eval,"[1, 22, 189, 346]"
+4345,voc,7.0,cat,voc\raw\004345.jpg,eval,"[105, 8, 367, 316]"
+4351,voc,0.0,aeroplane,voc\raw\004351.jpg,eval,"[100, 25, 162, 75]"
+4430,voc,1.0,bicycle,voc\raw\004430.jpg,eval,"[93, 25, 245, 302]"
+4436,voc,18.0,train,voc\raw\004436.jpg,eval,"[108, 154, 243, 382]"
+4498,voc,3.0,boat,voc\raw\004498.jpg,eval,"[126, 159, 215, 284]"
+4540,voc,17.0,sofa,voc\raw\004540.jpg,eval,"[8, 141, 333, 316]"
+4555,voc,0.0,aeroplane,voc\raw\004555.jpg,eval,"[142, 174, 355, 245]"
+4597,voc,8.0,chair,voc\raw\004597.jpg,eval,"[83, 181, 120, 255]"
+4600,voc,7.0,cat,voc\raw\004600.jpg,eval,"[178, 40, 298, 281]"
+4612,voc,2.0,bird,voc\raw\004612.jpg,eval,"[230, 133, 270, 202]"
+4628,voc,7.0,cat,voc\raw\004628.jpg,eval,"[235, 1, 443, 279]"
+4634,voc,12.0,horse,voc\raw\004634.jpg,eval,"[160, 143, 400, 305]"
+4636,voc,2.0,bird,voc\raw\004636.jpg,eval,"[192, 117, 412, 206]"
+4651,voc,3.0,boat,voc\raw\004651.jpg,eval,"[153, 154, 216, 262]"
+4652,voc,19.0,tvmonitor,voc\raw\004652.jpg,eval,"[79, 1, 434, 216]"
+4653,voc,14.0,person,voc\raw\004653.jpg,eval,"[51, 109, 276, 448]"
+4675,voc,18.0,train,voc\raw\004675.jpg,eval,"[3, 46, 374, 150]"
+4689,voc,18.0,train,voc\raw\004689.jpg,eval,"[16, 155, 477, 345]"
+4770,voc,14.0,person,voc\raw\004770.jpg,eval,"[83, 2, 335, 500]"
+4792,voc,7.0,cat,voc\raw\004792.jpg,eval,"[115, 135, 257, 336]"
+4816,voc,11.0,dog,voc\raw\004816.jpg,eval,"[113, 37, 365, 294]"
+4849,voc,18.0,train,voc\raw\004849.jpg,eval,"[143, 191, 250, 281]"
+4850,voc,6.0,car,voc\raw\004850.jpg,eval,"[245, 92, 405, 195]"
+4863,voc,6.0,car,voc\raw\004863.jpg,eval,"[61, 61, 421, 282]"
+4873,voc,6.0,car,voc\raw\004873.jpg,eval,"[8, 119, 371, 355]"
+4890,voc,6.0,car,voc\raw\004890.jpg,eval,"[56, 97, 454, 313]"
+4966,voc,2.0,bird,voc\raw\004966.jpg,eval,"[135, 130, 322, 276]"
+4972,voc,2.0,bird,voc\raw\004972.jpg,eval,"[115, 78, 344, 482]"
+4982,voc,0.0,aeroplane,voc\raw\004982.jpg,eval,"[5, 111, 500, 221]"
+4984,voc,8.0,chair,voc\raw\004984.jpg,eval,"[295, 34, 480, 213]"
+4999,voc,11.0,dog,voc\raw\004999.jpg,eval,"[157, 101, 307, 216]"
+5003,voc,6.0,car,voc\raw\005003.jpg,eval,"[188, 161, 251, 192]"
+5004,voc,17.0,sofa,voc\raw\005004.jpg,eval,"[137, 31, 454, 275]"
+5006,voc,2.0,bird,voc\raw\005006.jpg,eval,"[207, 392, 291, 453]"
+5007,voc,19.0,tvmonitor,voc\raw\005007.jpg,eval,"[116, 10, 390, 266]"
+5023,voc,2.0,bird,voc\raw\005023.jpg,eval,"[207, 266, 259, 339]"
+5056,voc,11.0,dog,voc\raw\005056.jpg,eval,"[43, 45, 242, 213]"
+5067,voc,6.0,car,voc\raw\005067.jpg,eval,"[400, 233, 441, 273]"
+5128,voc,3.0,boat,voc\raw\005128.jpg,eval,"[122, 138, 401, 206]"
+5168,voc,18.0,train,voc\raw\005168.jpg,eval,"[36, 116, 445, 229]"
+5202,voc,2.0,bird,voc\raw\005202.jpg,eval,"[65, 91, 356, 255]"
+5208,voc,14.0,person,voc\raw\005208.jpg,eval,"[111, 156, 231, 333]"
+5209,voc,6.0,car,voc\raw\005209.jpg,eval,"[82, 75, 416, 299]"
+5217,voc,3.0,boat,voc\raw\005217.jpg,eval,"[1, 214, 338, 334]"
+5290,voc,0.0,aeroplane,voc\raw\005290.jpg,eval,"[227, 121, 287, 181]"
+5293,voc,11.0,dog,voc\raw\005293.jpg,eval,"[99, 80, 184, 195]"
+5305,voc,6.0,car,voc\raw\005305.jpg,eval,"[74, 358, 266, 462]"
+5312,voc,7.0,cat,voc\raw\005312.jpg,eval,"[111, 53, 364, 366]"
+5320,voc,3.0,boat,voc\raw\005320.jpg,eval,"[374, 144, 480, 188]"
+5325,voc,3.0,boat,voc\raw\005325.jpg,eval,"[277, 250, 326, 309]"
+5337,voc,3.0,boat,voc\raw\005337.jpg,eval,"[284, 99, 357, 130]"
+5340,voc,3.0,boat,voc\raw\005340.jpg,eval,"[219, 18, 360, 238]"
+5350,voc,6.0,car,voc\raw\005350.jpg,eval,"[85, 140, 400, 249]"
+5352,voc,11.0,dog,voc\raw\005352.jpg,eval,"[137, 97, 237, 291]"
+5370,voc,3.0,boat,voc\raw\005370.jpg,eval,"[260, 156, 351, 178]"
+5405,voc,14.0,person,voc\raw\005405.jpg,eval,"[71, 151, 276, 401]"
+5406,voc,0.0,aeroplane,voc\raw\005406.jpg,eval,"[172, 126, 235, 187]"
+5408,voc,11.0,dog,voc\raw\005408.jpg,eval,"[87, 113, 335, 269]"
+5418,voc,9.0,cow,voc\raw\005418.jpg,eval,"[216, 97, 432, 312]"
+5584,voc,6.0,car,voc\raw\005584.jpg,eval,"[334, 192, 488, 319]"
+5586,voc,7.0,cat,voc\raw\005586.jpg,eval,"[116, 107, 212, 301]"
+5588,voc,6.0,car,voc\raw\005588.jpg,eval,"[150, 223, 266, 311]"
+5592,voc,6.0,car,voc\raw\005592.jpg,eval,"[122, 135, 277, 207]"
+5640,voc,6.0,car,voc\raw\005640.jpg,eval,"[107, 188, 245, 271]"
+5655,voc,0.0,aeroplane,voc\raw\005655.jpg,eval,"[134, 180, 287, 230]"
+5676,voc,15.0,pottedplant,voc\raw\005676.jpg,eval,"[134, 32, 388, 285]"
+5685,voc,18.0,train,voc\raw\005685.jpg,eval,"[48, 130, 300, 451]"
+5699,voc,3.0,boat,voc\raw\005699.jpg,eval,"[155, 217, 346, 310]"
+5705,voc,3.0,boat,voc\raw\005705.jpg,eval,"[62, 16, 246, 408]"
+5718,voc,8.0,chair,voc\raw\005718.jpg,eval,"[33, 233, 160, 385]"
+5742,voc,3.0,boat,voc\raw\005742.jpg,eval,"[422, 226, 472, 254]"
+5769,voc,7.0,cat,voc\raw\005769.jpg,eval,"[68, 162, 497, 343]"
+5780,voc,14.0,person,voc\raw\005780.jpg,eval,"[213, 111, 304, 197]"
+5817,voc,15.0,pottedplant,voc\raw\005817.jpg,eval,"[252, 2, 500, 370]"
+5828,voc,0.0,aeroplane,voc\raw\005828.jpg,eval,"[86, 62, 443, 210]"
+5831,voc,6.0,car,voc\raw\005831.jpg,eval,"[36, 147, 465, 344]"
+5851,voc,18.0,train,voc\raw\005851.jpg,eval,"[223, 155, 316, 190]"
+5868,voc,6.0,car,voc\raw\005868.jpg,eval,"[19, 134, 488, 324]"
+5878,voc,13.0,motorbike,voc\raw\005878.jpg,eval,"[100, 92, 323, 222]"
+5909,voc,2.0,bird,voc\raw\005909.jpg,eval,"[152, 124, 291, 333]"
+5912,voc,2.0,bird,voc\raw\005912.jpg,eval,"[245, 71, 345, 284]"
+5947,voc,16.0,sheep,voc\raw\005947.jpg,eval,"[90, 26, 323, 330]"
+5960,voc,7.0,cat,voc\raw\005960.jpg,eval,"[94, 284, 166, 370]"
+6027,voc,8.0,chair,voc\raw\006027.jpg,eval,"[150, 203, 198, 344]"
+6111,voc,9.0,cow,voc\raw\006111.jpg,eval,"[111, 89, 472, 301]"
+6134,voc,12.0,horse,voc\raw\006134.jpg,eval,"[125, 99, 442, 318]"
+6135,voc,18.0,train,voc\raw\006135.jpg,eval,"[221, 143, 266, 183]"
+6153,voc,18.0,train,voc\raw\006153.jpg,eval,"[242, 145, 306, 202]"
+6175,voc,14.0,person,voc\raw\006175.jpg,eval,"[207, 88, 295, 199]"
+6208,voc,0.0,aeroplane,voc\raw\006208.jpg,eval,"[2, 106, 499, 266]"
+6223,voc,6.0,car,voc\raw\006223.jpg,eval,"[128, 90, 426, 266]"
+6260,voc,7.0,cat,voc\raw\006260.jpg,eval,"[100, 56, 500, 233]"
+6264,voc,2.0,bird,voc\raw\006264.jpg,eval,"[193, 38, 339, 348]"
+6282,voc,14.0,person,voc\raw\006282.jpg,eval,"[119, 98, 312, 334]"
+6301,voc,6.0,car,voc\raw\006301.jpg,eval,"[408, 308, 453, 326]"
+6305,voc,7.0,cat,voc\raw\006305.jpg,eval,"[205, 77, 429, 375]"
+6314,voc,19.0,tvmonitor,voc\raw\006314.jpg,eval,"[103, 114, 354, 373]"
+6337,voc,11.0,dog,voc\raw\006337.jpg,eval,"[55, 111, 418, 318]"
+6350,voc,0.0,aeroplane,voc\raw\006350.jpg,eval,"[20, 68, 454, 228]"
+6377,voc,18.0,train,voc\raw\006377.jpg,eval,"[79, 117, 391, 282]"
+6382,voc,12.0,horse,voc\raw\006382.jpg,eval,"[3, 62, 295, 331]"
+6404,voc,9.0,cow,voc\raw\006404.jpg,eval,"[121, 232, 176, 270]"
+6437,voc,5.0,bus,voc\raw\006437.jpg,eval,"[164, 147, 281, 180]"
+6456,voc,11.0,dog,voc\raw\006456.jpg,eval,"[48, 36, 373, 313]"
+6468,voc,18.0,train,voc\raw\006468.jpg,eval,"[199, 129, 358, 247]"
+6523,voc,0.0,aeroplane,voc\raw\006523.jpg,eval,"[189, 186, 312, 230]"
+6538,voc,18.0,train,voc\raw\006538.jpg,eval,"[119, 94, 308, 258]"
+6543,voc,2.0,bird,voc\raw\006543.jpg,eval,"[174, 25, 309, 160]"
+6549,voc,3.0,boat,voc\raw\006549.jpg,eval,"[176, 20, 247, 68]"
+6553,voc,8.0,chair,voc\raw\006553.jpg,eval,"[160, 219, 351, 486]"
+6587,voc,14.0,person,voc\raw\006587.jpg,eval,"[213, 31, 288, 198]"
+6619,voc,0.0,aeroplane,voc\raw\006619.jpg,eval,"[110, 128, 222, 195]"
+6636,voc,0.0,aeroplane,voc\raw\006636.jpg,eval,"[26, 75, 355, 238]"
+6643,voc,2.0,bird,voc\raw\006643.jpg,eval,"[180, 39, 452, 375]"
+6657,voc,7.0,cat,voc\raw\006657.jpg,eval,"[190, 72, 341, 269]"
+6687,voc,4.0,bottle,voc\raw\006687.jpg,eval,"[358, 2, 426, 103]"
+6703,voc,14.0,person,voc\raw\006703.jpg,eval,"[89, 102, 223, 337]"
+6730,voc,18.0,train,voc\raw\006730.jpg,eval,"[5, 174, 465, 338]"
+6736,voc,6.0,car,voc\raw\006736.jpg,eval,"[102, 170, 282, 241]"
+6747,voc,13.0,motorbike,voc\raw\006747.jpg,eval,"[139, 3, 341, 334]"
+6814,voc,19.0,tvmonitor,voc\raw\006814.jpg,eval,"[1, 214, 471, 375]"
+6825,voc,2.0,bird,voc\raw\006825.jpg,eval,"[150, 54, 447, 278]"
+6838,voc,14.0,person,voc\raw\006838.jpg,eval,"[230, 35, 500, 332]"
+6952,voc,2.0,bird,voc\raw\006952.jpg,eval,"[161, 137, 256, 197]"
+6995,voc,8.0,chair,voc\raw\006995.jpg,eval,"[243, 174, 339, 339]"
+7029,voc,1.0,bicycle,voc\raw\007029.jpg,eval,"[372, 129, 500, 323]"
+7050,voc,7.0,cat,voc\raw\007050.jpg,eval,"[135, 93, 310, 332]"
+7084,voc,2.0,bird,voc\raw\007084.jpg,eval,"[157, 109, 389, 315]"
+7097,voc,0.0,aeroplane,voc\raw\007097.jpg,eval,"[31, 113, 422, 216]"
+7123,voc,18.0,train,voc\raw\007123.jpg,eval,"[86, 121, 281, 277]"
+7174,voc,13.0,motorbike,voc\raw\007174.jpg,eval,"[238, 186, 320, 271]"
+7197,voc,7.0,cat,voc\raw\007197.jpg,eval,"[92, 57, 364, 334]"
+7210,voc,19.0,tvmonitor,voc\raw\007210.jpg,eval,"[90, 1, 413, 156]"
+7224,voc,18.0,train,voc\raw\007224.jpg,eval,"[144, 107, 291, 221]"
+7249,voc,7.0,cat,voc\raw\007249.jpg,eval,"[74, 54, 352, 345]"
+7274,voc,0.0,aeroplane,voc\raw\007274.jpg,eval,"[1, 108, 497, 264]"
+7318,voc,14.0,person,voc\raw\007318.jpg,eval,"[21, 23, 46, 93]"
+7330,voc,14.0,person,voc\raw\007330.jpg,eval,"[124, 14, 487, 330]"
+7363,voc,6.0,car,voc\raw\007363.jpg,eval,"[32, 98, 419, 264]"
+7419,voc,7.0,cat,voc\raw\007419.jpg,eval,"[172, 66, 479, 339]"
+7424,voc,6.0,car,voc\raw\007424.jpg,eval,"[90, 61, 451, 270]"
+7481,voc,2.0,bird,voc\raw\007481.jpg,eval,"[61, 53, 362, 317]"
+7489,voc,11.0,dog,voc\raw\007489.jpg,eval,"[198, 42, 491, 372]"
+7523,voc,2.0,bird,voc\raw\007523.jpg,eval,"[248, 51, 498, 142]"
+7551,voc,1.0,bicycle,voc\raw\007551.jpg,eval,"[49, 65, 252, 485]"
+7603,voc,12.0,horse,voc\raw\007603.jpg,eval,"[206, 177, 337, 291]"
+7612,voc,11.0,dog,voc\raw\007612.jpg,eval,"[94, 189, 258, 500]"
+7618,voc,14.0,person,voc\raw\007618.jpg,eval,"[33, 51, 202, 500]"
+7654,voc,0.0,aeroplane,voc\raw\007654.jpg,eval,"[259, 78, 400, 247]"
+7663,voc,6.0,car,voc\raw\007663.jpg,eval,"[49, 94, 461, 296]"
+7672,voc,17.0,sofa,voc\raw\007672.jpg,eval,"[1, 166, 128, 316]"
+7678,voc,2.0,bird,voc\raw\007678.jpg,eval,"[78, 83, 420, 181]"
+7679,voc,1.0,bicycle,voc\raw\007679.jpg,eval,"[26, 236, 232, 325]"
+7702,voc,19.0,tvmonitor,voc\raw\007702.jpg,eval,"[381, 206, 460, 283]"
+7743,voc,3.0,boat,voc\raw\007743.jpg,eval,"[116, 149, 218, 275]"
+7758,voc,7.0,cat,voc\raw\007758.jpg,eval,"[54, 50, 196, 215]"
+7772,voc,9.0,cow,voc\raw\007772.jpg,eval,"[149, 87, 321, 270]"
+7847,voc,2.0,bird,voc\raw\007847.jpg,eval,"[170, 110, 465, 294]"
+7853,voc,2.0,bird,voc\raw\007853.jpg,eval,"[86, 177, 350, 452]"
+7864,voc,0.0,aeroplane,voc\raw\007864.jpg,eval,"[22, 64, 148, 148]"
+7876,voc,2.0,bird,voc\raw\007876.jpg,eval,"[226, 181, 316, 308]"
+7889,voc,14.0,person,voc\raw\007889.jpg,eval,"[290, 64, 424, 375]"
+7899,voc,4.0,bottle,voc\raw\007899.jpg,eval,"[227, 25, 255, 112]"
+7910,voc,14.0,person,voc\raw\007910.jpg,eval,"[316, 18, 465, 375]"
+7914,voc,2.0,bird,voc\raw\007914.jpg,eval,"[62, 114, 352, 414]"
+7954,voc,11.0,dog,voc\raw\007954.jpg,eval,"[28, 111, 380, 212]"
+7968,voc,11.0,dog,voc\raw\007968.jpg,eval,"[132, 1, 341, 287]"
+8029,voc,15.0,pottedplant,voc\raw\008029.jpg,eval,"[134, 14, 258, 195]"
+8032,voc,2.0,bird,voc\raw\008032.jpg,eval,"[166, 67, 472, 266]"
+8037,voc,6.0,car,voc\raw\008037.jpg,eval,"[147, 50, 461, 234]"
+8049,voc,19.0,tvmonitor,voc\raw\008049.jpg,eval,"[159, 15, 392, 255]"
+8075,voc,11.0,dog,voc\raw\008075.jpg,eval,"[1, 64, 298, 375]"
+8085,voc,2.0,bird,voc\raw\008085.jpg,eval,"[54, 173, 100, 219]"
+8093,voc,6.0,car,voc\raw\008093.jpg,eval,"[1, 284, 84, 375]"
+8121,voc,19.0,tvmonitor,voc\raw\008121.jpg,eval,"[77, 18, 243, 255]"
+8144,voc,8.0,chair,voc\raw\008144.jpg,eval,"[102, 238, 317, 450]"
+8168,voc,2.0,bird,voc\raw\008168.jpg,eval,"[34, 124, 242, 243]"
+8191,voc,12.0,horse,voc\raw\008191.jpg,eval,"[204, 167, 280, 227]"
+8211,voc,14.0,person,voc\raw\008211.jpg,eval,"[78, 182, 282, 500]"
+8222,voc,11.0,dog,voc\raw\008222.jpg,eval,"[49, 98, 276, 422]"
+8226,voc,2.0,bird,voc\raw\008226.jpg,eval,"[82, 1, 214, 165]"
+8235,voc,18.0,train,voc\raw\008235.jpg,eval,"[48, 127, 337, 284]"
+8299,voc,9.0,cow,voc\raw\008299.jpg,eval,"[113, 89, 304, 401]"
+8326,voc,0.0,aeroplane,voc\raw\008326.jpg,eval,"[19, 102, 479, 231]"
+8329,voc,6.0,car,voc\raw\008329.jpg,eval,"[54, 141, 369, 233]"
+8403,voc,7.0,cat,voc\raw\008403.jpg,eval,"[229, 17, 499, 385]"
+8425,voc,11.0,dog,voc\raw\008425.jpg,eval,"[322, 258, 496, 341]"
+8438,voc,2.0,bird,voc\raw\008438.jpg,eval,"[215, 137, 377, 287]"
+8442,voc,7.0,cat,voc\raw\008442.jpg,eval,"[231, 70, 387, 221]"
+8443,voc,2.0,bird,voc\raw\008443.jpg,eval,"[206, 98, 393, 310]"
+8454,voc,3.0,boat,voc\raw\008454.jpg,eval,"[2, 249, 375, 500]"
+8483,voc,6.0,car,voc\raw\008483.jpg,eval,"[202, 137, 348, 186]"
+8492,voc,18.0,train,voc\raw\008492.jpg,eval,"[153, 69, 496, 243]"
+8494,voc,5.0,bus,voc\raw\008494.jpg,eval,"[210, 143, 296, 230]"
+8512,voc,11.0,dog,voc\raw\008512.jpg,eval,"[209, 106, 318, 207]"
+8519,voc,2.0,bird,voc\raw\008519.jpg,eval,"[125, 41, 479, 282]"
+8556,voc,8.0,chair,voc\raw\008556.jpg,eval,"[284, 100, 500, 333]"
+8606,voc,11.0,dog,voc\raw\008606.jpg,eval,"[114, 75, 348, 360]"
+8635,voc,2.0,bird,voc\raw\008635.jpg,eval,"[154, 70, 479, 251]"
+8647,voc,14.0,person,voc\raw\008647.jpg,eval,"[1, 2, 465, 375]"
+8653,voc,12.0,horse,voc\raw\008653.jpg,eval,"[137, 27, 312, 454]"
+8654,voc,2.0,bird,voc\raw\008654.jpg,eval,"[40, 116, 259, 257]"
+8690,voc,14.0,person,voc\raw\008690.jpg,eval,"[147, 14, 337, 267]"
+8716,voc,6.0,car,voc\raw\008716.jpg,eval,"[196, 93, 361, 207]"
+8720,voc,7.0,cat,voc\raw\008720.jpg,eval,"[93, 235, 250, 386]"
+8727,voc,6.0,car,voc\raw\008727.jpg,eval,"[3, 249, 375, 500]"
+8756,voc,7.0,cat,voc\raw\008756.jpg,eval,"[210, 121, 289, 174]"
+8776,voc,2.0,bird,voc\raw\008776.jpg,eval,"[160, 38, 296, 314]"
+8796,voc,2.0,bird,voc\raw\008796.jpg,eval,"[189, 155, 289, 203]"
+8809,voc,7.0,cat,voc\raw\008809.jpg,eval,"[38, 40, 443, 221]"
+8823,voc,17.0,sofa,voc\raw\008823.jpg,eval,"[58, 114, 500, 290]"
+8826,voc,6.0,car,voc\raw\008826.jpg,eval,"[346, 188, 500, 336]"
+8847,voc,0.0,aeroplane,voc\raw\008847.jpg,eval,"[115, 45, 292, 270]"
+8858,voc,2.0,bird,voc\raw\008858.jpg,eval,"[209, 60, 378, 302]"
+8872,voc,14.0,person,voc\raw\008872.jpg,eval,"[130, 126, 244, 270]"
+8878,voc,18.0,train,voc\raw\008878.jpg,eval,"[173, 138, 383, 196]"
+8890,voc,11.0,dog,voc\raw\008890.jpg,eval,"[110, 154, 358, 249]"
+8926,voc,2.0,bird,voc\raw\008926.jpg,eval,"[231, 98, 370, 313]"
+8939,voc,6.0,car,voc\raw\008939.jpg,eval,"[409, 233, 500, 312]"
+8955,voc,19.0,tvmonitor,voc\raw\008955.jpg,eval,"[61, 160, 307, 362]"
+8978,voc,6.0,car,voc\raw\008978.jpg,eval,"[212, 146, 491, 358]"
+8988,voc,18.0,train,voc\raw\008988.jpg,eval,"[2, 95, 375, 329]"
+8995,voc,1.0,bicycle,voc\raw\008995.jpg,eval,"[31, 381, 121, 439]"
+9029,voc,6.0,car,voc\raw\009029.jpg,eval,"[49, 46, 280, 147]"
+9037,voc,5.0,bus,voc\raw\009037.jpg,eval,"[325, 166, 500, 257]"
+9042,voc,11.0,dog,voc\raw\009042.jpg,eval,"[116, 92, 406, 194]"
+9059,voc,5.0,bus,voc\raw\009059.jpg,eval,"[97, 85, 314, 187]"
+9112,voc,11.0,dog,voc\raw\009112.jpg,eval,"[35, 57, 361, 298]"
+9162,voc,8.0,chair,voc\raw\009162.jpg,eval,"[220, 64, 461, 331]"
+9168,voc,11.0,dog,voc\raw\009168.jpg,eval,"[151, 64, 387, 333]"
+9195,voc,11.0,dog,voc\raw\009195.jpg,eval,"[101, 51, 257, 419]"
+9246,voc,2.0,bird,voc\raw\009246.jpg,eval,"[97, 36, 354, 206]"
+9268,voc,11.0,dog,voc\raw\009268.jpg,eval,"[127, 123, 369, 377]"
+9269,voc,6.0,car,voc\raw\009269.jpg,eval,"[100, 167, 404, 327]"
+9272,voc,0.0,aeroplane,voc\raw\009272.jpg,eval,"[14, 69, 487, 219]"
+9296,voc,14.0,person,voc\raw\009296.jpg,eval,"[125, 155, 206, 375]"
+9325,voc,19.0,tvmonitor,voc\raw\009325.jpg,eval,"[118, 1, 262, 149]"
+9326,voc,6.0,car,voc\raw\009326.jpg,eval,"[101, 109, 314, 211]"
+9429,voc,9.0,cow,voc\raw\009429.jpg,eval,"[205, 197, 316, 240]"
+9445,voc,19.0,tvmonitor,voc\raw\009445.jpg,eval,"[89, 57, 203, 143]"
+9446,voc,19.0,tvmonitor,voc\raw\009446.jpg,eval,"[15, 47, 252, 298]"
+9466,voc,8.0,chair,voc\raw\009466.jpg,eval,"[157, 220, 398, 436]"
+9472,voc,0.0,aeroplane,voc\raw\009472.jpg,eval,"[160, 78, 496, 220]"
+9476,voc,0.0,aeroplane,voc\raw\009476.jpg,eval,"[47, 114, 479, 278]"
+9488,voc,2.0,bird,voc\raw\009488.jpg,eval,"[124, 89, 334, 404]"
+9508,voc,18.0,train,voc\raw\009508.jpg,eval,"[175, 318, 228, 385]"
+9523,voc,0.0,aeroplane,voc\raw\009523.jpg,eval,"[125, 150, 231, 252]"
+9551,voc,14.0,person,voc\raw\009551.jpg,eval,"[214, 126, 426, 359]"
+9566,voc,2.0,bird,voc\raw\009566.jpg,eval,"[146, 150, 304, 232]"
+9588,voc,18.0,train,voc\raw\009588.jpg,eval,"[1, 144, 401, 228]"
+9619,voc,11.0,dog,voc\raw\009619.jpg,eval,"[210, 137, 306, 251]"
+9623,voc,6.0,car,voc\raw\009623.jpg,eval,"[149, 52, 454, 232]"
+9681,voc,0.0,aeroplane,voc\raw\009681.jpg,eval,"[6, 94, 442, 262]"
+9685,voc,5.0,bus,voc\raw\009685.jpg,eval,"[53, 147, 488, 357]"
+9700,voc,16.0,sheep,voc\raw\009700.jpg,eval,"[140, 88, 387, 242]"
+9729,voc,6.0,car,voc\raw\009729.jpg,eval,"[104, 61, 373, 259]"
+9738,voc,14.0,person,voc\raw\009738.jpg,eval,"[187, 255, 311, 474]"
+9743,voc,7.0,cat,voc\raw\009743.jpg,eval,"[150, 165, 342, 220]"
+9785,voc,6.0,car,voc\raw\009785.jpg,eval,"[75, 63, 394, 320]"
+9805,voc,7.0,cat,voc\raw\009805.jpg,eval,"[97, 133, 392, 276]"
+9807,voc,12.0,horse,voc\raw\009807.jpg,eval,"[191, 61, 474, 332]"
+9825,voc,8.0,chair,voc\raw\009825.jpg,eval,"[90, 280, 144, 359]"
+9834,voc,6.0,car,voc\raw\009834.jpg,eval,"[88, 75, 449, 280]"
+9852,voc,7.0,cat,voc\raw\009852.jpg,eval,"[153, 121, 482, 375]"
+9868,voc,14.0,person,voc\raw\009868.jpg,eval,"[73, 139, 234, 415]"
+9896,voc,7.0,cat,voc\raw\009896.jpg,eval,"[139, 134, 372, 323]"
+9913,voc,6.0,car,voc\raw\009913.jpg,eval,"[40, 82, 447, 261]"
+8173,voc,,train,voc\raw\008173.jpg,debug,"[112, 150, 500, 237]"
+8927,voc,,cow,voc\raw\008927.jpg,debug,"[203, 238, 266, 317]"
+5803,voc,,diningtable,voc\raw\005803.jpg,debug,"[67, 156, 433, 273]"
+39,voc,,tvmonitor,voc\raw\000039.jpg,debug,"[156, 89, 344, 279]"
+1686,voc,,person,voc\raw\001686.jpg,debug,"[112, 168, 206, 500]"
+5544,voc,,train,voc\raw\005544.jpg,debug,"[79, 188, 288, 310]"
+3784,voc,,bicycle,voc\raw\003784.jpg,debug,"[32, 232, 311, 407]"
+6304,voc,,boat,voc\raw\006304.jpg,debug,"[321, 197, 357, 252]"
+158,voc,,bird,voc\raw\000158.jpg,debug,"[196, 83, 267, 207]"
+9571,voc,,aeroplane,voc\raw\009571.jpg,debug,"[88, 243, 249, 302]"
+4263,voc,,bird,voc\raw\004263.jpg,debug,"[76, 112, 366, 328]"
+9735,voc,,chair,voc\raw\009735.jpg,debug,"[54, 365, 100, 429]"
+2260,voc,,motorbike,voc\raw\002260.jpg,debug,"[107, 61, 447, 287]"
+605,voc,,car,voc\raw\000605.jpg,debug,"[321, 175, 386, 192]"
+12,voc,,car,voc\raw\000012.jpg,debug,"[156, 97, 351, 270]"
+6335,voc,,bottle,voc\raw\006335.jpg,debug,"[290, 28, 367, 298]"
+7467,voc,,train,voc\raw\007467.jpg,debug,"[2, 124, 284, 208]"
+8923,voc,,car,voc\raw\008923.jpg,debug,"[15, 31, 366, 176]"
+6070,voc,,bird,voc\raw\006070.jpg,debug,"[1, 179, 338, 500]"
+9350,voc,,car,voc\raw\009350.jpg,debug,"[8, 289, 336, 475]"
+6136,voc,,sheep,voc\raw\006136.jpg,debug,"[54, 183, 166, 262]"
+8919,voc,,horse,voc\raw\008919.jpg,debug,"[87, 79, 249, 205]"
+6252,voc,,dog,voc\raw\006252.jpg,debug,"[136, 86, 486, 303]"
+9348,voc,,aeroplane,voc\raw\009348.jpg,debug,"[145, 90, 363, 209]"
+9185,voc,,dog,voc\raw\009185.jpg,debug,"[140, 64, 433, 322]"
+6219,voc,,dog,voc\raw\006219.jpg,debug,"[186, 96, 365, 312]"
+1273,voc,,bird,voc\raw\001273.jpg,debug,"[53, 132, 392, 419]"
+563,voc,,boat,voc\raw\000563.jpg,debug,"[164, 165, 450, 210]"
+9524,voc,,person,voc\raw\009524.jpg,debug,"[316, 84, 376, 193]"
+6067,voc,,aeroplane,voc\raw\006067.jpg,debug,"[41, 184, 291, 257]"
+5407,voc,,train,voc\raw\005407.jpg,debug,"[157, 234, 182, 266]"
+7863,voc,,cat,voc\raw\007863.jpg,debug,"[201, 140, 440, 296]"
+6162,voc,,aeroplane,voc\raw\006162.jpg,debug,"[38, 100, 445, 215]"
+9754,voc,,person,voc\raw\009754.jpg,debug,"[178, 124, 421, 328]"
+1934,voc,,cat,voc\raw\001934.jpg,debug,"[36, 55, 239, 262]"
+867,voc,,pottedplant,voc\raw\000867.jpg,debug,"[172, 96, 230, 191]"
+6470,voc,,bird,voc\raw\006470.jpg,debug,"[192, 133, 287, 324]"
+9707,voc,,cat,voc\raw\009707.jpg,debug,"[79, 130, 274, 249]"
+7921,voc,,car,voc\raw\007921.jpg,debug,"[58, 257, 234, 351]"
+6947,voc,,tvmonitor,voc\raw\006947.jpg,debug,"[152, 81, 428, 347]"
