@@ -1,0 +1,10 @@
+# XAI01-04 试跑（2080 Ti）实测环境依赖
+# Python 3.13；版本为本次试跑实测，非全组正式 requirements.txt（正式版由实验负责人锁定）
+torch==2.8.0
+torchvision==0.23.0
+captum==0.9.0
+diffusers==0.40.0          # 仅 P5 MA-GIG 的 SD VAE（stabilityai/sd-vae-ft-mse）需要
+numpy==2.4.4
+Pillow==12.1.1
+psutil==6.1.1
+pynvml==11.5.3

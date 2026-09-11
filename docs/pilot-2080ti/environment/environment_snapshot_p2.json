@@ -1,0 +1,134 @@
+{
+  "arguments": {
+    "allow_cpu": false,
+    "cost_curve": false,
+    "cost_image_index": 0,
+    "cost_model": "resnet50",
+    "cost_records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/cost_curve_records.jsonl",
+    "cost_summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/cost_curve_summary.json",
+    "dataset": "voc2007",
+    "datasets": [
+      "voc2007",
+      "chncxr_shenzhen"
+    ],
+    "device": "cuda",
+    "evaluate": true,
+    "faith_batch": 8,
+    "faith_steps": 20,
+    "global_deadline_sec": 2400.0,
+    "internal_batch_size": 16,
+    "max_images": 16,
+    "methods": [
+      "gradcam",
+      "kernelshap",
+      "ig",
+      "rise",
+      "ablation",
+      "lime"
+    ],
+    "models": [
+      "resnet50",
+      "vgg16",
+      "densenet121"
+    ],
+    "recheck": false,
+    "recheck_records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/recheck_records.jsonl",
+    "recheck_summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/recheck_summary.json",
+    "records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/eval_records.jsonl",
+    "replicates": 3,
+    "report": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/eval_report.md",
+    "resume": true,
+    "seed": 20260911,
+    "sigma": 0.01,
+    "stability_k": 2,
+    "summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/eval_summary.json",
+    "task_timeout_sec": 180.0
+  },
+  "command": "pilot_eval.py --evaluate --resume --max-images 16 --global-deadline-sec 2400 --task-timeout-sec 180",
+  "datasets": [
+    "voc2007",
+    "chncxr_shenzhen"
+  ],
+  "elapsed_wall_sec": 898.4925060669993,
+  "environment": {
+    "cpu": "",
+    "cpu_count": 12,
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cwd": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911",
+    "device": "cuda",
+    "gpu_capability": "7.5",
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_total_mib": 10826.625,
+    "host": "desktop",
+    "platform": "Linux-7.2.3-arch1-2-x86_64-with-glibc2.44",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]",
+    "python_executable": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/.venv/bin/python",
+    "ram_total_mib": 48098.640625,
+    "torch_cuda_runtime": "12.8",
+    "torch_version": "2.8.0",
+    "torchvision_version": "0.23.0"
+  },
+  "finished_utc": "2026-09-11T14:03:02.887349+00:00",
+  "generated_utc": "2026-09-11T13:48:04.533868+00:00",
+  "max_images": 16,
+  "methods": [
+    "gradcam",
+    "kernelshap",
+    "ig",
+    "rise",
+    "ablation",
+    "lime"
+  ],
+  "models": [
+    "resnet50",
+    "vgg16",
+    "densenet121"
+  ],
+  "models_loaded": {
+    "densenet121": {
+      "load_error": null,
+      "model": "densenet121",
+      "model_load_wall_sec": 0.17031142699943302,
+      "target_class": 217,
+      "target_layer": "features.denseblock4.denselayer16.conv2",
+      "target_score": 0.4417666494846344,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/densenet121-a639ec97.pth",
+      "weights_sha256": "a639ec97d7c33b07ae66f0b5fb7d0192f95a3b11b7576c66c0126c2a727c4395",
+      "weights_source": "https://download.pytorch.org/models/densenet121-a639ec97.pth",
+      "weights_status": "official_pretrained"
+    },
+    "resnet50": {
+      "load_error": null,
+      "model": "resnet50",
+      "model_load_wall_sec": 0.407019145999584,
+      "target_class": 156,
+      "target_layer": "layer4.2.conv3",
+      "target_score": 0.6594837307929993,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/resnet50-11ad3fa6.pth",
+      "weights_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+      "weights_source": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+      "weights_status": "official_pretrained"
+    },
+    "vgg16": {
+      "load_error": null,
+      "model": "vgg16",
+      "model_load_wall_sec": 0.7711105319995113,
+      "target_class": 156,
+      "target_layer": "features.28",
+      "target_score": 0.8975319266319275,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/vgg16-397923af.pth",
+      "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+      "weights_source": "https://download.pytorch.org/models/vgg16-397923af.pth",
+      "weights_status": "official_pretrained"
+    }
+  },
+  "quality_scope": "ood_pipeline_diagnostic",
+  "rows_written": 576,
+  "run_id": "p2-20260911T134804Z-5c9171f06874cc51",
+  "seed": 20260911,
+  "sigma": 0.01,
+  "stability_k": 2,
+  "stage": "P2_small_end_to_end_evaluation"
+}

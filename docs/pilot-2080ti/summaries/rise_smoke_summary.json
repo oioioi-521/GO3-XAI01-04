@@ -1,0 +1,158 @@
+{
+  "environment": {
+    "cpu": "",
+    "cpu_count": 12,
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cwd": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911",
+    "device": "cuda",
+    "gpu_capability": "7.5",
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_total_mib": 10826.625,
+    "host": "desktop",
+    "platform": "Linux-7.2.3-arch1-2-x86_64-with-glibc2.44",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]",
+    "python_executable": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/.venv/bin/python",
+    "ram_total_mib": 48098.640625,
+    "torch_cuda_runtime": "12.8",
+    "torch_version": "2.8.0",
+    "torchvision_version": "0.23.0"
+  },
+  "generated_utc": "2026-09-11T13:37:19.212643+00:00",
+  "rows": [
+    {
+      "attribution_cuda_event_sec_mean": 0.012026016235351562,
+      "attribution_wall_sec_max": 0.012077991000296606,
+      "attribution_wall_sec_mean": 0.012077991000296606,
+      "attribution_wall_sec_min": 0.012077991000296606,
+      "cpu_rss_peak_mib_max": 1169.13671875,
+      "cuda_allocated_peak_mib_max": 304.18701171875,
+      "cuda_reserved_peak_mib_max": 328.0,
+      "forward_calls_mean": 1.0,
+      "forward_samples_mean": 1.0,
+      "gpu_mem_used_peak_mib_max": 3001.8125,
+      "gpu_util_mean_percent_mean": 2.0,
+      "io_sec_mean": 0.0006641850000050908,
+      "method": "gradcam",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    },
+    {
+      "attribution_cuda_event_sec_mean": 0.034164737701416016,
+      "attribution_wall_sec_max": 0.03420624999989741,
+      "attribution_wall_sec_mean": 0.03420624999989741,
+      "attribution_wall_sec_min": 0.03420624999989741,
+      "cpu_rss_peak_mib_max": 1431.609375,
+      "cuda_allocated_peak_mib_max": 205.1884765625,
+      "cuda_reserved_peak_mib_max": 226.0,
+      "forward_calls_mean": 2.0,
+      "forward_samples_mean": 16.0,
+      "gpu_mem_used_peak_mib_max": 2899.8125,
+      "gpu_util_mean_percent_mean": 5.0,
+      "io_sec_mean": 0.0007771209998281847,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    },
+    {
+      "attribution_cuda_event_sec_mean": 0.019616064071655274,
+      "attribution_wall_sec_max": 0.0196601229999942,
+      "attribution_wall_sec_mean": 0.0196601229999942,
+      "attribution_wall_sec_min": 0.0196601229999942,
+      "cpu_rss_peak_mib_max": 1452.94921875,
+      "cuda_allocated_peak_mib_max": 469.11865234375,
+      "cuda_reserved_peak_mib_max": 496.0,
+      "forward_calls_mean": 1.0,
+      "forward_samples_mean": 4.0,
+      "gpu_mem_used_peak_mib_max": 3173.8125,
+      "gpu_util_mean_percent_mean": 5.0,
+      "io_sec_mean": 0.0005915370002185227,
+      "method": "ig",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    },
+    {
+      "attribution_cuda_event_sec_mean": 0.027759071350097655,
+      "attribution_wall_sec_max": 0.027983375000076194,
+      "attribution_wall_sec_mean": 0.027983375000076194,
+      "attribution_wall_sec_min": 0.027983375000076194,
+      "cpu_rss_peak_mib_max": 1453.25390625,
+      "cuda_allocated_peak_mib_max": 202.86669921875,
+      "cuda_reserved_peak_mib_max": 246.0,
+      "forward_calls_mean": 2.0,
+      "forward_samples_mean": 16.0,
+      "gpu_mem_used_peak_mib_max": 2923.8125,
+      "gpu_util_mean_percent_mean": 5.0,
+      "io_sec_mean": 0.0005928850000600505,
+      "method": "rise",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    },
+    {
+      "attribution_cuda_event_sec_mean": 0.07433404541015624,
+      "attribution_wall_sec_max": 0.07438788499985094,
+      "attribution_wall_sec_mean": 0.07438788499985094,
+      "attribution_wall_sec_min": 0.07438788499985094,
+      "cpu_rss_peak_mib_max": 1485.62109375,
+      "cuda_allocated_peak_mib_max": 208.8212890625,
+      "cuda_reserved_peak_mib_max": 252.0,
+      "forward_calls_mean": 8.0,
+      "forward_samples_mean": 50.0,
+      "gpu_mem_used_peak_mib_max": 2929.8125,
+      "gpu_util_mean_percent_mean": 5.0,
+      "io_sec_mean": 0.0007491370001844189,
+      "method": "ablation",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    },
+    {
+      "attribution_cuda_event_sec_mean": 0.030494815826416017,
+      "attribution_wall_sec_max": 0.03054845699989528,
+      "attribution_wall_sec_mean": 0.03054845699989528,
+      "attribution_wall_sec_min": 0.03054845699989528,
+      "cpu_rss_peak_mib_max": 1562.75,
+      "cuda_allocated_peak_mib_max": 205.1962890625,
+      "cuda_reserved_peak_mib_max": 226.0,
+      "forward_calls_mean": 2.0,
+      "forward_samples_mean": 16.0,
+      "gpu_mem_used_peak_mib_max": 2903.8125,
+      "gpu_util_mean_percent_mean": 5.0,
+      "io_sec_mean": 0.0007457060000888305,
+      "method": "lime",
+      "model": "resnet50",
+      "quality_scope": "synthetic_calibration_timing_only",
+      "replicates_ok": 1,
+      "replicates_seen": 1,
+      "statuses": {
+        "ok": 1
+      }
+    }
+  ],
+  "scope": "synthetic_calibration_timing_only"
+}

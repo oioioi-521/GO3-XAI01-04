@@ -1,0 +1,93 @@
+{
+  "arguments": {
+    "cost": false,
+    "cost_image_index": 0,
+    "cost_model": "resnet50",
+    "cost_records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/frontier_cost_records.jsonl",
+    "cost_summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/frontier_cost_summary.json",
+    "dataset": "voc2007",
+    "datasets": [
+      "voc2007",
+      "chncxr_shenzhen"
+    ],
+    "device": "cuda",
+    "faith_batch": 8,
+    "faith_steps": 20,
+    "fourier_grid": 7,
+    "fourier_samples": 512,
+    "fourier_topk": 64,
+    "global_deadline_sec": 2400.0,
+    "ma_gig_fraction": 0.1,
+    "ma_gig_slerp": false,
+    "ma_gig_steps": 32,
+    "matrix": true,
+    "max_images": 8,
+    "methods": [
+      "ma_gig",
+      "fourier_shap"
+    ],
+    "models": [
+      "resnet50",
+      "vgg16",
+      "densenet121"
+    ],
+    "records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/frontier_records.jsonl",
+    "report": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/frontier_report.md",
+    "resume": true,
+    "seed": 20260911,
+    "sigma": 0.01,
+    "stability_k": 2,
+    "summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/frontier_summary.json",
+    "task_timeout_sec": 600.0
+  },
+  "command": "pilot_frontier.py --matrix --resume --max-images 8 --ma-gig-steps 32 --fourier-samples 512 --stability-k 2 --global-deadline-sec 2400 --task-timeout-sec 600",
+  "datasets": [
+    "voc2007",
+    "chncxr_shenzhen"
+  ],
+  "elapsed_wall_sec": 720.9978091860003,
+  "environment": {
+    "cpu": "",
+    "cpu_count": 12,
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cwd": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911",
+    "device": "cuda",
+    "gpu_capability": "7.5",
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_total_mib": 10826.625,
+    "host": "desktop",
+    "platform": "Linux-7.2.3-arch1-2-x86_64-with-glibc2.44",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]",
+    "python_executable": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/.venv/bin/python",
+    "ram_total_mib": 48098.640625,
+    "torch_cuda_runtime": "12.8",
+    "torch_version": "2.8.0",
+    "torchvision_version": "0.23.0"
+  },
+  "finished_utc": "2026-09-11T14:43:30.073054+00:00",
+  "fourier_grid": 7,
+  "fourier_samples": 512,
+  "fourier_topk": 64,
+  "frontier_scope": "frontier_pilot_approximation",
+  "generated_utc": "2026-09-11T14:31:29.211379+00:00",
+  "ma_gig_fraction": 0.1,
+  "ma_gig_slerp": false,
+  "ma_gig_steps": 32,
+  "max_images": 8,
+  "methods": [
+    "ma_gig",
+    "fourier_shap"
+  ],
+  "models": [
+    "resnet50",
+    "vgg16",
+    "densenet121"
+  ],
+  "quality_scope": "ood_pipeline_diagnostic",
+  "run_id": "frontier-20260911T143129Z-5c9171f06874cc51",
+  "sigma": 0.01,
+  "stage": "frontier_pilot",
+  "vae_loaded": true
+}

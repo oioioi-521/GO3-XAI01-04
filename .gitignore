@@ -24,3 +24,18 @@ models/*.pth
 Thumbs.db
 .idea/
 .vscode/
+
+# 2080 Ti 试跑运行产物(脚本默认在 experiments/pilot-2080ti/ 下生成,不入库)
+# 只入库:脚本、data_manifest.json、docs/pilot-2080ti/ 下的报告与聚合表
+experiments/pilot-2080ti/*.jsonl
+experiments/pilot-2080ti/*.log
+experiments/pilot-2080ti/*.csv
+experiments/pilot-2080ti/*_report.md
+experiments/pilot-2080ti/*_summary.json
+experiments/pilot-2080ti/environment_snapshot*.json
+experiments/pilot-2080ti/weights_cache/
+experiments/pilot-2080ti/vae_cache/
+experiments/pilot-2080ti/mpl_cache/
+experiments/pilot-2080ti/artifacts/
+experiments/pilot-2080ti/__pycache__/
+experiments/pilot-2080ti/data/

@@ -1,0 +1,606 @@
+{
+  "generated_utc": "2026-09-11T14:05:20.634283+00:00",
+  "rows": [
+    {
+      "attribution_wall_sec_mean": 0.6058728926667148,
+      "attribution_wall_sec_std": 0.014785837164726487,
+      "attribution_wall_sec_values": [
+        0.6266730509996705,
+        0.5973292970002149,
+        0.593616330000259
+      ],
+      "cross_seed_cosine_mean": 0.9987673837863068,
+      "cross_seed_cosine_min": 0.9986807803873207,
+      "cross_seed_cosine_values": [
+        0.9989260703266175,
+        0.9986953006449825,
+        0.9986807803873207
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "000246",
+      "status": "ok",
+      "target_class": 156,
+      "utc": "2026-09-11T14:04:31.336179+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5973652426667589,
+      "attribution_wall_sec_std": 0.001177486414573658,
+      "attribution_wall_sec_values": [
+        0.5978068690001237,
+        0.5985349100001258,
+        0.5957539490000272
+      ],
+      "cross_seed_cosine_mean": 0.9984978437478086,
+      "cross_seed_cosine_min": 0.9984248649434807,
+      "cross_seed_cosine_values": [
+        0.9984248649434807,
+        0.9985447452316293,
+        0.9985239210683161
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001444",
+      "status": "ok",
+      "target_class": 831,
+      "utc": "2026-09-11T14:04:33.152539+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5967267120001148,
+      "attribution_wall_sec_std": 0.0010495433112118438,
+      "attribution_wall_sec_values": [
+        0.5974750639998092,
+        0.5952424510005585,
+        0.5974626209999769
+      ],
+      "cross_seed_cosine_mean": 0.9986145819080745,
+      "cross_seed_cosine_min": 0.998332892369336,
+      "cross_seed_cosine_values": [
+        0.998332892369336,
+        0.9990316795099593,
+        0.9984791738449283
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001501",
+      "status": "ok",
+      "target_class": 880,
+      "utc": "2026-09-11T14:04:34.964177+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.598805850999876,
+      "attribution_wall_sec_std": 0.0036007830825903076,
+      "attribution_wall_sec_values": [
+        0.603387094000027,
+        0.5945897120000154,
+        0.5984407469995858
+      ],
+      "cross_seed_cosine_mean": 0.9985868223161959,
+      "cross_seed_cosine_min": 0.9982413701185481,
+      "cross_seed_cosine_values": [
+        0.9987291633888207,
+        0.9982413701185481,
+        0.9987899334412189
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002249",
+      "status": "ok",
+      "target_class": 339,
+      "utc": "2026-09-11T14:04:36.786011+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5990152693332979,
+      "attribution_wall_sec_std": 0.0033997308370769925,
+      "attribution_wall_sec_values": [
+        0.595798287999969,
+        0.5975293249994138,
+        0.6037181950005106
+      ],
+      "cross_seed_cosine_mean": 0.998545813057257,
+      "cross_seed_cosine_min": 0.9984685439674547,
+      "cross_seed_cosine_values": [
+        0.9984685439674547,
+        0.9986675195210483,
+        0.998501375683268
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002836",
+      "status": "ok",
+      "target_class": 99,
+      "utc": "2026-09-11T14:04:38.605351+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5974487136669874,
+      "attribution_wall_sec_std": 0.0028511043206491202,
+      "attribution_wall_sec_values": [
+        0.5947415090004142,
+        0.6013900710004236,
+        0.5962145610001244
+      ],
+      "cross_seed_cosine_mean": 0.9990806289824588,
+      "cross_seed_cosine_min": 0.998849976901688,
+      "cross_seed_cosine_values": [
+        0.998849976901688,
+        0.9993316626576475,
+        0.9990602473880408
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004113",
+      "status": "ok",
+      "target_class": 195,
+      "utc": "2026-09-11T14:04:40.422829+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5981024533330128,
+      "attribution_wall_sec_std": 0.0010396317693537876,
+      "attribution_wall_sec_values": [
+        0.5966705869996076,
+        0.5991074719995595,
+        0.5985293009998713
+      ],
+      "cross_seed_cosine_mean": 0.9987393934896766,
+      "cross_seed_cosine_min": 0.9986152822357159,
+      "cross_seed_cosine_values": [
+        0.9987890752819801,
+        0.9986152822357159,
+        0.9988138229513338
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004386",
+      "status": "ok",
+      "target_class": 817,
+      "utc": "2026-09-11T14:04:42.243897+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.5989685543333204,
+      "attribution_wall_sec_std": 0.00224853289098329,
+      "attribution_wall_sec_values": [
+        0.5980659830001969,
+        0.6020604599998478,
+        0.5967792199999167
+      ],
+      "cross_seed_cosine_mean": 0.9988593242607244,
+      "cross_seed_cosine_min": 0.9985682532533596,
+      "cross_seed_cosine_values": [
+        0.9988344224482435,
+        0.9985682532533596,
+        0.9991752970805698
+      ],
+      "dataset": "voc2007",
+      "method": "rise",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "005283",
+      "status": "ok",
+      "target_class": 911,
+      "utc": "2026-09-11T14:04:44.064258+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.9237788266664211,
+      "attribution_wall_sec_std": 0.312669275289122,
+      "attribution_wall_sec_values": [
+        1.3659549730000435,
+        0.7045087950000379,
+        0.7008727119991818
+      ],
+      "cross_seed_cosine_mean": 0.5224631605176353,
+      "cross_seed_cosine_min": 0.4255397564704884,
+      "cross_seed_cosine_values": [
+        0.4255397564704884,
+        0.5771330969442626,
+        0.5647166281381548
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "000246",
+      "status": "ok",
+      "target_class": 156,
+      "utc": "2026-09-11T14:04:46.976001+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7219816529999056,
+      "attribution_wall_sec_std": 0.01170385363208441,
+      "attribution_wall_sec_values": [
+        0.7062070129995845,
+        0.7255283699996653,
+        0.7342095760004668
+      ],
+      "cross_seed_cosine_mean": 0.4240730529800827,
+      "cross_seed_cosine_min": 0.3443295130457331,
+      "cross_seed_cosine_values": [
+        0.3443295130457331,
+        0.4383134687722721,
+        0.4895761771222429
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001444",
+      "status": "ok",
+      "target_class": 831,
+      "utc": "2026-09-11T14:04:49.232654+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7070104326670238,
+      "attribution_wall_sec_std": 0.00422989933826954,
+      "attribution_wall_sec_values": [
+        0.7097746090003056,
+        0.7102226420001898,
+        0.7010340470005758
+      ],
+      "cross_seed_cosine_mean": 0.3069165801247265,
+      "cross_seed_cosine_min": 0.1745711294719776,
+      "cross_seed_cosine_values": [
+        0.3790260880313354,
+        0.3671525228708665,
+        0.1745711294719776
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001501",
+      "status": "ok",
+      "target_class": 880,
+      "utc": "2026-09-11T14:04:51.442994+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7068731313335471,
+      "attribution_wall_sec_std": 0.0020272683000615043,
+      "attribution_wall_sec_values": [
+        0.7083765190000122,
+        0.7040072959998724,
+        0.7082355790007568
+      ],
+      "cross_seed_cosine_mean": 0.18126590235282247,
+      "cross_seed_cosine_min": 0.09445668143453965,
+      "cross_seed_cosine_values": [
+        0.13224097350162067,
+        0.31710005212230713,
+        0.09445668143453965
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002249",
+      "status": "ok",
+      "target_class": 339,
+      "utc": "2026-09-11T14:04:53.658670+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.705893775666785,
+      "attribution_wall_sec_std": 0.004276191267894785,
+      "attribution_wall_sec_values": [
+        0.7000217590002649,
+        0.7100820949999616,
+        0.7075774730001285
+      ],
+      "cross_seed_cosine_mean": 0.7335953967881502,
+      "cross_seed_cosine_min": 0.6683529887278775,
+      "cross_seed_cosine_values": [
+        0.7792654662597084,
+        0.6683529887278775,
+        0.753167735376865
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002836",
+      "status": "ok",
+      "target_class": 99,
+      "utc": "2026-09-11T14:04:55.866490+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7050290360002691,
+      "attribution_wall_sec_std": 0.0024688842181189883,
+      "attribution_wall_sec_values": [
+        0.7077637130005314,
+        0.701781740000115,
+        0.705541655000161
+      ],
+      "cross_seed_cosine_mean": 0.20926063068295478,
+      "cross_seed_cosine_min": 0.09568465872657007,
+      "cross_seed_cosine_values": [
+        0.3538403847368307,
+        0.09568465872657007,
+        0.1782568485854636
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004113",
+      "status": "ok",
+      "target_class": 195,
+      "utc": "2026-09-11T14:04:58.078564+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7060806096666662,
+      "attribution_wall_sec_std": 0.0028563944563818637,
+      "attribution_wall_sec_values": [
+        0.7043761320001067,
+        0.710104527999647,
+        0.703761169000245
+      ],
+      "cross_seed_cosine_mean": 0.3684930498724404,
+      "cross_seed_cosine_min": 0.3110994990817901,
+      "cross_seed_cosine_values": [
+        0.3110994990817901,
+        0.42104027279501605,
+        0.3733393777405151
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004386",
+      "status": "ok",
+      "target_class": 817,
+      "utc": "2026-09-11T14:05:00.285935+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7091114819998742,
+      "attribution_wall_sec_std": 0.0038320546792389694,
+      "attribution_wall_sec_values": [
+        0.7106369089997315,
+        0.7038452400001916,
+        0.7128522969996993
+      ],
+      "cross_seed_cosine_mean": 0.5921279178047331,
+      "cross_seed_cosine_min": 0.5237119427335831,
+      "cross_seed_cosine_values": [
+        0.612950155469722,
+        0.6397216552108941,
+        0.5237119427335831
+      ],
+      "dataset": "voc2007",
+      "method": "kernelshap",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "005283",
+      "status": "ok",
+      "target_class": 911,
+      "utc": "2026-09-11T14:05:02.509522+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7538462250001127,
+      "attribution_wall_sec_std": 0.008761964794883304,
+      "attribution_wall_sec_values": [
+        0.7658357840000463,
+        0.7505617770002573,
+        0.7451411140000346
+      ],
+      "cross_seed_cosine_mean": 0.9775114374644328,
+      "cross_seed_cosine_min": 0.9724563835009817,
+      "cross_seed_cosine_values": [
+        0.9724563835009817,
+        0.9735947596982147,
+        0.9864831691941021
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "000246",
+      "status": "ok",
+      "target_class": 156,
+      "utc": "2026-09-11T14:05:04.792294+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7445249813332945,
+      "attribution_wall_sec_std": 0.0046069988577871635,
+      "attribution_wall_sec_values": [
+        0.7462557310000193,
+        0.7382199339999715,
+        0.7490992789998927
+      ],
+      "cross_seed_cosine_mean": 0.9601873104005346,
+      "cross_seed_cosine_min": 0.9495414731358969,
+      "cross_seed_cosine_values": [
+        0.971287023017513,
+        0.9495414731358969,
+        0.9597334350481941
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001444",
+      "status": "ok",
+      "target_class": 831,
+      "utc": "2026-09-11T14:05:07.052211+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7452763456667526,
+      "attribution_wall_sec_std": 0.0028872561592353766,
+      "attribution_wall_sec_values": [
+        0.7461121860005733,
+        0.7483196969997152,
+        0.7413971539999693
+      ],
+      "cross_seed_cosine_mean": 0.9610100281472427,
+      "cross_seed_cosine_min": 0.9519060321721012,
+      "cross_seed_cosine_values": [
+        0.9777252881648449,
+        0.953398764104782,
+        0.9519060321721012
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "001501",
+      "status": "ok",
+      "target_class": 880,
+      "utc": "2026-09-11T14:05:09.315818+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7468872730002355,
+      "attribution_wall_sec_std": 0.0024754373272096518,
+      "attribution_wall_sec_values": [
+        0.7498445200008064,
+        0.7437860890004231,
+        0.7470312099994771
+      ],
+      "cross_seed_cosine_mean": 0.8656129081826268,
+      "cross_seed_cosine_min": 0.8637465742808703,
+      "cross_seed_cosine_values": [
+        0.8642057169729654,
+        0.8637465742808703,
+        0.8688864332940444
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002249",
+      "status": "ok",
+      "target_class": 339,
+      "utc": "2026-09-11T14:05:11.581214+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7419088879999739,
+      "attribution_wall_sec_std": 0.0023777537794587356,
+      "attribution_wall_sec_values": [
+        0.7443220019995351,
+        0.7427304410002762,
+        0.7386742210001103
+      ],
+      "cross_seed_cosine_mean": 0.9694797749798982,
+      "cross_seed_cosine_min": 0.9680494352634945,
+      "cross_seed_cosine_values": [
+        0.9701841653314408,
+        0.9680494352634945,
+        0.9702057243447594
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "002836",
+      "status": "ok",
+      "target_class": 99,
+      "utc": "2026-09-11T14:05:13.830984+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7462903743332087,
+      "attribution_wall_sec_std": 0.003266434731564397,
+      "attribution_wall_sec_values": [
+        0.7508910840006138,
+        0.7443498759994327,
+        0.7436301629995796
+      ],
+      "cross_seed_cosine_mean": 0.8997670526802183,
+      "cross_seed_cosine_min": 0.8722835495531205,
+      "cross_seed_cosine_values": [
+        0.9284508760040446,
+        0.8985667324834898,
+        0.8722835495531205
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004113",
+      "status": "ok",
+      "target_class": 195,
+      "utc": "2026-09-11T14:05:16.093571+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7471122866669854,
+      "attribution_wall_sec_std": 0.00398588634291192,
+      "attribution_wall_sec_values": [
+        0.7501791439999579,
+        0.749674798000342,
+        0.7414829180006564
+      ],
+      "cross_seed_cosine_mean": 0.905378396309107,
+      "cross_seed_cosine_min": 0.8798404806098731,
+      "cross_seed_cosine_values": [
+        0.912074069747949,
+        0.8798404806098731,
+        0.9242206385694987
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "004386",
+      "status": "ok",
+      "target_class": 817,
+      "utc": "2026-09-11T14:05:18.362056+00:00"
+    },
+    {
+      "attribution_wall_sec_mean": 0.7498643340004492,
+      "attribution_wall_sec_std": 0.0033952306419112984,
+      "attribution_wall_sec_values": [
+        0.7534907310000563,
+        0.745325641000818,
+        0.7507766300004732
+      ],
+      "cross_seed_cosine_mean": 0.891633931996303,
+      "cross_seed_cosine_min": 0.8661211197044952,
+      "cross_seed_cosine_values": [
+        0.8897172263896808,
+        0.9190634498947331,
+        0.8661211197044952
+      ],
+      "dataset": "voc2007",
+      "method": "lime",
+      "model": "resnet50",
+      "record_type": "recheck_seed_variance",
+      "replicates": 3,
+      "sample_id": "005283",
+      "status": "ok",
+      "target_class": 911,
+      "utc": "2026-09-11T14:05:20.633242+00:00"
+    }
+  ],
+  "stage": "P4_recheck"
+}

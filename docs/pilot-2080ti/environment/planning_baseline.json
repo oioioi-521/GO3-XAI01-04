@@ -1,0 +1,30 @@
+{
+  "record_type": "read_only_hardware_and_source_snapshot",
+  "timestamp_local": "2026-09-11T21:28:04+08:00",
+  "timezone": "Asia/Shanghai",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "count": 1,
+    "driver_version": "610.57.04",
+    "driver_cuda_umd_version": "13.3",
+    "memory_total_mib": 11264,
+    "memory_reserved_driver_mib": 438,
+    "memory_used_mib": 1916,
+    "memory_free_mib": 8911,
+    "utilization_percent": 0,
+    "temperature_c": 44,
+    "instantaneous_power_w": 66.15,
+    "power_limit_w": 260,
+    "source": "nvidia-smi -q -d MEMORY,UTILIZATION,TEMPERATURE,POWER"
+  },
+  "cpu": {"name": "Intel Core i7-8700K CPU @ 3.70GHz", "physical_cores": 6, "logical_cpus": 12},
+  "system_ram_gib_rounded": 46,
+  "workspace_disk_free_gib_rounded": 53,
+  "source_pdfs": [
+    {"path": "../project-pool.pdf", "sha256": "6928c42a069bfc20dcc08ad3bc0b10281501f47cb94b6522f1e52efae064fb0f", "primary_pages": [63,64,65], "supplementary_metric_pages": [57,59,61]},
+    {"path": "../intro-mlproj.pdf", "sha256": "65119ed21ea2129575aa06e07cf2a98220ce942cd3e76d0d8109079e72a260b0"}
+  ],
+  "authorized_gpu_session_budget_seconds": 7200,
+  "benchmark_status_at_snapshot": "not_yet_measured",
+  "notes": ["GPU memory values vary with desktop activity.", "Driver CUDA version is not Python framework runtime version.", "No existing repository implementation or experiment results were consulted."]
+}

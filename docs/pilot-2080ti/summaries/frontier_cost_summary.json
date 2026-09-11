@@ -1,0 +1,116 @@
+{
+  "generated_utc": "2026-09-11T14:31:23.811417+00:00",
+  "rows": [
+    {
+      "attribution_wall_sec": 0.524999506000313,
+      "cuda_max_memory_reserved_mib": 1822.0,
+      "forward_samples": 7,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:42.999424+00:00",
+      "value": 4
+    },
+    {
+      "attribution_wall_sec": 0.863509062999583,
+      "cuda_max_memory_reserved_mib": 1826.0,
+      "forward_samples": 15,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:43.868181+00:00",
+      "value": 8
+    },
+    {
+      "attribution_wall_sec": 1.8391103320000184,
+      "cuda_max_memory_reserved_mib": 1830.0,
+      "forward_samples": 31,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:45.712082+00:00",
+      "value": 16
+    },
+    {
+      "attribution_wall_sec": 0.23154402600084723,
+      "cuda_max_memory_reserved_mib": 2418.0,
+      "forward_samples": 128,
+      "method": "fourier_shap",
+      "param": "n_samples",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:45.949465+00:00",
+      "value": 128
+    },
+    {
+      "attribution_wall_sec": 0.6102082690003954,
+      "cuda_max_memory_reserved_mib": 2418.0,
+      "forward_samples": 512,
+      "method": "fourier_shap",
+      "param": "n_samples",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:46.564204+00:00",
+      "value": 512
+    },
+    {
+      "attribution_wall_sec": 2.239858013999765,
+      "cuda_max_memory_reserved_mib": 2418.0,
+      "forward_samples": 2048,
+      "method": "fourier_shap",
+      "param": "n_samples",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:27:48.811362+00:00",
+      "value": 2048
+    },
+    {
+      "attribution_wall_sec": 3.939447724999809,
+      "cuda_max_memory_reserved_mib": 1840.0,
+      "forward_samples": 63,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:30:35.581933+00:00",
+      "value": 32
+    },
+    {
+      "attribution_wall_sec": 7.754724846000499,
+      "cuda_max_memory_reserved_mib": 1858.0,
+      "forward_samples": 127,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:30:43.341720+00:00",
+      "value": 64
+    },
+    {
+      "attribution_wall_sec": 15.720002978999219,
+      "cuda_max_memory_reserved_mib": 2196.0,
+      "forward_samples": 255,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:30:59.066884+00:00",
+      "value": 128
+    },
+    {
+      "attribution_wall_sec": 24.7378611059994,
+      "cuda_max_memory_reserved_mib": 2708.0,
+      "forward_samples": 399,
+      "method": "ma_gig",
+      "param": "num_steps",
+      "record_type": "frontier_cost",
+      "status": "ok",
+      "utc": "2026-09-11T14:31:23.810229+00:00",
+      "value": 200
+    }
+  ],
+  "stage": "frontier_cost"
+}

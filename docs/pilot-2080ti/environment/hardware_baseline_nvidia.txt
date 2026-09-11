@@ -1,0 +1,7 @@
+沙箱内诊断尝试，2026-09-11 21:27 +08:00；退出码 9。
+这是受限环境造成的访问失败，不是 GPU 基准测试失败。
+已获准在沙箱外重试，并于 21:28:04 成功。
+成功的主机硬件快照见 planning_baseline.json。
+
+原始诊断信息：
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.

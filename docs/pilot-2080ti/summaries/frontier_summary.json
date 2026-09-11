@@ -1,0 +1,247 @@
+{
+  "generated_utc": "2026-09-11T14:43:30.074229+00:00",
+  "quality_scope": "ood_pipeline_diagnostic",
+  "rows": [
+    {
+      "attribution_wall_sec_mean": 0.6592687750002142,
+      "attribution_wall_sec_std": 0.011035660662092864,
+      "cell_wall_sec_mean": 2.0530054068748314,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 1994.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.01941530909275479,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.08717190241367441,
+      "method": "fourier_shap",
+      "model": "densenet121",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.9031244204312809,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 4.400829698249822,
+      "attribution_wall_sec_std": 0.021845404387649356,
+      "cell_wall_sec_mean": 13.273516544999893,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 2424.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.13084972938270645,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.06598029235911332,
+      "method": "ma_gig",
+      "model": "densenet121",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.004230383066311602,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 0.6160461191251443,
+      "attribution_wall_sec_std": 0.007143299963860881,
+      "cell_wall_sec_mean": 1.9080616282500387,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 1976.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.009573769408102551,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.08457082735886186,
+      "method": "fourier_shap",
+      "model": "resnet50",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.8288210251910734,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 3.9479758597502723,
+      "attribution_wall_sec_std": 0.06133479735253471,
+      "cell_wall_sec_mean": 11.905622197875118,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 2404.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.0035254732570209543,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.0042555155870478995,
+      "method": "ma_gig",
+      "model": "resnet50",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.005925709728866098,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 0.9948049657502906,
+      "attribution_wall_sec_std": 0.009252073384223507,
+      "cell_wall_sec_mean": 3.1132579751249523,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 4544.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.024594204764244648,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.05117040929030413,
+      "method": "fourier_shap",
+      "model": "vgg16",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.6592737569766316,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 3.9728848907498104,
+      "attribution_wall_sec_std": 0.005084019733661745,
+      "cell_wall_sec_mean": 12.064729260750141,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 2414.0,
+      "dataset": "chncxr_shenzhen",
+      "deletion_auc_mean": 0.008069959283802188,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.006050152228320644,
+      "method": "ma_gig",
+      "model": "vgg16",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.022472584653720328,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 0.6597469051247344,
+      "attribution_wall_sec_std": 0.0031966679013105317,
+      "cell_wall_sec_mean": 2.0638592268750244,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 1994.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.02872755681603905,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.2325933448050384,
+      "method": "fourier_shap",
+      "model": "densenet121",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.9533285864227447,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 4.468128276124844,
+      "attribution_wall_sec_std": 0.02138163647907764,
+      "cell_wall_sec_mean": 13.454338582124933,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 2424.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.012067724089522894,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.07987845437346158,
+      "method": "ma_gig",
+      "model": "densenet121",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.006567428727721715,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 0.6176959572499072,
+      "attribution_wall_sec_std": 0.013857986571765457,
+      "cell_wall_sec_mean": 1.918647204625131,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 1418.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.060766023564467295,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.3333190363532503,
+      "method": "fourier_shap",
+      "model": "resnet50",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.9362234139278822,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 3.902969856750019,
+      "attribution_wall_sec_std": 0.04379156310152754,
+      "cell_wall_sec_mean": 11.745121841375067,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 1846.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.011895832050195905,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.09796779326857921,
+      "method": "ma_gig",
+      "model": "resnet50",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.0029504526505274185,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 1.0196034570000165,
+      "attribution_wall_sec_std": 0.0033063664394925142,
+      "cell_wall_sec_mean": 3.166872226249893,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 4512.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.04274151631058459,
+      "forward_samples_mean": 512.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.26225937173659175,
+      "method": "fourier_shap",
+      "model": "vgg16",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.9455318538457433,
+      "statuses": {
+        "ok": 8
+      }
+    },
+    {
+      "attribution_wall_sec_mean": 3.9955736312500676,
+      "attribution_wall_sec_std": 0.006574527504290543,
+      "cell_wall_sec_mean": 12.127547462624989,
+      "cells_ok": 8,
+      "cells_seen": 8,
+      "cuda_reserved_peak_mib_max": 2384.0,
+      "dataset": "voc2007",
+      "deletion_auc_mean": 0.016916846551181735,
+      "forward_samples_mean": 63.0,
+      "frontier_scope": "frontier_pilot_approximation",
+      "insertion_auc_mean": 0.024520645800769115,
+      "method": "ma_gig",
+      "model": "vgg16",
+      "quality_scope": "ood_pipeline_diagnostic",
+      "stability_cosine_mean": 0.005646246515427327,
+      "statuses": {
+        "ok": 8
+      }
+    }
+  ],
+  "stage": "frontier_pilot"
+}

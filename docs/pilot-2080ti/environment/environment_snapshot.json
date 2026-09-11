@@ -1,0 +1,134 @@
+{
+  "arguments": {
+    "allow_cpu": false,
+    "calibration": true,
+    "device": "cuda",
+    "global_deadline_sec": 900.0,
+    "image_seed": 20260911,
+    "internal_batch_size": 16,
+    "methods": [
+      "gradcam",
+      "kernelshap",
+      "ig",
+      "rise",
+      "ablation",
+      "lime"
+    ],
+    "models": [
+      "resnet50",
+      "vgg16",
+      "densenet121"
+    ],
+    "records": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/calibration_records.jsonl",
+    "replicates": 3,
+    "report": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/calibration_report.md",
+    "resume": true,
+    "seed": 20260911,
+    "smoke": false,
+    "summary": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/calibration_summary.json",
+    "task_timeout_sec": 180.0
+  },
+  "command": "pilot_runner.py --calibration --resume --replicates 3 --internal-batch-size 16 --global-deadline-sec 900 --task-timeout-sec 180",
+  "deadline_sec": 900.0,
+  "elapsed_wall_sec": 111.56322643000021,
+  "environment": {
+    "cpu": "",
+    "cpu_count": 12,
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cwd": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911",
+    "device": "cuda",
+    "gpu_capability": "7.5",
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_total_mib": 10826.625,
+    "host": "desktop",
+    "platform": "Linux-7.2.3-arch1-2-x86_64-with-glibc2.44",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]",
+    "python_executable": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/.venv/bin/python",
+    "ram_total_mib": 48098.640625,
+    "torch_cuda_runtime": "12.8",
+    "torch_version": "2.8.0",
+    "torchvision_version": "0.23.0"
+  },
+  "finished_utc": "2026-09-11T13:39:32.362522+00:00",
+  "generated_utc": "2026-09-11T13:37:41.018256+00:00",
+  "image_seed": 20260911,
+  "input_preprocessing": {
+    "baseline": "raw black RGB zeros then ImageNet normalization",
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "raw_range": "[0,1]",
+    "resize": "synthetic generated directly at 224x224"
+  },
+  "matrix": {
+    "methods": [
+      "gradcam",
+      "kernelshap",
+      "ig",
+      "rise",
+      "ablation",
+      "lime"
+    ],
+    "models": [
+      "resnet50",
+      "vgg16",
+      "densenet121"
+    ],
+    "replicates": 3
+  },
+  "models_loaded": {
+    "densenet121": {
+      "load_error": null,
+      "model": "densenet121",
+      "model_load_wall_sec": 3.3536769869997443,
+      "target_class": 818,
+      "target_layer": "features.denseblock4.denselayer16.conv2",
+      "target_score": 0.0850130170583725,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/densenet121-a639ec97.pth",
+      "weights_sha256": "a639ec97d7c33b07ae66f0b5fb7d0192f95a3b11b7576c66c0126c2a727c4395",
+      "weights_source": "https://download.pytorch.org/models/densenet121-a639ec97.pth",
+      "weights_status": "official_pretrained"
+    },
+    "resnet50": {
+      "load_error": null,
+      "model": "resnet50",
+      "model_load_wall_sec": 0.3617328760001328,
+      "target_class": 301,
+      "target_layer": "layer4.2.conv3",
+      "target_score": 0.05265505239367485,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/resnet50-11ad3fa6.pth",
+      "weights_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+      "weights_source": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+      "weights_status": "official_pretrained"
+    },
+    "vgg16": {
+      "load_error": null,
+      "model": "vgg16",
+      "model_load_wall_sec": 56.9621922869992,
+      "target_class": 301,
+      "target_layer": "features.28",
+      "target_score": 0.23358285427093506,
+      "weights_path": "/home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911/weights_cache/hub/checkpoints/vgg16-397923af.pth",
+      "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+      "weights_source": "https://download.pytorch.org/models/vgg16-397923af.pth",
+      "weights_status": "official_pretrained"
+    }
+  },
+  "raw_image_sha256": "5fd2ded4516d353f0d786b7b4e3e55fb3d5f5ada55660c5056f0ae3cf2e437bc",
+  "rows_written": 54,
+  "run_id": "calibration-20260911T133741Z-d744a461fd4bdf62",
+  "scope": "synthetic_calibration_timing_only",
+  "seed": 20260911,
+  "task_timeout_sec": 180.0
+}
