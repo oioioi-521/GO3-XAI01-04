@@ -34,7 +34,7 @@ METHOD_LABEL = {
 }
 MARGIN = 1.30
 MA_GIG_STEPS_MATRIX = 32   # 本次前沿矩阵实测步数
-MA_GIG_STEPS_DEFAULT = 200  # 论文默认步数
+MA_GIG_STEPS_DEFAULT = 200  # 本次成本曲线中的参考高档
 
 
 def utc_now() -> str:
@@ -117,8 +117,8 @@ def main() -> int:
         "",
         f"- 单图总耗时含：原图归因 + 缓存热图上的 Insertion/Deletion（20 步）+ K=2 稳定性重新归因 + 预测与 IO；单位秒/图。",
         f"- 用时 = 单图总耗时 × 图像数 × 1.30（30% 工程余量）。",
-        f"- **FourierShap** 取 512 采样；**MA-GIG** 取论文默认 {MA_GIG_STEPS_DEFAULT} 步（单图约 {attr200:.1f} s 归因）。",
-        f"- 标注 * 的 ImageNet 行为外推：224×224 下计算量只取决于模型与方法，取同 (模型, 方法) 在两个已测数据集上的均值。",
+        f"- **FourierShap** 取 512 采样；**MA-GIG** 展示 {MA_GIG_STEPS_DEFAULT} 步参考档。后者仅在一张 ResNet-50 / VOC 图上实测归因成本（约 {attr200:.1f} s），其余 200 步总成本按 32 步矩阵分段外推，以 † 标注。",
+        f"- 标注 * 的 ImageNet 行为外推：固定 224×224、模型和方法配置后，取同 (模型, 方法) 在两个已测数据集上的均值；仍可能受样本、CPU 回归和系统负载影响。",
         "",
         "| 数据集 | 模型 | 方法 | 单图归因(s) | 单图总(s) | 100 图 | 500 图 |",
         "|---|---|---|---:|---:|---:|---:|",
@@ -127,7 +127,7 @@ def main() -> int:
         for m in MODELS:
             for meth in ALL_METHODS:
                 c, a, est = condition(d, m, meth, MA_GIG_STEPS_DEFAULT)
-                label = METHOD_LABEL[meth] + ("（200 步）" if meth == "ma_gig" else "")
+                label = METHOD_LABEL[meth] + ("（200 步）†" if meth == "ma_gig" else "")
                 lines.append(
                     f"| {DATASET_LABEL[d]} | {MODEL_LABEL[m]} | {label} | {a:.3f} | {c:.3f} | "
                     f"{fmt_dur(c * 100 * MARGIN)} | {fmt_dur(c * 500 * MARGIN)} |"
@@ -157,10 +157,10 @@ def main() -> int:
         ("标准 6 方法（PDF 主体，每方法 9 条件）", 54, std54),
         ("前沿 FourierShap 512 采样", 9, fr_fourier),
         ("前沿 MA-GIG 32 步", 9, fr_magig32),
-        ("前沿 MA-GIG 200 步（论文默认）", 9, fr_magig200),
+        ("前沿 MA-GIG 200 步参考档（分段外推）", 9, fr_magig200),
         ("前沿 2 方法合计（MA-GIG 32 步）", 18, fr18_32),
         ("**合计 72 条件（MA-GIG 32 步）**", 72, comb72_32),
-        ("**合计 72 条件（MA-GIG 200 步）**", 72, comb72_200),
+        ("**合计 72 条件（MA-GIG 200 步参考档）**", 72, comb72_200),
     ]:
         lines.append(
             f"| {name} | {cond_n} | {per:.2f} | {fmt_dur(per * 100 * MARGIN)} | {fmt_dur(per * 500 * MARGIN)} | {fmt_dur(per * 1000 * MARGIN)} |"
@@ -200,22 +200,23 @@ def main() -> int:
         "",
         "## 结论",
         "",
-        f"- **FourierShap（512 采样）**：单图总耗时约 1.9–3.2 s（与 RISE/KernelSHAP/LIME 同量级），Insertion AUC 与 LIME/KernelSHAP 相当、稳定性 0.66–0.95，**性价比最高的候选前沿方法**。",
-        f"- **MA-GIG**：成本随步数近线性（约 0.12 s/步）。32 步单图总耗时约 12–13 s；论文默认 200 步单图归因约 {attr200:.1f} s、单图总耗时约 {fr_magig200/9:.0f} s，在 72 条件矩阵下 500 图约需 {fmt_dur(comb72_200 * 500 * MARGIN)}，**不具备可操作性**。",
+        f"- **FourierShap（512 采样）**：单图总耗时约 1.9–3.2 s（与 RISE/KernelSHAP/LIME 同量级）；在本 OOD 小样本协议下，Insertion AUC 与 LIME/KernelSHAP 同量级，稳定性条件均值为 0.66–0.95。它是成本可控的复核候选，但不能据此声称性价比最优。",
+        f"- **MA-GIG**：本次单图成本随步数大致线性（约 0.12 s/步）。32 步单图总耗时约 12–13 s；200 步参考档实测归因约 {attr200:.1f} s。其单图总耗时约 {fr_magig200/9:.0f} s、72 条件 500 图约 {fmt_dur(comb72_200 * 500 * MARGIN)}，后两个数均为分段外推。因此不建议直接进入完整矩阵，可在匹配官方设置的小子集上单独复核。",
         f"- 若只保留 6 标准方法 + FourierShap（MA-GIG 不进矩阵），则完整矩阵为 54+9=63 条件，500 图约 {fmt_dur((std54+fr_fourier) * 500 * MARGIN)}；仍显著低于含 MA-GIG 的 72 条件版本。",
-        "- 在本 OOD 试跑设置下，MA-GIG 的隐空间路径积分不收敛（稳定性≈0），质量结论不足以支持其入主矩阵。",
+        "- MA-GIG 32 步的输入扰动稳定性均值约 0.01；这说明当前操作化对微小输入变化极敏感，但不能单凭 cosine 诊断路径积分是否收敛。200 步只测了成本，未复测忠实性或稳定性。",
         "- 注：FourierShap 与 MA-GIG 均为试跑级操作化，不是作者原实现，详见 `frontier_conclusions.md`。",
         "",
     ]
     (ROOT / "frontier_matrix_timing.md").write_text("\n".join(lines), encoding="utf-8")
 
     with (ROOT / "frontier_matrix_timing.csv").open("w", encoding="utf-8") as f:
-        f.write("dataset,model,method,per_image_attribution_sec,per_image_total_sec,estimated,time_100_images_sec,time_500_images_sec\n")
+        f.write("dataset,model,method,method_setting,per_image_attribution_sec,per_image_total_sec,estimated,time_100_images_sec,time_500_images_sec\n")
         for d in DATASETS:
             for m in MODELS:
                 for meth in ALL_METHODS:
-                    c, a, est = condition(d, m, meth)
-                    f.write(f"{d},{m},{meth},{a},{c},{int(est)},{c * 100 * MARGIN},{c * 500 * MARGIN}\n")
+                    c, a, est = condition(d, m, meth, MA_GIG_STEPS_DEFAULT)
+                    setting = "n_steps=200_reference" if meth == "ma_gig" else "n_samples=512" if meth == "fourier_shap" else "main_p2_config"
+                    f.write(f"{d},{m},{meth},{setting},{a},{c},{int(est or meth == 'ma_gig')},{c * 100 * MARGIN},{c * 500 * MARGIN}\n")
 
     # ---------------- 结论文档 ----------------
     write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab, std54, fr_fourier, fr_magig32, fr_magig200, comb72_32, comb72_200)
@@ -236,7 +237,7 @@ def write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab
 
 | 方法 | 来源 | 本试跑实现 |
 |---|---|---|
-| MA-GIG | Manifold-Aligned Guided Integrated Gradients，ICML 2026，arXiv:2605.02167；官方代码 `github.com/leekwoon/ma-gig` | 移植官方 `cleanig` 隐空间 Guided-IG 路径；VAE 用公开等价的 `stabilityai/sd-vae-ft-mse` |
+| MA-GIG | Manifold-Aligned Guided Integrated Gradients，ICML 2026，arXiv:2605.02167；官方代码 `github.com/leekwoon/ma-gig` | 参考 `cleanig` 隐空间 Guided-IG 路径；VAE 使用替代权重 `stabilityai/sd-vae-ft-mse`，不视为官方配置等价物 |
 | FourierShap | PDF 无引用；最接近 NeurIPS 2025《SHAP values via sparse Fourier representation》，arXiv:2410.06300 | 7×7 特征分组；OMP 拟合稀疏多线性（Walsh–Fourier）代理；闭式 Shapley `phi_i = Σ_{{T∋i}} c_T/|T|` |
 
 ## 2. 实验协议
@@ -244,7 +245,7 @@ def write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab
 - 数据：VOC2007 16 张中的前 8 张 + CHNCXR 8 张，模型 ResNet-50 / VGG-16 / DenseNet-121。
 - 目标：模型自身 ImageNet top-1 预测类（逐条记录）。
 - 指标：Insertion/Deletion AUC（20 步，缓存热图）、K=2 输入扰动稳定性 cosine（sigma=0.01）、同步墙钟与显存。
-- MA-GIG 矩阵用 32 步（论文默认 200 步，另做成本曲线）；FourierShap 用 512 采样（另做 128/2048 曲线）。
+- MA-GIG 矩阵用 32 步；另对单张 ResNet-50 / VOC 图测 200 步参考档成本，但未在 200 步复测质量。FourierShap 用 512 采样（另做 128/2048 曲线）。
 - 记录数：矩阵 2 数据集 × 3 模型 × 2 方法 × 8 图 = **96，全部 ok**；成本曲线 10 条。
 
 ## 3. 成本结果
@@ -253,7 +254,7 @@ def write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab
 |---|---:|---:|---:|
 | FourierShap 512 采样 | 0.6–1.0 s | ~1.9–3.2 s | ~1.1 ms/采样 |
 | MA-GIG 32 步 | ~3.9–4.5 s | ~12–13 s | ~0.12 s/步 |
-| MA-GIG 200 步（论文默认） | ~{attr200:.1f} s | ~{fr_magig200/9:.0f} s | ~0.12 s/步 |
+| MA-GIG 200 步参考档 | {attr200:.1f} s（单图实测） | ~{fr_magig200/9:.0f} s（分段外推） | ~0.12 s/步 |
 
 矩阵级（8 方法 × 3 模型 × 3 数据集 = 72 条件，含 ImageNet 外推，含 30% 余量）：
 
@@ -262,10 +263,10 @@ def write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab
 | 标准 6 方法（PDF 主体，54 条件） | {std54:.1f} s | {fmt_dur(std54*100*MARGIN)} | {fmt_dur(std54*500*MARGIN)} |
 | FourierShap（9 条件） | {fr_fourier:.1f} s | {fmt_dur(fr_fourier*100*MARGIN)} | {fmt_dur(fr_fourier*500*MARGIN)} |
 | MA-GIG 32 步（9 条件） | {fr_magig32:.1f} s | {fmt_dur(fr_magig32*100*MARGIN)} | {fmt_dur(fr_magig32*500*MARGIN)} |
-| MA-GIG 200 步（9 条件） | {fr_magig200:.1f} s | {fmt_dur(fr_magig200*100*MARGIN)} | {fmt_dur(fr_magig200*500*MARGIN)} |
+| MA-GIG 200 步参考档（分段外推，9 条件） | {fr_magig200:.1f} s | {fmt_dur(fr_magig200*100*MARGIN)} | {fmt_dur(fr_magig200*500*MARGIN)} |
 | 前沿 2 方法合计（MA-GIG 32 步，18 条件） | {comb72_32-std54:.1f} s | {fmt_dur((comb72_32-std54)*100*MARGIN)} | {fmt_dur((comb72_32-std54)*500*MARGIN)} |
 | **合计 72（MA-GIG 32 步）** | {comb72_32:.1f} s | {fmt_dur(comb72_32*100*MARGIN)} | {fmt_dur(comb72_32*500*MARGIN)} |
-| **合计 72（MA-GIG 200 步）** | {comb72_200:.1f} s | {fmt_dur(comb72_200*100*MARGIN)} | {fmt_dur(comb72_200*500*MARGIN)} |
+| **合计 72（MA-GIG 200 步参考档）** | {comb72_200:.1f} s | {fmt_dur(comb72_200*100*MARGIN)} | {fmt_dur(comb72_200*500*MARGIN)} |
 
 ## 4. 质量结果（12 条件均值）
 
@@ -276,17 +277,17 @@ def write_conclusions(attr32, attr200, fr_cell, fr_attr, fr_ins, fr_del, fr_stab
 
 ## 5. 结论与建议
 
-1. **FourierShap 建议纳入候选**：成本与 RISE/KernelSHAP/LIME 同量级，质量同量级，稳定性可接受；按 512 采样即可，2048 采样约 2.2 s/图。需先与指导教师确认 PDF 所指就是 arXiv:2410.06300。
+1. **FourierShap 建议进入下一轮复核**：成本与 RISE/KernelSHAP/LIME 同量级；当前 OOD 小样本的 Insertion AUC 同量级、稳定性条件均值约 0.66–0.95。512 采样可作为起点，2048 采样约 2.2 s/图；正式取值需增加重复与任务匹配验证。另需与指导教师确认 PDF 所指就是 arXiv:2410.06300。
 2. **MA-GIG 不建议直接进入主矩阵**：
-   - 成本最高：论文默认 200 步单图总耗时约 {fr_magig200/9:.0f} s，72 条件 500 图约需 {fmt_dur(comb72_200*500*MARGIN)}；
-   - 本 OOD 操作化下质量不稳定：32 步稳定性 cosine≈0.01，路径积分不收敛；即使 200 步，单图 signed_sum≈0.22，而 f(x)−f(black)≈0.66。
-   - 若确需比较，应按官方仓库（指定 VAE、分类器、数据集、200 步）完整复现后单独评估，不与主矩阵混跑。
+   - 200 步参考档单图归因实测约 {attr200:.1f} s；按“原图归因 + K=2 扰动归因 + 其余开销”分段外推，单图总耗时约 {fr_magig200/9:.0f} s，72 条件 500 图约需 {fmt_dur(comb72_200*500*MARGIN)}。这两个总量是工程外推，不是 72 条件实测；
+   - 当前 OOD 操作化在 32 步下的稳定性 cosine≈0.01，说明对输入扰动非常敏感；不能据此单独证明路径积分不收敛。200 步只测了成本，未复测质量。
+   - 若确需比较，应按官方仓库的 VAE、分类器与数据集配置完整复现，并把积分步数作为显式实验参数；先在小子集单独评估，不与主矩阵混跑。
 3. **组合爆炸结论不变**：真正进入主体矩阵的前沿方法最多是 FourierShap；MA-GIG 作为附录/复现项而非矩阵项。
 
 ## 6. 局限
 
 - 16 张/数据集中的 8 张，仅计时/管线探针，不做统计显著性结论。
-- 分类头域外；MA-GIG 的 VAE 为公开等价权重而非官方指定镜像；FourierShap 为论文思路的操作化，两者均不等于作者原实现。
+- 分类头域外；MA-GIG 的 VAE 使用替代权重而非官方指定配置；FourierShap 为论文思路的操作化，两者均不等于作者原实现。
 - 质量差异可能部分来自步数、VAE、数据域，而非方法本身；MA-GIG 的负面结果需在官方设置下复核。
 
 ## 7. 复现命令

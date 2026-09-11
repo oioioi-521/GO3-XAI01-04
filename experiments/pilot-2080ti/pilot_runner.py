@@ -950,9 +950,22 @@ def aggregate(rows: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return result
 
 
-def render_markdown(snapshot: Dict[str, Any], rows: Sequence[Dict[str, Any]], summary: Sequence[Dict[str, Any]]) -> str:
+def render_markdown(
+    snapshot: Dict[str, Any],
+    rows: Sequence[Dict[str, Any]],
+    summary: Sequence[Dict[str, Any]],
+    args: argparse.Namespace,
+) -> str:
+    is_smoke = bool(args.smoke)
+    title = "# XAI01-04 试跑 P0：合成图首通" if is_smoke else "# XAI01-04 试跑 P1：合成图计时校准"
+    command = (
+        f".venv/bin/python pilot_runner.py --smoke --resume --records {args.records.name} "
+        f"--summary {args.summary.name} --report {args.report.name}"
+        if is_smoke
+        else ".venv/bin/python pilot_runner.py --calibration --resume --global-deadline-sec 900 --task-timeout-sec 180"
+    )
     lines = [
-        "# XAI01-04 试跑：合成图计时校准",
+        title,
         "",
         f"生成时间（UTC）：`{snapshot.get('generated_utc')}`",
         "",
@@ -983,10 +996,10 @@ def render_markdown(snapshot: Dict[str, Any], rows: Sequence[Dict[str, Any]], su
         "",
         "```bash",
         f"cd {ROOT}",
-        ".venv/bin/python pilot_runner.py --calibration --resume --global-deadline-sec 900 --task-timeout-sec 180",
+        command,
         "```",
         "",
-        "原始记录追加写入 `calibration_records.jsonl`；聚合 JSON 为 `calibration_summary.json`。",
+        f"原始记录追加写入 `{args.records.name}`；聚合 JSON 为 `{args.summary.name}`。",
         "",
     ]
     return "\n".join(lines)
@@ -1146,7 +1159,7 @@ def run(args: argparse.Namespace) -> int:
                         "rows": aggregate(records),
                     },
                 )
-                args.report.write_text(render_markdown(snapshot, records, aggregate(records)), encoding="utf-8")
+                args.report.write_text(render_markdown(snapshot, records, aggregate(records), args), encoding="utf-8")
                 print(
                     f"[{utc_now()}] {row.get('status')} wall={row.get('attribution_wall_sec')}s forwards={row.get('forward_samples')} remaining={row.get('remaining_deadline_sec'):.1f}s",
                     flush=True,
@@ -1165,7 +1178,7 @@ def run(args: argparse.Namespace) -> int:
                 "rows": aggregate(records),
             },
         )
-        args.report.write_text(render_markdown(snapshot, records, aggregate(records)), encoding="utf-8")
+        args.report.write_text(render_markdown(snapshot, records, aggregate(records), args), encoding="utf-8")
         for bundle in bundles.values():
             with contextlib.suppress(Exception):
                 bundle.model._backward_hook.remove()

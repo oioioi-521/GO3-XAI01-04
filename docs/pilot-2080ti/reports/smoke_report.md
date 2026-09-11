@@ -1,8 +1,10 @@
-# XAI01-04 试跑：合成图计时校准
+# XAI01-04 试跑 P0：合成图首通（初次尝试）
 
 生成时间（UTC）：`2026-09-11T13:37:41.018256+00:00`
 
 合成图校准仅用于计时，不是 ImageNet、VOC 或 CHNCXR 的质量结果。
+
+本次初次尝试为 5/6 成功；RISE 因布尔张量双线性上采样报错。修正后的完整复核见 `rise_smoke_report.md`（6/6 成功）。
 
 ## 环境
 
@@ -26,7 +28,7 @@
 
 ```bash
 cd /home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911
-.venv/bin/python pilot_runner.py --calibration --resume --global-deadline-sec 900 --task-timeout-sec 180
+.venv/bin/python pilot_runner.py --smoke --resume --records smoke_records.jsonl --summary smoke_summary.json --report smoke_report.md
 ```
 
-原始记录追加写入 `calibration_records.jsonl`；聚合 JSON 为 `calibration_summary.json`。
+原始记录追加写入 `smoke_records.jsonl`；聚合 JSON 为 `smoke_summary.json`。

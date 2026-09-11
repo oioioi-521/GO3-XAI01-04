@@ -35,5 +35,5 @@
 
 ```bash
 cd /home/hycx233/Courses/machine-learning/xai01-04-pilot-20260911
-.venv/bin/python pilot_eval.py --recheck --resume --replicates 3 --max-images 2 --global-deadline-sec 900
+.venv/bin/python pilot_eval.py --recheck --resume --replicates 3 --max-images 8 --global-deadline-sec 900
 ```

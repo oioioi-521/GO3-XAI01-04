@@ -1,6 +1,6 @@
 # XAI01-04：2080 Ti 试跑与计算预算方案
 
-制定日期：2026-09-11。状态：方案已制定，P0–P4 试跑已完成（2026-09-11 21:22–22:06 Asia/Shanghai，累计 GPU 墙钟约 20 分钟，低于 120 分钟上限）。总览见 `RESULT_INDEX.md`，成本外推见 `extrapolation.md`。本轮获准累计 GPU 试跑时间约 2 小时以内；这是上限，不要求耗尽。
+制定日期：2026-09-11。状态：方案已制定，P0–P4 主试跑与 P5 选做前沿探针均已完成。P0–P4 的逐项计时字段合计约 15.9 分钟（不含模型加载、预热与调度间隙），原执行记录按含这些开销的 GPU 墙钟估计约 20 分钟，低于 120 分钟上限；P5 另有约 12.8 分钟逐项计时。总览见 `RESULT_INDEX.md`，成本外推见 `extrapolation.md`。本轮获准累计 GPU 试跑时间约 2 小时以内；这是上限，不要求耗尽。
 
 ## 1. 依据与边界
 
@@ -126,11 +126,12 @@ ImageNet 预训练分类头直接作用于 CHNCXR 时输出不是疾病预测；
 
 | 阶段 | 结果 | 记录数 | 落盘 |
 |---|---|---:|---|
-| P0 环境与首通 | 完成 | 6 | `environment_snapshot.json`、`smoke_*`、`rise_smoke_*` |
+| P0 环境与首通 | 完成 | 初次 5/6，修正后专项复核 6/6 | `environment_snapshot.json`、`smoke_*`、`rise_smoke_*` |
 | P1 6 方法 × 3 模型合成校准 | 完成 | 54 | `calibration_records.jsonl` 等 |
 | P2 小规模完整评价 | 完成 | 576 = 2 数据集 × 3 模型 × 6 方法 × 16 图，全部 ok | `eval_records.jsonl`、`eval_per_image.csv`、`eval_units.csv`、`eval_report.md` |
 | P3 采样成本曲线 | 完成 | 20 | `cost_curve_records.jsonl`、`cost_curve_report.md` |
 | P4 随机方法种子复核 | 完成 | 24 | `recheck_records.jsonl`、`recheck_report.md` |
+| P5 选做前沿方法探针 | 完成 | 96 个矩阵单元 + 10 个成本点，全部 ok | `frontier_records.jsonl`、`frontier_report.md`、`frontier_conclusions.md` |
 | 外推 | 完成 | - | `extrapolation.md`、`extrapolation.json`、`RESULT_INDEX.md` |
 
 关键偏差与限定如实记录：P2 中 VOC2007 与 CHNCXR 的 ImageNet 预训练头均为域外（VOC 多标签、CHNCXR 医学影像），所有质量行标记 `quality_scope=ood_pipeline_diagnostic`，不是任务忠实性或医学结论；归因 target 为模型自身 top-1 预测并逐条记录，而非真值类别。样本为每数据集 16 张计时子集，不做 ANOVA/Pareto 显著性声明。

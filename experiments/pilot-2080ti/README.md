@@ -21,7 +21,7 @@
 
 | 阶段 | 内容 | 记录数 | 记录文件（未入库，见 §5） | 报告 |
 |---|---|---:|---|---|
-| P0 环境与首通 | 7 方法首通合成图 | 6 | `smoke_records.jsonl`、`rise_smoke_records.jsonl` | `smoke_report.md`、`rise_smoke_report.md` |
+| P0 环境与首通 | 6 方法合成图首通 | 初次 5/6；修正后 6/6 | `smoke_records.jsonl`、`rise_smoke_records.jsonl` | `smoke_report.md`、`rise_smoke_report.md` |
 | P1 合成图校准 | 6 方法 × 3 模型 × 3 重复 | 54 | `calibration_records.jsonl` | `calibration_report.md` |
 | P2 小规模完整评价 | 2 数据集 × 3 模型 × 6 方法 × 16 图 | 576 | `eval_records.jsonl` | `eval_report.md` |
 | P3 采样成本曲线 | IG steps / RISE masks / SHAP·LIME samples / batch | 20 | `cost_curve_records.jsonl` | `cost_curve_report.md` |
@@ -88,10 +88,11 @@ python frontier_tables.py
 - **成本结构**：RISE / KernelSHAP / LIME 三种占全矩阵约 90% 时间，却只占一半条件；忠实性成本与方法几乎无关；
   稳定性成本 ≈ K × 原归因。
 - **外推**：推荐主体 16 条件（4 方法 × 2 模型 × 2 数据集）500 图约 4.35 h；
-  PDF 完整 54 条件（6 × 3 × 3）500 图约 14.58 h（含 30% 余量）。
+  PDF 完整 54 条件（6 × 3 × 3）500 图约 14.58 h（含 30% 余量）。前者来自本次 VOC+CHNCXR
+  两个计时数据集；正式主线仍按组内决定使用 ImageNet+VOC，ImageNet 成本属于工程外推。
 - **组合爆炸应对**：分层矩阵 + 冻结超参 + 包含式递增 + 缓存复用 + K 分级，详见 `HANDOVER.md` §6。
-- **前沿方法**：FourierShap 便宜稳定、可作候选；MA-GIG 成本最高且本 OOD 操作化下路径积分不收敛，
-  不建议直接进主矩阵（见 `frontier_conclusions.md`）。
+- **前沿方法**：FourierShap 成本可控，可进入下一轮复核；MA-GIG 当前 32 步操作化的输入扰动稳定性很低，
+  200 步只测了单图归因成本，不能据此判断收敛性，故不建议直接进完整主矩阵（见 `frontier_conclusions.md`）。
 
 ## 7. 代码说明
 
@@ -99,7 +100,7 @@ python frontier_tables.py
 |---|---|
 | `pilot_runner.py` | P0/P1：合成图计时校准 |
 | `pilot_eval.py` | P2/P3/P4：真实数据评价、成本曲线、种子复核 |
-| `pilot_frontier.py` | P5：MA-GIG（移植官方隐空间 Guided-IG）与 FourierShap 探针 |
+| `pilot_frontier.py` | P5：参考 MA-GIG 隐空间 Guided-IG 思路与 FourierShap 思路的试跑级探针 |
 | `summarize_pilot.py` | 成本外推与结果索引 |
 | `full_matrix_timing.py` | PDF 完整矩阵用时表 |
 | `frontier_tables.py` | 并入前沿方法后的 72 条件大表与结论文档 |

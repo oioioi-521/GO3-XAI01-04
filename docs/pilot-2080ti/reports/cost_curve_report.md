@@ -27,6 +27,8 @@
 | kernelshap | internal_batch_size | 16 | 0.7003 | 0.7002 | 512.0000 | 1986.0000 | ok |
 | kernelshap | internal_batch_size | 32 | 0.6698 | 0.6697 | 512.0000 | 1988.0000 | ok |
 
+> 解读边界：每个配置只测了同一张图的一次，适合判断成本量级，不适合拟合精确缩放曲线。512→2048 时 RISE / KernelSHAP / LIME 都约增至 4 倍；KernelSHAP 的 128 样本点反而慢于 512，属于需要重复测量才能解释的波动。internal batch 16→32 的加速约 4–5%。
+
 ## 复现命令
 
 ```bash

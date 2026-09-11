@@ -759,6 +759,8 @@ def write_cost_report(args: argparse.Namespace, rows: Sequence[Dict[str, Any]]) 
         )
     lines += [
         "",
+        "> 解读边界：每个配置只测了同一张图的一次，适合判断成本量级，不适合拟合精确缩放曲线。512→2048 时 RISE / KernelSHAP / LIME 都约增至 4 倍；KernelSHAP 的 128 样本点反而慢于 512，属于需要重复测量才能解释的波动。internal batch 16→32 的加速约 4–5%。",
+        "",
         "## 复现命令",
         "",
         "```bash",
@@ -795,7 +797,7 @@ def write_recheck_report(args: argparse.Namespace, rows: Sequence[Dict[str, Any]
         "",
         "```bash",
         f"cd {ROOT_DIR}",
-        ".venv/bin/python pilot_eval.py --recheck --resume --replicates 3 --max-images 2 --global-deadline-sec 900",
+        f".venv/bin/python pilot_eval.py --recheck --resume --replicates {args.replicates} --max-images {args.max_images} --global-deadline-sec 900",
         "```",
         "",
     ]

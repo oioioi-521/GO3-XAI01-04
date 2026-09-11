@@ -1,6 +1,6 @@
 # XAI01-04 试跑结果索引
 
-生成时间（UTC）：`2026-09-11T14:45:11.113044+00:00`
+生成时间（UTC）：`2026-09-11T15:30:46.696992+00:00`
 
 主机：RTX 2080 Ti 11 GiB（桌面显示卡），i7-8700K，46 GiB 内存。PyTorch 2.8.0 / torchvision 0.23.0 / CUDA runtime 12.8。
 
@@ -8,7 +8,7 @@
 
 | 阶段 | 状态 | 记录数 | 主要交付物 |
 |---|---|---:|---|
-| P0 环境与首通 | 完成 | - | `environment_snapshot.json`、`smoke_records.jsonl`、`smoke_report.md`、`rise_smoke_*` |
+| P0 环境与首通 | 完成（RISE 初次失败后复核通过） | 初次 5/6；复核 6/6 | `environment_snapshot.json`、`smoke_records.jsonl`、`smoke_report.md`、`rise_smoke_*` |
 | P1 6×3 合成图校准 | 完成 | 54 成功 | `calibration_records.jsonl`、`calibration_summary.json`、`calibration_report.md` |
 | P2 小规模端到端评价 | 完成 | 576 成功 / 576 总计 | `eval_records.jsonl`、`eval_summary.json`、`eval_report.md`、`eval_per_image.csv`、`eval_units.csv` |
 | P3 采样成本曲线 | 完成 | 20 | `cost_curve_records.jsonl`、`cost_curve_summary.json`、`cost_curve_report.md` |
@@ -29,13 +29,14 @@
 
 - 效率：Grad-CAM 与 Ablation 最便宜（归因约 0.01–0.11 秒/图）；KernelSHAP、LIME、RISE 约 0.6–1.2 秒/图；IG 约 0.09–0.13 秒/图。
 - 忠实性（本协议下 Insertion AUC 越高越好）：VOC2007 上 LIME 较高、IG 最低；CHNCXR 因分类头域外，数值明显偏低。
-- 稳定性（输入扰动 cosine）：RISE 接近 1.0（随机掩码对小幅输入噪声不敏感），IG 最低（约 0.35–0.63，梯度噪声大），其余方法居中。
-- Monte-Carlo 种子方差（P4）：KernelSHAP 最不稳定（跨种子 cosine 约 0.18–0.73），LIME 中等（约 0.87–0.98），RISE 很稳定（约 0.999）。
-- 成本曲线（P3）：成本随采样数/掩码数近似线性增长；内部 batch 从 16 提到 32 有适度加速；2048 采样约为 512 设置的 3–4 倍。
-- 前沿方法（P5，仅试跑级操作化）：MA-GIG 约 0.12 s/步，论文默认 200 步约 24.7 s/图，本 OOD 设置下路径积分不收敛（32 步 Insertion AUC≈0.05、稳定性≈0.01），不建议直接进主矩阵；FourierShap 512 采样约 0.6–1.0 s/图，Insertion AUC 与 LIME/KernelSHAP 同量级、稳定性≈0.66–0.95，可作为候选。
+- 稳定性（输入扰动 cosine）：RISE 接近 1.0；IG 最低（6 个数据集×模型条件均值约 0.35–0.63）。这些数值只描述当前基线、步数和 OOD 协议，不单独归因于某种机制。
+- Monte-Carlo 种子方差（P4）：按 8 张图各自的跨种子 cosine 均值计，KernelSHAP 为 0.18–0.73，LIME 为 0.87–0.98，RISE 约 0.999；若看全部种子对，范围会更宽。
+- 成本曲线（P3）：512→2048 时，RISE/KernelSHAP/LIME 约增至 4.0/4.0/4.0 倍；128→512 的 KernelSHAP 单点出现反向波动，说明该曲线只够判断量级，不能拟合精确线性关系。内部 batch 16→32 仅加速约 4–5%。
+- 前沿方法（P5，仅试跑级操作化）：MA-GIG 32 步归因约 4.1 s/图，Insertion AUC≈0.05、输入扰动稳定性≈0.01；200 步仅实测了单图归因成本（24.7 s），未复测质量，故不据此声称收敛与否。FourierShap 512 采样约 0.6–1.0 s/图、稳定性条件均值约 0.66–0.95，可作为后续复核候选。
 
 ## 局限
 
 - 每数据集 16 张仅为计时子集，不是评估集。
 - 不做 ANOVA / Pareto / 显著性结论；P2 只验证测量管线，并保存后续分析所需的逐图数据。
 - CHNCXR 仅将 ImageNet 头作为域外管线探针，未做结核分类。
+- ImageNet 未实测；涉及 ImageNet 的矩阵成本均为同模型/方法在 VOC2007 与 CHNCXR 上均值的工程外推。

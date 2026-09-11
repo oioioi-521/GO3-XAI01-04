@@ -70,7 +70,7 @@ def main() -> int:
         "用时 = 单图成本 × 图像数 × 1.30（30% 工程余量）。",
         "",
         "> 说明：VOC2007 与 CHNCXR 为本次实测；**ImageNet 用 * 标注，为同 (模型, 方法) 在两个已测数据集上的均值外推**——",
-        "> 因为 224×224 输入下前向/反向计算量只取决于模型与方法，与图像来自哪个数据集无关。",
+        "> 固定 224×224、模型和方法配置后，主要计算图与调用次数不随数据集改变；该估计仍会受到样本、CPU 回归和系统负载波动影响。",
         "",
         "## 逐条件用时（N=100 / N=500）",
         "",
@@ -109,18 +109,22 @@ def main() -> int:
             f"{fmt_dur(cond * 500 * MARGIN)} | {fmt_dur(cond * 1000 * MARGIN)} |"
         )
 
-    main_cond = sum(per_condition(d, m, meth)[0] for d in DATASETS_ALL for m in ["vgg16", "resnet50"] for meth in ["gradcam", "ig", "kernelshap", "rise"])
+    core_datasets = DATASETS_MEASURED
+    core_methods = ["gradcam", "ig", "kernelshap", "rise"]
+    core_models = ["vgg16", "resnet50"]
+    core_cond = sum(per_condition(d, m, meth)[0] for d in core_datasets for m in core_models for meth in core_methods)
+    expanded_cond = sum(per_condition(d, m, meth)[0] for d in DATASETS_ALL for m in core_models for meth in core_methods)
     lines += [
         "",
-        "## 推荐主矩阵（PLAN 第 6 节：4 方法 × 2 模型 × 3 数据集 = 24 条件）",
+        "## 主体方案与 ImageNet 扩展方案",
         "",
-        "方法 Grad-CAM / IG / KernelSHAP / RISE，模型 VGG-16 / ResNet-50，数据集 ImageNet / VOC / CHNCXR。",
+        "PLAN 第 6 节的主体是 Grad-CAM / IG / KernelSHAP / RISE × VGG-16 / ResNet-50 × 两个任务匹配数据集，共 16 条件。当前试跑以 VOC2007 / CHNCXR 代入成本；如再加入 ImageNet，则为 24 条件扩展方案，其中 ImageNet 成本为外推。",
         "",
-        "| 图像数（每条件） | 用时（含 30% 余量） |",
-        "|---:|---:|",
+        "| 图像数（每条件） | 主体 16 条件 | 含 ImageNet 的 24 条件扩展 |",
+        "|---:|---:|---:|",
     ]
     for n in (100, 500, 1000):
-        lines.append(f"| {n} | {fmt_dur(main_cond * n * MARGIN)} |")
+        lines.append(f"| {n} | {fmt_dur(core_cond * n * MARGIN)} | {fmt_dur(expanded_cond * n * MARGIN)} |")
 
     lines += [
         "",
@@ -128,9 +132,9 @@ def main() -> int:
         "",
         f"- PDF 完整 54 条件：每图合计 {matrix_total(DATASETS_ALL, 1):.1f} 秒；100 图约 {fmt_dur(matrix_total(DATASETS_ALL, 100) * MARGIN)}，500 图约 {fmt_dur(matrix_total(DATASETS_ALL, 500) * MARGIN)}。",
         f"- 实测 36 条件：100 图约 {fmt_dur(matrix_total(DATASETS_MEASURED, 100) * MARGIN)}，500 图约 {fmt_dur(matrix_total(DATASETS_MEASURED, 500) * MARGIN)}。",
-        f"- 推荐主矩阵 24 条件：100 图约 {fmt_dur(main_cond * 100 * MARGIN)}，500 图约 {fmt_dur(main_cond * 500 * MARGIN)}。",
-        "- 昂贵方法（RISE/KernelSHAP/LIME）占矩阵绝大部分时间；K 是比图像数更陡的杠杆（K 2→10 约为 3.5 倍）。",
-        "- 全 54 条件在 500 图上约半天 GPU 墙钟，属于一次夜间批量可完成的范围。",
+        f"- 主体 16 条件：100 图约 {fmt_dur(core_cond * 100 * MARGIN)}，500 图约 {fmt_dur(core_cond * 500 * MARGIN)}；含 ImageNet 的 24 条件扩展分别约 {fmt_dur(expanded_cond * 100 * MARGIN)} / {fmt_dur(expanded_cond * 500 * MARGIN)}。",
+        "- 昂贵方法（RISE/KernelSHAP/LIME）约占实测 36 条件总用时的 90%。按本次分段计时近似，稳定性 K 从 2 增至 10 会令总成本约增至 3.5 倍；图像数 N 则仍按比例线性增长。",
+        "- PDF 全部 54 条件在每条件 500 图时约 14.6 小时，其中 ImageNet 部分为工程外推。桌面单卡应预留接近 15 小时并采用分批、断点续跑，不把它表述为已实测的一次夜间任务。",
         "",
     ]
     (ROOT / "matrix_timing_full.md").write_text("\n".join(lines), encoding="utf-8")
