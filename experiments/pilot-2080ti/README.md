@@ -80,6 +80,9 @@ python frontier_tables.py
 归因缓存（`artifacts/`）、虚拟环境与日志均不入库（已在仓库 `.gitignore` 中忽略）。
 入库的是脚本、`data_manifest.json`、报告与聚合表。
 
+汇总脚本（`summarize_pilot.py`、`full_matrix_timing.py`、`frontier_tables.py`）读取**同一次运行**生成的
+`*_records.jsonl`；若不重跑、只做代码走查，直接看 `../../docs/pilot-2080ti/` 下已入库的报告与表即可。
+
 ## 6. 关键结论（摘要，详细见 docs）
 
 - **成本结构**：RISE / KernelSHAP / LIME 三种占全矩阵约 90% 时间，却只占一半条件；忠实性成本与方法几乎无关；
