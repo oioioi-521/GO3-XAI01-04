@@ -1,6 +1,6 @@
 # 数据目录说明(data/)
 
-维护人:数据负责人 · 更新:2026-09-06
+维护方式:全组共同维护（C `oioioi-521` 已完成初始数据收集与整理） · 更新:2026-09-16
 
 ## 数据总览
 
@@ -18,10 +18,10 @@ ImageNet/VOC 两个子集来自课程网盘 resources 目录(学长毕设项目�
 data/
 ├── imagenet/
 │   ├── raw/               # 500 张子集图片(评估集来源)
-│   └── annotations/       # ILSVRC2012 val 完整 XML 标注(5.5 万个,仅数据负责人需要)
+│   └── annotations/       # ILSVRC2012 val 完整 XML 标注(5.5 万个,仅本次数据更新成员需要)
 ├── voc/
 │   ├── raw/               # 500 张子集图片(评估集来源)
-│   └── VOCdevkit/         # 官方 VOC2007(Annotations/JPEGImages,仅数据负责人需要)
+│   └── VOCdevkit/         # 官方 VOC2007(Annotations/JPEGImages,仅本次数据更新成员需要)
 ├── chncxr/
 │   ├── raw/               # 原始胸片(16 张,仅定性演示;不纳入主线)
 │   └── mask_overlaid_不可用于评估/  # 学长叠加病灶mask的图,禁止用作评估数据!
@@ -42,7 +42,7 @@ data/
 
 - **来源**:学长从 VOC2007 trainval 选出——仅单目标、bbox 面积 ≤ 0.5 图幅(readme.txt 原文)。原始尺寸,未缩放。
 - **标签**:`voc_labels.csv`(500/500 张,**含 bbox**——选做的定位性指标(Pointing Game)可直接用)。类别分布不均衡:bird 76 张 / diningtable 1 张,采样与报告时注意。
-- **官方包**:`VOCdevkit/` 由 `preprocessing/download_voc.py` 下载(460MB tar 已解压),仅数据负责人维护,组员不需要拷贝。
+- **官方包**:`VOCdevkit/` 由 `preprocessing/download_voc.py` 下载(460MB tar 已解压),按具体任务动态指定维护人,其他组员不需要拷贝。
 
 ### CHNCXR(胸部 X 光)
 
@@ -59,7 +59,7 @@ data/
 
 - **图像数据不进 GitHub**(被 .gitignore 忽略),通过网盘数据包分发:`data_share_v1.zip`(已满足组员需求;若拿到 CHNCXR 完整集再发 v2)。
 - 标签表(CSV/JSON)很小,**进 GitHub 版本管理**。
-- 更新流程:数据负责人更新本地 → 重打数据包 → 群通知 → 组员替换对应目录。
+- 更新流程:任务认领人更新本地 → 协作人复核 → 重打数据包 → 群通知 → 组员替换对应目录。
 
 ## 全组使用约定
 
