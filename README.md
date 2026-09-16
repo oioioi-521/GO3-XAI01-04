@@ -16,4 +16,25 @@
 
 ## 环境与运行
 
-> 待认领环境配置任务的成员补充(requirements.txt 定稿后更新本节)。
+需要 Python 3.10+。在项目根目录创建环境并安装依赖：
+
+```bash
+python -m venv .venv
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+运行 C 的 W2 RISE 管线：
+
+```bash
+# 离线冒烟测试（随机权重，仅验证管线）
+python experiments/run_unit.py --config configs/rise_smoke_imagenet.yaml
+
+# 可提交的 ImageNet debug 结果
+python experiments/run_unit.py --config configs/rise_resnet50_imagenet.yaml
+
+pytest -q
+```
+
+实现、输出位置、6 个单元配置及 VOC checkpoint 对接要求见
+[docs/W2_C_HANDOFF.md](docs/W2_C_HANDOFF.md)。

@@ -1,0 +1,27 @@
+method: rise
+dataset:
+  name: voc
+  split: debug
+model:
+  name: densenet121
+  weights: none
+  num_classes: 20
+  checkpoint: models/checkpoints/densenet121_voc20.pt
+attribution:
+  num_masks: 256
+  mask_size: 7
+  mask_probability: 0.5
+  batch_size: 32
+  seed: 42
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+runtime:
+  device: auto
+  seed: 42
+  max_images: 5
+  resume: true
+output:
+  per_image_csv: results/per_image.csv
+  units_csv: results/units.csv
+  config_dir: results/configs
