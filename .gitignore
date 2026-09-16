@@ -16,6 +16,7 @@ data/*
 !data/**/*.json
 results/*
 !results/.gitkeep
+analysis/out/
 models/*.pt
 models/*.pth
 

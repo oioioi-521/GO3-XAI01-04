@@ -1,0 +1,31 @@
+# Plumbing check only: random weights and 8 samples are not reportable results.
+method: kernelshap
+dataset:
+  name: imagenet
+  split: debug
+model:
+  name: resnet50
+  weights: none
+  num_classes: 1000
+  checkpoint: null
+attribution:
+  n_samples: 8
+  perturbations_per_eval: 4
+  feature_grid_size: 4
+  seed: 42
+  show_progress: false
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.5, 1.0]
+runtime:
+  device: cpu
+  seed: 42
+  max_images: 1
+  resume: true
+output:
+  per_image_csv: results/smoke/kernelshap_per_image.csv
+  units_csv: results/smoke/kernelshap_units.csv
+  config_dir: results/smoke/configs
+  run_log: results/smoke/kernelshap_run_log.jsonl
+  maps_dir: results/smoke/maps
+  save_maps: true

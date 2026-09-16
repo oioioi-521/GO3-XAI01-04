@@ -1,0 +1,2 @@
+# Install alongside the shared pipeline requirements after they are merged.
+captum>=0.7,<1
