@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+.tools/
+.cache/
+uv-install.ps1
+.uv-portable.zip
 .ipynb_checkpoints/
 
 # 大数据与结果不入库(见 XAI01-04_小组工作指导.md §7.2,大文件走网盘共享)
