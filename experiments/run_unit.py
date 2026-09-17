@@ -27,13 +27,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from experiments.attribution import RISE  # noqa: E402
+from experiments.attribution import Occlusion, RISE  # noqa: E402
 from experiments.metrics import faithfulness_morf_auc  # noqa: E402
 from models import load_model, predict  # noqa: E402
 from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
 
 PER_IMAGE_COLUMNS = ["image_id", "dataset", "model", "method", "metric", "value", "time_ms"]
 UNIT_COLUMNS = ["method", "model", "dataset", "metric", "mean", "std", "n", "config_hash"]
+SUPPORTED_METHODS = {"rise": RISE, "occlusion": Occlusion}
 
 
 def _load_config(path: Path) -> Dict[str, Any]:
@@ -45,8 +46,9 @@ def _load_config(path: Path) -> Dict[str, Any]:
     missing = [key for key in required if key not in config]
     if missing:
         raise ValueError(f"config is missing keys: {missing}")
-    if str(config["method"]).lower() != "rise":
-        raise ValueError("this W2 runner currently supports method: rise")
+    method = str(config["method"]).lower()
+    if method not in SUPPORTED_METHODS:
+        raise ValueError(f"unsupported method {method!r}; choose from {sorted(SUPPORTED_METHODS)}")
     return config
 
 
@@ -74,6 +76,117 @@ def _black_baseline(device: torch.device, dtype: torch.dtype) -> torch.Tensor:
     return torch.tensor(values, device=device, dtype=dtype).view(1, 3, 1, 1)
 
 
+def _build_attributor(method: str, model: torch.nn.Module, attribution: Dict[str, Any]):
+    """Construct one supported attribution method from a YAML attribution block."""
+    try:
+        builder = SUPPORTED_METHODS[method]
+    except KeyError as error:
+        raise ValueError(f"unsupported method {method!r}; choose from {sorted(SUPPORTED_METHODS)}") from error
+    return builder(model=model, **attribution)
+
+
+def _unit_state_path(state_dir: Path, unit: Dict[str, str]) -> Path:
+    """Return the private resume-state path for one method/model/dataset unit."""
+    safe = "_".join(unit[key] for key in ("method", "model", "dataset"))
+    return state_dir / f"{safe}.json"
+
+
+def _read_state_hash(path: Path) -> str | None:
+    if not path.is_file():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    value = payload.get("config_hash") if isinstance(payload, dict) else None
+    return value if isinstance(value, str) else None
+
+
+def _write_state_hash(path: Path, unit: Dict[str, str], config_hash: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps({**unit, "config_hash": config_hash}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
+def _has_unit_rows(path: Path, unit: Dict[str, str]) -> bool:
+    if not path.is_file():
+        return False
+    frame = pd.read_csv(path)
+    required = {"dataset", "model", "method"}
+    if frame.empty or not required.issubset(frame.columns):
+        return False
+    return bool(
+        ((frame["dataset"] == unit["dataset"])
+         & (frame["model"] == unit["model"])
+         & (frame["method"] == unit["method"])).any()
+    )
+
+
+def _remove_unit_summary(path: Path, unit: Dict[str, str]) -> None:
+    if not path.is_file():
+        return
+    frame = pd.read_csv(path)
+    required = {"dataset", "model", "method"}
+    if not required.issubset(frame.columns):
+        return
+    keep = ~(
+        (frame["dataset"] == unit["dataset"])
+        & (frame["model"] == unit["model"])
+        & (frame["method"] == unit["method"])
+    )
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    frame[keep].to_csv(temporary, index=False)
+    temporary.replace(path)
+
+
+def _prepare_resume_state(
+    per_image_path: Path,
+    units_path: Path,
+    state_path: Path,
+    unit: Dict[str, str],
+    config_hash: str,
+    force: bool,
+) -> None:
+    """Prevent a changed YAML configuration from reusing another run's rows.
+
+    Per-image CSV is a public, hash-free long-table schema.  The ignored
+    sidecar records the hash that produced a unit's current rows without
+    changing that schema.  Legacy rows lacking a state sidecar are kept only
+    when the unit summary proves they use the requested hash; otherwise they
+    are conservatively rerun.
+    """
+    previous_hash = _read_state_hash(state_path)
+    if force:
+        _remove_unit_rows(per_image_path, unit)
+        _remove_unit_summary(units_path, unit)
+    elif previous_hash is None:
+        if _has_unit_rows(per_image_path, unit):
+            summary_hash = None
+            if units_path.is_file():
+                summaries = pd.read_csv(units_path)
+                required_columns = {"dataset", "model", "method", "config_hash"}
+                if required_columns.issubset(summaries.columns):
+                    selected = summaries[
+                        (summaries["dataset"] == unit["dataset"])
+                        & (summaries["model"] == unit["model"])
+                        & (summaries["method"] == unit["method"])
+                    ]
+                    if not selected.empty:
+                        hashes = set(selected["config_hash"].dropna().astype(str))
+                        summary_hash = next(iter(hashes)) if len(hashes) == 1 else None
+            if summary_hash != config_hash:
+                _remove_unit_rows(per_image_path, unit)
+                _remove_unit_summary(units_path, unit)
+    elif previous_hash != config_hash:
+        _remove_unit_rows(per_image_path, unit)
+        _remove_unit_summary(units_path, unit)
+    _write_state_hash(state_path, unit, config_hash)
+
+
 def _read_completed(
     output_path: Path, unit: Dict[str, str], metrics: Iterable[str]
 ) -> Set[str]:
@@ -91,6 +204,34 @@ def _read_completed(
     needed = len(set(metrics))
     counts = selected.groupby("image_id")["metric"].nunique()
     return set(counts[counts >= needed].index.astype(str))
+
+
+def _remove_incomplete_unit_rows(
+    path: Path, unit: Dict[str, str], metrics: Iterable[str]
+) -> None:
+    """Discard partial metric rows left by an interrupted resumable run."""
+    if not path.is_file():
+        return
+    frame = pd.read_csv(path)
+    if frame.empty or not set(PER_IMAGE_COLUMNS).issubset(frame.columns):
+        return
+    matching = (
+        (frame["dataset"] == unit["dataset"])
+        & (frame["model"] == unit["model"])
+        & (frame["method"] == unit["method"])
+    )
+    selected = frame[matching].copy()
+    selected["_image_id"] = selected["image_id"].astype(str)
+    needed = len(set(metrics))
+    complete_ids = set(
+        selected.groupby("_image_id")["metric"].nunique().loc[lambda counts: counts >= needed].index
+    )
+    incomplete = matching & ~frame["image_id"].astype(str).isin(complete_ids)
+    if not incomplete.any():
+        return
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    frame[~incomplete].to_csv(temporary, index=False)
+    temporary.replace(path)
 
 
 def _append_rows(path: Path, rows: List[Dict[str, Any]]) -> None:
@@ -145,7 +286,9 @@ def _upsert_unit_summary(
             & (old["model"] == unit["model"])
             & (old["method"] == unit["method"])
         )
-        summary = pd.concat([old[keep], summary], ignore_index=True)
+        retained = old[keep]
+        if not retained.empty:
+            summary = pd.concat([retained, summary], ignore_index=True)
     units_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = units_path.with_suffix(units_path.suffix + ".tmp")
     summary.to_csv(temporary, index=False)
@@ -167,7 +310,8 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     split = str(config["dataset"].get("split", "debug")).lower()
     model_config = config["model"]
     model_name = str(model_config["name"]).lower()
-    unit = {"dataset": dataset_name, "model": model_name, "method": "rise"}
+    method = str(config["method"]).lower()
+    unit = {"dataset": dataset_name, "model": model_name, "method": method}
     metrics = [str(metric) for metric in config["metrics"]["names"]]
     supported_metrics = {"efficiency_time_ms", "faithfulness_morf_auc"}
     unknown = set(metrics) - supported_metrics
@@ -194,12 +338,20 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     )
     dataset = MetadataDataset(dataset_name, split=split, limit=limit)
     baseline = _black_baseline(device, torch.float32)
-    rise = RISE(model=model, **config["attribution"])
+    attributor = _build_attributor(method, model=model, attribution=config["attribution"])
 
     per_image_path = _resolve(str(config["output"]["per_image_csv"]))
     units_path = _resolve(str(config["output"]["units_csv"]))
-    if force:
-        _remove_unit_rows(per_image_path, unit)
+    configured_state_dir = config["output"].get("state_dir")
+    state_dir = (
+        _resolve(str(configured_state_dir))
+        if configured_state_dir is not None
+        else per_image_path.parent / "run_state"
+    )
+    state_path = _unit_state_path(state_dir, unit)
+    _prepare_resume_state(per_image_path, units_path, state_path, unit, digest, force)
+    if not force and runtime.get("resume", True):
+        _remove_incomplete_unit_rows(per_image_path, unit, metrics)
     completed = set() if force or not runtime.get("resume", True) else _read_completed(
         per_image_path, unit, metrics
     )
@@ -213,7 +365,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     )
 
     processed = 0
-    for sample in tqdm(dataset, desc=f"RISE {model_name} {dataset_name}"):
+    for sample in tqdm(dataset, desc=f"{method.upper()} {model_name} {dataset_name}"):
         image_id = sample["image_id"]
         if image_id in completed:
             continue
@@ -223,13 +375,13 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
 
         _synchronize(device)
         started = time.perf_counter()
-        attribution = rise.attribute(image, target=target, baseline=baseline)
+        attribution = attributor.attribute(image, target=target, baseline=baseline)
         _synchronize(device)
         elapsed_ms = (time.perf_counter() - started) * 1000.0
 
         if config["output"].get("save_maps", True):
             maps_root = _resolve(str(config["output"].get("maps_dir", "results/maps")))
-            unit_maps = maps_root / f"rise_{model_name}_{dataset_name}"
+            unit_maps = maps_root / f"{method}_{model_name}_{dataset_name}"
             unit_maps.mkdir(parents=True, exist_ok=True)
             safe_image_id = "".join(
                 character if character.isalnum() or character in "-_" else "_"
@@ -257,7 +409,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         processed += 1
         tqdm.write(
             f"{image_id}: target={target} pred={predicted} conf={confidence:.4f} "
-            f"rise={elapsed_ms:.1f}ms"
+            f"{method}={elapsed_ms:.1f}ms"
         )
 
     if per_image_path.is_file():
