@@ -7,11 +7,11 @@ Example:
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import hashlib
 import json
 import os
-import shutil
 import sys
 import time
 from pathlib import Path
@@ -29,6 +29,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from experiments.attribution import Occlusion, RISE  # noqa: E402
 from experiments.metrics import faithfulness_morf_auc  # noqa: E402
+from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
 from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
 
@@ -55,6 +56,17 @@ def _load_config(path: Path) -> Dict[str, Any]:
 def _config_hash(config: Dict[str, Any]) -> str:
     canonical = json.dumps(config, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:12]
+
+
+def _effective_config(config: Dict[str, Any], max_images: int | None) -> Dict[str, Any]:
+    """Return the actual run configuration, including a CLI image-limit override."""
+    if max_images is None:
+        return config
+    if isinstance(max_images, bool) or int(max_images) <= 0:
+        raise ValueError("max_images override must be a positive integer")
+    effective = copy.deepcopy(config)
+    effective["runtime"]["max_images"] = int(max_images)
+    return effective
 
 
 def _resolve(path: str) -> Path:
@@ -301,7 +313,7 @@ def _synchronize(device: torch.device) -> None:
 
 
 def run(config_path: Path, max_images: int | None = None, force: bool = False) -> None:
-    config = _load_config(config_path)
+    config = _effective_config(_load_config(config_path), max_images)
     # Keep downloaded torchvision weights inside the project. This works in
     # restricted lab accounts that cannot write to the default user cache.
     os.environ.setdefault("TORCH_HOME", str(PROJECT_ROOT / ".cache" / "torch"))
@@ -327,14 +339,13 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         torch.cuda.manual_seed_all(seed)
 
     checkpoint = model_config.get("checkpoint")
-    if checkpoint:
-        checkpoint = str(_resolve(str(checkpoint)))
+    checkpoint_path = _resolve(str(checkpoint)) if checkpoint else None
     model = load_model(
         name=model_name,
         device=device,
         weights=str(model_config.get("weights", "default")),
         num_classes=int(model_config.get("num_classes", 1000)),
-        checkpoint=checkpoint,
+        checkpoint=str(checkpoint_path) if checkpoint_path else None,
     )
     dataset = MetadataDataset(dataset_name, split=split, limit=limit)
     baseline = _black_baseline(device, torch.float32)
@@ -342,6 +353,14 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
 
     per_image_path = _resolve(str(config["output"]["per_image_csv"]))
     units_path = _resolve(str(config["output"]["units_csv"]))
+    prediction_path = _resolve(str(config["output"].get("predictions_csv", "results/predictions.csv")))
+    prediction_context = build_prediction_context(
+        dataset=dataset_name,
+        split=split,
+        model_config=model_config,
+        checkpoint=checkpoint_path,
+    )
+    prediction_store = PredictionStore(prediction_path, prediction_context)
     configured_state_dir = config["output"].get("state_dir")
     state_dir = (
         _resolve(str(configured_state_dir))
@@ -358,7 +377,11 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
 
     snapshot_dir = _resolve(str(config["output"].get("config_dir", "results/configs")))
     snapshot_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(config_path, snapshot_dir / f"{digest}_{config_path.name}")
+    snapshot_path = snapshot_dir / f"{digest}_{config_path.name}"
+    temporary_snapshot = snapshot_path.with_suffix(snapshot_path.suffix + ".tmp")
+    with temporary_snapshot.open("w", encoding="utf-8") as handle:
+        yaml.safe_dump(config, handle, allow_unicode=True, sort_keys=False)
+    temporary_snapshot.replace(snapshot_path)
     print(
         f"unit={unit['method']}/{model_name}/{dataset_name}:{split} "
         f"device={device} images={len(dataset)} config_hash={digest}"
@@ -371,7 +394,21 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
             continue
         image = sample["image"].unsqueeze(0).to(device)
         target = int(sample["target"])
-        predicted, confidence, _ = predict(model, image)
+        previous_prediction = prediction_store.get(image_id, target)
+        if previous_prediction is None:
+            predicted, confidence, logits = predict(model, image)
+            if logits.ndim != 2 or logits.shape != (1, int(model_config.get("num_classes", 1000))):
+                raise ValueError(f"model output has unexpected shape {tuple(logits.shape)}")
+            prediction_store.record(
+                image_id=image_id,
+                target_class_id=target,
+                target_class_name=str(sample["class_name"]),
+                predicted_class_id=predicted,
+                confidence=confidence,
+            )
+        else:
+            predicted = int(previous_prediction["predicted_class_id"])
+            confidence = float(previous_prediction["confidence"])
 
         _synchronize(device)
         started = time.perf_counter()

@@ -63,6 +63,7 @@ def _config(tmp_path: Path):
             "units_csv": str(output / "units.csv"),
             "config_dir": str(output / "configs"),
             "run_log": str(output / "run_log.jsonl"),
+            "predictions_csv": str(output / "predictions.csv"),
             "save_maps": False,
         },
     }
@@ -129,6 +130,12 @@ def test_runner_executes_occlusion_from_yaml_and_resumes(tmp_path, monkeypatch):
     assert {row["metric"] for row in rows} == {"efficiency_time_ms", "faithfulness_morf_auc"}
     assert all(row["image_id"] == "synthetic-0001" for row in rows)
 
+    with Path(config["output"]["predictions_csv"]).open(newline="", encoding="utf-8") as handle:
+        prediction_rows = list(csv.DictReader(handle))
+    assert len(prediction_rows) == 1
+    assert prediction_rows[0]["image_id"] == "synthetic-0001"
+    assert prediction_rows[0]["correct"] == "1"
+
     with Path(config["output"]["units_csv"]).open(newline="", encoding="utf-8") as handle:
         unit_rows = list(csv.DictReader(handle))
     assert len(unit_rows) == 2
@@ -158,3 +165,45 @@ def test_runner_accepts_existing_rise_and_rejects_unknown_method(tmp_path):
     config_path.write_text(yaml.safe_dump(config), encoding="utf-8")
     with pytest.raises(ValueError, match="unsupported method"):
         run_unit._load_config(config_path)
+
+
+class TwoImageSyntheticDataset(SyntheticDataset):
+    def __init__(self, dataset, split="debug", limit=None):
+        super().__init__(dataset, split=split, limit=None)
+        second = self.samples[0].copy()
+        second["image"] = self.samples[0]["image"].roll(1, dims=2)
+        second["image_id"] = "synthetic-0002"
+        self.samples.append(second)
+        if limit is not None:
+            self.samples = self.samples[:limit]
+
+
+def test_cli_max_images_is_hashed_snapshotted_and_resumed(tmp_path, monkeypatch):
+    config = _config(tmp_path)
+    config_path = tmp_path / "override.yaml"
+    config_path.write_text(yaml.safe_dump(config), encoding="utf-8")
+    model = TinyClassifier().eval()
+    monkeypatch.setattr(run_unit, "load_model", lambda **kwargs: model)
+    monkeypatch.setattr(run_unit, "MetadataDataset", TwoImageSyntheticDataset)
+
+    run_unit.run(config_path, max_images=1)
+    run_unit.run(config_path, max_images=2)
+    run_unit.run(config_path, max_images=2)
+
+    effective_one = run_unit._effective_config(config, 1)
+    effective_two = run_unit._effective_config(config, 2)
+    first_hash = run_unit._config_hash(effective_one)
+    second_hash = run_unit._config_hash(effective_two)
+    assert first_hash != second_hash
+    with Path(config["output"]["per_image_csv"]).open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    assert len(rows) == 4
+    assert {row["image_id"] for row in rows} == {"synthetic-0001", "synthetic-0002"}
+
+    snapshots = list(Path(config["output"]["config_dir"]).glob("*.yaml"))
+    assert {run_unit._config_hash(yaml.safe_load(path.read_text(encoding="utf-8"))) for path in snapshots} == {
+        first_hash,
+        second_hash,
+    }
+    logs = [json.loads(line) for line in Path(config["output"]["run_log"]).read_text(encoding="utf-8").splitlines()]
+    assert [(entry["processed"], entry["skipped"]) for entry in logs] == [(1, 0), (2, 0), (0, 2)]
