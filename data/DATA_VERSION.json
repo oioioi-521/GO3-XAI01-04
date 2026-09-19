@@ -6,9 +6,9 @@
     "voc": {"raw_images": 500, "eval": 460, "debug": 40}
   },
   "sha256": {
-    "metadata.csv": "af51ba295ed0aa72d98aeb24bdbce751078e602c2fb9a275bdb169b841b79977",
-    "imagenet_labels.csv": "a5571c01499c95018e9d4f2e192daa1fc63cb3559e2b5cc8b020030ea7c8a9c3",
-    "voc_labels.csv": "6e6edd97919c9052f36029dbfa6a555c115b1e8e5444a1c3cb5f854c4cb9b2d7",
+    "metadata.csv": "a98afee190c4c653916a60446dfd79897cbb7020062a9449252d78e866c96bba",
+    "imagenet_labels.csv": "15b8c97af76460d2c6f0be6af00e75ed271faae1f603abba54a76f1cd31cdcc2",
+    "voc_labels.csv": "0d144df601fcf30832bdaa4f1b64b158b1f44c6bf5e723cf5b4e4773d6142c06",
     "imagenet_class_index.json": "a1e7a966a1f601d39e4b43e119b3e7dd4a2ad3ea08cf69847cbaf021013767bc"
   },
   "notes": "Raw images are shared outside Git. Counts and tracked metadata hashes define the W2 frozen baseline."

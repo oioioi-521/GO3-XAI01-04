@@ -29,7 +29,12 @@ def main() -> None:
             failures.append(relative_path)
 
     for dataset, expected in manifest["datasets"].items():
-        actual_count = sum(1 for path in (DATA_ROOT / dataset / "raw").iterdir() if path.is_file())
+        raw_dir = DATA_ROOT / dataset / "raw"
+        if not raw_dir.is_dir():
+            print(f"MISSING  {dataset}/raw")
+            failures.append(f"{dataset}/raw")
+            continue
+        actual_count = sum(1 for path in raw_dir.iterdir() if path.is_file())
         status = "OK" if actual_count == expected["raw_images"] else "MISMATCH"
         print(f"{status:8} {dataset}/raw ({actual_count} files)")
         if actual_count != expected["raw_images"]:
