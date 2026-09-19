@@ -41,7 +41,15 @@ def load_model(
     if name not in _BUILDERS:
         raise ValueError(f"unsupported model {name!r}; choose from {sorted(_BUILDERS)}")
     builder, default_weights = _BUILDERS[name]
-    selected_weights = default_weights if weights.lower() == "default" else None
+    normalized_weights = "none" if weights is None else str(weights).lower()
+    if normalized_weights == "default":
+        selected_weights = default_weights
+    elif normalized_weights == "none":
+        selected_weights = None
+    else:
+        raise ValueError(
+            f"unsupported weights {weights!r}; choose from ['default', 'none']"
+        )
     model = builder(weights=selected_weights)
     if num_classes != 1000:
         _replace_classifier(model, name, num_classes)
