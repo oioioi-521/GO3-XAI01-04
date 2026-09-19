@@ -27,7 +27,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from experiments.attribution import Occlusion, RISE  # noqa: E402
+from experiments.attribution import (  # noqa: E402
+    AttributionMethod,
+    GradCAM,
+    IntegratedGradients,
+    Occlusion,
+    RISE,
+)
 from experiments.metrics import faithfulness_morf_auc  # noqa: E402
 from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
@@ -35,7 +41,12 @@ from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
 
 PER_IMAGE_COLUMNS = ["image_id", "dataset", "model", "method", "metric", "value", "time_ms"]
 UNIT_COLUMNS = ["method", "model", "dataset", "metric", "mean", "std", "n", "config_hash"]
-SUPPORTED_METHODS = {"rise": RISE, "occlusion": Occlusion}
+SUPPORTED_METHODS = {
+    "gradcam": GradCAM,
+    "ig": IntegratedGradients,
+    "occlusion": Occlusion,
+    "rise": RISE,
+}
 
 
 def _load_config(path: Path) -> Dict[str, Any]:
@@ -88,7 +99,9 @@ def _black_baseline(device: torch.device, dtype: torch.dtype) -> torch.Tensor:
     return torch.tensor(values, device=device, dtype=dtype).view(1, 3, 1, 1)
 
 
-def _build_attributor(method: str, model: torch.nn.Module, attribution: Dict[str, Any]):
+def _build_attributor(
+    method: str, model: torch.nn.Module, attribution: Dict[str, Any]
+) -> AttributionMethod:
     """Construct one supported attribution method from a YAML attribution block."""
     try:
         builder = SUPPORTED_METHODS[method]

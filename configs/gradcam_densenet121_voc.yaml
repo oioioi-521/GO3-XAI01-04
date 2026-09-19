@@ -1,0 +1,24 @@
+# Formal unit: requires the frozen VOC-20 checkpoint supplied by member B.
+method: gradcam
+dataset:
+  name: voc
+  split: eval
+model:
+  name: densenet121
+  weights: none
+  num_classes: 20
+  checkpoint: models/checkpoints/densenet121_voc20.pt
+attribution:
+  target_layer: features.norm5
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+runtime:
+  device: auto
+  seed: 42
+  max_images: null
+  resume: true
+output:
+  per_image_csv: results/per_image.csv
+  units_csv: results/units.csv
+  config_dir: results/configs

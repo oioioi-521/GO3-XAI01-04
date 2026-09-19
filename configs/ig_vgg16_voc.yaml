@@ -1,0 +1,26 @@
+# Formal unit: requires the frozen VOC-20 checkpoint supplied by member B.
+method: ig
+dataset:
+  name: voc
+  split: eval
+model:
+  name: vgg16
+  weights: none
+  num_classes: 20
+  checkpoint: models/checkpoints/vgg16_voc20.pt
+attribution:
+  n_steps: 50
+  internal_batch_size: 10
+  approximation_method: gausslegendre
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+runtime:
+  device: auto
+  seed: 42
+  max_images: null
+  resume: true
+output:
+  per_image_csv: results/per_image.csv
+  units_csv: results/units.csv
+  config_dir: results/configs
