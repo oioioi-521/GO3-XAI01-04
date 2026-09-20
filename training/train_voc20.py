@@ -103,6 +103,7 @@ def _identity(config: dict[str, Any], train_manifest: Path) -> dict[str, Any]:
         "manifest_sha256": sha256(train_manifest),
         "batch_size": int(config["runtime"]["batch_size"]),
         "lr": float(config["optimizer"]["lr"]),
+        "early_stopping": config.get("early_stopping", {}),
     }
 
 
@@ -113,7 +114,7 @@ def _resume(
     optimizer: torch.optim.Optimizer,
     scheduler: torch.optim.lr_scheduler.ReduceLROnPlateau,
     scaler: torch.amp.GradScaler,
-) -> tuple[int, float, int | None]:
+) -> tuple[int, float, int | None, int]:
     payload = torch.load(path, map_location="cpu", weights_only=False)
     validate_identity(payload, identity)
     model.load_state_dict(payload["model"], strict=True)
@@ -121,7 +122,12 @@ def _resume(
     scheduler.load_state_dict(payload["scheduler"])
     scaler.load_state_dict(payload["scaler"])
     restore_rng(payload["rng"])
-    return int(payload["epoch"]) + 1, float(payload["best_metric"]), payload.get("best_epoch")
+    return (
+        int(payload["epoch"]) + 1,
+        float(payload["best_metric"]),
+        payload.get("best_epoch"),
+        int(payload["patience_count"]),
+    )
 
 
 def run(config_path: str, resume: str | None = None, max_epochs: int | None = None) -> dict[str, Any]:
@@ -166,9 +172,15 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
     validation_loader = DataLoader(validation_set, batch_size=batch_size)
     best_path, last_path, record_path = _paths(config)
-    start_epoch, best_metric, best_epoch = 1, -1.0, None
+    early_stopping = config.get("early_stopping", {})
+    patience = int(early_stopping.get("patience", 6))
+    min_delta = float(early_stopping.get("min_delta", 0.0))
+    if patience < 1 or min_delta < 0:
+        raise ValueError("early_stopping requires patience >= 1 and min_delta >= 0")
+
+    start_epoch, best_metric, best_epoch, patience_count = 1, -1.0, None, 0
     if resume is not None:
-        start_epoch, best_metric, best_epoch = _resume(
+        start_epoch, best_metric, best_epoch, patience_count = _resume(
             ROOT / resume, identity, model, optimizer, scheduler, scaler
         )
 
@@ -187,9 +199,10 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
             scaler.update()
         last_report = validation_map(model, validation_loader, device)
         scheduler.step(last_report["mAP"])
-        if last_report["mAP"] > best_metric:
+        if last_report["mAP"] > best_metric + min_delta:
             best_metric = last_report["mAP"]
             best_epoch = epoch
+            patience_count = 0
             atomic_torch_save(
                 {
                     "state_dict": model.state_dict(),
@@ -202,6 +215,8 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
                 },
                 best_path,
             )
+        else:
+            patience_count += 1
         atomic_torch_save(
             resume_payload(
                 model,
@@ -211,12 +226,14 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
                 epoch,
                 best_metric,
                 best_epoch,
-                0,
+                patience_count,
                 identity,
                 last_report,
             ),
             last_path,
         )
+        if patience_count >= patience:
+            break
 
     if last_report is None or not best_path.is_file():
         raise RuntimeError("no completed epoch was available to record")
@@ -225,6 +242,12 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
         "validation": last_report,
         "checkpoint_sha256": sha256(best_path),
         "last_checkpoint": str(last_path),
+        "early_stopping": {
+            "monitor": "mAP",
+            "patience": patience,
+            "min_delta": min_delta,
+            "patience_count": patience_count,
+        },
         "frozen_eval_used": False,
     }
     record_path.parent.mkdir(parents=True, exist_ok=True)
