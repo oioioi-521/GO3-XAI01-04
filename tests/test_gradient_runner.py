@@ -123,6 +123,36 @@ def test_runner_executes_and_resumes_gradient_methods(tmp_path, monkeypatch, met
     ]
 
 
+def test_runner_warms_up_attributor_without_recording_extra_sample(tmp_path, monkeypatch):
+    config = _config(tmp_path, "ig")
+    config["runtime"]["warmup_runs"] = 2
+    config_path = tmp_path / "ig_warmup.yaml"
+    config_path.write_text(yaml.safe_dump(config), encoding="utf-8")
+    calls = []
+
+    class RecordingAttributor:
+        def attribute(self, image, target, baseline):
+            calls.append((image.shape, target, baseline.shape))
+            return torch.ones(image.shape[-2:])
+
+    monkeypatch.setattr(run_unit, "load_model", lambda **kwargs: TinyCNN().eval())
+    monkeypatch.setattr(run_unit, "MetadataDataset", SyntheticDataset)
+    monkeypatch.setattr(run_unit, "_build_attributor", lambda *args, **kwargs: RecordingAttributor())
+
+    run_unit.run(config_path)
+    run_unit.run(config_path)
+
+    # The first invocation performs two discarded warm-ups plus one recorded
+    # attribution. The completed resume has no pending work and does not warm up.
+    assert len(calls) == 3
+    with Path(config["output"]["per_image_csv"]).open(
+        newline="", encoding="utf-8"
+    ) as handle:
+        rows = list(csv.DictReader(handle))
+    assert len(rows) == 1
+    assert rows[0]["image_id"] == "synthetic-gradient-0001"
+
+
 def test_twelve_formal_gradient_configs_cover_the_assigned_matrix():
     configs = []
     for method in ("ig", "gradcam"):
@@ -140,4 +170,5 @@ def test_twelve_formal_gradient_configs_cover_the_assigned_matrix():
                 )
                 assert config["dataset"]["split"] == "eval"
                 assert config["runtime"]["max_images"] is None
+                assert config["runtime"]["warmup_runs"] == 1
     assert len(set(configs)) == 12

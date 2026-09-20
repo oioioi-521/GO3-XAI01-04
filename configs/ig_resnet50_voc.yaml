@@ -21,6 +21,7 @@ runtime:
   device: auto
   seed: 42
   max_images: null
+  warmup_runs: 1
   resume: true
 output:
   per_image_csv: results/per_image.csv

@@ -391,6 +391,17 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         per_image_path, unit, metrics
     )
 
+    warmup_runs = int(runtime.get("warmup_runs", 0))
+    if warmup_runs < 0:
+        raise ValueError("runtime.warmup_runs must be non-negative")
+    if warmup_runs and len(completed) < len(dataset):
+        warmup_sample = next(iter(dataset))
+        warmup_image = warmup_sample["image"].unsqueeze(0).to(device)
+        warmup_target = int(warmup_sample["target"])
+        for _ in range(warmup_runs):
+            attributor.attribute(warmup_image, target=warmup_target, baseline=baseline)
+        _synchronize(device)
+
     snapshot_dir = _resolve(str(config["output"].get("config_dir", "results/configs")))
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     snapshot_path = snapshot_dir / f"{digest}_{config_path.name}"
@@ -400,7 +411,8 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     temporary_snapshot.replace(snapshot_path)
     print(
         f"unit={unit['method']}/{model_name}/{dataset_name}:{split} "
-        f"device={device} images={len(dataset)} config_hash={digest}"
+        f"device={device} images={len(dataset)} warmup_runs={warmup_runs} "
+        f"config_hash={digest}"
     )
 
     processed = 0
@@ -489,6 +501,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
             "split": split,
             "config_hash": digest,
             "device": str(device),
+            "warmup_runs": warmup_runs,
             "processed": processed,
             "skipped": len(completed),
             "finished_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
