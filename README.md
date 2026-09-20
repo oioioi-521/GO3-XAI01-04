@@ -38,3 +38,10 @@ pytest -q
 
 实现、输出位置、6 个单元配置及 VOC checkpoint 对接要求见
 [docs/W2_C_HANDOFF.md](docs/W2_C_HANDOFF.md)。
+
+成员 A 的 IG / Grad-CAM 实现、12 个正式单元配置、方法约定及待台式机授权后的运行清单见
+[docs/A_IG_GRADCAM_HANDOFF.md](docs/A_IG_GRADCAM_HANDOFF.md)。当前只应运行对应测试，不要在未确认 GPU、数据和 checkpoint 前启动正式 YAML：
+
+```bash
+pytest -q tests/test_gradient_methods.py tests/test_gradient_runner.py
+```

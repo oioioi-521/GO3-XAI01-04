@@ -118,6 +118,7 @@ def test_runner_executes_occlusion_from_yaml_and_resumes(tmp_path, monkeypatch):
         "weights": "none",
         "num_classes": 2,
         "checkpoint": None,
+        "output_activation": "softmax",
     }
     assert seen["attribution"]["model"] is model
     assert {key: value for key, value in seen["attribution"].items() if key != "model"} == changed["attribution"]
