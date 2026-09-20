@@ -6,4 +6,7 @@ optimizer: {lr: 0.0001}
 early_stopping: {patience: 6, min_delta: 0.0}
 metrics: {threshold: 0.5}
 epochs: 30
-output: {checkpoint: models/checkpoints/vgg16_voc20_multilabel.pt, record: results/training/vgg16_voc20_multilabel.json}
+output:
+  checkpoint: models/checkpoints/vgg16_voc20.pt
+  last_checkpoint: models/checkpoints/resume/vgg16_voc20.last.pt
+  record: results/training/vgg16_voc20.json
