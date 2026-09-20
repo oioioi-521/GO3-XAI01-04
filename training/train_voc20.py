@@ -12,6 +12,7 @@ import hashlib
 import json
 import random
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -176,6 +177,8 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
     if requested_epochs < start_epoch:
         raise ValueError("max epochs precedes resume checkpoint")
     last_report: dict[str, Any] | None = None
+    started_at = time.perf_counter()
+    torch.cuda.reset_peak_memory_stats(device)
     for epoch in range(start_epoch, requested_epochs + 1):
         model.train()
         for images, targets, _ in train_loader:
@@ -225,11 +228,16 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
 
     if last_report is None or not best_path.is_file():
         raise RuntimeError("no completed epoch was available to record")
+    best_payload = torch.load(best_path, map_location="cpu", weights_only=False)
+    best_report = best_payload["validation"]
     record = {
         "best_epoch": best_epoch,
-        "validation": last_report,
+        "validation": best_report,
+        "last_validation": last_report,
         "checkpoint_sha256": sha256(best_path),
         "last_checkpoint": str(last_path),
+        "elapsed_seconds": time.perf_counter() - started_at,
+        "peak_cuda_memory_bytes": torch.cuda.max_memory_allocated(device),
         "early_stopping": {
             "monitor": "mAP",
             "patience": patience,
