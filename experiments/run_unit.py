@@ -28,7 +28,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from experiments.attribution import Occlusion, RISE  # noqa: E402
-from experiments.metrics import faithfulness_morf_auc, raw_true_target_deletion_auc  # noqa: E402
+from experiments.metrics import faithfulness_morf_auc, faithfulness_morf_auc_raw  # noqa: E402
 from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
 from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
@@ -326,7 +326,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     method = str(config["method"]).lower()
     unit = {"dataset": dataset_name, "model": model_name, "method": method}
     metrics = [str(metric) for metric in config["metrics"]["names"]]
-    supported_metrics = {"efficiency_time_ms", "faithfulness_morf_auc", "raw_true_target_deletion_auc"}
+    supported_metrics = {"efficiency_time_ms", "faithfulness_morf_auc", "faithfulness_morf_auc_raw"}
     unknown = set(metrics) - supported_metrics
     if unknown:
         raise ValueError(f"unsupported metrics: {sorted(unknown)}")
@@ -443,9 +443,9 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
                 fractions=config["metrics"].get("deletion_fractions", [0, 0.25, 0.5, 0.75, 1]),
             )
             rows.append({**common, "metric": "faithfulness_morf_auc", "value": score, "time_ms": ""})
-        if "raw_true_target_deletion_auc" in metrics:
-            score = raw_true_target_deletion_auc(model, image, target, attribution, baseline, config["metrics"].get("deletion_fractions", [0, .25, .5, .75, 1]), output_activation=output_activation)
-            rows.append({**common, "metric": "raw_true_target_deletion_auc", "value": score, "time_ms": ""})
+        if "faithfulness_morf_auc_raw" in metrics:
+            score = faithfulness_morf_auc_raw(model, image, target, attribution, baseline, config["metrics"].get("deletion_fractions", [0, .25, .5, .75, 1]), output_activation=output_activation)
+            rows.append({**common, "metric": "faithfulness_morf_auc_raw", "value": score, "time_ms": ""})
         _append_rows(per_image_path, rows)
         processed += 1
         tqdm.write(

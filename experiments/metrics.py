@@ -48,11 +48,6 @@ def faithfulness_morf_auc_raw(model, image, target, attribution, baseline, fract
     return min(1.0, max(0.0, score))
 
 
-def raw_true_target_deletion_auc(*args, **kwargs) -> float:
-    """Temporary compatibility wrapper; removed when the runner switches names."""
-    return faithfulness_morf_auc_raw(*args, **kwargs)
-
-
 def summarize_by_correct(scores: Iterable[float], correct: Iterable[bool]) -> dict[str, dict[str, float | int]]:
     """Return explicit correct/error group summaries without silently dropping errors."""
     groups = {True: [], False: []}
