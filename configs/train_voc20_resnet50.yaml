@@ -4,5 +4,6 @@ data: {train_manifest: data/voc20_multilabel_train.csv, validation_manifest: dat
 runtime: {batch_size: 32}
 optimizer: {lr: 0.0001}
 early_stopping: {patience: 6, min_delta: 0.0}
+metrics: {threshold: 0.5}
 epochs: 30
 output: {checkpoint: models/checkpoints/resnet50_voc20_multilabel.pt, record: results/training/resnet50_voc20_multilabel.json}

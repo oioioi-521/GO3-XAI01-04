@@ -26,6 +26,7 @@ if str(ROOT) not in sys.path:
 from models.factory import load_model
 from preprocessing.dataset import load_image
 from preprocessing.extract_voc_labels import VOC_CLASSES
+from training.multilabel_metrics import multilabel_report
 from training.checkpoints import (
     atomic_torch_save,
     resume_payload,
@@ -60,32 +61,17 @@ class ManifestDataset(Dataset):
         return load_image(row["image_path"]), target, row["image_id"]
 
 
-def _average_precision(probabilities: torch.Tensor, targets: torch.Tensor) -> float:
-    order = torch.argsort(probabilities, descending=True)
-    sorted_targets = targets[order]
-    positives = sorted_targets.sum().item()
-    if positives == 0:
-        return 0.0
-    ranks = torch.arange(1, len(sorted_targets) + 1, dtype=torch.float32)
-    precision_at_hits = sorted_targets * sorted_targets.cumsum(0) / ranks
-    return float(precision_at_hits.sum().item() / positives)
-
-
-def validation_map(model: torch.nn.Module, loader: DataLoader, device: torch.device) -> dict[str, Any]:
-    """Calculate finite multi-label mAP without consuming frozen data."""
+def validation_metrics(
+    model: torch.nn.Module, loader: DataLoader, device: torch.device, threshold: float
+) -> dict[str, Any]:
+    """Calculate finite multi-label metrics without consuming frozen data."""
     logits, targets = [], []
     model.eval()
     with torch.inference_mode():
         for images, batch_targets, _ in loader:
             logits.append(model(images.to(device)).cpu())
             targets.append(batch_targets)
-    probabilities = torch.cat(logits).sigmoid()
-    target_matrix = torch.cat(targets)
-    ap = [_average_precision(probabilities[:, index], target_matrix[:, index]) for index in range(20)]
-    report = {"mAP": sum(ap) / len(ap), "per_class_ap": dict(zip(VOC_CLASSES, ap))}
-    if not torch.isfinite(torch.tensor(report["mAP"])):
-        raise ValueError("validation mAP is not finite")
-    return report
+    return multilabel_report(torch.cat(logits), torch.cat(targets), VOC_CLASSES, threshold)
 
 
 def _paths(config: dict[str, Any]) -> tuple[Path, Path, Path]:
@@ -104,6 +90,7 @@ def _identity(config: dict[str, Any], train_manifest: Path) -> dict[str, Any]:
         "batch_size": int(config["runtime"]["batch_size"]),
         "lr": float(config["optimizer"]["lr"]),
         "early_stopping": config.get("early_stopping", {}),
+        "threshold": float(config.get("metrics", {}).get("threshold", 0.5)),
     }
 
 
@@ -169,6 +156,7 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
     pos_weight = ((len(train_set) - class_counts) / class_counts).clamp(max=20)
     loss_fn = torch.nn.BCEWithLogitsLoss(pos_weight=pos_weight)
     batch_size = int(config["runtime"]["batch_size"])
+    threshold = float(config.get("metrics", {}).get("threshold", 0.5))
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
     validation_loader = DataLoader(validation_set, batch_size=batch_size)
     best_path, last_path, record_path = _paths(config)
@@ -197,7 +185,7 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
-        last_report = validation_map(model, validation_loader, device)
+        last_report = validation_metrics(model, validation_loader, device, threshold)
         scheduler.step(last_report["mAP"])
         if last_report["mAP"] > best_metric + min_delta:
             best_metric = last_report["mAP"]
