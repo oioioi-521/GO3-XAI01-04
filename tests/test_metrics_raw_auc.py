@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from experiments.metrics import faithfulness_morf_auc, raw_true_target_deletion_auc, summarize_by_correct
+from experiments.metrics import faithfulness_morf_auc, faithfulness_morf_auc_raw, summarize_by_correct
 
 
 class Scores(torch.nn.Module):
@@ -13,7 +13,7 @@ class Scores(torch.nn.Module):
 @pytest.mark.parametrize("activation", ["softmax", "sigmoid"])
 def test_raw_deletion_auc_is_finite_and_bounded(activation):
     image = torch.ones(1, 3, 4, 4); baseline = torch.zeros_like(image); attr = torch.ones(4, 4)
-    score = raw_true_target_deletion_auc(Scores(), image, 0, attr, baseline, [0, .5, 1], activation)
+    score = faithfulness_morf_auc_raw(Scores(), image, 0, attr, baseline, [0, .5, 1], activation)
     assert 0 <= score <= 1
 
 

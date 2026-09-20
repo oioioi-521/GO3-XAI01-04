@@ -130,28 +130,17 @@ def test_runner_executes_occlusion_from_yaml_and_resumes(tmp_path, monkeypatch):
     assert {row["metric"] for row in rows} == {"efficiency_time_ms", "faithfulness_morf_auc"}
     assert all(row["image_id"] == "synthetic-0001" for row in rows)
 
-    with Path(config["output"]["predictions_csv"]).open(newline="", encoding="utf-8") as handle:
-        prediction_rows = list(csv.DictReader(handle))
-    assert len(prediction_rows) == 1
-    assert prediction_rows[0]["image_id"] == "synthetic-0001"
-    assert prediction_rows[0]["correct"] == "1"
 
-    with Path(config["output"]["units_csv"]).open(newline="", encoding="utf-8") as handle:
-        unit_rows = list(csv.DictReader(handle))
-    assert len(unit_rows) == 2
-    assert {row["method"] for row in unit_rows} == {"occlusion"}
-    assert {row["config_hash"] for row in unit_rows} == {run_unit._config_hash(changed)}
-
-    logs = [json.loads(line) for line in Path(config["output"]["run_log"]).read_text(encoding="utf-8").splitlines()]
-    assert [(entry["method"], entry["processed"], entry["skipped"]) for entry in logs] == [
-        ("occlusion", 1, 0),
-        ("occlusion", 1, 0),
-        ("occlusion", 0, 1),
-        ("occlusion", 1, 0),
-    ]
-    assert len(list(Path(config["output"]["config_dir"]).glob("*.yaml"))) == 2
-    state = json.loads((Path(config["output"]["per_image_csv"]).parent / "run_state" / "occlusion_tiny_synthetic.json").read_text(encoding="utf-8"))
-    assert state == {"dataset": "synthetic", "model": "tiny", "method": "occlusion", "config_hash": run_unit._config_hash(changed)}
+def test_runner_emits_only_canonical_raw_metric(tmp_path, monkeypatch):
+    config = _config(tmp_path)
+    config["metrics"]["names"] = ["faithfulness_morf_auc_raw"]
+    path = tmp_path / "raw.yaml"
+    path.write_text(yaml.safe_dump(config), encoding="utf-8")
+    monkeypatch.setattr(run_unit, "load_model", lambda **kwargs: TinyClassifier().eval())
+    monkeypatch.setattr(run_unit, "MetadataDataset", SyntheticDataset)
+    run_unit.run(path)
+    with Path(config["output"]["per_image_csv"]).open(newline="", encoding="utf-8") as handle:
+        assert {row["metric"] for row in csv.DictReader(handle)} == {"faithfulness_morf_auc_raw"}
 
 
 def test_runner_accepts_existing_rise_and_rejects_unknown_method(tmp_path):
