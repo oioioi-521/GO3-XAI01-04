@@ -9,7 +9,12 @@ import torch
 import yaml
 
 from preprocessing.extract_voc_labels import VOC_CLASSES
-from training.checkpoints import atomic_torch_save, resume_payload, validate_identity
+from training.checkpoints import (
+    atomic_torch_save,
+    resume_payload,
+    saved_elapsed_seconds,
+    validate_identity,
+)
 from training.multilabel_metrics import multilabel_report
 from training.train_voc20 import _resume
 
@@ -38,7 +43,17 @@ def test_rolling_payload_is_atomic_and_contains_recovery_state(tmp_path: Path):
     optimizer.step()
     scheduler.step(0.4)
     payload = resume_payload(
-        model, optimizer, scheduler, scaler, 1, 0.4, 1, 0, identity, {"mAP": 0.4}
+        model,
+        optimizer,
+        scheduler,
+        scaler,
+        1,
+        0.4,
+        1,
+        0,
+        identity,
+        {"mAP": 0.4},
+        elapsed_seconds_total=3.5,
     )
     target = tmp_path / "resume" / "last.pt"
     atomic_torch_save(payload, target)
@@ -49,6 +64,7 @@ def test_rolling_payload_is_atomic_and_contains_recovery_state(tmp_path: Path):
     assert restored["epoch"] == 1
     assert restored["best_epoch"] == 1
     assert restored["patience_count"] == 0
+    assert restored["elapsed_seconds_total"] == 3.5
     assert restored["optimizer"] == optimizer.state_dict()
     assert restored["scheduler"] == scheduler.state_dict()
     assert restored["scaler"] == scaler.state_dict()
@@ -74,20 +90,64 @@ def test_resume_restores_next_epoch_optimizer_scheduler_scaler_and_patience(tmp_
     saved_weight = model.weight.detach().clone()
     path = tmp_path / "last.pt"
     atomic_torch_save(
-        resume_payload(model, optimizer, scheduler, scaler, 1, 0.3, 1, 2, identity, {"mAP": 0.3}),
+        resume_payload(
+            model,
+            optimizer,
+            scheduler,
+            scaler,
+            1,
+            0.3,
+            1,
+            2,
+            identity,
+            {"mAP": 0.3},
+            elapsed_seconds_total=4.25,
+        ),
         path,
     )
     restored_model, restored_optimizer, restored_scheduler, restored_scaler, _ = _training_objects()
-    start, best, best_epoch, patience_count = _resume(
+    start, best, best_epoch, patience_count, elapsed = _resume(
         path, identity, restored_model, restored_optimizer, restored_scheduler, restored_scaler
     )
 
     assert start == 2
     assert (best, best_epoch, patience_count) == (0.3, 1, 2)
+    assert elapsed == 4.25
     assert torch.equal(restored_model.weight, saved_weight)
     assert restored_optimizer.param_groups[0]["lr"] == optimizer.param_groups[0]["lr"]
     assert restored_scheduler.state_dict() == scheduler.state_dict()
     assert restored_scaler.state_dict() == scaler.state_dict()
+
+
+def test_cumulative_elapsed_metadata_is_monotonic_and_not_double_counted():
+    model, optimizer, scheduler, scaler, identity = _training_objects()
+    first = resume_payload(
+        model, optimizer, scheduler, scaler, 1, 0.2, 1, 0, identity, {"mAP": 0.2}, 3.5
+    )
+    resumed_total = saved_elapsed_seconds(first)
+    second = resume_payload(
+        model,
+        optimizer,
+        scheduler,
+        scaler,
+        2,
+        0.3,
+        2,
+        0,
+        identity,
+        {"mAP": 0.3},
+        resumed_total + 2.25,
+    )
+
+    assert saved_elapsed_seconds(second) == 5.75
+    assert saved_elapsed_seconds(second) > saved_elapsed_seconds(first)
+
+
+def test_legacy_elapsed_metadata_defaults_to_zero_and_invalid_values_are_rejected():
+    assert saved_elapsed_seconds({}) == 0.0
+    for value in (-0.1, float("nan"), float("inf")):
+        with pytest.raises(ValueError, match="elapsed_seconds_total"):
+            saved_elapsed_seconds({"elapsed_seconds_total": value})
 
 
 def test_f1_map_metrics_are_finite_for_empty_positive_predictions():
