@@ -18,10 +18,14 @@ data/*
 !data/*.json
 !data/**/*.csv
 !data/**/*.json
+!data/voc20_multilabel_*.csv
+!data/voc20_multilabel_*.txt
+!data/VOC20_MULTILABEL_VERSION.json
 results/*
 !results/.gitkeep
 models/*.pt
 models/*.pth
+models/checkpoints/
 
 # 系统与编辑器
 .DS_Store
