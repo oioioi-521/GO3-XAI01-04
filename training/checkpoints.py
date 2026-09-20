@@ -23,5 +23,30 @@ def validate_identity(payload: dict[str, Any], identity: dict[str, Any]) -> None
     saved=payload.get("identity")
     if saved != identity: raise ValueError("resume checkpoint identity mismatch")
 
-def resume_payload(model,optimizer,scheduler,scaler,epoch,best_metric,patience_count,identity,report):
-    return {"schema":1,"model":model.state_dict(),"optimizer":optimizer.state_dict(),"scheduler":scheduler.state_dict() if scheduler else None,"scaler":scaler.state_dict(),"epoch":epoch,"best_metric":best_metric,"patience_count":patience_count,"identity":identity,"rng":rng_state(),"report":report}
+def resume_payload(
+    model,
+    optimizer,
+    scheduler,
+    scaler,
+    epoch,
+    best_metric,
+    best_epoch,
+    patience_count,
+    identity,
+    report,
+):
+    """Create the complete rolling-state payload after a successful epoch."""
+    return {
+        "schema": 1,
+        "model": model.state_dict(),
+        "optimizer": optimizer.state_dict(),
+        "scheduler": scheduler.state_dict() if scheduler else None,
+        "scaler": scaler.state_dict(),
+        "epoch": epoch,
+        "best_metric": best_metric,
+        "best_epoch": best_epoch,
+        "patience_count": patience_count,
+        "identity": identity,
+        "rng": rng_state(),
+        "report": report,
+    }
