@@ -322,6 +322,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     split = str(config["dataset"].get("split", "debug")).lower()
     model_config = config["model"]
     model_name = str(model_config["name"]).lower()
+    output_activation = str(model_config.get("output_activation", "sigmoid" if dataset_name == "voc" else "softmax"))
     method = str(config["method"]).lower()
     unit = {"dataset": dataset_name, "model": model_name, "method": method}
     metrics = [str(metric) for metric in config["metrics"]["names"]]
@@ -396,7 +397,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         target = int(sample["target"])
         previous_prediction = prediction_store.get(image_id, target)
         if previous_prediction is None:
-            predicted, confidence, logits = predict(model, image)
+            predicted, confidence, logits = predict(model, image, output_activation=output_activation)
             if logits.ndim != 2 or logits.shape != (1, int(model_config.get("num_classes", 1000))):
                 raise ValueError(f"model output has unexpected shape {tuple(logits.shape)}")
             prediction_store.record(

@@ -182,3 +182,12 @@ def test_predict_contract():
     assert pred_idx_3d == 1
     assert conf_3d == pytest.approx(conf)
     assert logits_3d.shape == (1, 3)
+
+
+def test_predict_sigmoid_uses_independent_class_confidence():
+    class Scores(nn.Module):
+        def forward(self, x):
+            return torch.tensor([[1.0, 5.0, 2.0]]).repeat(x.shape[0], 1)
+    predicted, confidence, _ = factory.predict(Scores(), torch.zeros(3, 4, 4), output_activation="sigmoid")
+    assert predicted == 1
+    assert confidence == pytest.approx(torch.sigmoid(torch.tensor(5.0)).item())

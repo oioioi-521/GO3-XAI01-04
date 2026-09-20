@@ -30,6 +30,7 @@ def run(config_path: Path, max_images: int | None = None) -> None:
     split = str(config["dataset"].get("split", "debug")).lower()
     model_config = config["model"]
     model_name = str(model_config["name"]).lower()
+    output_activation = str(model_config.get("output_activation", "sigmoid" if dataset_name == "voc" else "softmax"))
     runtime = config["runtime"]
     limit = runtime.get("max_images")
     device = _select_device(str(runtime.get("device", "auto")))
@@ -74,7 +75,7 @@ def run(config_path: Path, max_images: int | None = None) -> None:
             skipped += 1
             continue
         image = sample["image"].unsqueeze(0).to(device)
-        predicted, confidence, logits = predict(model, image)
+        predicted, confidence, logits = predict(model, image, output_activation=output_activation)
         if logits.shape != (1, expected_classes) or not torch.isfinite(logits).all():
             raise ValueError(f"model output has unexpected values or shape {tuple(logits.shape)}")
         store.record(
