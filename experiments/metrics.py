@@ -31,7 +31,7 @@ def _probability(logits: torch.Tensor, target: int, output_activation: str) -> t
 
 
 @torch.inference_mode()
-def raw_true_target_deletion_auc(model, image, target, attribution, baseline, fractions, output_activation="softmax") -> float:
+def faithfulness_morf_auc_raw(model, image, target, attribution, baseline, fractions, output_activation="softmax") -> float:
     """Bounded MoRF deletion AUC of the true target probability (lower is better)."""
     image, target, attribution, baseline, fractions = _validate_deletion_inputs(image, target, attribution, baseline, fractions)
     height, width = attribution.shape
@@ -46,6 +46,11 @@ def raw_true_target_deletion_auc(model, image, target, attribution, baseline, fr
     if not torch.isfinite(torch.tensor(score)):
         raise ValueError("deletion AUC is not finite")
     return min(1.0, max(0.0, score))
+
+
+def raw_true_target_deletion_auc(*args, **kwargs) -> float:
+    """Temporary compatibility wrapper; removed when the runner switches names."""
+    return faithfulness_morf_auc_raw(*args, **kwargs)
 
 
 def summarize_by_correct(scores: Iterable[float], correct: Iterable[bool]) -> dict[str, dict[str, float | int]]:
