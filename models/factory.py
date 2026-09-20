@@ -31,6 +31,7 @@ def load_model(
     weights: str = "default",
     num_classes: int = 1000,
     checkpoint: str | None = None,
+    output_activation: str = "softmax",
 ) -> torch.nn.Module:
     """Load a supported classifier and put it in evaluation mode.
 
@@ -38,6 +39,8 @@ def load_model(
     weights cannot be interpreted as VOC ground-truth classes.
     """
     name = name.lower()
+    if output_activation not in {"softmax", "sigmoid"}:
+        raise ValueError("output_activation must be 'softmax' or 'sigmoid'")
     if name not in _BUILDERS:
         raise ValueError(f"unsupported model {name!r}; choose from {sorted(_BUILDERS)}")
     builder, default_weights = _BUILDERS[name]
@@ -75,11 +78,16 @@ def load_model(
 
 
 @torch.inference_mode()
-def predict(model: torch.nn.Module, image: torch.Tensor) -> Tuple[int, float, torch.Tensor]:
+def predict(model: torch.nn.Module, image: torch.Tensor, output_activation: str = "softmax") -> Tuple[int, float, torch.Tensor]:
     """Return ``(predicted class, confidence, logits)`` for one image."""
     if image.ndim == 3:
         image = image.unsqueeze(0)
     logits = model(image)
-    probabilities = logits.softmax(dim=1)
+    if output_activation == "softmax":
+        probabilities = logits.softmax(dim=1)
+    elif output_activation == "sigmoid":
+        probabilities = logits.sigmoid()
+    else:
+        raise ValueError("output_activation must be 'softmax' or 'sigmoid'")
     confidence, predicted = probabilities.max(dim=1)
     return int(predicted.item()), float(confidence.item()), logits

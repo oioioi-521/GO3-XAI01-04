@@ -28,7 +28,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from experiments.attribution import Occlusion, RISE  # noqa: E402
-from experiments.metrics import faithfulness_morf_auc  # noqa: E402
+from experiments.metrics import faithfulness_morf_auc, faithfulness_morf_auc_raw  # noqa: E402
 from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
 from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
@@ -322,10 +322,11 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     split = str(config["dataset"].get("split", "debug")).lower()
     model_config = config["model"]
     model_name = str(model_config["name"]).lower()
+    output_activation = str(model_config.get("output_activation", "sigmoid" if dataset_name == "voc" else "softmax"))
     method = str(config["method"]).lower()
     unit = {"dataset": dataset_name, "model": model_name, "method": method}
     metrics = [str(metric) for metric in config["metrics"]["names"]]
-    supported_metrics = {"efficiency_time_ms", "faithfulness_morf_auc"}
+    supported_metrics = {"efficiency_time_ms", "faithfulness_morf_auc", "faithfulness_morf_auc_raw"}
     unknown = set(metrics) - supported_metrics
     if unknown:
         raise ValueError(f"unsupported metrics: {sorted(unknown)}")
@@ -396,7 +397,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         target = int(sample["target"])
         previous_prediction = prediction_store.get(image_id, target)
         if previous_prediction is None:
-            predicted, confidence, logits = predict(model, image)
+            predicted, confidence, logits = predict(model, image, output_activation=output_activation)
             if logits.ndim != 2 or logits.shape != (1, int(model_config.get("num_classes", 1000))):
                 raise ValueError(f"model output has unexpected shape {tuple(logits.shape)}")
             prediction_store.record(
@@ -442,6 +443,9 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
                 fractions=config["metrics"].get("deletion_fractions", [0, 0.25, 0.5, 0.75, 1]),
             )
             rows.append({**common, "metric": "faithfulness_morf_auc", "value": score, "time_ms": ""})
+        if "faithfulness_morf_auc_raw" in metrics:
+            score = faithfulness_morf_auc_raw(model, image, target, attribution, baseline, config["metrics"].get("deletion_fractions", [0, .25, .5, .75, 1]), output_activation=output_activation)
+            rows.append({**common, "metric": "faithfulness_morf_auc_raw", "value": score, "time_ms": ""})
         _append_rows(per_image_path, rows)
         processed += 1
         tqdm.write(

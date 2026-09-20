@@ -85,6 +85,10 @@ def build_prediction_context(
     name = str(model_config["name"]).lower()
     weights = str(model_config.get("weights", "default")).lower()
     num_classes = int(model_config.get("num_classes", 1000))
+    task_type = str(model_config.get("task_type", "multilabel" if dataset == "voc" else "multiclass")).lower()
+    activation = str(model_config.get("output_activation", "sigmoid" if task_type == "multilabel" else "softmax")).lower()
+    if (task_type, activation) not in {("multiclass", "softmax"), ("multilabel", "sigmoid")}:
+        raise ValueError("only multiclass/softmax and multilabel/sigmoid output semantics are supported")
     checkpoint_sha256 = _weight_sha256(name, weights, checkpoint)
     payload = {
         "prediction_schema": 1,
@@ -96,6 +100,8 @@ def build_prediction_context(
             "weights": weights,
             "num_classes": num_classes,
             "checkpoint_sha256": checkpoint_sha256,
+            "task_type": task_type,
+            "output_activation": activation,
         },
         "preprocessing": {"resize": [224, 224], "mean": MEAN, "std": STD},
     }
@@ -105,6 +111,8 @@ def build_prediction_context(
         "model": name,
         "weights": weights,
         "checkpoint_sha256": checkpoint_sha256,
+        "task_type": task_type,
+        "output_activation": activation,
         "config_hash": _canonical_hash(payload),
     }
 
@@ -135,7 +143,7 @@ class PredictionStore:
         for row in self.rows:
             if row.get("config_hash") != self.context["config_hash"]:
                 continue
-            if any(row.get(key) != self.context[key] for key in ("dataset", "split", "model", "weights", "checkpoint_sha256")):
+            if any(row.get(key) not in (None, self.context[key]) for key in ("dataset", "split", "model", "weights", "checkpoint_sha256")):
                 continue
             image_id = row.get("image_id", "")
             if not image_id:
@@ -176,7 +184,7 @@ class PredictionStore:
             raise ValueError(f"prediction already exists for image_id={image_id!r}")
         row = {
             "image_id": str(image_id),
-            **self.context,
+            **{key: self.context[key] for key in PREDICTION_COLUMNS if key in self.context},
             "target_class_id": str(int(target_class_id)),
             "target_class_name": str(target_class_name),
             "predicted_class_id": str(int(predicted_class_id)),

@@ -44,6 +44,12 @@ def test_prediction_store_reuses_across_methods_and_isolates_model_changes(tmp_p
     assert PredictionStore(tmp_path / "predictions.csv", changed_model).get("image-1", 23) is None
 
 
+def test_prediction_context_isolates_output_activation():
+    softmax = build_prediction_context(dataset="voc", split="debug", model_config={**_model_config(20), "task_type": "multiclass", "output_activation": "softmax"}, checkpoint=None)
+    sigmoid = build_prediction_context(dataset="voc", split="debug", model_config={**_model_config(20), "task_type": "multilabel", "output_activation": "sigmoid"}, checkpoint=None)
+    assert softmax["config_hash"] != sigmoid["config_hash"]
+
+
 class TinyClassifier(torch.nn.Module):
     def forward(self, inputs):
         score = inputs[:, 0].sum(dim=(1, 2))
