@@ -32,6 +32,7 @@ from training.checkpoints import (
     atomic_torch_save,
     resume_payload,
     restore_rng,
+    saved_elapsed_seconds,
     validate_identity,
 )
 
@@ -102,7 +103,7 @@ def _resume(
     optimizer: torch.optim.Optimizer,
     scheduler: torch.optim.lr_scheduler.ReduceLROnPlateau,
     scaler: torch.amp.GradScaler,
-) -> tuple[int, float, int | None, int]:
+) -> tuple[int, float, int | None, int, float]:
     payload = torch.load(path, map_location="cpu", weights_only=False)
     validate_identity(payload, identity)
     model.load_state_dict(payload["model"], strict=True)
@@ -115,6 +116,7 @@ def _resume(
         float(payload["best_metric"]),
         payload.get("best_epoch"),
         int(payload["patience_count"]),
+        saved_elapsed_seconds(payload),
     )
 
 
@@ -167,9 +169,9 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
     if patience < 1 or min_delta < 0:
         raise ValueError("early_stopping requires patience >= 1 and min_delta >= 0")
 
-    start_epoch, best_metric, best_epoch, patience_count = 1, -1.0, None, 0
+    start_epoch, best_metric, best_epoch, patience_count, elapsed_before = 1, -1.0, None, 0, 0.0
     if resume is not None:
-        start_epoch, best_metric, best_epoch, patience_count = _resume(
+        start_epoch, best_metric, best_epoch, patience_count, elapsed_before = _resume(
             ROOT / resume, identity, model, optimizer, scheduler, scaler
         )
 
@@ -220,6 +222,7 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
                 patience_count,
                 identity,
                 last_report,
+                elapsed_before + (time.perf_counter() - started_at),
             ),
             last_path,
         )
@@ -230,13 +233,15 @@ def run(config_path: str, resume: str | None = None, max_epochs: int | None = No
         raise RuntimeError("no completed epoch was available to record")
     best_payload = torch.load(best_path, map_location="cpu", weights_only=False)
     best_report = best_payload["validation"]
+    elapsed_seconds_process = time.perf_counter() - started_at
     record = {
         "best_epoch": best_epoch,
         "validation": best_report,
         "last_validation": last_report,
         "checkpoint_sha256": sha256(best_path),
         "last_checkpoint": str(last_path),
-        "elapsed_seconds": time.perf_counter() - started_at,
+        "elapsed_seconds_total": elapsed_before + elapsed_seconds_process,
+        "elapsed_seconds_process": elapsed_seconds_process,
         "peak_cuda_memory_bytes": torch.cuda.max_memory_allocated(device),
         "early_stopping": {
             "monitor": "mAP",
