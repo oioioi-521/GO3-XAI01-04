@@ -38,3 +38,11 @@ pytest -q
 
 实现、输出位置、6 个单元配置及 VOC checkpoint 对接要求见
 [docs/W2_C_HANDOFF.md](docs/W2_C_HANDOFF.md)。
+
+成员 A 的 IG / Grad-CAM 实现、12 个正式单元配置和方法约定见
+[docs/A_IG_GRADCAM_HANDOFF.md](docs/A_IG_GRADCAM_HANDOFF.md)；2026-09-20 完成的 12 单元正式结果、验收记录、汇总图与结论见
+[docs/A_IG_GRADCAM_RESULTS.md](docs/A_IG_GRADCAM_RESULTS.md)。这里的“完成”仅指忠实性和效率；稳定性协议尚未冻结，因此按任务书要求的三指标口径尚无单元完全闭环。现有正式结果使用 raw MoRF、21 点删除曲线、预热计时和 float32 归因图：
+
+```bash
+pytest -q tests/test_gradient_methods.py tests/test_gradient_runner.py
+```

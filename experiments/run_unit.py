@@ -17,6 +17,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Set
 
+import numpy as np
 import pandas as pd
 import torch
 import yaml
@@ -27,7 +28,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from experiments.attribution import Occlusion, RISE  # noqa: E402
+from experiments.attribution import (  # noqa: E402
+    AttributionMethod,
+    GradCAM,
+    IntegratedGradients,
+    Occlusion,
+    RISE,
+)
 from experiments.metrics import faithfulness_morf_auc, faithfulness_morf_auc_raw  # noqa: E402
 from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
@@ -35,7 +42,12 @@ from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
 
 PER_IMAGE_COLUMNS = ["image_id", "dataset", "model", "method", "metric", "value", "time_ms"]
 UNIT_COLUMNS = ["method", "model", "dataset", "metric", "mean", "std", "n", "config_hash"]
-SUPPORTED_METHODS = {"rise": RISE, "occlusion": Occlusion}
+SUPPORTED_METHODS = {
+    "gradcam": GradCAM,
+    "ig": IntegratedGradients,
+    "occlusion": Occlusion,
+    "rise": RISE,
+}
 
 
 def _load_config(path: Path) -> Dict[str, Any]:
@@ -88,7 +100,9 @@ def _black_baseline(device: torch.device, dtype: torch.dtype) -> torch.Tensor:
     return torch.tensor(values, device=device, dtype=dtype).view(1, 3, 1, 1)
 
 
-def _build_attributor(method: str, model: torch.nn.Module, attribution: Dict[str, Any]):
+def _build_attributor(
+    method: str, model: torch.nn.Module, attribution: Dict[str, Any]
+) -> AttributionMethod:
     """Construct one supported attribution method from a YAML attribution block."""
     try:
         builder = SUPPORTED_METHODS[method]
@@ -347,6 +361,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         weights=str(model_config.get("weights", "default")),
         num_classes=int(model_config.get("num_classes", 1000)),
         checkpoint=str(checkpoint_path) if checkpoint_path else None,
+        output_activation=output_activation,
     )
     dataset = MetadataDataset(dataset_name, split=split, limit=limit)
     baseline = _black_baseline(device, torch.float32)
@@ -376,6 +391,17 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         per_image_path, unit, metrics
     )
 
+    warmup_runs = int(runtime.get("warmup_runs", 0))
+    if warmup_runs < 0:
+        raise ValueError("runtime.warmup_runs must be non-negative")
+    if warmup_runs and len(completed) < len(dataset):
+        warmup_sample = next(iter(dataset))
+        warmup_image = warmup_sample["image"].unsqueeze(0).to(device)
+        warmup_target = int(warmup_sample["target"])
+        for _ in range(warmup_runs):
+            attributor.attribute(warmup_image, target=warmup_target, baseline=baseline)
+        _synchronize(device)
+
     snapshot_dir = _resolve(str(config["output"].get("config_dir", "results/configs")))
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     snapshot_path = snapshot_dir / f"{digest}_{config_path.name}"
@@ -385,7 +411,8 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
     temporary_snapshot.replace(snapshot_path)
     print(
         f"unit={unit['method']}/{model_name}/{dataset_name}:{split} "
-        f"device={device} images={len(dataset)} config_hash={digest}"
+        f"device={device} images={len(dataset)} warmup_runs={warmup_runs} "
+        f"config_hash={digest}"
     )
 
     processed = 0
@@ -428,6 +455,17 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
             Image.fromarray(attribution.mul(255).byte().numpy(), mode="L").save(
                 unit_maps / f"{safe_image_id}.png"
             )
+            if config["output"].get("save_float_maps", False):
+                float_maps_root = _resolve(
+                    str(config["output"].get("float_maps_dir", "results/maps_float"))
+                )
+                unit_float_maps = float_maps_root / f"{method}_{model_name}_{dataset_name}"
+                unit_float_maps.mkdir(parents=True, exist_ok=True)
+                np.save(
+                    unit_float_maps / f"{safe_image_id}.npy",
+                    attribution.numpy().astype(np.float32, copy=False),
+                    allow_pickle=False,
+                )
 
         rows: List[Dict[str, Any]] = []
         common = {"image_id": image_id, **unit}
@@ -463,6 +501,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
             "split": split,
             "config_hash": digest,
             "device": str(device),
+            "warmup_runs": warmup_runs,
             "processed": processed,
             "skipped": len(completed),
             "finished_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
