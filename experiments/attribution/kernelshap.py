@@ -92,7 +92,7 @@ class KernelSHAP:
         target: int,
         baseline: torch.Tensor | None = None,
     ) -> torch.Tensor:
-        """Return an absolute-channel-mean saliency map shaped ``(H,W)``.
+        """Return a signed-channel-mean saliency map shaped ``(H,W)``.
 
         The output is min-max normalized to ``[0,1]`` and moved to CPU so it
         matches the RISE pipeline contract.  The baseline should represent a
@@ -146,7 +146,10 @@ class KernelSHAP:
                 "Captum returned an unexpected attribution shape: "
                 f"{tuple(attribution.shape)} != {tuple(image.shape)}"
             )
-        saliency = attribution.squeeze(0).abs().mean(dim=0)
+        # Keep the signed ranking used by the other Captum methods in this
+        # project. Taking abs() would rank strongly negative evidence as if it
+        # were strongly positive evidence in the MoRF deletion metric.
+        saliency = attribution.squeeze(0).mean(dim=0)
         minimum, maximum = saliency.min(), saliency.max()
         if (maximum - minimum).item() > 1e-12:
             saliency = (saliency - minimum) / (maximum - minimum)

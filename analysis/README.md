@@ -25,10 +25,10 @@ python -m analysis.validate_results --per-image results/per_image.csv --units re
 python -m analysis.aggregate --input results/per_image.csv --units results/units.csv --output results/analysis/data_long.csv
 
 # 3. 单个指标的 ANOVA 与 Friedman 对照
-python -m analysis.anova --input results/per_image.csv --metric faithfulness_morf_auc --output-dir results/analysis/anova_faithfulness
+python -m analysis.anova --input results/per_image.csv --metric faithfulness_morf_auc_raw --output-dir results/analysis/anova_faithfulness
 
 # 4. Pareto；三个指标的真实名称应以最终 schema 为准
-python -m analysis.pareto --input results/analysis/data_long.csv --metric faithfulness_morf_auc:min --metric max_sensitivity:min --metric efficiency_time_ms:min --output results/analysis/pareto.csv
+python -m analysis.pareto --input results/analysis/data_long.csv --metric faithfulness_morf_auc_raw:min --metric max_sensitivity:min --metric efficiency_time_ms:min --output results/analysis/pareto.csv
 
 # 5. 指标冲突分析
 python -m analysis.correlation --input results/per_image.csv --output-dir results/analysis/correlation
@@ -41,3 +41,4 @@ python -m analysis.correlation --input results/per_image.csv --output-dir result
 - Friedman 的平均秩默认按数值从小到大；解释前必须先确认该指标究竟是越大还是越小越好。
 - `p < 0.05` 仍需结合效应量和多重比较；当前骨架尚未把 Nemenyi 事后检验冒充为完成项。
 - Pareto 结果取决于传入的指标及方向，命令行必须明确写 `:min` 或 `:max`。
+- `max_sensitivity` 只是示例字段；稳定性协议仍需全组冻结，正式结果中没有该字段时不要运行三维 Pareto。

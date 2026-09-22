@@ -28,6 +28,14 @@ class FakeCaptumKernelShap:
         return gradient.expand_as(image)
 
 
+class FakeSignedCaptumKernelShap(FakeCaptumKernelShap):
+    def attribute(self, **kwargs):
+        image = kwargs["inputs"]
+        height, width = image.shape[-2:]
+        signed = torch.linspace(-1, 1, height * width).view(1, 1, height, width)
+        return signed.expand_as(image)
+
+
 def test_feature_mask_contains_grid_regions() -> None:
     method = KernelSHAP(TinyModel(), feature_grid_size=2)
     mask = method._feature_mask(4, 6, torch.device("cpu"))
@@ -51,3 +59,15 @@ def test_attribute_matches_pipeline_contract(monkeypatch) -> None:
     assert float(saliency.max()) == 1.0
     assert FakeCaptumKernelShap.latest_kwargs["n_samples"] == 8
     assert FakeCaptumKernelShap.latest_kwargs["feature_mask"].shape == (1, 1, 4, 6)
+
+
+def test_signed_ranking_is_preserved_for_morf(monkeypatch) -> None:
+    monkeypatch.setattr(
+        kernelshap_module, "_load_captum_kernel_shap",
+        lambda: FakeSignedCaptumKernelShap,
+    )
+    method = KernelSHAP(TinyModel(), n_samples=8, feature_grid_size=2)
+    saliency = method.attribute(torch.ones(1, 3, 4, 4), target=0)
+    assert float(saliency[0, 0]) == 0.0
+    assert float(saliency[-1, -1]) == 1.0
+    assert float(saliency[0, 0]) < float(saliency[2, 2])

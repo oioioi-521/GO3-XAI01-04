@@ -1,2 +1,3 @@
-# Install alongside the shared pipeline requirements after they are merged.
+# KernelSHAP-specific dependencies; also listed in the project root requirements.
 captum>=0.7,<1
+scikit-learn>=1.3,<2

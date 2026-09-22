@@ -7,6 +7,8 @@ model:
   name: resnet50
   weights: none
   num_classes: 1000
+  task_type: multiclass
+  output_activation: softmax
   checkpoint: null
 attribution:
   n_samples: 8
@@ -15,12 +17,13 @@ attribution:
   seed: 42
   show_progress: false
 metrics:
-  names: [efficiency_time_ms, faithfulness_morf_auc]
+  names: [efficiency_time_ms, faithfulness_morf_auc_raw]
   deletion_fractions: [0.0, 0.5, 1.0]
 runtime:
   device: cpu
   seed: 42
   max_images: 1
+  warmup_runs: 0
   resume: true
 output:
   per_image_csv: results/smoke/kernelshap_per_image.csv
@@ -29,3 +32,5 @@ output:
   run_log: results/smoke/kernelshap_run_log.jsonl
   maps_dir: results/smoke/maps
   save_maps: true
+  save_float_maps: true
+  float_maps_dir: results/smoke/maps_float
