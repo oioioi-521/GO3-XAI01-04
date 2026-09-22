@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pytest
 import torch
 
 from experiments.attribution import kernelshap as kernelshap_module
@@ -34,6 +35,12 @@ class FakeSignedCaptumKernelShap(FakeCaptumKernelShap):
         height, width = image.shape[-2:]
         signed = torch.linspace(-1, 1, height * width).view(1, 1, height, width)
         return signed.expand_as(image)
+
+
+class FakeNonFiniteCaptumKernelShap(FakeCaptumKernelShap):
+    def attribute(self, **kwargs):
+        image = kwargs["inputs"]
+        return torch.full_like(image, float("nan"))
 
 
 def test_feature_mask_contains_grid_regions() -> None:
@@ -71,3 +78,14 @@ def test_signed_ranking_is_preserved_for_morf(monkeypatch) -> None:
     assert float(saliency[0, 0]) == 0.0
     assert float(saliency[-1, -1]) == 1.0
     assert float(saliency[0, 0]) < float(saliency[2, 2])
+
+
+def test_non_finite_captum_output_is_rejected(monkeypatch) -> None:
+    monkeypatch.setattr(
+        kernelshap_module,
+        "_load_captum_kernel_shap",
+        lambda: FakeNonFiniteCaptumKernelShap,
+    )
+    method = KernelSHAP(TinyModel(), n_samples=8, feature_grid_size=2)
+    with pytest.raises(ValueError, match="non-finite"):
+        method.attribute(torch.ones(1, 3, 4, 4), target=0)

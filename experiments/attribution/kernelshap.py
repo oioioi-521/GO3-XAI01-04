@@ -9,6 +9,7 @@ project's compute budget.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from numbers import Integral
 from typing import Any, Type
 
 import torch
@@ -105,8 +106,10 @@ class KernelSHAP:
             raise ValueError(
                 "KernelSHAP expects exactly one image shaped (C,H,W) or (1,C,H,W)"
             )
-        if target < 0:
+        if isinstance(target, bool) or not isinstance(target, Integral) or target < 0:
             raise ValueError("target must be a non-negative class index")
+        if not torch.isfinite(image).all():
+            raise ValueError("image must contain only finite values")
 
         if baseline is None:
             baseline = torch.zeros_like(image)
@@ -116,6 +119,8 @@ class KernelSHAP:
         if baseline.shape not in (image.shape, (1, image.shape[1], 1, 1)):
             raise ValueError("baseline must broadcast as (1,C,H,W) or (1,C,1,1)")
         baseline = baseline.expand_as(image)
+        if not torch.isfinite(baseline).all():
+            raise ValueError("baseline must contain only finite values")
 
         _, _, height, width = image.shape
         feature_mask = self._feature_mask(height, width, image.device)
@@ -141,11 +146,13 @@ class KernelSHAP:
                 show_progress=self.config.show_progress,
             )
 
-        if attribution.shape != image.shape:
+        if not isinstance(attribution, torch.Tensor) or attribution.shape != image.shape:
             raise RuntimeError(
                 "Captum returned an unexpected attribution shape: "
-                f"{tuple(attribution.shape)} != {tuple(image.shape)}"
+                f"{getattr(attribution, 'shape', None)} != {tuple(image.shape)}"
             )
+        if not torch.isfinite(attribution).all():
+            raise ValueError("Captum KernelSHAP returned non-finite attributions")
         # Keep the signed ranking used by the other Captum methods in this
         # project. Taking abs() would rank strongly negative evidence as if it
         # were strongly positive evidence in the MoRF deletion metric.
@@ -155,4 +162,6 @@ class KernelSHAP:
             saliency = (saliency - minimum) / (maximum - minimum)
         else:
             saliency = torch.zeros_like(saliency)
+        if not torch.isfinite(saliency).all():
+            raise ValueError("failed to produce a finite KernelSHAP heatmap")
         return saliency.detach().cpu()
