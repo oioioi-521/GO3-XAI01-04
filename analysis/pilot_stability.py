@@ -8,7 +8,6 @@ before the group freezes a stability metric in issue #8.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import os
 import sys
 import time
@@ -17,7 +16,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import torch
-from scipy.stats import spearmanr
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -31,67 +29,18 @@ from experiments.run_unit import (  # noqa: E402
     _load_config,
     _resolve,
 )
+from experiments.stability import (  # noqa: E402
+    perturb_rgb,
+    stability_similarity,
+    stable_seed,
+)
 from models import load_model  # noqa: E402
-from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
+from preprocessing.dataset import MetadataDataset  # noqa: E402
 
 
 METHODS = ("ig", "gradcam")
 MODELS = ("vgg16", "resnet50", "densenet121")
 DATASETS = ("imagenet", "voc")
-
-
-def _stable_seed(dataset: str, image_id: str, repeat: int) -> int:
-    """Derive an execution-order-independent seed shared by methods/models."""
-
-    payload = f"{dataset}\0{image_id}\0{repeat}".encode("utf-8")
-    return int.from_bytes(hashlib.sha256(payload).digest()[:8], "big") % (2**63 - 1)
-
-
-def _perturb_rgb(
-    normalized: torch.Tensor,
-    *,
-    sigma: float,
-    seed: int,
-) -> tuple[torch.Tensor, float]:
-    """Add deterministic Gaussian noise in RGB ``[0,1]`` and renormalize."""
-
-    if normalized.ndim != 4 or normalized.shape[:2] != (1, 3):
-        raise ValueError("normalized input must have shape (1,3,H,W)")
-    if not 0.0 < sigma < 1.0:
-        raise ValueError("sigma must be in (0,1)")
-    cpu = normalized.detach().cpu()
-    mean = torch.tensor(MEAN, dtype=cpu.dtype).view(1, 3, 1, 1)
-    std = torch.tensor(STD, dtype=cpu.dtype).view(1, 3, 1, 1)
-    pixels = (cpu * std + mean).clamp(0.0, 1.0)
-    generator = torch.Generator(device="cpu")
-    generator.manual_seed(seed)
-    noise = torch.randn(pixels.shape, generator=generator, dtype=pixels.dtype)
-    perturbed_pixels = (pixels + sigma * noise).clamp(0.0, 1.0)
-    mae = float((perturbed_pixels - pixels).abs().mean())
-    return (perturbed_pixels - mean) / std, mae
-
-
-def _similarity(candidate: np.ndarray, reference: np.ndarray) -> tuple[float, float, str]:
-    """Return Spearman, tie-aware top-decile Jaccard, and explicit status."""
-
-    if candidate.shape != reference.shape:
-        raise ValueError("attribution maps must have the same shape")
-    if not np.isfinite(candidate).all() or not np.isfinite(reference).all():
-        return float("nan"), float("nan"), "nonfinite"
-    candidate_constant = float(candidate.max() - candidate.min()) <= 1e-12
-    reference_constant = float(reference.max() - reference.min()) <= 1e-12
-    if reference_constant and candidate_constant:
-        return float("nan"), float("nan"), "both_constant"
-    if reference_constant:
-        return float("nan"), float("nan"), "reference_constant"
-    if candidate_constant:
-        return float("nan"), float("nan"), "candidate_constant"
-    correlation = float(spearmanr(reference.ravel(), candidate.ravel()).statistic)
-    reference_top = reference >= float(np.quantile(reference, 0.9))
-    candidate_top = candidate >= float(np.quantile(candidate, 0.9))
-    union = np.logical_or(reference_top, candidate_top).sum()
-    overlap = float(np.logical_and(reference_top, candidate_top).sum() / union)
-    return correlation, overlap, "valid"
 
 
 def _scores(
@@ -206,8 +155,8 @@ def main() -> None:
 
                     for sigma in sigmas:
                         for repeat in range(args.repeats):
-                            seed = _stable_seed(dataset_name, image_id, repeat)
-                            perturbed_cpu, perturbation_mae = _perturb_rgb(
+                            seed = stable_seed(dataset_name, image_id, repeat)
+                            perturbed_cpu, perturbation_mae = perturb_rgb(
                                 sample["image"].unsqueeze(0), sigma=sigma, seed=seed
                             )
                             perturbed = perturbed_cpu.to(device)
@@ -221,9 +170,7 @@ def main() -> None:
                             ).numpy().astype(np.float32, copy=False)
                             _sync(device)
                             elapsed_ms = (time.perf_counter() - started) * 1000.0
-                            correlation, overlap, status = _similarity(
-                                candidate_map, original_map
-                            )
+                            similarity = stability_similarity(candidate_map, original_map)
                             original_target = float(original_scores[0, target].item())
                             perturbed_target = float(perturbed_scores[0, target].item())
                             rows.append({
@@ -235,9 +182,9 @@ def main() -> None:
                                 "sigma": sigma,
                                 "repeat": repeat,
                                 "seed": seed,
-                                "status": status,
-                                "spearman": correlation,
-                                "top10_jaccard": overlap,
+                                "status": similarity.status,
+                                "spearman": similarity.spearman,
+                                "top10_jaccard": similarity.top_jaccard,
                                 "original_pred": original_pred,
                                 "perturbed_pred": perturbed_pred,
                                 "prediction_preserved": original_pred == perturbed_pred,
