@@ -116,7 +116,7 @@ def test_runner_dispatches_kernelshap_writes_raw_metric_and_resumes(tmp_path, mo
     assert [(entry["processed"], entry["skipped"]) for entry in logs] == [(1, 0), (0, 1)]
 
 
-def test_six_configs_match_current_debug_protocol():
+def test_six_configs_match_current_40_image_candidate_protocol():
     for model in ("vgg16", "resnet50", "densenet121"):
         for dataset in ("imagenet", "voc"):
             path = Path("configs") / f"kernelshap_{model}_{dataset}.yaml"
@@ -130,8 +130,10 @@ def test_six_configs_match_current_debug_protocol():
                 "efficiency_time_ms", "faithfulness_morf_auc_raw"
             ]
             assert len(config["metrics"]["deletion_fractions"]) == 21
+            assert config["attribution"]["n_samples"] == 2048
+            assert config["attribution"]["feature_grid_size"] == 7
             assert config["runtime"]["warmup_runs"] == 1
-            assert config["runtime"]["max_images"] == 10
+            assert config["runtime"]["max_images"] == 40
             assert config["output"]["save_float_maps"] is True
 
 
