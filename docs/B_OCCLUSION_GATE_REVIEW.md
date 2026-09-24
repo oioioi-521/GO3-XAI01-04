@@ -115,8 +115,20 @@ PR 没有 review，文档仍标记候选、等待 C/D 复核；B 已在 Issue �
 ## 本轮验收边界
 
 `preprocessing/verify_data_version.py` 通过；`.venv-gpu` 全量 pytest
-`74 passed`、`pip check` 无冲突。门禁 1 张→40 张
+`81 passed`、`pip check` 无冲突（包含正式 eval 配置契约测试）。门禁 1 张→40 张
 六组合均通过；未运行 460 eval、未生成正式稳定性指标或排名、未改写
 IG/Grad-CAM 正式结果、未更改 checkpoint 二进制。进入正式 460 归因前，
 仍需组内确认 Occlusion 的窗/步长/扰动批参数、结果目录与排名口径；
 进入稳定性补跑还需 Issue #8 的 C/D 冻结及 PR #10 集成复核。
+
+## 正式 eval 配置（仅供组内审查，尚未执行）
+
+六份 `configs/occlusion_<model>_<dataset>.yaml` 沿用上述 40 张门禁通过的
+窗/步长/扰动批参数，`split: eval`、`max_images: null`、21 点 raw MoRF、
+`warmup_runs: 1`、`resume: true`，显式保存 float32 NPY。ImageNet 使用
+`1000` 类 softmax 与官方权重，VOC 使用 `20` 类 sigmoid 与清单约定的
+三份 checkpoint。各组合输出及 `run_state` 独立放在
+`results/occlusion_eval/<model>_<dataset>/`，不与单图/40 debug、旧 CPU pilot
+或 IG/Grad-CAM 正式目录共用。配置本身不会启动实验；正式运行前需组内确认
+上述参数、目录布局、GPU 上是否已备齐权重/冻结图像，以及与统一汇总表的
+合并方式。不得把本次 debug 结果直接搬入 eval 目录或当作正式排名。
