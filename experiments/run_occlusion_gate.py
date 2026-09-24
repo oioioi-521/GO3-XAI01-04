@@ -77,6 +77,8 @@ def validate_gate_config(config: dict[str, Any]) -> tuple[str, str]:
         raise ValueError("source gate config must be limited to 40 frozen debug images")
     if config["runtime"].get("device") != "cuda" or config["runtime"].get("warmup_runs", 0) < 1:
         raise ValueError("gate requires CUDA and at least one unmeasured warm-up")
+    if config["runtime"].get("seed") != 42:
+        raise ValueError("gate requires the fixed seed 42")
     if config["runtime"].get("resume") is not True:
         raise ValueError("gate requires resumable runs")
     if set(config["metrics"]["names"]) != METRICS or len(config["metrics"]["names"]) != 2:

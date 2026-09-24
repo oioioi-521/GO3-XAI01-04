@@ -46,6 +46,7 @@ def test_single_gate_is_isolated_and_hashed_separately():
     lambda config: config["model"].update(output_activation="sigmoid"),
     lambda config: config["output"].update(per_image_csv="results/per_image.csv"),
     lambda config: config["runtime"].update(warmup_runs=0),
+    lambda config: config["runtime"].update(seed=43),
 ])
 def test_gate_rejects_protocol_or_output_drift(change):
     config = run_unit._load_config(CONFIGS[0])
