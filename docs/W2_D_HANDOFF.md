@@ -20,6 +20,10 @@
 - D 已完成 PR #13（头提交 `6d5645f`）的 Occlusion 门禁与统计口径静态复核，结论为
   有条件通过；正式比较前需解决跨 GPU 效率混杂、机器可读门禁摘要和六目录合并流程。
   详见 `docs/D_OCCLUSION_GATE_STAT_REVIEW.md`。
+- 2026-09-27 已验收 B 的六单元正式 eval 轻量交接包：2,760 条预测、5,520 条逐图
+  指标均通过身份、样本集合和汇总重算门禁，并补充正确/错误分组及三模型共同正确样本表。
+  faithfulness 主分析冻结为正确组，跨模型配对使用共同正确样本；float32 热图和 stability
+  仍未验收。详见 `docs/D_OCCLUSION_EVAL_ACCEPTANCE.md`。
 
 ## 当前依赖与阻塞
 

@@ -18,6 +18,12 @@ schema 的真实结果，并注明数据、配置和模型版本。
 ## 使用顺序
 
 ```bash
+# 0. 分目录正式结果交接：先校验 manifest、配置/权重身份、每单元样本数和汇总，
+#    再生成统一长表及 top-1 正确/错误分组（VOC 不是多标签 exact match）
+python -m analysis.merge_eval_handoff \
+  --root results/incoming/B_OCCLUSION_EVAL_LIGHT \
+  --output-dir results/analysis/occlusion_eval_acceptance
+
 # 1. 原始结果门禁
 python -m analysis.validate_results --per-image results/per_image.csv --units results/units.csv
 
@@ -42,3 +48,7 @@ python -m analysis.correlation --input results/per_image.csv --output-dir result
 - `p < 0.05` 仍需结合效应量和多重比较；当前骨架尚未把 Nemenyi 事后检验冒充为完成项。
 - Pareto 结果取决于传入的指标及方向，命令行必须明确写 `:min` 或 `:max`。
 - `max_sensitivity` 只是示例字段；稳定性协议仍需全组冻结，正式结果中没有该字段时不要运行三维 Pareto。
+- `merge_eval_handoff` 的 `top1_correct` 对 VOC 表示冻结单目标类别是否为 sigmoid 输出的
+  最高分标签，不是 20 类多标签 exact-match accuracy；分组名称不得改写为“多标签预测正确”。
+- `merge_eval_handoff` 还会生成 `common_correct_cohort.csv`。跨模型配对比较使用三模型都
+  命中冻结单目标类别的共同样本；单模型主分析使用该模型命中组，全样本只作敏感性分析。
