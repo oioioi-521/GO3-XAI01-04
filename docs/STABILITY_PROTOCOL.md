@@ -1,7 +1,8 @@
 # 正式稳定性协议与补跑入口
 
-状态：**候选实现，等待 Issue #8 的 C/D 复核后冻结**。B 已于 2026-09-22
-确认本口径可用于 Occlusion。候选依据和 10/40 张结果见
+状态：**候选实现，等待 Issue #8 的 C 工程复核与 D 稳定性聚合复核后冻结**。
+B 已确认本口径可用于 Occlusion；B 于 2026-09-27 提出的来源、续跑和汇总边界
+反馈已纳入本候选实现。候选依据和 10/40 张结果见
 [`STABILITY_PILOT_RESULTS.md`](STABILITY_PILOT_RESULTS.md)。
 
 ## 协议 v1
@@ -28,11 +29,21 @@ resume 逻辑删除旧单元结果并重跑 MoRF。`experiments/run_stability.py
 1. 读取原正式 YAML，以完全相同的模型、checkpoint、方法参数和真值 target 重新构建
    归因器；
 2. 从 `results/maps_float/<method>_<model>_<dataset>/<image_id>.npy` 读取原始
-   float32 `A(x)`，缺失、dtype/shape 不符或非有限时立即失败；
-3. 只计算 5 个 `A(x+delta)`，向统一 `per_image.csv` 追加两个稳定性 metric；
+   float32 `A(x)`，校验形状、有限值及同目录的 `.npy.provenance.json`；后者绑定
+   基础配置哈希、预测上下文、checkpoint SHA-256 和 NPY 字节哈希。旧结果没有
+   sidecar 时，使用当前模型和归因参数重算一次 `A(x)` 作数值核对，通过后才补写
+   标记为 `verified_recomputation` 的 sidecar；不匹配则拒绝补跑。此核对不重跑 MoRF；
+3. 对已核对的原图只计算 5 个 `A(x+delta)`，向统一 `per_image.csv` 追加两个稳定性 metric；
 4. 只替换 `units.csv` 中本单元的两个稳定性汇总，已有忠实性/效率行及其配置哈希保持
    不变；
-5. 使用独立状态文件和 trace，部分写入会在续跑时清理，不产生重复结果。
+5. 按方法、模型、数据集、split 隔离状态，并按补跑配置哈希隔离 trace；debug
+   与 eval 必须使用不同的基础 `per_image.csv` / `units.csv`。部分写入会在续跑时
+   清理当前身份的结果，不触碰另一 split。
+
+基础 `run_unit.py` 仅重汇总其配置声明的忠实性/效率指标。已有稳定性行时，基础
+resume 保留其行和配置哈希；基础 `--force` 或更换基础配置会明确拒绝，以免重算
+参考图后保留失效的稳定性分数。确需重跑基础单元时，先归档现有稳定性结果并在
+独立结果目录运行。
 
 ## 输出 schema
 
@@ -51,7 +62,8 @@ method,model,dataset,metric,mean,std,n,config_hash
 - `stability_spearman`：5 次 score 的均值；
 - `stability_valid_rate`：状态为 `valid` 的重复比例。
 
-逐重复审计表默认为 `results/stability_trace.csv`，包含：
+逐重复审计表以 `results/stability_trace.csv` 为路径模板，实际文件名附加
+`<method>_<model>_<dataset>_<split>_<stability_config_hash>`，包含：
 
 ```text
 image_id,dataset,model,method,repeat,seed,protocol_version,config_hash,target,
@@ -83,6 +95,8 @@ python experiments/run_stability.py \
   --protocol configs/stability_protocol_v1.yaml
 ```
 
-`--force` 只清理并重跑当前单元的稳定性 metric/trace，不会删除原忠实性和效率结果。
+稳定性入口的 `--force` 只清理并重跑当前单元的稳定性 metric/trace，不会删除原
+忠实性和效率结果。旧结果首次补跑会增加一次原图归因重算用于来源核验，其时间
+不计入原有 `efficiency_time_ms`；带可信 sidecar 的后续续跑无需重算原图。
 每个单元验收 `processed=460`、`skipped=0`、`warmup_runs=1`，随后再运行一次确认
 `processed=0`、`skipped=460`。12 个 A 单元全部完成后才进入三维 Pareto 和 RQ2/RQ3。

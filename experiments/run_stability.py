@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -27,6 +28,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from experiments.map_provenance import (  # noqa: E402
+    verify_map_provenance,
+    write_map_provenance,
+)
+from experiments.predictions import build_prediction_context  # noqa: E402
 from experiments.run_unit import (  # noqa: E402
     PER_IMAGE_COLUMNS,
     UNIT_COLUMNS,
@@ -226,9 +232,47 @@ def _remove_trace_rows(
         _replace_frame(path, frame[~remove])
 
 
-def _state_path(state_dir: Path, unit: dict[str, str]) -> Path:
+def _state_path(
+    state_dir: Path,
+    unit: dict[str, str],
+    split: str,
+    per_image_path: Path,
+    units_path: Path,
+) -> Path:
     safe = "_".join(unit[key] for key in ("method", "model", "dataset"))
-    return state_dir / f"stability_{safe}.json"
+    output_identity = json.dumps(
+        [str(per_image_path.resolve()), str(units_path.resolve())], separators=(",", ":")
+    )
+    output_hash = hashlib.sha256(output_identity.encode("utf-8")).hexdigest()[:12]
+    return state_dir / f"stability_{safe}_{split}_{output_hash}.json"
+
+
+def _trace_path(path: Path, unit: dict[str, str], split: str, config_hash: str) -> Path:
+    safe = "_".join(unit[key] for key in ("method", "model", "dataset"))
+    return path.with_name(f"{path.stem}_{safe}_{split}_{config_hash}{path.suffix}")
+
+
+def _check_split_isolation(
+    state_dir: Path,
+    unit: dict[str, str],
+    split: str,
+    per_image_path: Path,
+    units_path: Path,
+) -> None:
+    safe = "_".join(unit[key] for key in ("method", "model", "dataset"))
+    for path in state_dir.glob(f"stability_{safe}_*.json"):
+        try:
+            state = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            raise ValueError(f"invalid stability state: {path}") from error
+        if not isinstance(state, dict) or state.get("split") in (None, split):
+            continue
+        if state.get("per_image_csv") == str(per_image_path.resolve()) or state.get(
+            "units_csv"
+        ) == str(units_path.resolve()):
+            raise ValueError(
+                "debug and eval stability runs must use separate per-image and unit CSVs"
+            )
 
 
 def _read_state_hash(path: Path) -> str | None:
@@ -248,6 +292,7 @@ def _prepare_state(
     units_path: Path,
     trace_path: Path,
     unit: dict[str, str],
+    split: str,
     config_hash: str,
     force: bool,
 ) -> None:
@@ -259,7 +304,13 @@ def _prepare_state(
     state_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = state_path.with_suffix(state_path.suffix + ".tmp")
     temporary.write_text(
-        json.dumps({**unit, "config_hash": config_hash}, ensure_ascii=False),
+        json.dumps({
+            **unit,
+            "split": split,
+            "config_hash": config_hash,
+            "per_image_csv": str(per_image_path.resolve()),
+            "units_csv": str(units_path.resolve()),
+        }, ensure_ascii=False),
         encoding="utf-8",
     )
     temporary.replace(state_path)
@@ -383,6 +434,14 @@ def _load_reference_map(
     unit: dict[str, str],
     image_id: str,
     expected_shape: tuple[int, int],
+    *,
+    split: str,
+    base_config_hash: str,
+    prediction_context: dict[str, str],
+    image: torch.Tensor,
+    target: int,
+    attributor: Any,
+    baseline: torch.Tensor,
 ) -> np.ndarray:
     output = base_config["output"]
     if not output.get("save_float_maps", False):
@@ -404,6 +463,34 @@ def _load_reference_map(
         )
     if not np.isfinite(attribution).all():
         raise ValueError(f"original attribution contains non-finite values: {path}")
+    if not verify_map_provenance(
+        path,
+        image_id=image_id,
+        unit=unit,
+        split=split,
+        base_config_hash=base_config_hash,
+        prediction_context=prediction_context,
+    ):
+        # Existing formal maps predate provenance sidecars. Recompute the
+        # original attribution once, without MoRF, before binding a legacy map.
+        fresh = attributor.attribute(
+            image.to(baseline.device), target=target, baseline=baseline
+        ).numpy().astype(np.float32, copy=False)
+        if fresh.shape != attribution.shape or not np.isfinite(fresh).all():
+            raise ValueError(f"cannot verify legacy reference map: {path}")
+        if not np.allclose(attribution, fresh, rtol=1e-4, atol=1e-5):
+            raise ValueError(
+                f"legacy reference map differs from the current config or weights: {path}"
+            )
+        write_map_provenance(
+            path,
+            image_id=image_id,
+            unit=unit,
+            split=split,
+            base_config_hash=base_config_hash,
+            prediction_context=prediction_context,
+            binding="verified_recomputation",
+        )
     return attribution
 
 
@@ -451,13 +538,7 @@ def run(
     method = str(base_config["method"]).lower()
     unit = {"dataset": dataset_name, "model": model_name, "method": method}
     limit = max_images if max_images is not None else base_config["runtime"].get("max_images")
-    execution_config = {
-        "base_config": base_config,
-        "base_config_hash": _config_hash(base_config),
-        "stability": protocol,
-        "max_images": limit,
-    }
-    digest = _config_hash(execution_config)
+    base_config_hash = _config_hash(base_config)
 
     device = _select_device(str(protocol["runtime"]["device"]))
     method_seed = int(base_config["runtime"].get("seed", 42))
@@ -482,6 +563,20 @@ def run(
         output_activation=output_activation,
     )
     model.eval()
+    prediction_context = build_prediction_context(
+        dataset=dataset_name,
+        split=split,
+        model_config=model_config,
+        checkpoint=checkpoint_path,
+    )
+    execution_config = {
+        "base_config": base_config,
+        "base_config_hash": base_config_hash,
+        "prediction_context": prediction_context,
+        "stability": protocol,
+        "max_images": limit,
+    }
+    digest = _config_hash(execution_config)
     dataset = MetadataDataset(dataset_name, split=split, limit=limit)
     baseline = _black_baseline(device, torch.float32)
     attributor = _build_attributor(
@@ -490,18 +585,43 @@ def run(
 
     per_image_path = _resolve(str(base_config["output"]["per_image_csv"]))
     units_path = _resolve(str(base_config["output"]["units_csv"]))
-    trace_path = _resolve(str(protocol["output"]["trace_csv"]))
+    trace_path = _trace_path(
+        _resolve(str(protocol["output"]["trace_csv"])), unit, split, digest
+    )
     _validate_existing_csv(per_image_path, PER_IMAGE_COLUMNS, "per-image CSV")
     _validate_existing_csv(units_path, UNIT_COLUMNS, "unit CSV")
     _validate_existing_csv(trace_path, TRACE_COLUMNS, "stability trace CSV")
     state_dir = _resolve(str(protocol["output"]["state_dir"]))
-    state_path = _state_path(state_dir, unit)
+    _check_split_isolation(state_dir, unit, split, per_image_path, units_path)
+
+    # Check every map, including images that a resume would skip, before any
+    # stability row or state is replaced. Legacy maps are recomputed once and
+    # bound to this base configuration and checkpoint before they can be used.
+    references: dict[str, np.ndarray] = {}
+    for sample in dataset:
+        image_id = str(sample["image_id"])
+        references[image_id] = _load_reference_map(
+            base_config,
+            unit,
+            image_id,
+            tuple(sample["image"].shape[-2:]),
+            split=split,
+            base_config_hash=base_config_hash,
+            prediction_context=prediction_context,
+            image=sample["image"].unsqueeze(0),
+            target=int(sample["target"]),
+            attributor=attributor,
+            baseline=baseline,
+        )
+
+    state_path = _state_path(state_dir, unit, split, per_image_path, units_path)
     _prepare_state(
         state_path,
         per_image_path,
         units_path,
         trace_path,
         unit,
+        split,
         digest,
         force,
     )
@@ -557,9 +677,7 @@ def run(
 
         image = sample["image"].unsqueeze(0).to(device)
         target = int(sample["target"])
-        reference = _load_reference_map(
-            base_config, unit, image_id, tuple(image.shape[-2:])
-        )
+        reference = references[image_id]
         original_scores, original_pred = _scores(model, image, output_activation)
         original_target = float(original_scores[0, target].item())
         repeat_rows: list[dict[str, Any]] = []
@@ -647,7 +765,8 @@ def run(
             "split": split,
             "protocol_version": PROTOCOL_VERSION,
             "config_hash": digest,
-            "base_config_hash": _config_hash(base_config),
+            "base_config_hash": base_config_hash,
+            "checkpoint_sha256": prediction_context["checkpoint_sha256"],
             "device": str(device),
             "scipy_version": scipy.__version__,
             "warmup_runs": warmup_runs,
