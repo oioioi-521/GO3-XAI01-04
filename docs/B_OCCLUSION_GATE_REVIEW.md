@@ -1,5 +1,11 @@
 # B：Occlusion 效率与 raw MoRF 门禁（2026-09-24）
 
+> 历史门禁记录：以下单图/40 张测量和“460 张尚未运行”的文字反映
+> **2026-09-24 当时**的状态。六组基础 460 张 eval 随后已在运行代码提交
+> `6d5645fecfcfdc0af1665435186a81f775faf8e2` 上完成，现为“待组内验收”；
+> 最新数量、指标、产物和接收流程见 `docs/B_OCCLUSION_EVAL_HANDOFF.md` 与
+> `docs/B_OCCLUSION_EVAL_MANIFEST.json`。稳定性仍未运行，不存在正式排名。
+
 基线为 `origin/integrate/a-voc-eval` 的 `2f120e84d1bd2a7bca66bc23731b6cc4c0a2a3c0`。
 这是冻结 `debug` 图像上的工程门禁，**不是 460 张正式 eval，也不是稳定性排名**。
 旧 `occlusion_resnet50_imagenet_debug{,_5}.yaml` 是 CPU/legacy ratio/5 点网格 pilot，
@@ -72,8 +78,10 @@ raw AUC 在 ImageNet softmax 与 VOC sigmoid 下分数语义不同，不能把�
 复核对象：[PR #10](https://github.com/oioioi-521/GO3-XAI01-04/pull/10)
 的 `ab60d54da6310cbdd4fe11f66d479e77d38196b8`，基于 `integrate/a-voc-eval`；
 [Issue #8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 仍开放。
-PR 没有 review，文档仍标记候选、等待 C/D 复核；B 已在 Issue 表示候选口径
-可用于 Occlusion。本轮**没有**提交 review 或评论，也没有把 PR #10 合入本分支。
+在本节原始审查时 PR 尚无 review，文档仍标记候选、等待 C/D 复核；B 已在 Issue
+表示候选口径可用于 Occlusion。其后 B 已在 PR #10 提交 Comment review，所列
+三项溯源/续跑风险详见新的 eval 交接文档；截至本次交接 PR #10 仍开放，尚未
+合入本分支。本节以下文件位置和判断均对应原始审查的 `ab60d54`。
 
 1. **可接入**：`experiments/run_stability.py:487-489,580-582` 复用
    `_build_attributor` 和相同 `attribution` 块，可实例化 Occlusion 并对固定
