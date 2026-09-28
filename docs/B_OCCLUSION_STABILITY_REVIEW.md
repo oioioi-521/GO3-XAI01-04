@@ -58,6 +58,12 @@ D 的稳定性聚合/退化计分最终确认仍未完成；Issue #8 保持候�
 原 CPU `.venv` 的 Matplotlib 同样被拦截。CUDA 版 torch 本身仍可导入并
 报告 GPU 可用；这不等于 Captum 与 Spearman 可执行。
 
+安装 SciPy 后重新执行**完整** pytest，实际为 **66 passed、3 failed、
+3 skipped**：三个失败均为 `tests/test_run_unit_occlusion.py` 中真实 Captum
+调用触发 Matplotlib `_image` 拦截；三个 skip 是其它 Captum 测试模块的
+导入跳过。若干合成稳定性测试能通过，并不证明 `scipy.stats` 的真实
+Spearman 或 GPU Occlusion 可运行；单独导入 `spearmanr` 已因 `_zeros` 被拦截。
+
 已独立运行不依赖上述导入的
 `tests/test_data_version.py tests/test_occlusion_eval_configs.py`：**10 passed**；
 `pip check` 无冲突，`git diff --check` 通过。不可将 3 skipped 计为 passed，
