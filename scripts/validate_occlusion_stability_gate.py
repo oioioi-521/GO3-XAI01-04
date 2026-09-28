@@ -10,6 +10,7 @@ import math
 from pathlib import Path
 
 import numpy as np
+import yaml
 
 from experiments.stability import stable_seed
 
@@ -35,9 +36,19 @@ def validate(gate: Path) -> dict:
     if not gate.is_relative_to((ROOT / "results/occlusion_stability_gates").resolve()):
         raise ValueError("not an isolated gate")
     manifest = json.loads((gate / "input_manifest.json").read_text(encoding="utf-8"))
+    assert digest(ROOT / manifest["source_config"]) == manifest["source_config_sha256"]
+    assert digest(ROOT / "results/occlusion_gates/debug40" / manifest["unit"] / "gate_report.json") == manifest["source_gate_report_sha256"]
+    assert digest(gate / "base.yaml") == manifest["generated_base_config_sha256"]
+    assert digest(gate / "protocol.yaml") == manifest["generated_protocol_sha256"]
     unit = manifest["unit"]
     model, dataset = unit.rsplit("_", 1)
     expected = set(manifest["selected_image_ids"])
+    base = yaml.safe_load((gate / "base.yaml").read_text(encoding="utf-8"))
+    protocol = yaml.safe_load((gate / "protocol.yaml").read_text(encoding="utf-8"))
+    assert base["dataset"] == {"name": dataset, "split": "debug"}
+    assert base["model"]["name"] == model
+    assert base["model"]["output_activation"] == ("softmax" if dataset == "imagenet" else "sigmoid")
+    assert protocol["repeats"] == 5 and protocol["sigma"] == 0.005
     for entry in manifest["files"]:
         original = ROOT / entry["source"]
         if "copy" in entry:
@@ -50,6 +61,10 @@ def validate(gate: Path) -> dict:
     prediction_rows = rows(gate / "predictions.csv")
     assert len(prediction_rows) == len(expected)
     assert {row["image_id"] for row in prediction_rows} == expected
+    assert {row["checkpoint_sha256"] for row in prediction_rows} == set(manifest["source_prediction_checkpoint_sha256"])
+    assert all(row["dataset"] == dataset and row["split"] == "debug" and row["model"] == model
+               for row in prediction_rows)
+    targets = {row["image_id"]: int(row["target_class_id"]) for row in prediction_rows}
     metric_rows = rows(gate / "per_image.csv")
     assert len(metric_rows) == 4 * len(expected)
     assert {(r["image_id"], r["metric"]) for r in metric_rows} == {
@@ -74,6 +89,7 @@ def validate(gate: Path) -> dict:
     status_counts: dict[str, int] = {}
     for trace in traces:
         assert int(trace["seed"]) == stable_seed(dataset, trace["image_id"], int(trace["repeat"]))
+        assert int(trace["target"]) == targets[trace["image_id"]]
         assert int(trace["target"]) in range(1000 if dataset == "imagenet" else 20)
         assert float(trace["sigma"]) == 0.005
         score = float(trace["score"])
