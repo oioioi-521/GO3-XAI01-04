@@ -1,11 +1,18 @@
-# B：六组 Occlusion 基础 eval 交接（待组内验收）
+# B：六组 Occlusion 基础 eval 交接（A 已核验文件与参数；C 集成待复核）
+
+> 2026-09-27 状态补记：A 已收到并核验 LIGHT/FLOAT32 两包、详细清单、六组
+> image_id 与 float32 数值；A 也确认本批基础参数和独立目录。见
+> [收包回执](https://github.com/oioioi-521/GO3-XAI01-04/pull/13#issuecomment-5853219229)
+> 与 [参数确认](https://github.com/oioioi-521/GO3-XAI01-04/pull/13#issuecomment-5853393852)。
+> 下文保留打包时的接收步骤；LIGHT 包内的本文件仍是打包时的历史快照，
+> 不应据其中“尚未传输”的旧状态否认 A 的后续回执。两个包本身未改写。
 
 本批运行使用代码提交 **`6d5645fecfcfdc0af1665435186a81f775faf8e2`**，不是本文档提交。
 六组各处理冻结 `eval` 的 460 张唯一图片，合计 2,760 条预测、2,760 张
 `224×224` 有限 float32 原图归因 NPY、5,520 行逐图指标；六组各自
 `processed=460, skipped=0, failed=0, constant_maps=0`，与 40 张 debug 无交集。
 每组的 `faithfulness_morf_auc_raw` 都有限且位于 `[0,1]`。**基础 eval 已完成，
-但尚未获得组内结果验收；稳定性未运行，未生成正式排名。** 旧五图 CPU pilot
+但 C 的统一集成仍待复核；稳定性未运行，未生成正式排名。** 旧五图 CPU pilot
 及 40 张 GPU 门禁都未计入本批 460 张。
 
 ## 运行配置与可复核结果
@@ -51,8 +58,8 @@ float32 NPY 的仓库相对路径、字节数和 SHA-256。
 校验报告、交接文档和两个 manifest）与 `B_OCCLUSION_EVAL_FLOAT32.zip`
 （六组原图 NPY）。包大小与 SHA-256 另见同目录的 `package_receipt.json`；
 包没有上传至 Git、Release 或公开网盘。本机 `results/occlusion_handoff/` 路径
-不是组员可下载链接。**当前尚未确认经批准且可用的二进制传输渠道，结果包已
-准备但尚未传输。** 接收方应按顺序：
+不是组员可下载链接。**A 已收到两个包并完成包哈希、清单及六组基本数值核验**；
+以下步骤仍供其他接收方复核：
 
 1. 经组内批准的渠道取得两个包和独立传递的 `package_receipt.json`，先核对
    两个包的 SHA-256 与字节大小。
@@ -67,18 +74,24 @@ float32 NPY 的仓库相对路径、字节数和 SHA-256。
 NPY 写入时将其与权重 SHA-256 做密码学绑定；当前路径、配置快照、预测表与
 补算哈希相符，并不能独立证明每张图当时使用的权重，接收方应保留此证据缺口。
 
-## 尚需确认
+## 已确认与尚需确认
 
-- 请 C/A 与组内确认 32×32 窗口、16×16 步长、每批 16 个扰动、21 点 raw MoRF
-  及正式结果目录，并按统一 schema 确认单元汇总和正确/错误分组；ImageNet
-  softmax 与 VOC sigmoid 不可直接跨数据集比较，更不能据此发布方法排名。
-- 请接收方确认可批准的传输渠道与两个结果包的验收回执。checkpoint 二进制
+- **接收与文件核验通过**：A 的上述回执核对两个 ZIP 的大小、SHA-256、
+  详细清单中 2,814 个文件及六组 460 张的身份和基本数值。checkpoint 二进制
   不在本次结果包中；VOC 权重另按 checkpoint 清单交付。
+- **A 参数确认**：A 已接受本批 32×32 窗口、16×16 步长、每批 16 个扰动、
+  21 点 raw MoRF、seed 42、warm-up 1 次及六个独立目录。
+  [D 的统计验收记录](https://github.com/oioioi-521/GO3-XAI01-04/blob/feat/kernelshap-analysis/docs/D_OCCLUSION_EVAL_ACCEPTANCE.md)
+  接受 LIGHT 包作为 faithfulness 与同环境 efficiency 的输入，单模型主分析用
+  `top1_correct`，全部 460 张作敏感性分析，跨模型用共同正确样本配对；
+  ImageNet/VOC 分开分析，VOC 冻结单目标命中不是多标签准确率。
+- **C 集成复核仍待完成**：统一汇总/schema 与跨方法比较不能由本交接代签；
+  不可跨 softmax/sigmoid 数据集直接发布方法排名。
 - [Issue #8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 中 B 已同意
-  sigma=0.005、5 次扰动的候选稳定性协议，但 C/D 的 runner/schema 与统计验收
-  尚未见完成记录。[PR #10](https://github.com/oioioi-521/GO3-XAI01-04/pull/10)
-  仍开放；B 的具体 review 指出参考 NPY 来源校验、debug/eval trace/state 隔离、
-  基础 runner 重汇总改变稳定性哈希的风险。待这些问题经复核、修复并合入后，
-  Occlusion 稳定性仍须按 **单图 → 40 张 debug → 460 张 eval** 另行门控执行。
+  sigma=0.005、5 次扰动的候选稳定性协议；**稳定性协议尚未由 C/D 最终冻结**。
+  [PR #10](https://github.com/oioioi-521/GO3-XAI01-04/pull/10) 的 `9891eec`
+  已针对 B 提出的参考 NPY 来源、debug/eval 隔离与基础 runner 哈希风险提交
+  修复，不能继续笼统写成“未修复”；仍需代码/GPU 门禁及 C/D 验收。Occlusion
+  稳定性须按 **单图 → 40 张 debug → 460 张 eval** 另行门控执行。
 
 本交接不修改稳定性代码，不启动稳定性补跑，也不替组员作最终验收。
