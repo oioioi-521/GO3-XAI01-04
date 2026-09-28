@@ -47,6 +47,13 @@ D 的稳定性聚合/退化计分最终确认仍未完成；Issue #8 保持候�
 
 ## 本机测试阻塞：Windows Smart App Control
 
+2026-09-28 的后续只读诊断见
+`docs/B_OCCLUSION_WINDOWS_CODE_INTEGRITY.md`：已对照设备实际状态、
+`VerifiedAndReputableDesktop` 策略 ID、事件 3077/3099/3118、文件签名、
+PyPI 官方 wheel SHA 与已安装 `.pyd` 字节。现有证据支持当前由该策略拦截，
+而**此前可运行、现在不能运行的具体状态变化仍未知**。重复安装同一官方
+未签名 wheel 没有修复依据；未更改安全策略。
+
 在 `.venv-gpu` 上执行全量 `pytest -q -ra` 时，初次收集出现 2 个错误
 （SciPy 缺失）和 3 个 Captum 相关 skip（Matplotlib `_image` DLL 导入被拦截），
 **没有获得全量通过结果**。随后仅按 `requirements.txt` 安装
