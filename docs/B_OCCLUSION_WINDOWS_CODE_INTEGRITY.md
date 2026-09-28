@@ -1,5 +1,12 @@
 # B：Windows 原生扩展加载阻塞诊断（2026-09-28）
 
+> 恢复记录（同日）：用户**手动**关闭 Smart App Control 后，当前设备状态为
+> `Off`。在新的 `.venv-gpu` Python 进程中，原先受阻的 Matplotlib `_image`、
+> SciPy `spearmanr`、Captum 均可导入并完成小型计算，CUDA Captum Occlusion
+> 成功；全量 pytest 93 passed、0 failed、0 skipped，`pip check` 无冲突。
+> 下文记录的是恢复**之前**的诊断和当时的失败，不应读作当前环境仍阻塞。
+> 从此前可运行到后续被拦截的具体变化仍未知。未更改其它安全设置。
+
 ## 结论与边界
 
 本机 `.venv-gpu` 的 Matplotlib 和 SciPy wheel **未见安装损坏或来源不明的证据**；

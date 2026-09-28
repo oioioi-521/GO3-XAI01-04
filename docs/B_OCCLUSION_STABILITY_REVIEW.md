@@ -1,4 +1,10 @@
-# B：PR #10 修复复审与 Occlusion 稳定性门禁状态（2026-09-27）
+# B：PR #10 修复复审与 Occlusion 稳定性门禁状态（初审 2026-09-27，GPU 复核 2026-09-28）
+
+> 后续状态更新：用户于 2026-09-28 手动关闭 Smart App Control 后，新的 Python
+> 进程已通过 Matplotlib、SciPy Spearman、Captum 和真实 CUDA Occlusion；
+> 全量 93 passed，六组合单图及 40 张 debug 均已完成。以下旧“阻塞/尚未执行”
+> 章节保留当时的证据，不再代表当前状态。完整实测与限制见
+> `docs/B_OCCLUSION_STABILITY_GATE_HANDOFF.md`。
 
 ## 来源和结论边界
 
