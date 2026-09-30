@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "manifest_kind": "handoff_time_inventory",
+  "experiment_commit": "6d5645fecfcfdc0af1665435186a81f775faf8e2",
+  "provenance": {
+    "runtime_recorded": "config_hash in run_log/state/snapshot; prediction context and checkpoint SHA-256 in predictions.csv",
+    "handoff_recalculated": "Every file size and SHA-256 in this inventory, including cached ImageNet and VOC weights",
+    "limitation": "The base runner did not cryptographically bind each saved float32 map to a weight hash at write time. Current matching paths/config and post-run hashes do not prove that binding independently."
+  },
+  "data_version": {
+    "version": "xai01-04-data-v1",
+    "path": "data/DATA_VERSION.json",
+    "kind": "data_version",
+    "bytes": 713,
+    "sha256": "9314dd60037f730d25a419b0ae134a7a09e390a7961e231125afb7f9b69bb8dd"
+  },
+  "class_order": {
+    "voc20": [
+      "aeroplane",
+      "bicycle",
+      "bird",
+      "boat",
+      "bottle",
+      "bus",
+      "car",
+      "cat",
+      "chair",
+      "cow",
+      "diningtable",
+      "dog",
+      "horse",
+      "motorbike",
+      "person",
+      "pottedplant",
+      "sheep",
+      "sofa",
+      "train",
+      "tvmonitor"
+    ],
+    "imagenet": "torchvision ImageNet-1K 0..999; see class-index file"
+  },
+  "class_index": {
+    "path": "data/imagenet_class_index.json",
+    "kind": "imagenet_class_index",
+    "bytes": 35363,
+    "sha256": "a1e7a966a1f601d39e4b43e119b3e7dd4a2ad3ea08cf69847cbaf021013767bc"
+  },
+  "preprocessing": {
+    "path": "preprocessing/dataset.py",
+    "sha256": "029ef34b3948ffce9f2ac11bed5cdcf811f34b8444abd5dbfa24051fee95ef57",
+    "resize": [
+      224,
+      224
+    ],
+    "tensor_scale": "RGB [0,1]",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "voc_checkpoint_manifest": {
+    "path": "docs/VOC20_CHECKPOINT_MANIFEST.json",
+    "kind": "voc_checkpoint_manifest",
+    "bytes": 2546,
+    "sha256": "b5e86cab7cb2c5d25cf15736692f7c161c1f34c8604ff03095b6d7cc475dde50"
+  },
+  "status": "pending_group_acceptance",
+  "detailed_manifest": {
+    "path": "results/occlusion_handoff/B_OCCLUSION_EVAL_FILES.json",
+    "bytes": 800037,
+    "sha256": "98541858944b364e2b681aaed7bef549597248d9f9affc23c13aa94310e29845"
+  },
+  "units": [
+    {
+      "unit": "resnet50_imagenet",
+      "config_hash": "ba1ecb269647",
+      "prediction_context_hash": "817b9ef3d6f5",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.19313172834296458,
+      "raw_std": 0.14922364252621154,
+      "attribution_ms_mean": 126.45822543392727,
+      "console_wall_span_seconds": 109.09033918380737,
+      "result_directory": "results/occlusion_eval/resnet50_imagenet",
+      "weight": {
+        "source": "torchvision",
+        "enum": "IMAGENET1K_V2",
+        "url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+        "cache_filename": "resnet50-11ad3fa6.pth",
+        "bytes": 102540417,
+        "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca"
+      }
+    },
+    {
+      "unit": "resnet50_voc",
+      "config_hash": "1e267b87c4ef",
+      "prediction_context_hash": "9280d4716139",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.6108829728935076,
+      "raw_std": 0.16928703823003488,
+      "attribution_ms_mean": 126.2789728260427,
+      "console_wall_span_seconds": 107.21395802497864,
+      "result_directory": "results/occlusion_eval/resnet50_voc",
+      "weight": {
+        "source": "VOC20_CHECKPOINT_MANIFEST.json",
+        "path": "models/checkpoints/resnet50_voc20.pt",
+        "kind": "voc_checkpoint",
+        "bytes": 94518331,
+        "sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f"
+      }
+    },
+    {
+      "unit": "densenet121_imagenet",
+      "config_hash": "32e3c7d7a0fa",
+      "prediction_context_hash": "1ed4b48e4ae5",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.08156332695679062,
+      "raw_std": 0.1272489730461244,
+      "attribution_ms_mean": 169.55976521535575,
+      "console_wall_span_seconds": 200.64438390731812,
+      "result_directory": "results/occlusion_eval/densenet121_imagenet",
+      "weight": {
+        "source": "torchvision",
+        "enum": "IMAGENET1K_V1",
+        "url": "https://download.pytorch.org/models/densenet121-a639ec97.pth",
+        "cache_filename": "densenet121-a639ec97.pth",
+        "bytes": 32342954,
+        "sha256": "a639ec97d7c33b07ae66f0b5fb7d0192f95a3b11b7576c66c0126c2a727c4395"
+      }
+    },
+    {
+      "unit": "densenet121_voc",
+      "config_hash": "650c5c6bc824",
+      "prediction_context_hash": "a6b73d1170ff",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.453345100387283,
+      "raw_std": 0.22064226730813175,
+      "attribution_ms_mean": 169.00242348037074,
+      "console_wall_span_seconds": 195.71956753730774,
+      "result_directory": "results/occlusion_eval/densenet121_voc",
+      "weight": {
+        "source": "VOC20_CHECKPOINT_MANIFEST.json",
+        "path": "models/checkpoints/densenet121_voc20.pt",
+        "kind": "voc_checkpoint",
+        "bytes": 28512970,
+        "sha256": "ab61772eaf3459842f4b1e34be9ec15062e02a940d521390d80df0371168feca"
+      }
+    },
+    {
+      "unit": "vgg16_imagenet",
+      "config_hash": "c675f036cd41",
+      "prediction_context_hash": "aea8d76a3c76",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.03968380278284989,
+      "raw_std": 0.05503644354924035,
+      "attribution_ms_mean": 258.31480934866704,
+      "console_wall_span_seconds": 156.48600053787231,
+      "result_directory": "results/occlusion_eval/vgg16_imagenet",
+      "weight": {
+        "source": "torchvision",
+        "enum": "IMAGENET1K_V1",
+        "url": "https://download.pytorch.org/models/vgg16-397923af.pth",
+        "cache_filename": "vgg16-397923af.pth",
+        "bytes": 553433881,
+        "sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    {
+      "unit": "vgg16_voc",
+      "config_hash": "c97adcbd896e",
+      "prediction_context_hash": "018ab3fe9852",
+      "processed": 460,
+      "skipped": 0,
+      "failed": 0,
+      "constant_maps": 0,
+      "raw_mean": 0.2568232381729024,
+      "raw_std": 0.2511520743374671,
+      "attribution_ms_mean": 259.0731476080533,
+      "console_wall_span_seconds": 154.42079615592957,
+      "result_directory": "results/occlusion_eval/vgg16_voc",
+      "weight": {
+        "source": "VOC20_CHECKPOINT_MANIFEST.json",
+        "path": "models/checkpoints/vgg16_voc20.pt",
+        "kind": "voc_checkpoint",
+        "bytes": 537383181,
+        "sha256": "61640717641bfc1e9ae5d6172de667ce45755e6f046f458c848f70cb4a6c9d58"
+      }
+    }
+  ]
+}
