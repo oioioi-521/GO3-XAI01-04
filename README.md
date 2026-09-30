@@ -30,14 +30,15 @@ python -m pip install -r requirements.txt
 # 离线冒烟测试（随机权重，仅验证管线）
 python experiments/run_unit.py --config configs/rise_smoke_imagenet.yaml
 
-# 可提交的 ImageNet debug 结果
+# 4000-mask 正式单元（先阅读门禁结果与前置条件）
 python experiments/run_unit.py --config configs/rise_resnet50_imagenet.yaml
 
 pytest -q
 ```
 
 实现、输出位置、6 个单元配置及 VOC checkpoint 对接要求见
-[docs/W2_C_HANDOFF.md](docs/W2_C_HANDOFF.md)。
+[docs/RISE_FORMAL_HANDOFF.md](docs/RISE_FORMAL_HANDOFF.md)，采样预算实测见
+[docs/RISE_SAMPLING_RESULTS.md](docs/RISE_SAMPLING_RESULTS.md)。
 
 成员 A 的 IG / Grad-CAM 实现、12 个正式单元配置和方法约定见
 [docs/A_IG_GRADCAM_HANDOFF.md](docs/A_IG_GRADCAM_HANDOFF.md)；2026-09-20 完成的 12 单元正式结果、验收记录、汇总图与结论见

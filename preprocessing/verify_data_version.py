@@ -11,10 +11,18 @@ DATA_ROOT = PROJECT_ROOT / "data"
 
 
 def sha256(path: Path) -> str:
+    """Hash tracked text in its repository-canonical LF representation.
+
+    A checkout created before ``.gitattributes`` was added can retain CRLF
+    bytes even though Git considers the file clean.  Normalizing line endings
+    here verifies the frozen content rather than a platform-specific checkout
+    artifact.
+    """
     digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
+    payload = path.read_bytes()
+    if path.suffix.lower() in {".csv", ".json"}:
+        payload = payload.replace(b"\r\n", b"\n")
+    digest.update(payload)
     return digest.hexdigest()
 
 

@@ -20,6 +20,7 @@ class RISEConfig:
     mask_probability: float = 0.5
     batch_size: int = 64
     seed: int = 42
+    output_activation: str = "softmax"
 
 
 class RISE:
@@ -33,6 +34,8 @@ class RISE:
         mask_probability: Probability that a low-resolution cell is visible.
         batch_size: Number of masked inputs per forward pass.
         seed: Seed used for deterministic mask generation.
+        output_activation: ``softmax`` for multiclass ImageNet or ``sigmoid``
+            for multilabel VOC target scores.
     """
 
     def __init__(
@@ -43,11 +46,14 @@ class RISE:
         mask_probability: float = 0.5,
         batch_size: int = 64,
         seed: int = 42,
+        output_activation: str = "softmax",
     ) -> None:
         if num_masks <= 0 or mask_size <= 0 or batch_size <= 0:
             raise ValueError("num_masks, mask_size and batch_size must be positive")
         if not 0.0 < mask_probability <= 1.0:
             raise ValueError("mask_probability must be in (0, 1]")
+        if output_activation not in {"softmax", "sigmoid"}:
+            raise ValueError("output_activation must be 'softmax' or 'sigmoid'")
         self.model = model
         self.config = RISEConfig(
             num_masks=num_masks,
@@ -55,6 +61,7 @@ class RISE:
             mask_probability=mask_probability,
             batch_size=batch_size,
             seed=seed,
+            output_activation=output_activation,
         )
 
     def _mask_batch(
@@ -132,7 +139,10 @@ class RISE:
                 raise ValueError(
                     f"target {target} is incompatible with model output {tuple(logits.shape)}"
                 )
-            probabilities = logits.softmax(dim=1)[:, target]
+            if self.config.output_activation == "softmax":
+                probabilities = logits.softmax(dim=1)[:, target]
+            else:
+                probabilities = logits.sigmoid()[:, target]
             weighted_masks += (probabilities[:, None, None, None] * masks).sum(0).squeeze(0)
             generated += count
 
