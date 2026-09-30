@@ -52,3 +52,13 @@ python -m analysis.correlation --input results/per_image.csv --output-dir result
   最高分标签，不是 20 类多标签 exact-match accuracy；分组名称不得改写为“多标签预测正确”。
 - `merge_eval_handoff` 还会生成 `common_correct_cohort.csv`。跨模型配对比较使用三模型都
   命中冻结单目标类别的共同样本；单模型主分析使用该模型命中组，全样本只作敏感性分析。
+- `validate_received_handoffs` 只读校验接收的轻量/float32 eval 包及单图、40 张稳定性
+  门禁包，包括逐文件哈希、NPY 类型/形状/范围、trace seed、逐图/单元重算和 provenance：
+
+```bash
+python -m analysis.validate_received_handoffs \
+  --eval-manifest results/incoming/B_OCCLUSION_EVAL_LIGHT/results/occlusion_handoff/B_OCCLUSION_EVAL_FILES.json \
+  --eval-root results/incoming/B_OCCLUSION_EVAL_LIGHT \
+  --eval-root results/incoming/B_OCCLUSION_EVAL_FLOAT32 \
+  --stability-root results/incoming/occlusion_stability_gates_light
+```

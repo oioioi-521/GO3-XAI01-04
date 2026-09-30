@@ -1,6 +1,6 @@
 # 成员 D：Occlusion 正式评测交接验收
 
-验收日期：2026-09-27
+验收日期：2026-09-27；float32 补充验收：2026-09-30
 
 实验代码提交：`6d5645f`
 
@@ -9,8 +9,9 @@
 ## 验收结论
 
 `B_OCCLUSION_EVAL_LIGHT.zip` 可作为六个正式 eval 单元的 faithfulness 和同环境
-efficiency 统计输入。它不包含 float32 热图，不能用于图级复核；本次验收也不覆盖
-stability，更不直接构成跨方法最终排名。
+efficiency 统计输入。后续收到的 `B_OCCLUSION_EVAL_FLOAT32.zip` 已通过详细清单和
+数组内容验收，可作为对应 2,760 张原始归因图的正式输入。本次验收仍不覆盖 460 张
+stability eval，也不直接构成跨方法最终排名。
 
 ## 完整性与可复现性
 
@@ -18,12 +19,15 @@ stability，更不直接构成跨方法最终排名。
   `996e59e41d0262ef19fd0292a71abc139cbb9bb92c4868451b65938bcd6b5cea`。
 - 详细清单：800,037 bytes；SHA-256
   `98541858944b364e2b681aaed7bef549597248d9f9affc23c13aa94310e29845`。
-- 清单内 54 个非 float32 文件逐项校验，无缺失、无哈希不一致。
+- float32 包：6,260,426 bytes；SHA-256
+  `7f677af2c0fe7b4d993acdd4960cb4e693ae0eb506ec913c5ef7ef25a8089fb8`。
+- 详细清单中的 2,814 个文件已逐项校验，无缺失、无大小或 SHA-256 不一致；其中
+  2,760 张 NPY 均为 `float32`、`224×224`、有限、非恒定且位于 `[0,1]`。
 - 六个模型/数据集单元均为 460 张 eval 图，合计 2,760 条预测和 5,520 条逐图指标；
   `failed=0`、`skipped=0`。
 - D 的合并门禁重新计算了每单元 `mean`、`std`、`n`，并核对配置、预测上下文、
   checkpoint 哈希和样本集合。
-- 全量测试为 75 passed；`pip check` 未发现依赖冲突。
+- 全量测试为 79 passed；`pip check` 未发现依赖冲突。
 
 ## 预测命中与分析样本
 
@@ -63,7 +67,9 @@ stability，更不直接构成跨方法最终排名。
 
 ## 未验收项
 
-- `B_OCCLUSION_EVAL_FLOAT32.zip` 尚未收到，因此 float32 热图和逐图可视化复核未完成。
-- stability 协议仍受 PR #10 的引用数组身份、debug/eval 状态隔离和 resume/force
-  身份保持问题阻塞；在这些问题解决前不得标记为 frozen 或开展正式稳定性比较。
+- PR #10 的 `9891eec` 已在实现中回应引用图身份、debug/eval 隔离和 resume/force
+  三项阻塞；D 已完成统计复核，但 PR 仍未合并，Issue #8 仍等待 C 的 runner/schema
+  最终确认，因此全组协议状态尚不能单方面改写为 frozen。
+- 当前收到的是单图和 40 张 Occlusion stability 工程门禁，不是六个 460 张正式
+  stability eval；不得将门禁均值写成正式方法排名。
 - 本结论只接受 Occlusion 的现有正式 eval 结果，不代表 KernelSHAP 或其他方法已经完成。

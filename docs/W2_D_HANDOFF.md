@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-09-26。
+更新时间：2026-09-30。
 
 ## 已完成并可独立验收
 
@@ -22,24 +22,27 @@
   详见 `docs/D_OCCLUSION_GATE_STAT_REVIEW.md`。
 - 2026-09-27 已验收 B 的六单元正式 eval 轻量交接包：2,760 条预测、5,520 条逐图
   指标均通过身份、样本集合和汇总重算门禁，并补充正确/错误分组及三模型共同正确样本表。
-  faithfulness 主分析冻结为正确组，跨模型配对使用共同正确样本；float32 热图和 stability
-  仍未验收。详见 `docs/D_OCCLUSION_EVAL_ACCEPTANCE.md`。
+  faithfulness 主分析冻结为正确组，跨模型配对使用共同正确样本。2026-09-30 又完成
+  2,760 张 float32 NPY 和 12 个 stability 单图/40 张门禁的接收验收；门禁不等于 460 张
+  正式稳定性结果。详见 `docs/D_OCCLUSION_EVAL_ACCEPTANCE.md` 和
+  `docs/STABILITY_D_STATISTICAL_REVIEW.md`。
 
 ## 当前依赖与阻塞
 
 1. C/B/A 的接口代码已在集成分支，但相关 PR 尚未合并到 `main`。D 分支目前基于该
    集成状态；正式提 PR 前需确认目标分支与 review 顺序。
-2. 本工作区的项目 `.venv` 已安装 Captum 0.9.0 与 scikit-learn；根依赖文件已补上
-   KernelSHAP 实际需要的 `scikit-learn`。尚未安装/复制真实图片、ImageNet 权重缓存与
-   B 的 VOC20 checkpoint。
-3. B 已有 VOC20 checkpoint 的交接清单和哈希，但权重二进制不进 Git；必须通过获批准
-   的共享渠道取得并校验，不能用 ImageNet 1000 类输出替代。
+2. 本工作区的项目 `.venv` 已安装 Captum 0.9.0 与 scikit-learn；真实图片、三个 VOC20
+   checkpoint、Occlusion 轻量结果和 float32 包均已通过哈希/格式验证并放入 Git 忽略目录。
+   这些二进制和结果仍不进入 Git。
+3. 接收资产只解决本机数据、权重和 Occlusion 交接，不代表 ImageNet 默认权重在新的
+   GPU 环境中已经缓存，也不替代每种方法自己的参数门禁。
 4. 六份当前 YAML 是 40 张候选门禁口径，不是正式 eval 配置。首图和 10 图成本曲线已经完成；
    需在目标 GPU 上完成三模型、两数据集共六单元的 40 张运行，检查失败率、有限性、
    成本与归因图质量，再决定是否冻结为正式参数。
-5. D 已完成 PR #10（提交 `ab60d54`）统计聚合和退化计分复核并给出通过结论；协议仍需
-   C 完成 runner/schema 复核后才能标记 frozen。正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终结论
-   仍需真实全组结果和统一统计方案。A 的阶段结果不能被当成全项目最终结论。
+5. D 已完成 PR #10 修复提交 `9891eec` 的统计复核，并验收 PR #14 的 Occlusion 单图/
+   40 张候选门禁；协议仍需 C 完成 runner/schema 最终确认后才能标记 frozen。六个 460 张
+   Occlusion stability eval 尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终
+   结论仍需真实全组结果。A/B 的阶段结果不能被当成全项目最终结论。
 
 ## 已完成的本地验证与后续命令
 
