@@ -2,7 +2,8 @@
 
 > 本文记录 2026-09-16 的初始实现。正式配置、4000-mask 门禁结果和当前运行要求以
 > [`RISE_FORMAL_HANDOFF.md`](RISE_FORMAL_HANDOFF.md) 与
-> [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md) 为准。
+> [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md) 为准。稳定性 runner/schema
+> 最终复核见 [`STABILITY_C_RUNNER_REVIEW.md`](STABILITY_C_RUNNER_REVIEW.md)。
 
 ## 已完成
 
