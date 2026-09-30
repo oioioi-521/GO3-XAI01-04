@@ -1,6 +1,6 @@
 # RISE 正式跑批交接
 
-状态：代码与 6 个正式配置已对齐统一契约，采样预算门禁已通过并冻结为 4000 masks；正式结果尚未启动。三份 VOC-20 checkpoint 已在 Issue #4 完成团队验收，但当前机器尚未取得被 Git 忽略的二进制文件；开始 VOC 跑批前须通过组内批准渠道接收并按 manifest 校验。门禁数据与决策见 [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md)。
+状态：代码与 6 个正式配置已对齐统一契约，采样预算门禁已通过并冻结为 4000 masks；ResNet50/ImageNet 正式单元已于 2026-09-30 完成并通过立即续跑验收，其余 5 个单元待跑。三份 VOC-20 checkpoint 已在 Issue #4 完成团队验收，但当前机器尚未取得被 Git 忽略的二进制文件；开始 VOC 跑批前须通过组内批准渠道接收并按 manifest 校验。门禁数据与决策见 [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md)，正式结果见 [`RISE_FORMAL_RESULTS.md`](RISE_FORMAL_RESULTS.md)。
 
 ## 已锁定的正式契约
 
