@@ -1,0 +1,30 @@
+# Offline plumbing check only: random weights and one debug image are not reportable results.
+method: occlusion
+dataset:
+  name: imagenet
+  split: debug
+model:
+  name: resnet50
+  weights: none
+  num_classes: 1000
+  checkpoint: null
+attribution:
+  window_height: 15
+  window_width: 15
+  stride_height: 8
+  stride_width: 8
+  perturbations_per_eval: 8
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.5, 1.0]
+runtime:
+  device: cpu
+  seed: 42
+  max_images: 1
+  resume: true
+output:
+  per_image_csv: results/smoke/per_image.csv
+  units_csv: results/smoke/units.csv
+  config_dir: results/smoke/configs
+  run_log: results/smoke/run_log.jsonl
+  save_maps: false

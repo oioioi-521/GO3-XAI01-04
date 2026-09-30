@@ -1,0 +1,13 @@
+# Engineering-only recovery smoke; never a formal model or result.
+seed: 42
+model: {name: resnet50}
+data: {train_manifest: data/voc20_multilabel_train.csv, validation_manifest: data/voc20_multilabel_validation.csv}
+runtime: {batch_size: 32}
+optimizer: {lr: 0.0001}
+early_stopping: {patience: 6, min_delta: 0.0}
+metrics: {threshold: 0.5}
+epochs: 2
+output:
+  checkpoint: models/checkpoints/smoke/resnet50_voc20_resume_smoke.pt
+  last_checkpoint: models/checkpoints/smoke/resume/resnet50_voc20_resume_smoke.last.pt
+  record: results/training/smoke/resnet50_voc20_resume_smoke.json
