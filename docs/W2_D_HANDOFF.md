@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-09-30。
+更新时间：2026-10-01。
 
 ## 已完成并可独立验收
 
@@ -10,7 +10,8 @@
   固定随机种子、二维 `[0,1]` 输出。三通道 SHAP 值按有符号算术均值聚合，保持
   MoRF 对正/负贡献的排序语义，不把强负贡献用绝对值变成“高重要性”。
 - 1 个离线 smoke 配置和 6 个 40 张候选门禁配置（3 模型 × ImageNet/VOC）。成本试跑后，
-  D 选择 `feature_grid_size=7`、`n_samples=2048` 作为下一阶段候选；它们仍不是正式参数。
+  D 选择 `feature_grid_size=7`、`n_samples=2048` 作为下一阶段候选。2026-10-01 六单元
+  40 张门禁已全部完成并通过结果、数组与续跑校验；它们仍不是 460 张正式结果。
 - 已对齐 A 的 `faithfulness_morf_auc_raw`（21 个删除比例点）、归因预热、PNG 与
   float32 NPY 保存，以及 VOC20 `sigmoid` 多标签输出契约。
 - 结果 schema 校验、聚合、三因素 ANOVA 与效应量、假设诊断、Friedman 对照、Pareto、
@@ -29,16 +30,18 @@
 
 ## 当前依赖与阻塞
 
-1. C/B/A 的接口代码已在集成分支，但相关 PR 尚未合并到 `main`。D 分支目前基于该
-   集成状态；正式提 PR 前需确认目标分支与 review 顺序。
+1. PR #10 已于 2026-09-30 合并到集成分支（merge commit `00d73b4`）；PR #14 仍为
+   draft。D 分支当前尚未把新的集成提交合入自身；正式提 PR 前需确认目标分支与 review
+   顺序。
 2. 本工作区的项目 `.venv` 已安装 Captum 0.9.0 与 scikit-learn；真实图片、三个 VOC20
    checkpoint、Occlusion 轻量结果和 float32 包均已通过哈希/格式验证并放入 Git 忽略目录。
    这些二进制和结果仍不进入 Git。
-3. 接收资产只解决本机数据、权重和 Occlusion 交接，不代表 ImageNet 默认权重在新的
-   GPU 环境中已经缓存，也不替代每种方法自己的参数门禁。
-4. 六份当前 YAML 是 40 张候选门禁口径，不是正式 eval 配置。首图和 10 图成本曲线已经完成；
-   需在目标 GPU 上完成三模型、两数据集共六单元的 40 张运行，检查失败率、有限性、
-   成本与归因图质量，再决定是否冻结为正式参数。
+3. ImageNet 三个 torchvision 官方 DEFAULT 权重和三个 VOC20 checkpoint 均已在当前机器
+   成功加载；二进制仍位于 Git 忽略目录，不进入提交。
+4. 六份当前 YAML 是 40 张候选门禁口径，不是正式 eval 配置。六单元已经在目标 GPU
+   完成，合计 240 张图、480 条逐图指标、240 张 PNG 和 240 张 float32 NPY；完整性、
+   有限性、非恒定性、范围和 resume 均通过。结果与边界见
+   `docs/KERNELSHAP_GATE_RESULTS.md`。
 5. D 已完成 PR #10 修复提交 `9891eec` 的统计复核，并验收 PR #14 的 Occlusion 单图/
    40 张候选门禁；协议仍需 C 完成 runner/schema 最终确认后才能标记 frozen。六个 460 张
    Occlusion stability eval 尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终
@@ -54,9 +57,10 @@
 ```
 
 smoke 配置使用随机模型、1 张图片和 8 次采样，只证明管线能运行，不可写入报告的性能结论。
-六份候选配置当前使用 `n_samples=2048`、`feature_grid_size=7`、`max_images=40`。选择依据是
+六份候选配置使用 `n_samples=2048`、`feature_grid_size=7`、`max_images=40`。选择依据是
 10 张 ResNet50/ImageNet 试跑相对 4096 样本参考的平均 Spearman 0.853、最低 0.782，
-以及约 3.07 秒/图的归因成本。40 张六单元门禁完成前，不得把该候选写成正式参数。
+以及约 3.07 秒/图的归因成本。六单元 40 张门禁已完成，但在小组明确冻结参数并生成
+460 张 eval 配置前，仍不得把门禁数值写成正式实验排名。
 已知本地冻结数据 CSV 的
 Windows CRLF 换行会导致 SHA-256 校验失败；工作区已机械恢复为仓库规定的 LF，
 没有改动标签内容。

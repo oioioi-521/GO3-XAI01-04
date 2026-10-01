@@ -1,6 +1,6 @@
 # 成员 D：稳定性统计复核
 
-初审日期：2026-09-23；修复与门禁复核：2026-09-30。
+初审日期：2026-09-23；修复与门禁复核：2026-09-30；远端状态复核：2026-10-01。
 
 复核对象：PR #10 的 `9891eec`，以及 PR #14 的 Occlusion 门禁交接 `618e4fb`。
 
@@ -58,6 +58,6 @@ resume/force 身份保持问题；本结论仍不代替 C 对 runner/schema 和�
 ## 状态边界
 
 该复核确认 D 负责的统计定义、聚合和退化计分，并接受 Occlusion 单图/40 张候选门禁。
-PR #10 与 PR #14 均尚未合并，Issue #8 仍为 open；C 的 runner/schema 最终确认和六个
-460 张 stability eval 完成前，全组协议不能由 D 单方面标记为 frozen，门禁数值也不能
-作为正式课程实验排名。
+PR #10 已于 2026-09-30 合并（merge commit `00d73b4`）；PR #14 仍为 draft，Issue #8
+仍为 open。C 的 runner/schema 最终确认和六个 460 张 stability eval 完成前，全组协议
+不能由 D 单方面标记为 frozen，门禁数值也不能作为正式课程实验排名。

@@ -1,6 +1,6 @@
 # 成员 D：Occlusion 正式评测交接验收
 
-验收日期：2026-09-27；float32 补充验收：2026-09-30
+验收日期：2026-09-27；float32 补充验收：2026-09-30；远端状态复核：2026-10-01
 
 实验代码提交：`6d5645f`
 
@@ -67,9 +67,10 @@ stability eval，也不直接构成跨方法最终排名。
 
 ## 未验收项
 
-- PR #10 的 `9891eec` 已在实现中回应引用图身份、debug/eval 隔离和 resume/force
-  三项阻塞；D 已完成统计复核，但 PR 仍未合并，Issue #8 仍等待 C 的 runner/schema
-  最终确认，因此全组协议状态尚不能单方面改写为 frozen。
+- PR #10 已于 2026-09-30 合并，merge commit 为 `00d73b4`；其中 `9891eec` 已回应
+  引用图身份、debug/eval 隔离和 resume/force 三项阻塞。D 已完成统计复核，但
+  Issue #8 仍为 open，C 的 runner/schema 最终确认尚未公开记录，因此全组协议状态
+  仍不能由 D 单方面改写为 frozen。
 - 当前收到的是单图和 40 张 Occlusion stability 工程门禁，不是六个 460 张正式
   stability eval；不得将门禁均值写成正式方法排名。
 - 本结论只接受 Occlusion 的现有正式 eval 结果，不代表 KernelSHAP 或其他方法已经完成。
