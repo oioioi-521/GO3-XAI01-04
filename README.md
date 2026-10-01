@@ -41,7 +41,7 @@ pytest -q
 
 成员 A 的 IG / Grad-CAM 实现、12 个正式单元配置和方法约定见
 [docs/A_IG_GRADCAM_HANDOFF.md](docs/A_IG_GRADCAM_HANDOFF.md)；2026-09-20 完成的 12 单元正式结果、验收记录、汇总图与结论见
-[docs/A_IG_GRADCAM_RESULTS.md](docs/A_IG_GRADCAM_RESULTS.md)。这里的“完成”仅指忠实性和效率；稳定性协议已于 2026-10-01 根据 C/D 复核和 PR #10 合并冻结，Issue #8 继续跟踪全组正式补跑。按任务书要求的三指标口径，目前仍无单元完全闭环。冻结协议、补跑入口和 trace schema 见 [docs/STABILITY_PROTOCOL.md](docs/STABILITY_PROTOCOL.md)，A 的 12 单元执行与验收见 [docs/A_STABILITY_RUNBOOK.md](docs/A_STABILITY_RUNBOOK.md)。现有正式结果使用 raw MoRF、21 点删除曲线、预热计时和 float32 归因图：
+[docs/A_IG_GRADCAM_RESULTS.md](docs/A_IG_GRADCAM_RESULTS.md)。A 已于 2026-10-01 完成 12 个单元的正式稳定性补跑，三项指标现已齐全；稳定性汇总与产物回执见 [docs/A_STABILITY_RESULTS.md](docs/A_STABILITY_RESULTS.md)。稳定性协议已根据 C/D 复核和 PR #10 合并冻结，Issue #8 继续跟踪全组正式补跑。冻结协议、补跑入口和 trace schema 见 [docs/STABILITY_PROTOCOL.md](docs/STABILITY_PROTOCOL.md)，A 的执行与验收见 [docs/A_STABILITY_RUNBOOK.md](docs/A_STABILITY_RUNBOOK.md)。现有正式结果使用 raw MoRF、21 点删除曲线、预热计时和 float32 归因图：
 
 ```bash
 pytest -q tests/test_gradient_methods.py tests/test_gradient_runner.py

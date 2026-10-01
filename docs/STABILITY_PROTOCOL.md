@@ -112,6 +112,8 @@ python experiments/run_stability.py \
 忠实性和效率结果。旧结果首次补跑会增加一次原图归因重算用于来源核验，其时间
 不计入原有 `efficiency_time_ms`；带可信 sidecar 的后续续跑无需重算原图。
 每个单元验收 `processed=460`、`skipped=0`、`warmup_runs=1`，随后再运行一次确认
-`processed=0`、`skipped=460`。12 个 A 单元全部完成后才进入三维 Pareto 和 RQ2/RQ3。
+`processed=0`、`skipped=460`。全组 36 个单元结果齐全后才进入最终三维 Pareto 和 RQ2/RQ3。
 
 A 的隔离门禁、正式跑批与验收入口见 [`A_STABILITY_RUNBOOK.md`](A_STABILITY_RUNBOOK.md)。
+A 的 12 个正式单元已于 2026-10-01 完成，结果及验收见
+[`A_STABILITY_RESULTS.md`](A_STABILITY_RESULTS.md)；Issue #8 继续跟踪全组剩余结果。

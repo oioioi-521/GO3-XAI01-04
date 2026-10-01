@@ -1,7 +1,29 @@
 # A 的 12 单元稳定性补跑
 
 状态（2026-10-01）：协议已通过 C/D 复核并合入集成分支，冻结记录已同步。
-本文件和跑批入口已准备；尚未启动 12 个 460 张正式稳定性单元。
+12 个 460 张正式稳定性单元已在 desktop / RTX 2080 Ti 上完成并通过验收。
+整批于 2026-10-01 22:30（Asia/Shanghai）结束，退出码 `0`，立即续跑均为
+`processed=0, skipped=460`。正式汇总见 [A_STABILITY_RESULTS.md](A_STABILITY_RESULTS.md)。
+
+## 本次执行记录
+
+- 代码提交：`a96749ac153c80f01e7cd32c1384f17a331eca5b`，GPG 签名有效；
+- 独立远端目录：`/home/hycx233/Courses/machine-learning/GO3-XAI01-04-a-stability-eval`；
+- 环境：Python 3.13.9、PyTorch 2.8.0、Captum 0.9.0、SciPy 1.17.1、CUDA；
+- 全部 12 个单元的输入预检已通过，5,520 张原参考 NPY 就位；
+- 后台日志：`results/a_stability_batch_20261001.log`；
+- 进程文件：`results/a_stability_batch_20261001.pid`；完成/失败退出码写入
+  `results/a_stability_batch_20261001.exit`，`0` 为整批验收成功；
+- 每个单元完成后写入 `results/a_stability_batches/<UTC时间>/validation_report.json`。
+
+本次回执位于 `results/a_stability_batches/20261001T132233566810Z/validation_report.json`。
+完成后复核了全部 trace、基础 CSV、预测表和 5,520 张原参考 NPY，均通过；本地已取回
+`results/a_stability_eval_20261001/A_STABILITY_EVAL_LIGHT_20261001.zip`，ZIP 和包内
+逐文件 SHA-256 与实验机一致。该交接包包含表格、trace、日志、快照、状态、单图门禁、
+原图 provenance 与验收回执，原参考 NPY 沿用已有正式产物。
+
+使用 `nohup` 运行，SSH 断连不会中断批次。原实验副本保留，当前结果是其独立副本，
+不会改写原副本的 CSV 或 NPY。若退出码非零，先检查日志末尾错误，再重用同一命令续跑。
 
 ## 输入与执行
 

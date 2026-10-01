@@ -1,6 +1,6 @@
 # 成员 A 交接说明：Integrated Gradients + Grad-CAM
 
-更新时间：2026-09-20。
+更新时间：2026-10-01。
 
 ## 当前完成状态
 
@@ -10,8 +10,8 @@
 - 已提供 **2 方法 × 3 模型 × 2 数据集 = 12** 个正式单元 YAML。
 - 已提供算法、非法参数、目标类别、目标层解析、runner 执行/续跑、预热隔离和 12 配置矩阵测试。
 - 已统一使用 `faithfulness_morf_auc_raw`、21 点删除曲线、1 次不计时预热，并同时保存 PNG 与 float32 NPY。
-- **ImageNet 与 VOC 共 12 个单元的忠实性、效率正式运行已完成**：每单元 460 张、`processed=460, skipped=0`；稳定性尚未运行，所以按三指标口径仍未完全闭环。
-- 完整测试为 **58 passed**；正式结果、验收、哈希与解释见 [`A_IG_GRADCAM_RESULTS.md`](A_IG_GRADCAM_RESULTS.md)。
+- **ImageNet 与 VOC 共 12 个单元的忠实性、稳定性、效率正式运行与验收均已完成**：稳定性每单元 460 张、首次 `processed=460, skipped=0`，立即续跑 `processed=0, skipped=460`。
+- 2026-09-20 基础阶段测试为 **58 passed**；本次稳定性跑批入口的完整测试为 **74 passed**。忠实性/效率见 [`A_IG_GRADCAM_RESULTS.md`](A_IG_GRADCAM_RESULTS.md)，稳定性及交接包见 [`A_STABILITY_RESULTS.md`](A_STABILITY_RESULTS.md)。
 
 2026-09-20 在台式机 RTX 2080 Ti 上使用 Python 3.13.9、PyTorch 2.8.0、torchvision 0.23.0 和 Captum 0.9.0 完成正式运行。结果同时保存在台式机与本地集成工作树的 `results/`；该目录由 Git 忽略，不随代码提交。
 
@@ -90,7 +90,7 @@ runner 会在配置哈希变化时清理同一方法/模型/数据集的旧单�
 
 ## 尚未完成及外部依赖
 
-- A 的 IG / Grad-CAM 实现，以及 12 个主体单元的忠实性、效率、结果解释、汇总图和可复现产物已完成；稳定性不包含在本次完成口径内。
+- A 的 IG / Grad-CAM 实现及 12 个主体单元的三项正式指标均已完成；稳定性 trace、来源核验、退化披露及产物回传已验收。
 - 稳定性协议已于 2026-10-01 根据 C/D 复核和 PR #10 合并冻结；A 的 12 单元补跑入口及验收要求见 [A_STABILITY_RUNBOOK.md](A_STABILITY_RUNBOOK.md)。全组正式结果齐全前仍不能完成三维 Pareto 与 RQ2/RQ3，Issue [#8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 继续跟踪执行。
 - 给 C 的三个 VOC20 checkpoint 交接 ZIP 已逐项通过 SHA-256 和 ZIP 完整性校验；发送前回执见 [A_TO_C_CHECKPOINT_HANDOFF.md](A_TO_C_CHECKPOINT_HANDOFF.md)，接收状态待 C 确认。
 - 对 D 的 KernelSHAP 调试仍可复用本次固定的统一接口、真值 target、baseline、结果 schema、raw MoRF 和配置快照约定。
