@@ -21,6 +21,13 @@ def main() -> None:
     if delivery.exists():
         raise FileExistsError(f"will not overwrite existing delivery: {delivery}")
     files: set[Path] = {DEST / "backup/backup_manifest.json"}
+    files.update(ROOT / relative for relative in (
+        "configs/stability_protocol_v1.yaml", "data/DATA_VERSION.json",
+        "docs/VOC20_CHECKPOINT_MANIFEST.json", "docs/B_OCCLUSION_EVAL_MANIFEST.json",
+        "docs/B_OCCLUSION_STABILITY_EVAL_MANIFEST.json",
+        "docs/B_OCCLUSION_STABILITY_EVAL_HANDOFF.md", "requirements.txt",
+        "preprocessing/dataset.py", "models/factory.py",
+    ))
     for unit in UNITS:
         output = DEST / unit
         report = json.loads((output / "validation_report.json").read_text(encoding="utf-8"))
