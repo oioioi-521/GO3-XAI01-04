@@ -1,8 +1,20 @@
 # 正式稳定性协议与补跑入口
 
-状态：**候选实现，等待 Issue #8 的 C 工程复核与 D 稳定性聚合复核后冻结**。
-B 已确认本口径可用于 Occlusion；B 于 2026-09-27 提出的来源、续跑和汇总边界
-反馈已纳入本候选实现。候选依据和 10/40 张结果见
+状态：**已冻结，2026-10-01，`rgb-gaussian-spearman-v1`**。C 已通过
+`9891eec` 的 runner/schema 最终复核，D 已通过该提交的统计聚合、退化计分和
+Occlusion 门禁复核；C 于 2026-09-30 将 PR #10 合入集成分支（`00d73b4`）。
+本次只同步验收状态，协议参数与已评审 YAML 保持一致。正式稳定性结果仍需逐方法补跑，
+Issue #8 保留开放以跟踪 36 个单元，冻结不代表实验完成。
+
+验收依据：
+
+- [C 的最终复核（09e850e）](https://github.com/oioioi-521/GO3-XAI01-04/blob/09e850ecf993feb0f6472c42191261edca918bd2/docs/STABILITY_C_RUNNER_REVIEW.md)
+- [D 的修复与统计复核（174b050）](https://github.com/oioioi-521/GO3-XAI01-04/blob/174b050623bb599087d194c2a4b0c487da67129f/docs/STABILITY_D_STATISTICAL_REVIEW.md)
+- [PR #10 的合并记录](https://github.com/oioioi-521/GO3-XAI01-04/pull/10)
+
+冻结 YAML 的 SHA-256 为
+`324315f1ecf62a807ec91e77b2cba1ea53593e9a7ad98a2a90cce09a9e32dcdf`。
+候选依据和 10/40 张结果见
 [`STABILITY_PILOT_RESULTS.md`](STABILITY_PILOT_RESULTS.md)。
 
 ## 协议 v1
@@ -78,7 +90,8 @@ target_score_abs_delta,perturbation_mae_pixel,attribution_time_ms
 
 ## 运行与门禁
 
-协议冻结前只允许单图验证：
+在独立门禁结果目录完成单图及立即续跑验证后再启动正式补跑。直接使用下面的
+`--max-images 1` 会改变当前稳定性状态身份，不能用于检查已有正式稳定性结果：
 
 ```bash
 python experiments/run_stability.py \
@@ -99,4 +112,8 @@ python experiments/run_stability.py \
 忠实性和效率结果。旧结果首次补跑会增加一次原图归因重算用于来源核验，其时间
 不计入原有 `efficiency_time_ms`；带可信 sidecar 的后续续跑无需重算原图。
 每个单元验收 `processed=460`、`skipped=0`、`warmup_runs=1`，随后再运行一次确认
-`processed=0`、`skipped=460`。12 个 A 单元全部完成后才进入三维 Pareto 和 RQ2/RQ3。
+`processed=0`、`skipped=460`。全组 36 个单元结果齐全后才进入最终三维 Pareto 和 RQ2/RQ3。
+
+A 的隔离门禁、正式跑批与验收入口见 [`A_STABILITY_RUNBOOK.md`](A_STABILITY_RUNBOOK.md)。
+A 的 12 个正式单元已于 2026-10-01 完成，结果及验收见
+[`A_STABILITY_RESULTS.md`](A_STABILITY_RESULTS.md)；Issue #8 继续跟踪全组剩余结果。
