@@ -140,7 +140,8 @@ def validate(unit: str, require_resume: bool = True) -> dict:
     if dataset == "voc":
         assert sha256(ROOT / identity["weight"]["path"]) == identity["weight"]["sha256"]
     processes = [json.loads(line) for line in (output / "process_runs.jsonl").read_text(encoding="utf-8").splitlines()]
-    assert all(row["status"] == "success" for row in processes)
+    assert set(row["status"] for row in processes) <= {"success", "failed"}
+    assert sum(row["status"] == "success" for row in processes) == len(runner_logs)
     wall = sum(float(row["wall_seconds_this_process"]) for row in processes)
     report = {
         "status": "passed", "unit": unit, "split": "eval", "images": 460,
@@ -155,6 +156,9 @@ def validate(unit: str, require_resume: bool = True) -> dict:
         "processed_sequence": [r["processed"] for r in runner_logs],
         "skipped_sequence": [r["skipped"] for r in runner_logs],
         "process_wall_seconds_total": wall,
+        "failed_attempts": sum(row["status"] == "failed" for row in processes),
+        "failed_attempts_detail": [{"error": row.get("error"), "wall_seconds": row["wall_seconds_this_process"]}
+                                   for row in processes if row["status"] == "failed"],
         "cuda_peak_allocated_mib": max(float(r["cuda_peak_allocated_mib"]) for r in processes),
         "cuda_peak_reserved_mib": max(float(r["cuda_peak_reserved_mib"]) for r in processes),
         "base_files_unchanged": unchanged, "reference_maps_unchanged": maps,
