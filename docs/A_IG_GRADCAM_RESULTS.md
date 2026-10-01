@@ -13,7 +13,7 @@
 
 这里的“完成”不包含稳定性。按全组“忠实性、稳定性、效率”三项均齐全的严格口径，目前 36 个主体单元中仍有 0 个完全闭环；A 已为其中 12 个单元提供前两项结果。
 
-在当前统一的 raw MoRF 口径下，Integrated Gradients（IG）在 6 个“模型 × 数据集”组合中均取得更低的删除 AUC，Grad-CAM 则在全部组合中明显更快。IG 的平均 raw AUC 相比 Grad-CAM 低 1.22～11.20 倍，但归因耗时高 9.71～29.75 倍。这说明本任务包内存在稳定的忠实性—效率权衡，但在稳定性指标冻结前不能声称已完成三维 Pareto 结论。
+在当前统一的 raw MoRF 口径下，Integrated Gradients（IG）在 6 个“模型 × 数据集”组合中均取得更低的删除 AUC，Grad-CAM 则在全部组合中明显更快。IG 的平均 raw AUC 相比 Grad-CAM 低 1.22～11.20 倍，但归因耗时高 9.71～29.75 倍。这说明本任务包内存在稳定的忠实性—效率权衡，但在正式稳定性结果齐全前不能声称已完成三维 Pareto 结论。
 
 报告/PPT 可直接使用的汇总图：[`../analysis/a_ig_gradcam_summary.png`](../analysis/a_ig_gradcam_summary.png)。作图数据和复现脚本分别为 [`../analysis/a_ig_gradcam_summary.csv`](../analysis/a_ig_gradcam_summary.csv) 与 [`../analysis/plot_a_results.py`](../analysis/plot_a_results.py)。
 
@@ -79,6 +79,6 @@
 
 ## 限制与后续输入
 
-仓库当前只给出“稳定性”这一高层维度，没有冻结具体扰动、强度、重复次数、相似度公式或 metric 字段，`requirements.txt` 也没有锁定 Quantus。因此本任务没有擅自发明第三种指标。float32 原始归因图保证 raw MoRF 等排序型指标可以无损复算；稳定性通常还需要对扰动输入重新归因，仍应在全组通过跟踪 Issue [#8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 冻结统一协议后执行。
+2026-10-01 更新：稳定性协议已通过 C/D 复核，PR #10 已合入集成分支，现冻结为 RGB 高斯扰动 `sigma=0.005`、每图 5 次、固定 metadata target、Spearman 主指标与有效率。协议和证据见 [STABILITY_PROTOCOL.md](STABILITY_PROTOCOL.md)，A 的独立单图门禁、正式补跑与验收入口见 [A_STABILITY_RUNBOOK.md](A_STABILITY_RUNBOOK.md)。本文件中的结果仍只覆盖忠实性和效率，冻结本身不代表稳定性已运行。
 
-在稳定性协议落地前，本文件只支持 IG 与 Grad-CAM 的阶段性忠实性—效率结论，不能用于最终三维 Pareto、RQ2 或 RQ3 的完整结论。
+在正式稳定性结果齐全前，本文件只支持 IG 与 Grad-CAM 的阶段性忠实性—效率结论，不能用于最终三维 Pareto、RQ2 或 RQ3 的完整结论。Issue [#8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 保持开放以跟踪全组补跑。

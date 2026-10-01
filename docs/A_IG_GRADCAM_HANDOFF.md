@@ -91,5 +91,6 @@ runner 会在配置哈希变化时清理同一方法/模型/数据集的旧单�
 ## 尚未完成及外部依赖
 
 - A 的 IG / Grad-CAM 实现，以及 12 个主体单元的忠实性、效率、结果解释、汇总图和可复现产物已完成；稳定性不包含在本次完成口径内。
-- 全项目稳定性指标仍缺少冻结的可执行协议，因此当前不能完成三维 Pareto 与 RQ2/RQ3；详见结果说明的限制章节及跟踪 Issue [#8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8)。
+- 稳定性协议已于 2026-10-01 根据 C/D 复核和 PR #10 合并冻结；A 的 12 单元补跑入口及验收要求见 [A_STABILITY_RUNBOOK.md](A_STABILITY_RUNBOOK.md)。全组正式结果齐全前仍不能完成三维 Pareto 与 RQ2/RQ3，Issue [#8](https://github.com/oioioi-521/GO3-XAI01-04/issues/8) 继续跟踪执行。
+- 给 C 的三个 VOC20 checkpoint 交接 ZIP 已逐项通过 SHA-256 和 ZIP 完整性校验；发送前回执见 [A_TO_C_CHECKPOINT_HANDOFF.md](A_TO_C_CHECKPOINT_HANDOFF.md)，接收状态待 C 确认。
 - 对 D 的 KernelSHAP 调试仍可复用本次固定的统一接口、真值 target、baseline、结果 schema、raw MoRF 和配置快照约定。
