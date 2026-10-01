@@ -30,9 +30,8 @@
 
 ## 当前依赖与阻塞
 
-1. PR #10 已于 2026-09-30 合并到集成分支（merge commit `00d73b4`）；PR #14 仍为
-   draft。D 分支当前尚未把新的集成提交合入自身；正式提 PR 前需确认目标分支与 review
-   顺序。
+1. PR #10 已于 2026-09-30 合并到集成分支（merge commit `00d73b4`），并已合入 D
+   分支；PR #14 仍为 draft。正式提 PR 前仍需确认目标分支与 review 顺序。
 2. 本工作区的项目 `.venv` 已安装 Captum 0.9.0 与 scikit-learn；真实图片、三个 VOC20
    checkpoint、Occlusion 轻量结果和 float32 包均已通过哈希/格式验证并放入 Git 忽略目录。
    这些二进制和结果仍不进入 Git。
@@ -43,9 +42,11 @@
    有限性、非恒定性、范围和 resume 均通过。结果与边界见
    `docs/KERNELSHAP_GATE_RESULTS.md`。
 5. D 已完成 PR #10 修复提交 `9891eec` 的统计复核，并验收 PR #14 的 Occlusion 单图/
-   40 张候选门禁；协议仍需 C 完成 runner/schema 最终确认后才能标记 frozen。六个 460 张
-   Occlusion stability eval 尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终
-   结论仍需真实全组结果。A/B 的阶段结果不能被当成全项目最终结论。
+   40 张候选门禁；KernelSHAP 六个稳定性单图门禁也已通过，30/30 repeats valid，旧参考图
+   均经独立重算绑定。协议仍需在 Issue #8 留下公开确认并由 C 完成 runner/schema 最终确认
+   后才能标记 frozen。六个 460 张 Occlusion stability eval 尚未开始，正式 ANOVA、三维
+   Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。A/B/D 的门禁不能被当成全项目
+   最终结论。
 
 ## 已完成的本地验证与后续命令
 

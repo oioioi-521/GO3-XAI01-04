@@ -41,8 +41,28 @@ DEFAULT 权重；VOC 使用项目交接的三个 VOC20 checkpoint。
 - 六份立即续跑日志均为 `processed=0, skipped=40`，没有重复追加逐图结果。
 - `analysis.validate_results` 已通过；结果文件位于 Git 忽略的 `results/`，不提交大文件。
 
+## 稳定性单图门禁
+
+PR #10 的稳定性 runner 合入 D 分支后，六单元又按 `rgb-gaussian-spearman-v1` 完成了
+单图 × 5 repeats 门禁。旧参考图先用当前模型、基础配置和 checkpoint 独立重算；六张图
+均在容差内一致，sidecar 均写为 `verified_recomputation`。30 条 trace 全部为 `valid`，
+seed 均符合 `dataset/image_id/repeat` 派生规则；立即续跑均为
+`processed=0, skipped=1`。
+
+| 数据集 | 模型 | 单图 stability_spearman | valid repeats | 配置哈希 |
+|---|---|---:|---:|---|
+| ImageNet | ResNet50 | 0.997204 | 5/5 | `25083ef5de85` |
+| ImageNet | DenseNet121 | 0.988959 | 5/5 | `91ef149f422c` |
+| ImageNet | VGG16 | 0.994510 | 5/5 | `bba2e5602363` |
+| VOC | ResNet50 | 0.994388 | 5/5 | `af6eef9a2658` |
+| VOC | DenseNet121 | 0.998367 | 5/5 | `f052b6e4a5be` |
+| VOC | VGG16 | 0.998959 | 5/5 | `961b8c86ba02` |
+
+这些值只证明参考图绑定、扰动、归因、trace、聚合和 resume 链路在 KernelSHAP 上可执行；
+单图数值不能代替 40 张稳定性门禁，更不能代替 460 张正式稳定性结果。
+
 ## 下一阶段边界
 
-门禁通过后，仍需在参数正式冻结后生成 460 张 eval 配置并运行六个主体单元；稳定性还需
-使用 Issue #8 冻结的统一协议另行补跑。正式统计应沿用正确预测主分析、全样本敏感性分析、
-共同正确样本配对和同硬件效率比较的边界。
+基础 40 张门禁和稳定性单图门禁通过后，下一步仍需完成六单元 40 张稳定性门禁；参数
+正式冻结后才能生成 460 张 eval 配置并运行六个主体单元。正式统计应沿用正确预测主分析、
+全样本敏感性分析、共同正确样本配对和同硬件效率比较的边界。
