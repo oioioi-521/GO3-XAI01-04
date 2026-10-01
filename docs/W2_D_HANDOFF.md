@@ -43,10 +43,11 @@
    `docs/KERNELSHAP_GATE_RESULTS.md`。
 5. D 已完成 PR #10 修复提交 `9891eec` 的统计复核，并验收 PR #14 的 Occlusion 单图/
    40 张候选门禁；KernelSHAP 六个稳定性单图门禁也已通过，30/30 repeats valid，旧参考图
-   均经独立重算绑定。协议仍需在 Issue #8 留下公开确认并由 C 完成 runner/schema 最终确认
-   后才能标记 frozen。六个 460 张 Occlusion stability eval 尚未开始，正式 ANOVA、三维
-   Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。A/B/D 的门禁不能被当成全项目
-   最终结论。
+   均经独立重算绑定。Issue #8 已于 2026-10-01 记录协议冻结并链接 C/D 最终复核；D 随后
+   完成 KernelSHAP ResNet50/ImageNet 40 张稳定性门禁，200/200 repeats valid，立即续跑
+   `processed=0, skipped=40`，其余 5 个单元待运行。六个 460 张 Occlusion stability eval
+   尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
+   A/B/D 的门禁不能被当成全项目最终结论。
 
 ## 已完成的本地验证与后续命令
 
