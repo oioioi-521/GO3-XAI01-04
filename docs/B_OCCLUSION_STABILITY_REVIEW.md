@@ -1,5 +1,11 @@
 # B：PR #10 修复复审与 Occlusion 稳定性门禁状态（初审 2026-09-27，GPU 复核 2026-09-28）
 
+> 2026-10-01 更新：Issue #8 已冻结协议，PR #10 已由 `00d73b4` 合入；
+> C `09e850e` 与 D `174b050` 的复核完成。D 已收包验算 B 单图/40 张门禁，
+> B 六组 460 张正式稳定性 eval 已完成并逐组验收。正式交接见
+> `docs/B_OCCLUSION_STABILITY_EVAL_HANDOFF.md`。本文旧“待确认/尚未执行”
+> 段落保留原阶段证据，不再表示当前状态。
+
 > 后续状态更新：用户于 2026-09-28 手动关闭 Smart App Control 后，新的 Python
 > 进程已通过 Matplotlib、SciPy Spearman、Captum 和真实 CUDA Occlusion；
 > 全量 93 passed，六组合单图及 40 张 debug 均已完成。以下旧“阻塞/尚未执行”

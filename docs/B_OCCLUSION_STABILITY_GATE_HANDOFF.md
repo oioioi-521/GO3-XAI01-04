@@ -1,5 +1,11 @@
 # B：Occlusion 稳定性候选协议 GPU 门禁交接（2026-09-28）
 
+> 2026-10-01 后续状态：Issue #8 正文已冻结协议 v1，PR #10 已合入
+> `integrate/a-voc-eval`；C/D 固定提交完成复核，D 已接收并重算本门禁轻量包。
+> B 六组 460 张正式稳定性 eval 也已完成，见
+> `docs/B_OCCLUSION_STABILITY_EVAL_HANDOFF.md`。以下“候选/待确认”描述仅是
+> 2026-09-28 的历史门禁状态，不代表当前阻塞。
+
 ## 范围与代码身份
 
 这是三模型 × ImageNet/VOC 的 **单图 → 40 张 debug 工程门禁**，不是 460 张 eval，也不是正式稳定性排名。基础 Occlusion 六组 eval 已另行完成；本轮未重跑它们或 MoRF。B 分支的 A 稳定性实现来自保留提交的 merge `a69df80`，其 PR #10 修复源提交为 `9891eecc4ec869c0bc14a054a2cd85a0beca4266`；B 本轮新增隔离拷贝、测量、校验和交接工具，不把 A 的算法实现算作 B 贡献。
