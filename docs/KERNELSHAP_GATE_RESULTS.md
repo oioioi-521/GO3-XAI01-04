@@ -1,6 +1,6 @@
 # KernelSHAP 六单元 40 张候选门禁
 
-完成日期：2026-10-01。
+更新日期：2026-10-07。
 
 ## 结论
 
@@ -71,14 +71,25 @@ Issue #8 于 2026-10-01 记录协议已冻结后，D 按冻结配置启动六单
 | 数据集 | 模型 | stability_spearman | valid_rate | n | 配置哈希 | 状态 |
 |---|---|---:|---:|---:|---|---|
 | ImageNet | ResNet50 | 0.991098 ± 0.007779 | 1.000000 | 40 | `251b005c7e1b` | 通过 |
-| ImageNet | DenseNet121 | — | — | — | — | 待运行 |
-| ImageNet | VGG16 | — | — | — | — | 待运行 |
-| VOC | ResNet50 | — | — | — | — | 待运行 |
-| VOC | DenseNet121 | — | — | — | — | 待运行 |
-| VOC | VGG16 | — | — | — | — | 待运行 |
+| ImageNet | DenseNet121 | 0.994177 | 1.000000 | 40 | `544c053c7bdc` | 通过 |
+| ImageNet | VGG16 | 0.995688 | 1.000000 | 40 | `521903e880f8` | 通过 |
+| VOC | ResNet50 | 0.977670 | 1.000000 | 40 | `0ba9731025d7` | 通过 |
+| VOC | DenseNet121 | 0.994470 | 1.000000 | 40 | `5bfaec74a89d` | 通过 |
+| VOC | VGG16 | 0.994597 | 1.000000 | 40 | `21b87e24e585` | 通过 |
+
+六单元合计 240 张图片、1,200 条重复 trace；1,200 条状态均为 `valid`，无退化重复。独立复核
+确认每单元恰有 40 行 `stability_spearman`、40 行 `stability_valid_rate` 和 200 条 trace；
+seed 与 `dataset/image_id/repeat` 的冻结 SHA-256 规则相符，逐图指标与 trace 重算聚合一致，
+单元均值、样本标准差和 `n=40` 与逐图结果吻合。六单元立即续跑均为
+`processed=0, skipped=40`。完整 `pytest` 为 89 passed、2 条既有 `torch.load` FutureWarning；
+`pip check` 无依赖冲突，结果 schema 校验通过。
 
 ## 下一阶段边界
 
-基础 40 张门禁和稳定性单图门禁均已通过；稳定性 40 张门禁已完成 1/6，仍需完成另外
-5 个单元。六单元门禁全部通过后，才能生成 460 张 eval 配置并运行六个主体单元。正式
-统计应沿用正确预测主分析、全样本敏感性分析、共同正确样本配对和同硬件效率比较的边界。
+基础 40 张门禁、稳定性单图门禁和六单元稳定性 40 张门禁均已通过。它们是工程门禁，
+不是 460 张正式 eval。六份正式配置 `configs/kernelshap_eval_{resnet50,densenet121,vgg16}_{imagenet,voc}.yaml`
+已生成并通过配置/样本清单预检；每个数据集 eval split 均有 460 张图，VOC checkpoint 与
+ImageNet 官方权重缓存均已就绪。正式基础结果、float32 参考图与稳定性 state/trace 写入
+独立的 `results/kernelshap_eval/`。正式批次先生成基础指标和来源 sidecar，再按冻结协议
+运行稳定性补跑；批次已启动，结果完成前不报告正式稳定性统计。
+正式统计应沿用正确预测主分析、全样本敏感性分析、共同正确样本配对和同硬件效率比较的边界。

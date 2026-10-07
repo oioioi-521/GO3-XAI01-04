@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-10-01。
+更新时间：2026-10-07。
 
 ## 已完成并可独立验收
 
@@ -43,9 +43,16 @@
    `docs/KERNELSHAP_GATE_RESULTS.md`。
 5. D 已完成 PR #10 修复提交 `9891eec` 的统计复核，并验收 PR #14 的 Occlusion 单图/
    40 张候选门禁；KernelSHAP 六个稳定性单图门禁也已通过，30/30 repeats valid，旧参考图
-   均经独立重算绑定。Issue #8 已于 2026-10-01 记录协议冻结并链接 C/D 最终复核；D 随后
-   完成 KernelSHAP ResNet50/ImageNet 40 张稳定性门禁，200/200 repeats valid，立即续跑
-   `processed=0, skipped=40`，其余 5 个单元待运行。六个 460 张 Occlusion stability eval
+   均经独立重算绑定。Issue #8 于 2026-10-01 记录协议冻结并链接 C/D 最终复核；D 已完成
+   KernelSHAP 六单元 40 张稳定性门禁：240 张图片、1,200/1,200 repeats valid；每单元均有
+   40 行 `stability_spearman`、40 行 `stability_valid_rate`、200 条 trace，seed、逐图聚合、
+   单元均值/样本标准差与 `n=40` 已独立重算核对，立即续跑均为
+   `processed=0, skipped=40`。完整测试 89 passed、2 条 `torch.load` FutureWarning，
+   `pip check` 正常。详见 `docs/KERNELSHAP_GATE_RESULTS.md`。六份 KernelSHAP eval 配置
+   已按冻结候选参数生成并通过 460 张数据清单预检；ImageNet 权重缓存、VOC checkpoint
+   均已确认。正式批次按单元先生成独立 eval 基础指标/float32 图与 provenance，再执行
+   460 张稳定性补跑；结果存于 `results/kernelshap_eval/`，完成前不当作最终统计结论。
+   六个 460 张 Occlusion stability eval
    尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
    A/B/D 的门禁不能被当成全项目最终结论。
 
@@ -61,8 +68,9 @@
 smoke 配置使用随机模型、1 张图片和 8 次采样，只证明管线能运行，不可写入报告的性能结论。
 六份候选配置使用 `n_samples=2048`、`feature_grid_size=7`、`max_images=40`。选择依据是
 10 张 ResNet50/ImageNet 试跑相对 4096 样本参考的平均 Spearman 0.853、最低 0.782，
-以及约 3.07 秒/图的归因成本。六单元 40 张门禁已完成，但在小组明确冻结参数并生成
-460 张 eval 配置前，仍不得把门禁数值写成正式实验排名。
+以及约 3.07 秒/图的归因成本。稳定性六单元 40 张门禁已完成，但在完成各单元 460 张
+eval 稳定性补跑前，不得把门禁数值写成正式实验排名。正式补跑还依赖 eval split 的
+KernelSHAP 基础指标表、float32 参考归因图及 provenance；这些必须与 debug 输出隔离。
 已知本地冻结数据 CSV 的
 Windows CRLF 换行会导致 SHA-256 校验失败；工作区已机械恢复为仓库规定的 LF，
 没有改动标签内容。
