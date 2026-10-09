@@ -1,6 +1,6 @@
 # RISE 正式评测结果
 
-更新时间：2026-09-30。
+更新时间：2026-10-09。
 
 ## 当前进度
 
@@ -9,12 +9,14 @@
 | ResNet50 | ImageNet | 已完成 460/460，并通过立即续跑 | `c035d8b2d1bd` |
 | DenseNet121 | ImageNet | 已完成 460/460，并通过续跑 | `b20cd6be154f` |
 | VGG16 | ImageNet | 已完成 460/460，并通过立即续跑 | `4412824305f1` |
-| ResNet50 | VOC | 待本机接收并验收 checkpoint | — |
-| DenseNet121 | VOC | 待本机接收并验收 checkpoint | — |
-| VGG16 | VOC | 待本机接收并验收 checkpoint | — |
+| ResNet50 | VOC | checkpoint 验收通过，正式批次运行中 | `c52269f4cda3` |
+| DenseNet121 | VOC | checkpoint 验收通过，等待顺序跑批 | — |
+| VGG16 | VOC | checkpoint 验收通过，等待顺序跑批 | — |
 
-稳定性尚未补跑；Issue #8 和 PR #10 的候选协议通过 C 侧代码、测试与 RISE
-接口复核后，仍需完成组内冻结/合并流程。当前结果不能用于三维 Pareto 或完整排名。
+稳定性尚未补跑；PR #10 已合入 `integrate/a-voc-eval`，Issue #8 已记录协议冻结。
+C 的独立稳定性集成分支 `feat/rise-stability-eval` 已通过 72 项测试。
+VOC checkpoint 接收证据见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)。
+当前结果不能用于三维 Pareto 或完整排名。
 
 ## ResNet50 / ImageNet
 
