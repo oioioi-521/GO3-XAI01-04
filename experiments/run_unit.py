@@ -36,12 +36,14 @@ from experiments.attribution import (  # noqa: E402
     RISE,
 )
 from experiments.metrics import faithfulness_morf_auc, faithfulness_morf_auc_raw  # noqa: E402
+from experiments.map_provenance import write_map_provenance  # noqa: E402
 from experiments.predictions import PredictionStore, build_prediction_context  # noqa: E402
 from models import load_model, predict  # noqa: E402
 from preprocessing.dataset import MEAN, STD, MetadataDataset  # noqa: E402
 
 PER_IMAGE_COLUMNS = ["image_id", "dataset", "model", "method", "metric", "value", "time_ms"]
 UNIT_COLUMNS = ["method", "model", "dataset", "metric", "mean", "std", "n", "config_hash"]
+STABILITY_METRICS = frozenset({"stability_spearman", "stability_valid_rate"})
 SUPPORTED_METHODS = {
     "gradcam": GradCAM,
     "ig": IntegratedGradients,
@@ -138,31 +140,33 @@ def _write_state_hash(path: Path, unit: Dict[str, str], config_hash: str) -> Non
     temporary.replace(path)
 
 
-def _has_unit_rows(path: Path, unit: Dict[str, str]) -> bool:
+def _has_unit_rows(path: Path, unit: Dict[str, str], metrics: Iterable[str]) -> bool:
     if not path.is_file():
         return False
     frame = pd.read_csv(path)
-    required = {"dataset", "model", "method"}
+    required = {"dataset", "model", "method", "metric"}
     if frame.empty or not required.issubset(frame.columns):
         return False
     return bool(
         ((frame["dataset"] == unit["dataset"])
          & (frame["model"] == unit["model"])
-         & (frame["method"] == unit["method"])).any()
+         & (frame["method"] == unit["method"])
+         & frame["metric"].isin(list(metrics))).any()
     )
 
 
-def _remove_unit_summary(path: Path, unit: Dict[str, str]) -> None:
+def _remove_unit_summary(path: Path, unit: Dict[str, str], metrics: Iterable[str]) -> None:
     if not path.is_file():
         return
     frame = pd.read_csv(path)
-    required = {"dataset", "model", "method"}
+    required = {"dataset", "model", "method", "metric"}
     if not required.issubset(frame.columns):
         return
     keep = ~(
         (frame["dataset"] == unit["dataset"])
         & (frame["model"] == unit["model"])
         & (frame["method"] == unit["method"])
+        & frame["metric"].isin(list(metrics))
     )
     temporary = path.with_suffix(path.suffix + ".tmp")
     frame[keep].to_csv(temporary, index=False)
@@ -174,6 +178,7 @@ def _prepare_resume_state(
     units_path: Path,
     state_path: Path,
     unit: Dict[str, str],
+    metrics: Iterable[str],
     config_hash: str,
     force: bool,
 ) -> None:
@@ -185,31 +190,40 @@ def _prepare_resume_state(
     when the unit summary proves they use the requested hash; otherwise they
     are conservatively rerun.
     """
+    metrics = tuple(metrics)
     previous_hash = _read_state_hash(state_path)
-    if force:
-        _remove_unit_rows(per_image_path, unit)
-        _remove_unit_summary(units_path, unit)
-    elif previous_hash is None:
-        if _has_unit_rows(per_image_path, unit):
-            summary_hash = None
-            if units_path.is_file():
-                summaries = pd.read_csv(units_path)
-                required_columns = {"dataset", "model", "method", "config_hash"}
-                if required_columns.issubset(summaries.columns):
-                    selected = summaries[
-                        (summaries["dataset"] == unit["dataset"])
-                        & (summaries["model"] == unit["model"])
-                        & (summaries["method"] == unit["method"])
-                    ]
-                    if not selected.empty:
-                        hashes = set(selected["config_hash"].dropna().astype(str))
-                        summary_hash = next(iter(hashes)) if len(hashes) == 1 else None
-            if summary_hash != config_hash:
-                _remove_unit_rows(per_image_path, unit)
-                _remove_unit_summary(units_path, unit)
-    elif previous_hash != config_hash:
-        _remove_unit_rows(per_image_path, unit)
-        _remove_unit_summary(units_path, unit)
+    replace_base = force or (previous_hash is not None and previous_hash != config_hash)
+    if previous_hash is None and _has_unit_rows(per_image_path, unit, metrics):
+        summary_hash = None
+        if units_path.is_file():
+            summaries = pd.read_csv(units_path)
+            required_columns = {"dataset", "model", "method", "metric", "config_hash"}
+            if required_columns.issubset(summaries.columns):
+                selected = summaries[
+                    (summaries["dataset"] == unit["dataset"])
+                    & (summaries["model"] == unit["model"])
+                    & (summaries["method"] == unit["method"])
+                    & summaries["metric"].isin(metrics)
+                ]
+                if not selected.empty:
+                    hashes = set(selected["config_hash"].dropna().astype(str))
+                    summary_hash = next(iter(hashes)) if len(hashes) == 1 else None
+        replace_base = replace_base or summary_hash != config_hash
+    has_stability = _has_unit_rows(per_image_path, unit, STABILITY_METRICS) or _has_unit_rows(
+        units_path, unit, STABILITY_METRICS
+    )
+    if has_stability and not _has_unit_rows(
+        per_image_path, unit, metrics
+    ):
+        raise ValueError("stability rows exist without their base metrics")
+    if replace_base and has_stability:
+        raise ValueError(
+            "base rerun would invalidate existing stability rows; use an isolated "
+            "result directory or explicitly archive and remove stability results first"
+        )
+    if replace_base:
+        _remove_unit_rows(per_image_path, unit, metrics)
+        _remove_unit_summary(units_path, unit, metrics)
     _write_state_hash(state_path, unit, config_hash)
 
 
@@ -245,6 +259,7 @@ def _remove_incomplete_unit_rows(
         (frame["dataset"] == unit["dataset"])
         & (frame["model"] == unit["model"])
         & (frame["method"] == unit["method"])
+        & frame["metric"].isin(list(metrics))
     )
     selected = frame[matching].copy()
     selected["_image_id"] = selected["image_id"].astype(str)
@@ -271,7 +286,7 @@ def _append_rows(path: Path, rows: List[Dict[str, Any]]) -> None:
         handle.flush()
 
 
-def _remove_unit_rows(path: Path, unit: Dict[str, str]) -> None:
+def _remove_unit_rows(path: Path, unit: Dict[str, str], metrics: Iterable[str]) -> None:
     """Remove an existing unit before an explicit forced rerun."""
     if not path.is_file():
         return
@@ -280,6 +295,7 @@ def _remove_unit_rows(path: Path, unit: Dict[str, str]) -> None:
         (frame["dataset"] == unit["dataset"])
         & (frame["model"] == unit["model"])
         & (frame["method"] == unit["method"])
+        & frame["metric"].isin(list(metrics))
     )
     temporary = path.with_suffix(path.suffix + ".tmp")
     frame[keep].to_csv(temporary, index=False)
@@ -287,13 +303,15 @@ def _remove_unit_rows(path: Path, unit: Dict[str, str]) -> None:
 
 
 def _upsert_unit_summary(
-    per_image_path: Path, units_path: Path, unit: Dict[str, str], config_hash: str
+    per_image_path: Path, units_path: Path, unit: Dict[str, str],
+    metrics: Iterable[str], config_hash: str
 ) -> None:
     frame = pd.read_csv(per_image_path)
     selected = frame[
         (frame["dataset"] == unit["dataset"])
         & (frame["model"] == unit["model"])
         & (frame["method"] == unit["method"])
+        & frame["metric"].isin(list(metrics))
     ].copy()
     summary = selected.groupby("metric")["value"].agg(
         mean="mean", std="std", n="count"
@@ -311,6 +329,7 @@ def _upsert_unit_summary(
             (old["dataset"] == unit["dataset"])
             & (old["model"] == unit["model"])
             & (old["method"] == unit["method"])
+            & old["metric"].isin(list(metrics))
         )
         retained = old[keep]
         if not retained.empty:
@@ -384,7 +403,15 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         else per_image_path.parent / "run_state"
     )
     state_path = _unit_state_path(state_dir, unit)
-    _prepare_resume_state(per_image_path, units_path, state_path, unit, digest, force)
+    if not runtime.get("resume", True) and (
+        _has_unit_rows(per_image_path, unit, STABILITY_METRICS)
+        or _has_unit_rows(units_path, unit, STABILITY_METRICS)
+    ):
+        raise ValueError(
+            "non-resumable base rerun would invalidate existing stability rows; "
+            "use an isolated result directory"
+        )
+    _prepare_resume_state(per_image_path, units_path, state_path, unit, metrics, digest, force)
     if not force and runtime.get("resume", True):
         _remove_incomplete_unit_rows(per_image_path, unit, metrics)
     completed = set() if force or not runtime.get("resume", True) else _read_completed(
@@ -461,10 +488,20 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
                 )
                 unit_float_maps = float_maps_root / f"{method}_{model_name}_{dataset_name}"
                 unit_float_maps.mkdir(parents=True, exist_ok=True)
+                map_path = unit_float_maps / f"{safe_image_id}.npy"
                 np.save(
-                    unit_float_maps / f"{safe_image_id}.npy",
+                    map_path,
                     attribution.numpy().astype(np.float32, copy=False),
                     allow_pickle=False,
+                )
+                write_map_provenance(
+                    map_path,
+                    image_id=image_id,
+                    unit=unit,
+                    split=split,
+                    base_config_hash=digest,
+                    prediction_context=prediction_context,
+                    binding="base_runner",
                 )
 
         rows: List[Dict[str, Any]] = []
@@ -492,7 +529,7 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         )
 
     if per_image_path.is_file():
-        _upsert_unit_summary(per_image_path, units_path, unit, digest)
+        _upsert_unit_summary(per_image_path, units_path, unit, metrics, digest)
     log_path = _resolve(str(config["output"].get("run_log", "results/run_log.jsonl")))
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8") as handle:
