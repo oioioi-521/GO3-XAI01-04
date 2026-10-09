@@ -46,8 +46,9 @@ ImageNet 模型输出 1000 个 ImageNet 类别，不能把 VOC 的 0–19 标签
 
 checkpoint 应为完整 `state_dict`（也可包装在 `{"state_dict": ...}` 中），类别顺序必须与
 `preprocessing/extract_voc_labels.py` 中的 `VOC_CLASSES` 一致。三份权重已经 Issue #4
-验收，但当前机器尚未取得二进制文件；在按 manifest 接收并验哈希前，只运行三个
-ImageNet 单元，不要用错误类别语义生成 VOC 结果。
+验收；本机于 2026-10-09 从 `muti-data` 接收并通过大小、SHA-256、严格加载、20 类
+有限前向及 RISE 首图检查，详见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)。
+三个 VOC 正式单元已安排顺序跑批。
 
 ## W4 正式运行前调整（已于 2026-09-23 完成）
 
