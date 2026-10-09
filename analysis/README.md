@@ -17,6 +17,17 @@ schema 的真实结果，并注明数据、配置和模型版本。
 
 ## 使用顺序
 
+KernelSHAP 的六个 460 张正式单元完成后，先独立校验冻结协议、460 张基础/稳定性逐图指标、
+2,300 条重复 trace、配对 seed、metadata target、逐图/单元重算、float32 参考图来源和
+`processed=0, skipped=460` 立即续跑记录。运行中也可用 `--unit` 只验已完成的单元：
+
+```bash
+python -m analysis.validate_kernelshap_formal
+python -m analysis.validate_kernelshap_formal --unit resnet50/imagenet
+```
+
+该命令只读结果和已冻结的配置/权重，不运行 GPU 归因；全组六方法统计仍需其他方法的正式输入。
+
 ```bash
 # 0. 分目录正式结果交接：先校验 manifest、配置/权重身份、每单元样本数和汇总，
 #    再生成统一长表及 top-1 正确/错误分组（VOC 不是多标签 exact match）

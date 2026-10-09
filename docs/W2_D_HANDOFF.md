@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-10-07。
+更新时间：2026-10-09。
 
 ## 已完成并可独立验收
 
@@ -55,6 +55,11 @@
    六个 460 张 Occlusion stability eval
    尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
    A/B/D 的门禁不能被当成全项目最终结论。
+6. KernelSHAP 的 ImageNet/ResNet50 与 ImageNet/DenseNet121 两个 460 张正式 eval 单元
+   已由 `analysis.validate_kernelshap_formal` 独立验收：各有 460 张基础/稳定性逐图指标、
+   2,300/2,300 条有效重复 trace、完整 float32 参考图来源和立即续跑
+   `processed=0, skipped=460`。测量值及配置哈希见 `docs/KERNELSHAP_GATE_RESULTS.md`。
+   其余四单元正在补跑；整批完成前仍不生成六单元或全组最终排名。
 
 ## 已完成的本地验证与后续命令
 

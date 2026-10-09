@@ -93,3 +93,24 @@ ImageNet 官方权重缓存均已就绪。正式基础结果、float32 参考图
 独立的 `results/kernelshap_eval/`。正式批次先生成基础指标和来源 sidecar，再按冻结协议
 运行稳定性补跑；批次已启动，结果完成前不报告正式稳定性统计。
 正式统计应沿用正确预测主分析、全样本敏感性分析、共同正确样本配对和同硬件效率比较的边界。
+
+## 460 张正式 eval：已独立验收的 2/6 单元（2026-10-09）
+
+下表是 ImageNet 两个**正式 eval 单元**的实测值，与上文 40 张 debug 门禁分开。数值为
+460 张图的均值 ± 样本标准差；效率只描述当前 RTX 4060 Laptop GPU 上的本次运行。
+
+| 数据集 | 模型 | faithfulness_morf_auc_raw ↓ | efficiency_time_ms ↓ | stability_spearman ↑ | stability_valid_rate | n |
+|---|---|---:|---:|---:|---:|---:|
+| ImageNet | ResNet50 | 0.113861 ± 0.104582 | 6124.578 ± 2019.400 | 0.992902 ± 0.006843 | 1.000000 | 460 |
+| ImageNet | DenseNet121 | 0.043774 ± 0.043916 | 4138.762 ± 68.147 | 0.995728 ± 0.005801 | 1.000000 | 460 |
+
+独立只读校验 `python -m analysis.validate_kernelshap_formal --unit MODEL/imagenet` 已分别
+通过：每单元两项基础指标各 460 行、两项稳定性指标各 460 行、2,300 条唯一 trace，
+2,300/2,300 条状态为 `valid`；目标类别、5 次配对 SHA 派生 seed、协议/配置哈希、
+逐图 trace 聚合、单元均值/样本标准差和 `n=460` 均核对一致。460 张 float32 NPY 均为
+224×224、有限值，并逐张核对 SHA-256、来源 sidecar、checkpoint/预测上下文绑定；
+基础 PNG 及指标保留。两单元的立即续跑记录均为 `processed=0, skipped=460`。
+校验器的针对性测试为 2 passed；整批结束后仍须运行完整测试和 `pip check`。
+
+VGG16/ImageNet 及三个 VOC 单元仍在正式批次中；本节不代表 KernelSHAP 六单元完成，
+也不构成全组 36 单元比较、ANOVA、相关性或 Pareto 结论。
