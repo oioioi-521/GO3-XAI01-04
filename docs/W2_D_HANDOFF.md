@@ -27,6 +27,11 @@
   2,760 张 float32 NPY 和 12 个 stability 单图/40 张门禁的接收验收；门禁不等于 460 张
   正式稳定性结果。详见 `docs/D_OCCLUSION_EVAL_ACCEPTANCE.md` 和
   `docs/STABILITY_D_STATISTICAL_REVIEW.md`。
+- 2026-10-09 又独立验收 B 的六单元 460 张 Occlusion 正式稳定性交接包：
+  每单元 460 图、2,300 条有效重复记录，逐图/单位汇总、配对种子、配置/协议哈希、
+  2,760 张原有 float32 参考图绑定及基础结果未变均已核对；六组立即续跑均为
+  `processed=0, skipped=460`。测量值、包哈希和来源限制见
+  `docs/D_OCCLUSION_STABILITY_EVAL_ACCEPTANCE.md`。
 
 ## 当前依赖与阻塞
 
@@ -57,8 +62,8 @@ Pareto 图和各一句限定范围的结论。C 的 RISE 目前仅使用其已�
    已按冻结候选参数生成并通过 460 张数据清单预检；ImageNet 权重缓存、VOC checkpoint
    均已确认。正式批次按单元先生成独立 eval 基础指标/float32 图与 provenance，再执行
    460 张稳定性补跑；结果存于 `results/kernelshap_eval/`，完成前不当作最终统计结论。
-   六个 460 张 Occlusion stability eval
-   尚未开始，正式 ANOVA、三维 Pareto、相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
+   六个 460 张 Occlusion stability eval 已由 D 接收验收；正式 ANOVA、三维 Pareto、
+   相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
    A/B/D 的门禁不能被当成全项目最终结论。
 6. KernelSHAP 的 ImageNet/ResNet50 与 ImageNet/DenseNet121 两个 460 张正式 eval 单元
    已由 `analysis.validate_kernelshap_formal` 独立验收：各有 460 张基础/稳定性逐图指标、
