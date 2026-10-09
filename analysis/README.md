@@ -28,6 +28,14 @@ python -m analysis.validate_kernelshap_formal --unit resnet50/imagenet
 
 该命令只读结果和已冻结的配置/权重，不运行 GPU 归因；全组六方法统计仍需其他方法的正式输入。
 
+六单元全部验收后，可生成一张只比较 KernelSHAP 自身的报告/PPT 图；缺少任一单元或
+误用 40 张门禁结果时，脚本会拒绝出图。图中点/误差线为 460 张图的均值/样本标准差，
+不是跨方法排名或显著性检验：
+
+```bash
+python -m analysis.plot_kernelshap_formal
+```
+
 ```bash
 # 0. 分目录正式结果交接：先校验 manifest、配置/权重身份、每单元样本数和汇总，
 #    再生成统一长表及 top-1 正确/错误分组（VOC 不是多标签 exact match）
