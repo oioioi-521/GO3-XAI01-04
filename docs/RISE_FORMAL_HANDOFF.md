@@ -1,6 +1,6 @@
 # RISE 正式跑批交接
 
-状态：代码与 6 个正式配置已对齐统一契约，采样预算门禁已通过并冻结为 4000 masks；三个 ImageNet 正式单元已于 2026-09-30 全部完成并通过续跑与严格完整性验收，其余 3 个 VOC 单元待 checkpoint。三份 VOC-20 checkpoint 已在 Issue #4 完成团队验收，但当前机器尚未取得被 Git 忽略的二进制文件；开始 VOC 跑批前须通过组内批准渠道接收并按 manifest 校验。门禁数据与决策见 [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md)，正式结果见 [`RISE_FORMAL_RESULTS.md`](RISE_FORMAL_RESULTS.md)。
+状态（2026-10-09）：代码与 6 个正式配置已对齐统一契约，采样预算门禁已通过并冻结为 4000 masks；三个 ImageNet 正式单元已于 2026-09-30 全部完成并通过续跑与严格完整性验收。三个 VOC checkpoint 已从本机 `muti-data` 接收，大小、SHA-256、严格加载和首图归因均通过，VOC 正式批次按模型顺序运行中。接收证据见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)，门禁数据与决策见 [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md)，正式结果见 [`RISE_FORMAL_RESULTS.md`](RISE_FORMAL_RESULTS.md)。
 
 ## 已锁定的正式契约
 
@@ -40,8 +40,8 @@ CSV 同时记录每图耗时、相对最高预算图的 Pearson 相关与 MAE。
 - ImageNet/VOC 原图均为 500 张，冻结 metadata 均为 eval=460、debug=40；
 - RTX 4060 Laptop GPU 8GB 可见，但最初环境为 CPU 版 PyTorch；
 - ImageNet ResNet50 权重已缓存；
-- Issue #4 已确认三份 VOC-20 checkpoint 的训练、严格加载和正式使用均通过验收；本机的 `models/checkpoints/` 目录仍缺失，必须从组内批准渠道接收，并按 `docs/VOC20_CHECKPOINT_MANIFEST.json` 校验字节数与 SHA-256 后再跑 VOC；
-- Issue #8 的稳定性实现当前仍在 `feat/stability-pilot`；PR #10 头提交 `9891eec` 已通过 C 的 runner/schema 与 RISE 接口复核，详见 [`STABILITY_C_RUNNER_REVIEW.md`](STABILITY_C_RUNNER_REVIEW.md)。协议仍待维护者合并/冻结，之后使用独立补跑入口，不重复 MoRF，也不计入 `efficiency_time_ms`。
+- Issue #4 已确认三份 VOC-20 checkpoint 的训练、严格加载和正式使用均通过团队验收；本机于 2026-10-09 完成接收并复制到 Git 忽略的 `models/checkpoints/`，具体回执见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)；
+- PR #10 已于 2026-09-30 合入 `integrate/a-voc-eval`（`00d73b4`），Issue #8 于 2026-10-01 记录协议冻结；C 的 runner/schema 与 RISE 接口复核见 [`STABILITY_C_RUNNER_REVIEW.md`](STABILITY_C_RUNNER_REVIEW.md)。独立分支 `feat/rise-stability-eval` 已合入冻结实现并通过 72 项测试，正式稳定性仍须完成 RISE 方法门禁后补跑。
 
 正式单元示例：
 
