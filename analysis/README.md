@@ -14,6 +14,9 @@ schema 的真实结果，并注明数据、配置和模型版本。
   的“越低越好”解释反。
 - `correlation.py`：在同一图像/模型/数据集/方法的配对观测上计算 Pearson、Spearman、
   样本数和 p 值。
+- `plot_midterm_d.py`：中期限定口径的四方法 ImageNet 全样本忠实性图，以及只使用 A
+  同一台 GPU 数据的 IG/Grad-CAM 双目标成对 Pareto 图；具体来源、结论及限制见
+  `docs/MIDTERM_D_COMPARISON.md`。
 
 ## 使用顺序
 

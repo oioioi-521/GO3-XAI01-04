@@ -1,0 +1,9 @@
+{
+  "source": "docs/RISE_FORMAL_RESULTS.md at commit 09e850e on feat/rise-formal-eval",
+  "scope": "C-authored 460-image all-sample summary; raw per-image bundle not locally received",
+  "rows": [
+    {"model": "resnet50", "mean": 0.107078, "std": 0.108800, "n": 460, "config_hash": "c035d8b2d1bd"},
+    {"model": "densenet121", "mean": 0.054237, "std": 0.063685, "n": 460, "config_hash": "b20cd6be154f"},
+    {"model": "vgg16", "mean": 0.052469, "std": 0.063082, "n": 460, "config_hash": "4412824305f1"}
+  ]
+}

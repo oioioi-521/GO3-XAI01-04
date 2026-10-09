@@ -30,6 +30,11 @@
 
 ## 当前依赖与阻塞
 
+中期汇报已另行整理 [`MIDTERM_D_COMPARISON.md`](MIDTERM_D_COMPARISON.md)：四方法
+ImageNet 全样本 raw MoRF AUC 描述图，以及 A 同一 GPU 的 IG/Grad-CAM 成对双目标
+Pareto 图和各一句限定范围的结论。C 的 RISE 目前仅使用其已提交的三单元正式摘要，
+不是 D 对原始逐图包的独立验收；这两张图不替代正确组主分析、稳定性或最终排名。
+
 1. PR #10 已于 2026-09-30 合并到集成分支（merge commit `00d73b4`），并已合入 D
    分支；PR #14 仍为 draft。正式提 PR 前仍需确认目标分支与 review 顺序。
 2. 本工作区的项目 `.venv` 已安装 Captum 0.9.0 与 scikit-learn；真实图片、三个 VOC20
