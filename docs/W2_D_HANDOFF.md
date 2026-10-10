@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-10-09。
+更新时间：2026-10-11。
 
 ## 已完成并可独立验收
 
@@ -66,16 +66,18 @@ Pareto 图和各一句限定范围的结论。该图制作时 C 的 RISE 仅使�
    `processed=0, skipped=40`。完整测试 89 passed、2 条 `torch.load` FutureWarning，
    `pip check` 正常。详见 `docs/KERNELSHAP_GATE_RESULTS.md`。六份 KernelSHAP eval 配置
    已按冻结候选参数生成并通过 460 张数据清单预检；ImageNet 权重缓存、VOC checkpoint
-   均已确认。正式批次按单元先生成独立 eval 基础指标/float32 图与 provenance，再执行
-   460 张稳定性补跑；结果存于 `results/kernelshap_eval/`，完成前不当作最终统计结论。
+   均已确认。正式批次已按单元生成独立 eval 基础指标、float32 图与 provenance，并完成
+   460 张稳定性补跑；结果存于 `results/kernelshap_eval/`，六单元验收证据见下项。
    六个 460 张 Occlusion stability eval 已由 D 接收验收；正式 ANOVA、三维 Pareto、
    相关性和 RQ1–RQ3 最终结论仍需真实全组结果。
    A/B/D 的门禁不能被当成全项目最终结论。
-6. KernelSHAP 的 ImageNet/ResNet50 与 ImageNet/DenseNet121 两个 460 张正式 eval 单元
-   已由 `analysis.validate_kernelshap_formal` 独立验收：各有 460 张基础/稳定性逐图指标、
-   2,300/2,300 条有效重复 trace、完整 float32 参考图来源和立即续跑
-   `processed=0, skipped=460`。测量值及配置哈希见 `docs/KERNELSHAP_GATE_RESULTS.md`。
-   其余四单元正在补跑；整批完成前仍不生成六单元或全组最终排名。
+6. KernelSHAP 六个 460 张正式 eval 单元已由 `analysis.validate_kernelshap_formal` 全部
+   独立验收：每单元各有 460 张基础/稳定性逐图指标、2,300/2,300 条有效重复 trace、
+   完整 float32 参考图来源和立即续跑 `processed=0, skipped=460`；六单元合计 2,760 张图、
+   13,800 条有效 trace。批次退出码为 0，完整测试 95 passed、2 条既有 FutureWarning，
+   `pip check` 无冲突。测量值及配置哈希见 `docs/KERNELSHAP_GATE_RESULTS.md`，方法内描述图
+   位于 `results/analysis/kernelshap_formal_summary.png`。这完成的是 KernelSHAP 六单元，
+   全组 36 单元排名、ANOVA、相关性和最终 Pareto 仍依赖其他方法完整且可配对的正式输入。
 
 ## 已完成的本地验证与后续命令
 
@@ -89,9 +91,9 @@ Pareto 图和各一句限定范围的结论。该图制作时 C 的 RISE 仅使�
 smoke 配置使用随机模型、1 张图片和 8 次采样，只证明管线能运行，不可写入报告的性能结论。
 六份候选配置使用 `n_samples=2048`、`feature_grid_size=7`、`max_images=40`。选择依据是
 10 张 ResNet50/ImageNet 试跑相对 4096 样本参考的平均 Spearman 0.853、最低 0.782，
-以及约 3.07 秒/图的归因成本。稳定性六单元 40 张门禁已完成，但在完成各单元 460 张
-eval 稳定性补跑前，不得把门禁数值写成正式实验排名。正式补跑还依赖 eval split 的
-KernelSHAP 基础指标表、float32 参考归因图及 provenance；这些必须与 debug 输出隔离。
+以及约 3.07 秒/图的归因成本。稳定性六单元 40 张门禁和六单元 460 张正式 eval 均已完成；
+门禁数值与正式结果继续分开报告。正式结果使用 eval split 的 KernelSHAP 基础指标表、
+float32 参考归因图及 provenance，并与 debug 输出隔离。
 已知本地冻结数据 CSV 的
 Windows CRLF 换行会导致 SHA-256 校验失败；工作区已机械恢复为仓库规定的 LF，
 没有改动标签内容。
