@@ -117,9 +117,20 @@ trace 全部为 `valid`。目标类别、5 次配对 SHA 派生 seed、协议/�
 
 批次日志 `results/kernelshap_formal_batch_20261007.log` 以退出码 0 完成；完整测试为
 95 passed、2 条既有 `torch.load` FutureWarning，`pip check` 无依赖冲突。六单元方法内
-描述图位于 `results/analysis/kernelshap_formal_summary.png`，按 ImageNet/VOC 展示三项指标。
+描述图原位于 `results/analysis/kernelshap_formal_summary.png`；2026-10-12 复核六单元通过后，
+在 [`analysis/kernelshap_formal_summary.png`](../analysis/kernelshap_formal_summary.png) 提供可入库的报告图，
+按 ImageNet/VOC 展示三项指标，并减少坐标拥挤、显式标注 VGG16/VOC 计时离群限制。
 VGG16/VOC 的效率样本标准差异常大，说明本次运行中存在明显计时离群值，因此该单元
 效率均值不用于方法选择或跨设备比较。
+
+2026-10-12 使用 `analysis.audit_kernelshap_timing` 只读复算全部六单元的计时汇总；
+与原始均值、样本标准差和 `n=460` 一致，未删改任何行。
+VGG16/VOC 的中位数为 9776.103 ms，P95 为 10000.498 ms（inclusive 线性分位）；
+图像 `2721` 的记录为 7609331.070 ms，单条占本单元累计计时的 62.826%。
+该离群值解释了均值与中位数的差距，但仅凭 wrapper elapsed time 不能确定是暂停、
+恢复、设备等待还是其他原因。原 mean/SD 和该行保留，不把中位数当作修正后的正式效率。
+可复查的来源 CSV 哈希和最大三条记录见
+[`analysis/kernelshap_timing_audit.json`](../analysis/kernelshap_timing_audit.json)。
 
 本节只完成 KernelSHAP 的六个正式单元，不构成全组 36 单元比较、ANOVA、相关性或
 最终 Pareto 结论；这些分析仍依赖其他方法完整且可配对的正式输入。

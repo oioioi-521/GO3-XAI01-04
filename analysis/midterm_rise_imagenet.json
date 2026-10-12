@@ -1,9 +1,28 @@
 {
-  "source": "docs/RISE_FORMAL_RESULTS.md at commit 09e850e on feat/rise-formal-eval",
-  "scope": "C-authored 460-image all-sample summary; raw per-image bundle not locally received",
+  "source": "C_RISE_EVAL_LIGHT_20261009_214005.zip",
+  "zip_sha256": "edf10e2b07a167e7ea939dee1fc24c7090ba7082041a8f34c9575993cdfb2c39",
+  "scope": "D-recomputed 460-image all-sample base CSV summary; raw maps and stability not accepted",
   "rows": [
-    {"model": "resnet50", "mean": 0.107078, "std": 0.108800, "n": 460, "config_hash": "c035d8b2d1bd"},
-    {"model": "densenet121", "mean": 0.054237, "std": 0.063685, "n": 460, "config_hash": "b20cd6be154f"},
-    {"model": "vgg16", "mean": 0.052469, "std": 0.063082, "n": 460, "config_hash": "4412824305f1"}
+    {
+      "model": "resnet50",
+      "mean": 0.1070779953922559,
+      "std": 0.1088001183276026,
+      "n": 460,
+      "config_hash": "c035d8b2d1bd"
+    },
+    {
+      "model": "densenet121",
+      "mean": 0.0542369583164184,
+      "std": 0.0636846596899395,
+      "n": 460,
+      "config_hash": "b20cd6be154f"
+    },
+    {
+      "model": "vgg16",
+      "mean": 0.0524686414572482,
+      "std": 0.0630817656224233,
+      "n": 460,
+      "config_hash": "4412824305f1"
+    }
   ]
 }

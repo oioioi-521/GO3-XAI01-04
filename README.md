@@ -4,6 +4,7 @@
 
 ## 快速入口
 
+- D 的可交付图表、结果与验收边界：[docs/D_DELIVERY_INDEX.md](docs/D_DELIVERY_INDEX.md)。
 - 任务书要求:见课程项目池 `project-pool.pdf` §4.1.4(XAI01-04)
 - **小组工作指导(角色分工 / 技术方案 / 实验矩阵 / 里程碑计划 / 协作规范)——全组必读:
   [XAI01-04_小组工作指导.md](XAI01-04_小组工作指导.md)**
@@ -41,7 +42,11 @@ pytest -q
 
 成员 A 的 IG / Grad-CAM 实现、12 个正式单元配置和方法约定见
 [docs/A_IG_GRADCAM_HANDOFF.md](docs/A_IG_GRADCAM_HANDOFF.md)；2026-09-20 完成的 12 单元正式结果、验收记录、汇总图与结论见
-[docs/A_IG_GRADCAM_RESULTS.md](docs/A_IG_GRADCAM_RESULTS.md)。这里的“完成”仅指忠实性和效率；稳定性协议正在 Issue #8 复核，因此按任务书要求的三指标口径尚无单元完全闭环。候选正式稳定性协议、补跑入口和 trace schema 见 [docs/STABILITY_PROTOCOL.md](docs/STABILITY_PROTOCOL.md)。现有正式结果使用 raw MoRF、21 点删除曲线、预热计时和 float32 归因图：
+[docs/A_IG_GRADCAM_RESULTS.md](docs/A_IG_GRADCAM_RESULTS.md)。该历史结果文档主要记录忠实性和效率。
+稳定性协议现已冻结；D 分支的 KernelSHAP 六单元三指标已完成并独立验收，
+不代表全组 36 单元完成。当前分支状态和依赖见 [docs/W2_D_HANDOFF.md](docs/W2_D_HANDOFF.md)，
+正式稳定性补跑入口和 trace schema 见 [docs/STABILITY_PROTOCOL.md](docs/STABILITY_PROTOCOL.md)。
+现有正式结果使用 raw MoRF、21 点删除曲线、预热计时和 float32 归因图：
 
 ```bash
 pytest -q tests/test_gradient_methods.py tests/test_gradient_runner.py

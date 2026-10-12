@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-10-11。
+更新时间：2026-10-12。
 
 ## 已完成并可独立验收
 
@@ -32,19 +32,24 @@
   2,760 张原有 float32 参考图绑定及基础结果未变均已核对；六组立即续跑均为
   `processed=0, skipped=460`。测量值、包哈希和来源限制见
   `docs/D_OCCLUSION_STABILITY_EVAL_ACCEPTANCE.md`。
-- 2026-10-09 接收并独立校验 C 的六单元 460 张 RISE 正式基础指标轻量包：
+- 2026-10-09 接收并独立校验 C 的六单元 460 张 RISE 正式基础指标轻量包；2026-10-12 再验通过：
   六组各 460 张、逐图指标与正确/错误组汇总可重算，六组立即续跑均为
   `processed=0, skipped=460`。该包未附原始归因图与权重，因此只接受轻量 CSV 的
   受限统计输入，不接受原图来源完整验收或 RISE 稳定性完成。详见
   `docs/D_RISE_EVAL_LIGHT_ACCEPTANCE.md`。
+- 2026-10-12 完成 E 的 LIME 中期包受限接收检查：五张 float32 示例图和 NPZ 一致，
+  LIME 图哈希、VOC debug 8173 真值目标、本地 checkpoint/输入图核对通过；原面板不改动复制到
+  `analysis/lime_midterm_same_image.png`。六组 40 张门禁仅收到摘要，不能代替原始记录或代码验收；
+  六组耗时估算与均值推算未对齐，正式预算未冻结、460 张 eval 未启动。
+  限制见 `docs/D_LIME_MIDTERM_RECEIPT.md`，统一可交付入口见 `docs/D_DELIVERY_INDEX.md`。
 
 ## 当前依赖与阻塞
 
 中期汇报已另行整理 [`MIDTERM_D_COMPARISON.md`](MIDTERM_D_COMPARISON.md)：四方法
 ImageNet 全样本 raw MoRF AUC 描述图，以及 A 同一 GPU 的 IG/Grad-CAM 成对双目标
 Pareto 图和各一句限定范围的结论。该图制作时 C 的 RISE 仅使用已提交的三单元正式
-摘要；现在 D 已收到并校验六单元轻量逐图 CSV，但尚未验收原始归因图。中期图未据
-新包重画，也不替代正确组主分析、稳定性或最终排名。
+摘要；2026-10-12 已按收到并再次验收的六单元轻量逐图 CSV 更新摘要并重画。
+尚未验收 RISE 原始归因图，不替代正确组主分析、稳定性或最终排名。
 
 1. PR #10 已于 2026-09-30 合并到集成分支（merge commit `00d73b4`），并已合入 D
    分支；PR #14 仍为 draft。正式提 PR 前仍需确认目标分支与 review 顺序。
@@ -76,15 +81,19 @@ Pareto 图和各一句限定范围的结论。该图制作时 C 的 RISE 仅使�
    完整 float32 参考图来源和立即续跑 `processed=0, skipped=460`；六单元合计 2,760 张图、
    13,800 条有效 trace。批次退出码为 0，完整测试 95 passed、2 条既有 FutureWarning，
    `pip check` 无冲突。测量值及配置哈希见 `docs/KERNELSHAP_GATE_RESULTS.md`，方法内描述图
-   位于 `results/analysis/kernelshap_formal_summary.png`。这完成的是 KernelSHAP 六单元，
+   原位于 `results/analysis/kernelshap_formal_summary.png`，可交付图现位于
+   `analysis/kernelshap_formal_summary.png`。这完成的是 KernelSHAP 六单元，
    全组 36 单元排名、ANOVA、相关性和最终 Pareto 仍依赖其他方法完整且可配对的正式输入。
+7. 2026-10-12 重验 KernelSHAP 六单元和 RISE 六单元基础轻量包通过；LIME 中期
+   示例受限接收、图表交付入口与 KernelSHAP 计时离群审计已完成。完整回归测试
+   108 passed、2 条既有 FutureWarning，`pip check` 正常；未启动新 GPU 实验或改动原始结果。
 
 ## 已完成的本地验证与后续命令
 
 ```bash
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m pip check
-# 以下命令要有冻结的 ImageNet debug 图片，当前工作区尚不具备：
+# 以下仅为可选工程 smoke，不需要重跑已验收的正式实验：
 .\.venv\Scripts\python.exe experiments\run_unit.py --config configs\kernelshap_smoke_imagenet.yaml
 ```
 

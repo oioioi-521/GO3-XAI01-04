@@ -1,6 +1,6 @@
 # 成员 D：中期四方法忠实性与 A 组初步 Pareto
 
-日期：2026-10-09。以下是中期汇报材料，不是 36 单元最终统计结论。
+初版日期：2026-10-09；2026-10-12 按已接收 RISE 轻量包重算摘要并重画。以下是中期汇报材料，不是 36 单元最终统计结论。
 
 ## 图 1：四方法 ImageNet 忠实性
 
@@ -17,7 +17,7 @@
 | VGG16 | 0.021651 | 0.242406 | 0.039684 | 0.052469 |
 
 可直接用于汇报的一句话：**在 ImageNet 全样本 raw MoRF AUC 的中期描述图中，IG
-在三个模型上均为最低；由于跨组预测上下文未严格配对且 RISE 当前只收到已提交摘要，
+在三个模型上均为最低；由于跨组预测上下文未严格配对且 RISE 仅验收基础 CSV、未验收原图与稳定性，
 这不是四方法最终排名。**
 
 数据来源和验收边界：
@@ -27,14 +27,17 @@
 - Occlusion：D 已验收的 `results/analysis/occlusion_eval_acceptance/units.csv`
   中三个 ImageNet 的正式汇总；交接包/逐图/哈希校验见
   `docs/D_OCCLUSION_EVAL_ACCEPTANCE.md`。结果目录由 Git 忽略。
-- RISE：C 在 `feat/rise-formal-eval` 的提交 `09e850e` 中记录的
-  `docs/RISE_FORMAL_RESULTS.md` 三个 ImageNet 单元；本地冻结摘录为
-  `analysis/midterm_rise_imagenet.json`，含各配置哈希和 460 张汇总。
-  C 的原始逐图包当前尚未在 D 工作区接收或独立重算，因此不能称为 D 已验收原始 RISE 数据。
+- RISE：2026-10-12 再次运行 `analysis.validate_rise_formal_light`，逐图独立重算
+  已收到的六单元基础轻量包；提取三个 ImageNet 单元的均值、样本标准差、配置哈希与
+  `n=460` 到 `analysis/midterm_rise_imagenet.json`，并据此重画第一张图。
+  JSON 同时记录包名和 SHA-256 `edf10e2b07a167e7ea939dee1fc24c7090ba7082041a8f34c9575993cdfb2c39`。
+  三个均值与初版摘要在六位小数处一致；本次提升的是来源证据，不改变结论范围。
+  验收记录见 [`D_RISE_EVAL_LIGHT_ACCEPTANCE.md`](D_RISE_EVAL_LIGHT_ACCEPTANCE.md)。
+  原始 NPY、PNG、权重本体和稳定性 trace 不在轻量包内，仍未由该包独立验收。
 
 A 的 ImageNet ResNet50 预测命中 409/460，而 B/C 记为 408/460；直接把不同方法的
-正确组均值拼成严格配对图会混淆样本/预测差异。待取得 A/C 的逐图指标、预测及来源
-绑定后，应先核对共同正确样本，再做正式四方法主分析和统计检验。当前图不比较 GPU
+正确组均值拼成严格配对图会混淆样本/预测差异。C 的基础逐图指标和预测现已收到；
+仍需 A 的逐图输入与跨组来源绑定核对，先确定共同正确样本，再做正式四方法主分析和统计检验。当前图不比较 GPU
 耗时，也不声称 RISE 的稳定性已完成。
 
 ## 图 2：A 同机 IG / Grad-CAM 初步 Pareto

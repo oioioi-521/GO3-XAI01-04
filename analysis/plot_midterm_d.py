@@ -91,6 +91,7 @@ def plot_four_methods(four: pd.DataFrame, output: Path) -> None:
                         textcoords="offset points", fontsize=8, color=COLORS[method])
         ax.set_yticks(y, [LABELS[method] for method in METHODS])
         ax.invert_yaxis()
+        ax.set_ylim(len(METHODS) - 0.4, -0.35)
         ax.set_xlim(left=0)
         ax.set_xlabel("Raw MoRF AUC (lower is better)")
         ax.set_title(MODEL_LABELS[model])
@@ -100,7 +101,7 @@ def plot_four_methods(four: pd.DataFrame, output: Path) -> None:
     fig.suptitle("ImageNet faithfulness · four methods", fontsize=15, fontweight="bold")
     fig.text(0.5, 0.015,
              "n=460 each; mean ± sample SD (bars clipped to [0,1]). All-image sensitivity view, "
-             "not paired correct-only ranking. RISE uses C's summary.",
+             "not paired correct-only ranking. RISE base CSV summary; source recorded in JSON.",
              ha="center", fontsize=8.5, color="#4B5563")
     fig.subplots_adjust(left=0.11, right=0.98, top=0.83, bottom=0.20, wspace=0.22)
     output.parent.mkdir(parents=True, exist_ok=True)

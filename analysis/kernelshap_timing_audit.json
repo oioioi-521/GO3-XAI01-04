@@ -1,0 +1,159 @@
+{
+  "source_per_image_sha256": "f4cf5ea0f96041fc4e80d30e468c3aaacd27f8690d9f879ddba118a44ff3d161",
+  "source_units_sha256": "5ab7196b13af90533c3f95af92486f93907b254841b7643a687cf1eae8b2b728",
+  "units": [
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "n": 460,
+      "mean_ms": 6124.578030650913,
+      "sample_std_ms": 2019.4003047707947,
+      "median_ms": 5260.599350032862,
+      "p95_ms": 8164.471120003145,
+      "max_ms": 18492.967099999078,
+      "largest_single_row_fraction_of_total": 0.00656406077122503,
+      "largest_rows": [
+        {
+          "image_id": "ILSVRC2012_val_00027064",
+          "time_ms": 18492.967099999078
+        },
+        {
+          "image_id": "ILSVRC2012_val_00018480",
+          "time_ms": 17531.618099892512
+        },
+        {
+          "image_id": "ILSVRC2012_val_00028429",
+          "time_ms": 16998.087299987674
+        }
+      ]
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "n": 460,
+      "mean_ms": 5575.182415217569,
+      "sample_std_ms": 93.67009543161353,
+      "median_ms": 5568.668349995278,
+      "p95_ms": 5743.741905003117,
+      "max_ms": 6073.5183999931905,
+      "largest_single_row_fraction_of_total": 0.002368227599784313,
+      "largest_rows": [
+        {
+          "image_id": "2466",
+          "time_ms": 6073.5183999931905
+        },
+        {
+          "image_id": "2683",
+          "time_ms": 6034.467100005713
+        },
+        {
+          "image_id": "8939",
+          "time_ms": 5946.544999998878
+        }
+      ]
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "n": 460,
+      "mean_ms": 4138.762313260956,
+      "sample_std_ms": 68.14728139948555,
+      "median_ms": 4123.124249999819,
+      "p95_ms": 4265.7433500008665,
+      "max_ms": 4532.383600000685,
+      "largest_single_row_fraction_of_total": 0.0023806653004736574,
+      "largest_rows": [
+        {
+          "image_id": "ILSVRC2012_val_00006749",
+          "time_ms": 4532.383600000685
+        },
+        {
+          "image_id": "ILSVRC2012_val_00010220",
+          "time_ms": 4482.519700000921
+        },
+        {
+          "image_id": "ILSVRC2012_val_00018145",
+          "time_ms": 4429.477200001202
+        }
+      ]
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "n": 460,
+      "mean_ms": 4798.524583913082,
+      "sample_std_ms": 136.43797422254053,
+      "median_ms": 4775.802949996432,
+      "p95_ms": 5026.97966000851,
+      "max_ms": 5643.005800011451,
+      "largest_single_row_fraction_of_total": 0.0025564949597621086,
+      "largest_rows": [
+        {
+          "image_id": "4076",
+          "time_ms": 5643.005800011451
+        },
+        {
+          "image_id": "1555",
+          "time_ms": 5489.390500006266
+        },
+        {
+          "image_id": "4999",
+          "time_ms": 5445.074999995995
+        }
+      ]
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "n": 460,
+      "mean_ms": 12046.368253477862,
+      "sample_std_ms": 1329.7713230775491,
+      "median_ms": 12410.27490000124,
+      "p95_ms": 13836.989260005792,
+      "max_ms": 15897.807100001955,
+      "largest_single_row_fraction_of_total": 0.0028689518276529317,
+      "largest_rows": [
+        {
+          "image_id": "ILSVRC2012_val_00013120",
+          "time_ms": 15897.807100001955
+        },
+        {
+          "image_id": "ILSVRC2012_val_00015139",
+          "time_ms": 14161.881100008031
+        },
+        {
+          "image_id": "ILSVRC2012_val_00013808",
+          "time_ms": 14127.796099986881
+        }
+      ]
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "n": 460,
+      "mean_ms": 26330.078695435583,
+      "sample_std_ms": 354329.57662548765,
+      "median_ms": 9776.103099997272,
+      "p95_ms": 10000.497904977237,
+      "max_ms": 7609331.070300017,
+      "largest_single_row_fraction_of_total": 0.6282557776303653,
+      "largest_rows": [
+        {
+          "image_id": "2721",
+          "time_ms": 7609331.070300017
+        },
+        {
+          "image_id": "9852",
+          "time_ms": 11790.911999996752
+        },
+        {
+          "image_id": "9868",
+          "time_ms": 11531.985899986466
+        }
+      ]
+    }
+  ],
+  "excluded_rows": 0,
+  "scope": "descriptive timing audit; no corrected efficiency or cross-device ranking",
+  "limitation": "elapsed wrapper timings alone cannot identify suspend, interruption, retry or hardware causes"
+}

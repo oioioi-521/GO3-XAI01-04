@@ -117,6 +117,8 @@ def validate(path: Path) -> dict:
                             f"correctness cohort: {unit}/{is_correct}")
                 output.append({"unit": unit, "images": 460, "correct": int(correct.sum()),
                                "faithfulness_raw_mean": float(summary.loc[summary.metric == METRICS[1], "mean"].iloc[0]),
+                               "faithfulness_raw_std": float(summary.loc[summary.metric == METRICS[1], "std"].iloc[0]),
+                               "config_hash": config[METRICS[1]],
                                "efficiency_time_ms_mean": float(summary.loc[summary.metric == METRICS[0], "mean"].iloc[0]),
                                "resume": "processed=0 skipped=460"})
         return {"zip_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
@@ -127,8 +129,21 @@ def validate(path: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("zip", type=Path)
+    parser.add_argument("--summary-output", type=Path,
+                        help="write the three validated ImageNet summary rows for the midterm plot")
     args = parser.parse_args()
-    print(json.dumps(validate(args.zip), indent=2))
+    report = validate(args.zip)
+    if args.summary_output is not None:
+        rows = [{"model": unit["unit"].removesuffix("_imagenet"),
+                 "mean": unit["faithfulness_raw_mean"], "std": unit["faithfulness_raw_std"],
+                 "n": unit["images"], "config_hash": unit["config_hash"]}
+                for unit in report["units"] if unit["unit"].endswith("_imagenet")]
+        payload = {"source": args.zip.name, "zip_sha256": report["zip_sha256"],
+                   "scope": "D-recomputed 460-image all-sample base CSV summary; raw maps and stability not accepted",
+                   "rows": rows}
+        args.summary_output.parent.mkdir(parents=True, exist_ok=True)
+        args.summary_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, indent=2))
 
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import numpy as np
 import pandas as pd
 
@@ -86,6 +87,7 @@ def render(units_path: Path, output_path: Path) -> None:
             ax.set_yticks(y, [MODEL_LABELS[model] for model in MODELS])
             ax.invert_yaxis()
             ax.grid(axis="x", color="#D1D5DB", alpha=0.8)
+            ax.xaxis.set_major_locator(MaxNLocator(nbins=4))
             ax.set_axisbelow(True)
             ax.spines[["top", "right"]].set_visible(False)
             if metric == "stability_spearman":
@@ -94,6 +96,9 @@ def render(units_path: Path, output_path: Path) -> None:
                 ax.set_xlim(left=0)
             ax.set_xlabel(axis_label)
             ax.set_title(f"{dataset.upper()} · {title}")
+            if dataset == "voc" and metric == "efficiency_time_ms":
+                ax.text(0.02, 0.82, "VGG-16: large timing SD; inspect outliers",
+                        transform=ax.transAxes, fontsize=8, color="#92400E")
     fig.suptitle("KernelSHAP · six formal evaluation units", fontsize=16, fontweight="bold")
     fig.supxlabel(
         "Each point is the mean ± sample SD of 460 images. Within-method descriptive results only; "
