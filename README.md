@@ -46,3 +46,13 @@ pytest -q
 ```bash
 pytest -q tests/test_gradient_methods.py tests/test_gradient_runner.py
 ```
+
+成员 E 的 LIME 实现与参数约定见
+[docs/E_LIME_HANDOFF.md](docs/E_LIME_HANDOFF.md)；服务器门禁进度、示例边界和后续工作见
+[docs/E_LIME_PROGRESS_20261013.md](docs/E_LIME_PROGRESS_20261013.md)。六个 `lime_*`
+正式配置仍是候选预算，预算未审核冻结前，runner 会拒绝 LIME eval。可先验证明确标注为合成数据的工程 smoke：
+
+```bash
+python experiments/lime_synthetic_smoke.py
+pytest -q tests/test_lime.py
+```

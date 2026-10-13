@@ -32,6 +32,7 @@ from experiments.attribution import (  # noqa: E402
     AttributionMethod,
     GradCAM,
     IntegratedGradients,
+    LIME,
     Occlusion,
     RISE,
 )
@@ -47,6 +48,7 @@ STABILITY_METRICS = frozenset({"stability_spearman", "stability_valid_rate"})
 SUPPORTED_METHODS = {
     "gradcam": GradCAM,
     "ig": IntegratedGradients,
+    "lime": LIME,
     "occlusion": Occlusion,
     "rise": RISE,
 }
@@ -365,6 +367,11 @@ def run(config_path: Path, max_images: int | None = None, force: bool = False) -
         raise ValueError(f"unsupported metrics: {sorted(unknown)}")
 
     runtime = config["runtime"]
+    if method == "lime":
+        if config["attribution"].get("output_activation", "softmax") != output_activation:
+            raise ValueError("LIME output_activation must match model prediction activation")
+        if split == "eval" and runtime.get("budget_frozen") is not True:
+            raise ValueError("LIME formal budget is pending: complete and review the 40-image budget gate first")
     limit = max_images if max_images is not None else runtime.get("max_images")
     device = _select_device(str(runtime.get("device", "auto")))
     seed = int(runtime.get("seed", 42))
