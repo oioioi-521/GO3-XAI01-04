@@ -1,6 +1,6 @@
 # 成员 D 交接：KernelSHAP 接入与统计分析骨架
 
-更新时间：2026-10-12。
+更新时间：2026-10-14。
 
 ## 已完成并可独立验收
 
@@ -87,6 +87,22 @@ Pareto 图和各一句限定范围的结论。该图制作时 C 的 RISE 仅使�
 7. 2026-10-12 重验 KernelSHAP 六单元和 RISE 六单元基础轻量包通过；LIME 中期
    示例受限接收、图表交付入口与 KernelSHAP 计时离群审计已完成。完整回归测试
    108 passed、2 条既有 FutureWarning，`pip check` 正常；未启动新 GPU 实验或改动原始结果。
+8. 2026-10-13 对 E 的固定提交 `64d2ffde8a1c206d6b5bac9cc8b2c83622e702cb` 完成
+   LIME 代码审查与隔离工程复测：专项 26 passed，全仓 94 passed、2 条既有 warning，
+   依赖检查通过；两个 CPU 合成 smoke 的 map SHA 一致且立即续跑 0/1。
+   D 附加探针为 1 passed、3 strict xfailed，复现了门禁续跑记录验证和输入图片字节身份缺口。
+   这三项 xfail 是缺陷，不是验收通过；预算不批准冻结，仍需 E 修复及原始门禁回执。
+   审查、复现及 E 待交清单见 `docs/D_LIME_CODE_REVIEW_20261013.md`。
+   没有替 E 跑真实 GPU 门禁、启动 460 张 eval 或重新运行 D 的正式实验。
+   D 分支收尾仍为 108 passed、2 条既有 warning，pip check 无冲突；pytest 默认
+   搜集已排除 ignored results/outputs，防止审查副本与第三方依赖测试污染本项目回归。
+9. 2026-10-14：D 为下一次 E 原始包验收准备 `analysis.validate_lime_budget_gate`，
+   对完整 40 图逐个验证 runs/target/map SHA，并从 float32 NPY 独立重算预算比较、
+   跨 seed 样本方差和 summary。成功报告仍不批准正式预算或证明生成时来源。
+   输入、命令、缺项与交接顺序见 `docs/D_LIME_GATE_VALIDATION.md`。
+   E 远端仍为 `64d2ffd`；没有新原始门禁包可独立验收，未启动真实 GPU 工作。
+   新增校验器 25 项测试通过；D 全仓 133 passed、2 条既有 warning（135.70 s），
+   `pip check` 无冲突，`git diff --check` 通过。数字表示软件测试，不是 36 单元结果。
 
 ## 已完成的本地验证与后续命令
 
