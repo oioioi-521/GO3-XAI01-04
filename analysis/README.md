@@ -1,7 +1,32 @@
-# 成员 D：统计分析骨架
+# 成员 D：统计分析与报告
 
-本目录只提供可复现的分析程序，不包含也不伪造正式实验结论。正式结论必须来自全组统一
-schema 的真实结果，并注明数据、配置和模型版本。
+本目录同时保留早期分析骨架和已验收输入上的真实报告，不能将骨架示例输出当实验结论。
+正式结论必须注明数据、配置、模型版本及计时限制。
+
+## 当前正式统计入口（2026-10-15）
+
+已接收完整六方法 DCU 表格包；不再沿用下方旧流程的“其他方法输入待收齐”状态。
+见 [统计报告](../docs/DCU_STATISTICAL_ANALYSIS_20261015.md)和
+[图表/派生 JSON](dcu_20261015/statistics.json)。
+
+```powershell
+# 使用独立 Python 3.12 CPU 分析环境；不升级原 runner 环境，不需 torch。
+python -m pip install -r requirements-analysis.txt
+python -m analysis.dcu_statistics '本地路径/dcu_team_handoff_20261014.zip' --output analysis/dcu_20261015/statistics.json
+python -m analysis.plot_dcu_statistics
+python -m analysis.report_dcu_statistics
+python -m pytest -q tests/test_dcu_statistics.py
+```
+
+`validate_dcu_team_handoff.py` 固定 ZIP SHA，只读核对全部表格、样本、配置分片、预测和 trace。
+`dcu_statistics.py` 按原图配对，使用命中组/共同命中组/全样本三口径；含多重比较、效应量、
+条件 bootstrap CI、共同命中组跨模型比较、相关及两种 Pareto，不加载 torch 或启动归因。
+`plot_dcu_statistics.py` 和 `report_dcu_statistics.py` 从派生 JSON 重建四图和报告。
+不会执行交接包代码，不读取外部 NPY/权重；表格验收不等于原始生成过程的独立复现。
+共享负载/两轮计时只作探索性分析，不是硬件速度因果比较。
+
+下方 `anova.py`/`correlation.py`/`pareto.py` 为早期工程工具示例，不是本次 DCU 统计主流程。
+尤其普通 pooled ANOVA 不适合直接处理本次重复图像设计，`max_sensitivity` 也不是本次指标。
 
 ## 已提供
 
@@ -18,7 +43,7 @@ schema 的真实结果，并注明数据、配置和模型版本。
   同一台 GPU 数据的 IG/Grad-CAM 双目标成对 Pareto 图；具体来源、结论及限制见
   `docs/MIDTERM_D_COMPARISON.md`。
 
-## 使用顺序
+## 原始 KernelSHAP GPU 单元及早期工程工具使用顺序
 
 KernelSHAP 的六个 460 张正式单元完成后，先独立校验冻结协议、460 张基础/稳定性逐图指标、
 2,300 条重复 trace、配对 seed、metadata target、逐图/单元重算、float32 参考图来源和
@@ -29,7 +54,7 @@ python -m analysis.validate_kernelshap_formal
 python -m analysis.validate_kernelshap_formal --unit resnet50/imagenet
 ```
 
-该命令只读结果和已冻结的配置/权重，不运行 GPU 归因；全组六方法统计仍需其他方法的正式输入。
+该命令只读旧 GPU 结果和已冻结的配置/权重，不运行 GPU 归因；新 DCU 全组输入使用上方新入口。
 
 六单元全部验收后，可生成一张只比较 KernelSHAP 自身的报告/PPT 图；缺少任一单元或
 误用 40 张门禁结果时，脚本会拒绝出图。图中点/误差线为 460 张图的均值/样本标准差，
@@ -69,7 +94,7 @@ python -m analysis.correlation --input results/per_image.csv --output-dir result
 - Friedman 的平均秩默认按数值从小到大；解释前必须先确认该指标究竟是越大还是越小越好。
 - `p < 0.05` 仍需结合效应量和多重比较；当前骨架尚未把 Nemenyi 事后检验冒充为完成项。
 - Pareto 结果取决于传入的指标及方向，命令行必须明确写 `:min` 或 `:max`。
-- `max_sensitivity` 只是示例字段；稳定性协议仍需全组冻结，正式结果中没有该字段时不要运行三维 Pareto。
+- `max_sensitivity` 只是早期示例字段；本次实际指标是 `stability_spearman:max`，不要拿示例字段生成新 DCU 前沿。
 - `merge_eval_handoff` 的 `top1_correct` 对 VOC 表示冻结单目标类别是否为 sigmoid 输出的
   最高分标签，不是 20 类多标签 exact-match accuracy；分组名称不得改写为“多标签预测正确”。
 - `merge_eval_handoff` 还会生成 `common_correct_cohort.csv`。跨模型配对比较使用三模型都
