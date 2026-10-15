@@ -56,4 +56,13 @@
 本次包明确 `formal_budget_frozen=false`、`formal_evaluation_started=false`。
 D 接收中期示例，不认证 E 的完整代码、六组真实运行或正式结果完成。
 
+## 2026-10-13 后续代码审查
+
+上面的缺项是 2026-10-12 接包时的状态，保留作为历史回执。E 已上传代码和七份 LIME
+YAML（六份候选、一份 smoke），固定提交 `64d2ffde8a1c206d6b5bac9cc8b2c83622e702cb`。
+D 已独立复测 26 项 LIME 专项、94 项全仓和两个 CPU 合成 smoke，工程链路通过。
+附加探针复现了门禁续跑的记录完整性/target/统计校验缺口，以及输入图片字节未绑定计划身份。
+代码已具备审查对象，不再将“代码未提供”当当前缺项，但原始门禁包、缺口修复和预算审阅仍待完成。
+详见 [固定提交审查与复现步骤](D_LIME_CODE_REVIEW_20261013.md)，不据此认证真实六组实验或冻结预算。
+
 复核入口：`python -m analysis.validate_lime_midterm_delivery <ZIP> --report analysis/lime_midterm_receipt.json --panel analysis/lime_midterm_same_image.png`。
