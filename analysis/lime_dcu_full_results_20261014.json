@@ -1,0 +1,743 @@
+{
+  "status": "verified",
+  "formal_images": 2760,
+  "formal_attributions": 16560,
+  "formal_shards": 60,
+  "logical_units": 6,
+  "regression_exact_maps": 720,
+  "resume_gate_images": 12,
+  "base_maps_verified": 2760,
+  "merged_rows": {
+    "per_image.csv": 11040,
+    "stability_trace.csv": 13800,
+    "predictions.csv": 2760,
+    "units.csv": 24
+  },
+  "phase_wall_seconds": {
+    "regression": 661.0200471878052,
+    "gate": 160.22295308113098,
+    "formal": 13887.013684988022
+  },
+  "formal_with_merge_seconds": 13926.71535539627,
+  "formal_started_at": 1791960208.1442258,
+  "complete_time": 1791974134.8489642,
+  "source_files_verified": 125,
+  "overlay_sha256": "78d1f2c799e073d6e8ae87981d8ec71c40f44a30456b9c578cc563e25049a5f6",
+  "release_sha256": "c1d82ec2b6f5a179db32fbb3042d07853f01bea88b7fb8ab4f10777169eb0526",
+  "units": {
+    "lime-vgg16-imagenet": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "imagenet",
+          "metric": "efficiency_time_ms",
+          "mean": 7812.408173051866,
+          "std": 24.234031180266943,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "imagenet",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.0510179078110823,
+          "std": 0.0514091122023175,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "imagenet",
+          "metric": "stability_spearman",
+          "mean": 0.7186237732545948,
+          "std": 0.1099296809458637,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "imagenet",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 7811.290632933378,
+      "base_p95_ms": 7854.5218020211905,
+      "noise_mean_ms": 7821.981595965993,
+      "base_attribution_seconds": 3593.707759603858,
+      "noise_attribution_seconds": 17990.557670721784,
+      "prediction_correct": 363,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.5812426459531497
+    },
+    "lime-vgg16-voc": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "voc",
+          "metric": "efficiency_time_ms",
+          "mean": 7775.356822027622,
+          "std": 21.09512774242444,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "voc",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.2106944767558319,
+          "std": 0.1856924518816106,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "voc",
+          "metric": "stability_spearman",
+          "mean": 0.7044055766396825,
+          "std": 0.1397046818905638,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "vgg16",
+          "dataset": "voc",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 7771.333692595363,
+      "base_p95_ms": 7817.7962192334235,
+      "noise_mean_ms": 7787.328597072755,
+      "base_attribution_seconds": 3576.6641381327063,
+      "noise_attribution_seconds": 17910.855773267336,
+      "prediction_correct": 400,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.543615769367219
+    },
+    "lime-densenet121-imagenet": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "imagenet",
+          "metric": "efficiency_time_ms",
+          "mean": 6548.705290000805,
+          "std": 62.92718809424548,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "imagenet",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.0555019241200328,
+          "std": 0.0535406932880047,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "imagenet",
+          "metric": "stability_spearman",
+          "mean": 0.7214203057404794,
+          "std": 0.1091229461556949,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "imagenet",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 6547.153836581856,
+      "base_p95_ms": 6643.469297280535,
+      "noise_mean_ms": 6590.21624077233,
+      "base_attribution_seconds": 3012.40443340037,
+      "noise_attribution_seconds": 15157.497353776358,
+      "prediction_correct": 371,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.5904956917837126
+    },
+    "lime-densenet121-voc": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "voc",
+          "metric": "efficiency_time_ms",
+          "mean": 6529.15302887154,
+          "std": 68.42158798375637,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "voc",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.4029638210554486,
+          "std": 0.2111196535589059,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "voc",
+          "metric": "stability_spearman",
+          "mean": 0.7352659587141732,
+          "std": 0.1164100070474135,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "densenet121",
+          "dataset": "voc",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 6530.754805076867,
+      "base_p95_ms": 6635.295399697498,
+      "noise_mean_ms": 6569.105993908546,
+      "base_attribution_seconds": 3003.4103932809085,
+      "noise_attribution_seconds": 15108.943785989657,
+      "prediction_correct": 388,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.5789910353440832
+    },
+    "lime-resnet50-imagenet": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "imagenet",
+          "metric": "efficiency_time_ms",
+          "mean": 4262.5072996820445,
+          "std": 23.02325178753833,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "imagenet",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.0649504755893797,
+          "std": 0.0726524671359893,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "imagenet",
+          "metric": "stability_spearman",
+          "mean": 0.6762699477004023,
+          "std": 0.1141189648423927,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "imagenet",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 4262.26112479344,
+      "base_p95_ms": 4301.963135693222,
+      "noise_mean_ms": 4269.644847140931,
+      "base_attribution_seconds": 1960.7533578537405,
+      "noise_attribution_seconds": 9820.183148424141,
+      "prediction_correct": 408,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.5199987083581519
+    },
+    "lime-resnet50-voc": {
+      "metrics": [
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "voc",
+          "metric": "efficiency_time_ms",
+          "mean": 4219.358295092926,
+          "std": 18.97726223556916,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "voc",
+          "metric": "faithfulness_morf_auc_raw",
+          "mean": 0.4993360294919947,
+          "std": 0.1326986392371557,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "voc",
+          "metric": "stability_spearman",
+          "mean": 0.7649190456592886,
+          "std": 0.1053551915071175,
+          "n": 460
+        },
+        {
+          "method": "lime",
+          "model": "resnet50",
+          "dataset": "voc",
+          "metric": "stability_valid_rate",
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460
+        }
+      ],
+      "base_p50_ms": 4214.925987645984,
+      "base_p95_ms": 4255.511534726247,
+      "noise_mean_ms": 4234.547435315731,
+      "base_attribution_seconds": 1940.904815742746,
+      "noise_attribution_seconds": 9739.45910122618,
+      "prediction_correct": 387,
+      "trace_status_counts": {
+        "valid": 2300
+      },
+      "stability_p10": 0.6307728551596818
+    }
+  },
+  "server_asset_recheck_sha256": "ccc6ba3dfee0eae20f15bfbb6b64bdf6776cca172ab39dabe4302496c2808f4d",
+  "limits": [
+    "Original images and weight bytes verified on server; archive contains their manifests, not duplicate large assets.",
+    "Noise maps are not saved by the frozen protocol; audit verifies every trace, seeds, targets, per-image means, validity, and runner/resume evidence without rerunning inference."
+  ],
+  "archive": {
+    "path": "results/lime-vectorized-formal-complete-20261014/lime_vectorized_formal_complete_20261014_v2.tar.gz",
+    "bytes": 43356655,
+    "sha256": "38510f8eeda54ae38ee77acaf04580666779954ff7565b59d9fbd58438fe1cd3"
+  },
+  "matched_five_method_comparison": [
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "method": "gradcam",
+      "lime_over_method_time": 177.39355578490392,
+      "lime_raw_morf": 0.0649504755893797,
+      "other_raw_morf": 0.0876253168614904,
+      "lime_stability": 0.6762699477004023,
+      "other_stability": 0.9895582579037862
+    },
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "method": "ig",
+      "lime_over_method_time": 32.421052740512806,
+      "lime_raw_morf": 0.0649504755893797,
+      "other_raw_morf": 0.0384689733480943,
+      "lime_stability": 0.6762699477004023,
+      "other_stability": 0.6735440261779914
+    },
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "method": "occlusion",
+      "lime_over_method_time": 29.23760423220728,
+      "lime_raw_morf": 0.0649504755893797,
+      "other_raw_morf": 0.1931341690307422,
+      "lime_stability": 0.6762699477004023,
+      "other_stability": 0.9166529592135856
+    },
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "method": "rise",
+      "lime_over_method_time": 1.951929229869001,
+      "lime_raw_morf": 0.0649504755893797,
+      "other_raw_morf": 0.1070782494120699,
+      "lime_stability": 0.6762699477004023,
+      "other_stability": 0.9951543025538904
+    },
+    {
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "method": "kernelshap",
+      "lime_over_method_time": 1.9371715455397571,
+      "lime_raw_morf": 0.0649504755893797,
+      "other_raw_morf": 0.1128839852279507,
+      "lime_stability": 0.6762699477004023,
+      "other_stability": 0.9928472049689442
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "method": "gradcam",
+      "lime_over_method_time": 175.6938873384638,
+      "lime_raw_morf": 0.4993360294919947,
+      "other_raw_morf": 0.5384530012374339,
+      "lime_stability": 0.7649190456592886,
+      "other_stability": 0.976489474043018
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "method": "ig",
+      "lime_over_method_time": 33.87430115685184,
+      "lime_raw_morf": 0.4993360294919947,
+      "other_raw_morf": 0.4431928817668686,
+      "lime_stability": 0.7649190456592886,
+      "other_stability": 0.5725639203059929
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "method": "occlusion",
+      "lime_over_method_time": 28.478889729489975,
+      "lime_raw_morf": 0.4993360294919947,
+      "other_raw_morf": 0.6109094099830026,
+      "lime_stability": 0.7649190456592886,
+      "other_stability": 0.9153883365584516
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "method": "rise",
+      "lime_over_method_time": 1.9349177097883288,
+      "lime_raw_morf": 0.4993360294919947,
+      "other_raw_morf": 0.5411156123423058,
+      "lime_stability": 0.7649190456592886,
+      "other_stability": 0.9974322934630858
+    },
+    {
+      "model": "resnet50",
+      "dataset": "voc",
+      "method": "kernelshap",
+      "lime_over_method_time": 1.9225660675192655,
+      "lime_raw_morf": 0.4993360294919947,
+      "other_raw_morf": 0.4894035347453926,
+      "lime_stability": 0.7649190456592886,
+      "other_stability": 0.978835093167702
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "method": "gradcam",
+      "lime_over_method_time": 119.93630519954917,
+      "lime_raw_morf": 0.0555019241200328,
+      "other_raw_morf": 0.056882893908163,
+      "lime_stability": 0.7214203057404794,
+      "other_stability": 0.9988525624999626
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "method": "ig",
+      "lime_over_method_time": 20.58570120798755,
+      "lime_raw_morf": 0.0555019241200328,
+      "other_raw_morf": 0.0445225790898946,
+      "lime_stability": 0.7214203057404794,
+      "other_stability": 0.7617128973787164
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "method": "occlusion",
+      "lime_over_method_time": 19.502021073324453,
+      "lime_raw_morf": 0.0555019241200328,
+      "other_raw_morf": 0.0814883323742437,
+      "lime_stability": 0.7214203057404794,
+      "other_stability": 0.9878033210799708
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "method": "rise",
+      "lime_over_method_time": 2.250721448612725,
+      "lime_raw_morf": 0.0555019241200328,
+      "other_raw_morf": 0.0542091138441442,
+      "lime_stability": 0.7214203057404794,
+      "other_stability": 0.9981618865687149
+    },
+    {
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "method": "kernelshap",
+      "lime_over_method_time": 1.6829084941952044,
+      "lime_raw_morf": 0.0555019241200328,
+      "other_raw_morf": 0.0420068734263227,
+      "lime_stability": 0.7214203057404794,
+      "other_stability": 0.9956690660230704
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "method": "gradcam",
+      "lime_over_method_time": 119.15291138303277,
+      "lime_raw_morf": 0.4029638210554486,
+      "other_raw_morf": 0.4361968608006187,
+      "lime_stability": 0.7352659587141732,
+      "other_stability": 0.9922644616010068
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "method": "ig",
+      "lime_over_method_time": 20.67685466885676,
+      "lime_raw_morf": 0.4029638210554486,
+      "other_raw_morf": 0.3272779827775515,
+      "lime_stability": 0.7352659587141732,
+      "other_stability": 0.7122869240833937
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "method": "occlusion",
+      "lime_over_method_time": 19.384703413508596,
+      "lime_raw_morf": 0.4029638210554486,
+      "other_raw_morf": 0.4530938503534897,
+      "lime_stability": 0.7352659587141732,
+      "other_stability": 0.9878627615340222
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "method": "rise",
+      "lime_over_method_time": 2.2549249400470037,
+      "lime_raw_morf": 0.4029638210554486,
+      "other_raw_morf": 0.416222730813467,
+      "lime_stability": 0.7352659587141732,
+      "other_stability": 0.9993158432873848
+    },
+    {
+      "model": "densenet121",
+      "dataset": "voc",
+      "method": "kernelshap",
+      "lime_over_method_time": 1.685326168775718,
+      "lime_raw_morf": 0.4029638210554486,
+      "other_raw_morf": 0.3636077132157009,
+      "lime_stability": 0.7352659587141732,
+      "other_stability": 0.9947859027549348
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "method": "gradcam",
+      "lime_over_method_time": 1117.6760256868324,
+      "lime_raw_morf": 0.0510179078110823,
+      "other_raw_morf": 0.2432207261801364,
+      "lime_stability": 0.7186237732545948,
+      "other_stability": 0.9318018515288716
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "method": "ig",
+      "lime_over_method_time": 54.636411473931986,
+      "lime_raw_morf": 0.0510179078110823,
+      "other_raw_morf": 0.0216177671265382,
+      "lime_stability": 0.7186237732545948,
+      "other_stability": 0.7964470959524742
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "method": "occlusion",
+      "lime_over_method_time": 37.201834454274604,
+      "lime_raw_morf": 0.0510179078110823,
+      "other_raw_morf": 0.0396384121194268,
+      "lime_stability": 0.7186237732545948,
+      "other_stability": 0.9901223207226608
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "method": "rise",
+      "lime_over_method_time": 1.7893614404089992,
+      "lime_raw_morf": 0.0510179078110823,
+      "other_raw_morf": 0.0524581043192463,
+      "lime_stability": 0.7186237732545948,
+      "other_stability": 0.996803906079478
+    },
+    {
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "method": "kernelshap",
+      "lime_over_method_time": 2.336769633776791,
+      "lime_raw_morf": 0.0510179078110823,
+      "other_raw_morf": 0.0328183740131703,
+      "lime_stability": 0.7186237732545948,
+      "other_stability": 0.9959433895297248
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "method": "gradcam",
+      "lime_over_method_time": 1101.5108099530962,
+      "lime_raw_morf": 0.2106944767558319,
+      "other_raw_morf": 0.3378165398840792,
+      "lime_stability": 0.7044055766396825,
+      "other_stability": 0.959116073498537
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "method": "ig",
+      "lime_over_method_time": 54.01804678198912,
+      "lime_raw_morf": 0.2106944767558319,
+      "other_raw_morf": 0.1134548415450135,
+      "lime_stability": 0.7044055766396825,
+      "other_stability": 0.7767933503350067
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "method": "occlusion",
+      "lime_over_method_time": 37.02346632109268,
+      "lime_raw_morf": 0.2106944767558319,
+      "other_raw_morf": 0.2565105314381704,
+      "lime_stability": 0.7044055766396825,
+      "other_stability": 0.9920775359350632
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "method": "rise",
+      "lime_over_method_time": 1.7818922796416738,
+      "lime_raw_morf": 0.2106944767558319,
+      "other_raw_morf": 0.2684024060236127,
+      "lime_stability": 0.7044055766396825,
+      "other_stability": 0.9979363107506934
+    },
+    {
+      "model": "vgg16",
+      "dataset": "voc",
+      "method": "kernelshap",
+      "lime_over_method_time": 2.323358175334855,
+      "lime_raw_morf": 0.2106944767558319,
+      "other_raw_morf": 0.1816575187946791,
+      "lime_stability": 0.7044055766396825,
+      "other_stability": 0.995844942324756
+    }
+  ],
+  "matched_prediction_comparison": [
+    {
+      "unit": "lime-resnet50-imagenet",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    },
+    {
+      "unit": "lime-resnet50-voc",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    },
+    {
+      "unit": "lime-densenet121-imagenet",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    },
+    {
+      "unit": "lime-densenet121-voc",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    },
+    {
+      "unit": "lime-vgg16-imagenet",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    },
+    {
+      "unit": "lime-vgg16-voc",
+      "image_ids_equal": true,
+      "targets_equal": true,
+      "checkpoint_equal": true,
+      "prediction_context_equal": true,
+      "predicted_class_differences": 0,
+      "max_confidence_abs_difference": 0.0
+    }
+  ],
+  "base_plus_noise_attribution_hours": 28.559817147616606,
+  "formal_plus_previous_five_wall_seconds": 29592.888200998306,
+  "cleanup": {
+    "observed_at": "2026-10-14T19:10:17+08:00",
+    "status": "completed",
+    "platform": {
+      "instance78": "stopped",
+      "instance75": "running",
+      "node": "node62",
+      "username": "cas_mfwzan"
+    },
+    "docker": {
+      "instance78": {
+        "container": "dev-59d5af49",
+        "running": false,
+        "status": "exited",
+        "exit_code": 137,
+        "oom_killed": false,
+        "finished_at": "2026-10-14T11:10:16.683144761Z"
+      },
+      "instance75": {
+        "container": "dev-2f64a840",
+        "running": true,
+        "status": "running",
+        "started_at": "2026-09-26T03:27:10.028862936Z",
+        "processes": [
+          "tail -f /dev/null",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "restarted": false
+      }
+    },
+    "difference_and_resolution": "DAPJobs stop updated instance78 platform state but Docker remained running. After confirming empty compute/package process list and exact mapping, stopped only dev-59d5af49 through the authorized node webpage terminal. Instance75 UI start restored platform running state; its existing Docker container was already running and was not restarted.",
+    "original_complete_preserved": true,
+    "server_archive_preserved": true,
+    "server_archive_sha256": "38510f8eeda54ae38ee77acaf04580666779954ff7565b59d9fbd58438fe1cd3",
+    "experiment_controller_exit": 0,
+    "evidence": [
+      "cleanup-platform.png",
+      "cleanup-docker-before.png",
+      "cleanup-docker.png"
+    ]
+  },
+  "automation_status": "DELETED"
+}

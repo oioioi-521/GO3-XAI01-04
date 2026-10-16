@@ -94,6 +94,52 @@ def test_valid_statistics_are_not_formal_approval(tmp_path, constant):
     assert report["recorded_timed_attribution_seconds"] == pytest.approx(370.32)
 
 
+@pytest.mark.parametrize("change", [None, "tensor", "source", "record_binding"])
+def test_schema2_is_recomputed_without_grandfathering_provenance(tmp_path, change):
+    from PIL import Image
+    from preprocessing.dataset import load_image
+    from experiments.lime_gate_integrity import tensor_sha
+    gate, project = fixture(tmp_path)
+    source = project / "data/synthetic.bin"
+    Image.new("RGB", (4, 5), (19, 31, 47)).save(source, format="PNG")
+    source_digest = hashlib.sha256(source.read_bytes()).hexdigest()
+    tensor_digest = tensor_sha(load_image(str(source)))
+    plan = json.loads((gate / "plan.json").read_text())
+    plan.update(gate_schema_version=2, image_assets=[dict(image_id=i, target=18,
+        source_image_sha256=source_digest, preprocessed_image_sha256=tensor_digest,
+        map_shape=[224, 224]) for i in plan["image_ids"]], execution_identity=dict(
+            code_sha256={"test.py": "a" * 64}, machine_sha256="b" * 64, device="cpu"))
+    from analysis.validate_lime_budget_gate import IDENTITY_KEYS, V2_IDENTITY_KEYS
+    digest = canonical_hash({k: plan[k] for k in IDENTITY_KEYS + V2_IDENTITY_KEYS})
+    plan["config_hash"] = digest
+    if change == "tensor":
+        plan["image_assets"][0]["preprocessed_image_sha256"] = "0" * 64
+        plan["config_hash"] = canonical_hash({k: plan[k] for k in IDENTITY_KEYS + V2_IDENTITY_KEYS})
+    write_json(gate / "plan.json", plan)
+    for path in (gate / "records").glob("*.json"):
+        record = json.loads(path.read_text())
+        record.update(config_hash=plan["config_hash"], gate_schema_version=2,
+                      source_image_sha256=source_digest, preprocessed_image_sha256=tensor_digest)
+        if change == "record_binding":
+            record["preprocessed_image_sha256"] = "0" * 64
+        write_json(path, record)
+    summary = json.loads((gate / "summary.json").read_text())
+    summary.update(config_hash=plan["config_hash"], gate_schema_version=2,
+                   run_count=240, budget_comparison_count=120, seed_pair_count=240,
+                   processed=40, skipped=0, warmup_calls=6)
+    write_json(gate / "summary.json", summary)
+    if change == "source":
+        source.write_bytes(b"changed image bytes")
+    if change:
+        with pytest.raises(ValueError):
+            validate(gate, project)
+    else:
+        result = validate(gate, project)
+        assert result["gate_schema_version"] == 2 and result["source_image_hashes_verified"] == 40
+        assert result["preprocessed_image_hashes_verified"] == 40
+        assert result["generation_time_provenance_verified"] is False
+
+
 @pytest.mark.parametrize("change", ["missing_runs", "duplicate_runs", "target", "comparison",
     "variance", "seed_pairs", "map_hash", "map_dtype", "escape_path", "absolute_path",
     "input_hash", "nan_time", "negative_time", "budget_diagnostic", "changed_map"])

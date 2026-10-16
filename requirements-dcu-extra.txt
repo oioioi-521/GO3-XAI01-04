@@ -1,0 +1,13 @@
+# Add to the vendor environment with --no-deps; do not replace torch/torchvision.
+# The vendor image already supplies NumPy, SciPy, pandas, Pillow, PyYAML and tqdm.
+captum==0.9.0
+scikit-learn==1.7.2
+matplotlib==3.10.6
+joblib==1.5.2
+threadpoolctl==3.6.0
+contourpy==1.3.2
+cycler==0.12.1
+fonttools==4.60.1
+kiwisolver==1.4.9
+pyparsing==3.2.5
+python-dateutil==2.9.0.post0

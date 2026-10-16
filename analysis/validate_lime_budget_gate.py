@@ -19,6 +19,7 @@ from scipy.stats import spearmanr
 
 IDENTITY_KEYS = ("config", "budgets", "seeds", "metadata_sha256",
                  "prediction_context", "image_ids", "versions")
+V2_IDENTITY_KEYS = ("gate_schema_version", "image_assets", "execution_identity")
 
 
 def require(condition, message):
@@ -128,7 +129,10 @@ def validate(gate: Path, project: Path) -> dict:
     gate, project = gate.resolve(), project.resolve()
     plan = read_json(gate / "plan.json", gate)
     require(all(key in plan for key in IDENTITY_KEYS), "plan identity fields missing")
-    digest = canonical_hash({key: plan[key] for key in IDENTITY_KEYS})
+    schema = plan.get("gate_schema_version", 1)
+    require(type(schema) is int and schema in {1, 2}, "unknown gate schema")
+    keys = IDENTITY_KEYS + (V2_IDENTITY_KEYS if schema == 2 else ())
+    digest = canonical_hash({key: plan[key] for key in keys})
     require(plan["config_hash"] == digest, "plan canonical config hash mismatch")
     config = plan["config"]
     dataset = config["dataset"]["name"]
@@ -172,6 +176,29 @@ def validate(gate: Path, project: Path) -> dict:
     ids = [r["image_id"] for r in rows]
     require(len(ids) == len(set(ids)) == 40
             and [str(i) for i in plan["image_ids"]] == ids, "frozen 40-image ID/order mismatch")
+    assets = {}
+    if schema == 2:
+        require(isinstance(plan["image_assets"], list) and len(plan["image_assets"]) == 40
+                and [a["image_id"] for a in plan["image_assets"]] == ids, "schema-2 image identity coverage")
+        assets = {a["image_id"]: a for a in plan["image_assets"]}
+        execution = plan["execution_identity"]
+        require(isinstance(execution, dict) and isinstance(execution.get("code_sha256"), dict)
+                and execution["code_sha256"] and execution.get("machine_sha256")
+                and execution.get("device"), "schema-2 code/machine/device identity missing")
+        # Recompute using this trusted project's loader, not supplied package code.
+        # This proves current bytes/tensor consistency, NOT historical generation.
+        from preprocessing.dataset import load_image
+        for row in rows:
+            asset = assets[row["image_id"]]
+            path = (project / "data" / row["image_path"].replace("\\", "/")).resolve()
+            require(path.is_relative_to((project / "data").resolve()) and path.is_file()
+                    and file_sha(path) == asset["source_image_sha256"], "schema-2 source byte SHA mismatch")
+            array = load_image(str(path)).detach().cpu().contiguous().numpy()
+            header = json.dumps(dict(dtype=str(array.dtype), shape=list(array.shape)), sort_keys=True).encode()
+            tensor_digest = hashlib.sha256(header + b"\0" + array.tobytes(order="C")).hexdigest()
+            require(asset["preprocessed_image_sha256"] == tensor_digest
+                    and asset["map_shape"] == [224, 224]
+                    and integer(asset["target"]) == int(row["class_id"]), "schema-2 preprocessed identity mismatch")
     paths = list((gate / "records").glob("*.json"))
     require(len(paths) == 40, "gate must contain exactly 40 records")
     expected_files = {hashlib.sha256(i.encode()).hexdigest()[:16] + ".json" for i in ids}
@@ -195,6 +222,10 @@ def validate(gate: Path, project: Path) -> dict:
         require(target.is_integer() and record["image_id"] == image_id
                 and integer(record["target"]) == int(target)
                 and record["config_hash"] == digest, f"{image_id}: target/identity mismatch")
+        if schema == 2:
+            require(record.get("gate_schema_version") == 2
+                    and all(record.get(k) == assets[image_id][k] for k in
+                            ("source_image_sha256", "preprocessed_image_sha256")), "schema-2 record input binding")
         # These hashes are optional in E's current format. Missing hashes are
         # explicitly NOT treated as generation-time input provenance.
         if "source_image_sha256" in record:
@@ -254,6 +285,14 @@ def validate(gate: Path, project: Path) -> dict:
                 seed_similarities[budget].append(calculated)
     summary = read_json(gate / "summary.json", gate)
     require(summary["config_hash"] == digest and summary["n_images"] == 40, "summary identity/count")
+    if schema == 2:
+        require(summary.get("gate_schema_version") == 2
+                and integer(summary["run_count"]) == 40 * len(budgets) * len(seeds)
+                and integer(summary["budget_comparison_count"]) == 40 * (len(budgets)-1) * len(seeds)
+                and integer(summary["seed_pair_count"]) == 40 * len(budgets) * len(seed_keys)
+                and integer(summary["processed"]) + integer(summary["skipped"]) == 40
+                and integer(summary["warmup_calls"]) == (len(budgets)*len(seeds) if summary["processed"] else 0),
+                "schema-2 summary counts")
     require(set(summary["similarity_by_budget"]) == {str(b) for b in budgets[:-1]}
             and set(summary["mean_time_ms"]) == set(summary["mean_pixel_variance"])
             == {str(b) for b in budgets}, "summary budget set")
@@ -272,6 +311,7 @@ def validate(gate: Path, project: Path) -> dict:
     number(summary["current_invocation_wall_seconds"], 0)
     return dict(scope="LIME debug gate arrays/statistics only", statistical_integrity_passed=True,
                 formal_budget_approved=False, generation_time_provenance_verified=False,
+                gate_schema_version=schema, preprocessed_image_hashes_verified=40 if schema == 2 else 0,
                 dataset=dataset, model=model, config_hash=digest, n_images=40,
                 n_maps=len(used_paths), constant_maps=constant_count,
                 budget_pairs=sum(map(len, comparisons.values())),

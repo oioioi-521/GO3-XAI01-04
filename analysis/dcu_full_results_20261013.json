@@ -1,0 +1,1103 @@
+{
+  "formal_wall_seconds": 15666.172845602036,
+  "started_at": "2026-10-13T15:23:14.303427+08:00",
+  "finished_at": "2026-10-13T19:44:20.476273+08:00",
+  "units": [
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 24.02853520141672,
+          "std": 0.5074253886370166,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0876253168614904,
+          "std": 0.0687204091174963,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9895582579037862,
+          "std": 0.0142607779487479,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 24.01539609038636,
+          "std": 0.5010236047119583,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.5384530012374339,
+          "std": 0.132720026783914,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.976489474043018,
+          "std": 0.0402054337936167,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 54.60152602754533,
+          "std": 0.5406399430054444,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.056882893908163,
+          "std": 0.0610051738918255,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9988525624999626,
+          "std": 0.0029035372808131,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 54.796420440644674,
+          "std": 1.2631066057495794,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.4361968608006187,
+          "std": 0.2079574176936298,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9922644616010068,
+          "std": 0.0671769121601525,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 0.9956521739130436,
+          "std": 0.0658661802366549,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 6.989868256546881,
+          "std": 0.1662519653768547,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.2432207261801364,
+          "std": 0.2345756572687676,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9318018515288716,
+          "std": 0.0973556039227235,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 0.9943478260869564,
+          "std": 0.0690000844277543,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 7.058811181670298,
+          "std": 0.1726921960718167,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.3378165398840792,
+          "std": 0.2697618766940396,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.959116073498537,
+          "std": 0.0627133108845792,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 0.9978260869565218,
+          "std": 0.0466252404120157,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 131.4734389964977,
+          "std": 6.536908472690511,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0384689733480943,
+          "std": 0.05238293102401,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.6735440261779914,
+          "std": 0.1739997730134879,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 124.55927210293062,
+          "std": 1.7431365003344144,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.4431928817668686,
+          "std": 0.0971550992486535,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.5725639203059929,
+          "std": 0.166934545050978,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 318.1191266615592,
+          "std": 16.439148908647706,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0445225790898946,
+          "std": 0.0795235169171966,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.7617128973787164,
+          "std": 0.1540545962051112,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 315.77109446465647,
+          "std": 16.694245613623004,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.3272779827775515,
+          "std": 0.1776572367402138,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.7122869240833937,
+          "std": 0.14441229397838,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 142.98904269690746,
+          "std": 0.6571554619863041,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0216177671265382,
+          "std": 0.0163243213714167,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.7964470959524742,
+          "std": 0.1274719896910516,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 143.93998460196283,
+          "std": 0.882778775020454,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.1134548415450135,
+          "std": 0.1048728155325052,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.7767933503350067,
+          "std": 0.1257001360873024,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 145.78852856167308,
+          "std": 1.4655736135738684,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.1931341690307422,
+          "std": 0.1488913091849303,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9166529592135856,
+          "std": 0.0709590979810366,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "resnet50",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 148.15740133028316,
+          "std": 0.5034063116106878,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.6109094099830026,
+          "std": 0.1689345216277481,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9153883365584516,
+          "std": 0.0568666558451142,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 335.79623698378384,
+          "std": 7.739044715847566,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0814883323742437,
+          "std": 0.1274491687548019,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9878033210799708,
+          "std": 0.01213919709782,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "densenet121",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 336.8198568527789,
+          "std": 5.6820835003936,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.4530938503534897,
+          "std": 0.2204567106575145,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9878627615340222,
+          "std": 0.0127071772307056,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 210.00061657320225,
+          "std": 0.3656013399686582,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0396384121194268,
+          "std": 0.0551010484969662,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9901223207226608,
+          "std": 0.0128598558621868,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "occlusion",
+      "model": "vgg16",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 210.01158439878213,
+          "std": 0.3061628442952415,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.2565105314381704,
+          "std": 0.2510384717754372,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9920775359350632,
+          "std": 0.008614258212976,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2183.740698410522,
+          "std": 3.43024974735497,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.1070782494120699,
+          "std": 0.1090937100080041,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9951543025538904,
+          "std": 0.0068808479639927,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2180.63965911734,
+          "std": 4.622964721605328,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.5411156123423058,
+          "std": 0.1463264760211485,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9974322934630858,
+          "std": 0.0044716252165675,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2909.6027382851944,
+          "std": 34.32912234442771,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0542091138441442,
+          "std": 0.063638874976031,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9981618865687149,
+          "std": 0.0068895216266576,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "densenet121",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2895.507922643066,
+          "std": 5.593138325652384,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.416222730813467,
+          "std": 0.2019381881774144,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9993158432873848,
+          "std": 0.0012446191629759,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 4366.0313655055415,
+          "std": 8.578956977210987,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0524581043192463,
+          "std": 0.0630538181435994,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.996803906079478,
+          "std": 0.0055700432208365,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "rise",
+      "model": "vgg16",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 4363.539205406509,
+          "std": 2.572270816669557,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.2684024060236127,
+          "std": 0.2286401912980857,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9979363107506934,
+          "std": 0.0051263932816983,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2200.376786194418,
+          "std": 74.26958520928594,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.1128839852279507,
+          "std": 0.1064895377030153,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9928472049689442,
+          "std": 0.0068612196601631,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 2194.649310823044,
+          "std": 77.49397210245037,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.4894035347453926,
+          "std": 0.1315784589238613,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.978835093167702,
+          "std": 0.0172729853967883,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 3891.302059849967,
+          "std": 74.36338579444694,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0420068734263227,
+          "std": 0.0408188417364583,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9956690660230704,
+          "std": 0.0041233779139041,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "densenet121",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 3874.118345658012,
+          "std": 80.93138008977128,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.3636077132157009,
+          "std": 0.1633494906342577,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9947859027549348,
+          "std": 0.0045195023211332,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 3343.2513244470338,
+          "std": 67.95553930116291,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.0328183740131703,
+          "std": 0.0303647342768762,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.9959433895297248,
+          "std": 0.0058175533627274,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    },
+    {
+      "method": "kernelshap",
+      "model": "vgg16",
+      "dataset": "voc",
+      "metrics": {
+        "efficiency_time_ms": {
+          "mean": 3346.602734168181,
+          "std": 73.58709069471506,
+          "n": 460.0
+        },
+        "faithfulness_morf_auc_raw": {
+          "mean": 0.1816575187946791,
+          "std": 0.1757069722970337,
+          "n": 460.0
+        },
+        "stability_spearman": {
+          "mean": 0.995844942324756,
+          "std": 0.0043099693051758,
+          "n": 460.0
+        },
+        "stability_valid_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 460.0
+        }
+      }
+    }
+  ],
+  "methods": {
+    "gradcam": {
+      "mean_base_attribution_ms": 28.581759533035044,
+      "min_unit_mean_ms": 6.989868256546881,
+      "max_unit_mean_ms": 54.796420440644674,
+      "min_stability_mean": 0.9318018515288716,
+      "max_stability_mean": 0.9988525624999626,
+      "base_attribution_seconds_sum": 78.88565631117672,
+      "noisy_attribution_seconds_sum": 395.6531570889056,
+      "summed_attribution_hours": 0.1318163370555784,
+      "invalid_repeats": 28
+    },
+    "ig": {
+      "mean_base_attribution_ms": 196.14199325408572,
+      "min_unit_mean_ms": 124.55927210293062,
+      "max_unit_mean_ms": 318.1191266615592,
+      "min_stability_mean": 0.5725639203059929,
+      "max_stability_mean": 0.7964470959524742,
+      "base_attribution_seconds_sum": 541.3519013812765,
+      "noisy_attribution_seconds_sum": 2748.3033758550882,
+      "summed_attribution_hours": 0.9137931325656569,
+      "invalid_repeats": 0
+    },
+    "occlusion": {
+      "mean_base_attribution_ms": 231.09570411675057,
+      "min_unit_mean_ms": 145.78852856167308,
+      "max_unit_mean_ms": 336.8198568527789,
+      "min_stability_mean": 0.9153883365584516,
+      "max_stability_mean": 0.9920775359350632,
+      "base_attribution_seconds_sum": 637.8241433622316,
+      "noisy_attribution_seconds_sum": 3195.7721830448136,
+      "summed_attribution_hours": 1.0648878684464014,
+      "invalid_repeats": 0
+    },
+    "rise": {
+      "mean_base_attribution_ms": 3149.843598228029,
+      "min_unit_mean_ms": 2180.63965911734,
+      "max_unit_mean_ms": 4366.0313655055415,
+      "min_stability_mean": 0.9951543025538904,
+      "max_stability_mean": 0.9993158432873848,
+      "base_attribution_seconds_sum": 8693.56833110936,
+      "noisy_attribution_seconds_sum": 43493.79737517331,
+      "summed_attribution_hours": 14.496490473967407,
+      "invalid_repeats": 0
+    },
+    "kernelshap": {
+      "mean_base_attribution_ms": 3141.716760190109,
+      "min_unit_mean_ms": 2194.649310823044,
+      "max_unit_mean_ms": 3891.302059849967,
+      "min_stability_mean": 0.978835093167702,
+      "max_stability_mean": 0.9959433895297248,
+      "base_attribution_seconds_sum": 8671.138258124702,
+      "noisy_attribution_seconds_sum": 43479.63113810588,
+      "summed_attribution_hours": 14.486324832286272,
+      "invalid_repeats": 0
+    }
+  },
+  "comparison_2080ti": [
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 19.75156140215404,
+      "dcu_ms": 54.60152602754533,
+      "historical_time_ratio_2080ti_over_dcu": 0.36174009847618155
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 191.83408550432668,
+      "dcu_ms": 318.1191266615592,
+      "historical_time_ratio_2080ti_over_dcu": 0.6030259403686068
+    },
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 8.110345410837592,
+      "dcu_ms": 24.02853520141672,
+      "historical_time_ratio_2080ti_over_dcu": 0.33752974714660955
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 168.7587650998941,
+      "dcu_ms": 131.4734389964977,
+      "historical_time_ratio_2080ti_over_dcu": 1.2835958836095378
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 10.094376441259596,
+      "dcu_ms": 6.989868256546881,
+      "historical_time_ratio_2080ti_over_dcu": 1.444144019710952
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "rtx2080ti_ms": 298.08738323040217,
+      "dcu_ms": 142.98904269690746,
+      "historical_time_ratio_2080ti_over_dcu": 2.084686893542292
+    },
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "voc",
+      "rtx2080ti_ms": 19.22769190218589,
+      "dcu_ms": 54.796420440644674,
+      "historical_time_ratio_2080ti_over_dcu": 0.3508932106799434
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "voc",
+      "rtx2080ti_ms": 191.6357833456736,
+      "dcu_ms": 315.77109446465647,
+      "historical_time_ratio_2080ti_over_dcu": 0.60688196831494
+    },
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "voc",
+      "rtx2080ti_ms": 7.808435152156048,
+      "dcu_ms": 24.01539609038636,
+      "historical_time_ratio_2080ti_over_dcu": 0.32514288428837756
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "voc",
+      "rtx2080ti_ms": 168.39034361942734,
+      "dcu_ms": 124.55927210293062,
+      "historical_time_ratio_2080ti_over_dcu": 1.3518892714809423
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "voc",
+      "rtx2080ti_ms": 10.000281895665228,
+      "dcu_ms": 7.058811181670298,
+      "historical_time_ratio_2080ti_over_dcu": 1.4167090800832134
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "voc",
+      "rtx2080ti_ms": 297.5300391370104,
+      "dcu_ms": 143.93998460196283,
+      "historical_time_ratio_2080ti_over_dcu": 2.0670423160025346
+    }
+  ],
+  "pilot_comparison": [
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "debug_one_image_ms": 293.763080611825,
+      "formal_460_mean_ms": 318.1191266615592,
+      "relative_difference": 0.08291050733471184
+    },
+    {
+      "method": "kernelshap",
+      "model": "densenet121",
+      "debug_one_image_ms": 3825.7041592150927,
+      "formal_460_mean_ms": 3891.302059849967,
+      "relative_difference": 0.017146621355147662
+    },
+    {
+      "method": "rise",
+      "model": "densenet121",
+      "debug_one_image_ms": 2839.41104542464,
+      "formal_460_mean_ms": 2909.6027382851944,
+      "relative_difference": 0.024720511309434867
+    },
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "debug_one_image_ms": 24.501674808561802,
+      "formal_460_mean_ms": 24.02853520141672,
+      "relative_difference": -0.01931050064299078
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "debug_one_image_ms": 122.39255104213953,
+      "formal_460_mean_ms": 131.4734389964977,
+      "relative_difference": 0.07419477637353622
+    },
+    {
+      "method": "kernelshap",
+      "model": "resnet50",
+      "debug_one_image_ms": 2166.651340201497,
+      "formal_460_mean_ms": 2200.376786194418,
+      "relative_difference": 0.015565700566194662
+    },
+    {
+      "method": "rise",
+      "model": "resnet50",
+      "debug_one_image_ms": 2178.804986178875,
+      "formal_460_mean_ms": 2183.740698410522,
+      "relative_difference": 0.002265329968930807
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "debug_one_image_ms": 7.478521205484867,
+      "formal_460_mean_ms": 6.989868256546881,
+      "relative_difference": -0.06534085222351182
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "debug_one_image_ms": 143.07055436074734,
+      "formal_460_mean_ms": 142.98904269690746,
+      "relative_difference": -0.0005697305375245154
+    },
+    {
+      "method": "kernelshap",
+      "model": "vgg16",
+      "debug_one_image_ms": 3323.3169773593545,
+      "formal_460_mean_ms": 3343.2513244470338,
+      "relative_difference": 0.005998328544488896
+    },
+    {
+      "method": "rise",
+      "model": "vgg16",
+      "debug_one_image_ms": 4364.23070076853,
+      "formal_460_mean_ms": 4366.0313655055415,
+      "relative_difference": 0.00041259613903865677
+    }
+  ],
+  "predictions": {
+    "resnet50-imagenet": {
+      "correct": 408,
+      "n": 460,
+      "checkpoint_sha256": [
+        "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca"
+      ]
+    },
+    "resnet50-voc": {
+      "correct": 387,
+      "n": 460,
+      "checkpoint_sha256": [
+        "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f"
+      ]
+    },
+    "densenet121-imagenet": {
+      "correct": 371,
+      "n": 460,
+      "checkpoint_sha256": [
+        "a639ec97d7c33b07ae66f0b5fb7d0192f95a3b11b7576c66c0126c2a727c4395"
+      ]
+    },
+    "densenet121-voc": {
+      "correct": 388,
+      "n": 460,
+      "checkpoint_sha256": [
+        "ab61772eaf3459842f4b1e34be9ec15062e02a940d521390d80df0371168feca"
+      ]
+    },
+    "vgg16-imagenet": {
+      "correct": 363,
+      "n": 460,
+      "checkpoint_sha256": [
+        "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      ]
+    },
+    "vgg16-voc": {
+      "correct": 400,
+      "n": 460,
+      "checkpoint_sha256": [
+        "61640717641bfc1e9ae5d6172de667ce45755e6f046f458c848f70cb4a6c9d58"
+      ]
+    }
+  },
+  "interpretation_limits": [
+    "2080 Ti comparison matches datasets, weights and algorithm budgets for IG/Grad-CAM, but software versions, host CPU and concurrency differ; observational run comparison, not isolated hardware speedup.",
+    "No matched whole-matrix 2080 Ti wall time. Do not divide this run by a guessed local total.",
+    "DCU pilot uses debug images, formal uses eval; exclude changed Occlusion settings and DenseNet Grad-CAM layer.",
+    "Raw MoRF comparisons and Pareto claims belong within each model/dataset. Descriptive means are not significance tests.",
+    "Stability uses fixed method seed; it measures input-noise stability, not resampling robustness.",
+    "Constant-map trace correlations are undefined and intentionally blank; the frozen protocol scores them zero and reports valid rate."
+  ]
+}

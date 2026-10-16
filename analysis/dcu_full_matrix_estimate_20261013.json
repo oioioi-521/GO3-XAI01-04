@@ -1,0 +1,498 @@
+{
+  "date": "2026-10-13",
+  "scope": "Capacity estimate, not 36-unit actual run",
+  "assumptions": {
+    "cards": 8,
+    "models": 3,
+    "datasets": 2,
+    "methods": 6,
+    "images_per_cell": 460,
+    "attributions_per_image": 6,
+    "total_original_images_across_cells": 16560,
+    "total_attributions": 99360,
+    "exclusive_access": true,
+    "models_and_data_ready": true
+  },
+  "sources": [
+    "analysis/dcu_benchmark_20261013.json",
+    "analysis/lime_dcu_pilot_audit.json"
+  ],
+  "formula_other_five": "460/8 * (one-image steady seconds + 5*attribution seconds) / 60; same-model ImageNet proxy for VOC",
+  "formula_lime": "8-card measured wall seconds * 460/8 / 60",
+  "cells": [
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "gate-resnet50-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.2434686484048143,
+      "added_stability_and_overhead_minutes": 0.11740385845769197,
+      "full_minutes": 0.36087250686250627,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "gate-resnet50-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.2434686484048143,
+      "added_stability_and_overhead_minutes": 0.11740385845769197,
+      "full_minutes": 0.36087250686250627,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "gate-densenet121-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.5185495604140063,
+      "added_stability_and_overhead_minutes": 0.24474923246695346,
+      "full_minutes": 0.7632987928809598,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "gate-densenet121-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.5185495604140063,
+      "added_stability_and_overhead_minutes": 0.24474923246695346,
+      "full_minutes": 0.7632987928809598,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "gate-vgg16-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.08717081280580412,
+      "added_stability_and_overhead_minutes": 0.035834580776281655,
+      "full_minutes": 0.12300539358208577,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "gate-vgg16-gradcam",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.08717081280580412,
+      "added_stability_and_overhead_minutes": 0.035834580776281655,
+      "full_minutes": 0.12300539358208577,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "gate-resnet50-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.3400491006129111,
+      "added_stability_and_overhead_minutes": 0.5864643070769187,
+      "full_minutes": 0.9265134076898297,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "gate-resnet50-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.3400491006129111,
+      "added_stability_and_overhead_minutes": 0.5864643070769187,
+      "full_minutes": 0.9265134076898297,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "gate-densenet121-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.7501957725035027,
+      "added_stability_and_overhead_minutes": 1.4076147612649947,
+      "full_minutes": 2.1578105337684974,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "gate-densenet121-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.7501957725035027,
+      "added_stability_and_overhead_minutes": 1.4076147612649947,
+      "full_minutes": 2.1578105337684974,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "gate-vgg16-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.21704632478455702,
+      "added_stability_and_overhead_minutes": 0.6855464063119143,
+      "full_minutes": 0.9025927310964713,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "gate-vgg16-ig",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.21704632478455702,
+      "added_stability_and_overhead_minutes": 0.6855464063119143,
+      "full_minutes": 0.9025927310964713,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "gate-resnet50-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.7495146995643154,
+      "added_stability_and_overhead_minutes": 2.696605646245492,
+      "full_minutes": 3.4461203458098075,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "gate-resnet50-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.7495146995643154,
+      "added_stability_and_overhead_minutes": 2.696605646245492,
+      "full_minutes": 3.4461203458098075,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "gate-densenet121-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 1.6636021229593705,
+      "added_stability_and_overhead_minutes": 5.941192785588403,
+      "full_minutes": 7.604794908547774,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "gate-densenet121-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 1.6636021229593705,
+      "added_stability_and_overhead_minutes": 5.941192785588403,
+      "full_minutes": 7.604794908547774,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "gate-vgg16-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 0.9900637965959808,
+      "added_stability_and_overhead_minutes": 4.5115792225503055,
+      "full_minutes": 5.501643019146286,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "occlusion",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "gate-vgg16-occlusion",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 0.9900637965959808,
+      "added_stability_and_overhead_minutes": 4.5115792225503055,
+      "full_minutes": 5.501643019146286,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "gate-resnet50-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 2.4300091882469133,
+      "added_stability_and_overhead_minutes": 10.440107225440443,
+      "full_minutes": 12.870116413687356,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "gate-resnet50-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 2.4300091882469133,
+      "added_stability_and_overhead_minutes": 10.440107225440443,
+      "full_minutes": 12.870116413687356,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "gate-densenet121-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 3.5285789644888914,
+      "added_stability_and_overhead_minutes": 13.6055112593264,
+      "full_minutes": 17.134090223815292,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "gate-densenet121-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 3.5285789644888914,
+      "added_stability_and_overhead_minutes": 13.6055112593264,
+      "full_minutes": 17.134090223815292,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "gate-vgg16-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 4.567843472817913,
+      "added_stability_and_overhead_minutes": 20.911938774515875,
+      "full_minutes": 25.479782247333787,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "rise",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "gate-vgg16-rise",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 4.567843472817913,
+      "added_stability_and_overhead_minutes": 20.911938774515875,
+      "full_minutes": 25.479782247333787,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "gate-resnet50-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 2.4250724599308646,
+      "added_stability_and_overhead_minutes": 10.381871005132172,
+      "full_minutes": 12.806943465063037,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "gate-resnet50-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 2.4250724599308646,
+      "added_stability_and_overhead_minutes": 10.381871005132172,
+      "full_minutes": 12.806943465063037,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "gate-densenet121-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 4.46495538992652,
+      "added_stability_and_overhead_minutes": 18.331499096238986,
+      "full_minutes": 22.796454486165505,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "gate-densenet121-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 4.46495538992652,
+      "added_stability_and_overhead_minutes": 18.331499096238986,
+      "full_minutes": 22.796454486165505,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "gate-vgg16-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling",
+      "base_minutes": 3.577366095230294,
+      "added_stability_and_overhead_minutes": 15.92422718318024,
+      "full_minutes": 19.501593278410535,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "kernelshap",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "gate-vgg16-kernelshap",
+      "evidence": "one-image ImageNet timing with assumed eight-way scaling; ImageNet proxy, not VOC measurement",
+      "base_minutes": 3.577366095230294,
+      "added_stability_and_overhead_minutes": 15.92422718318024,
+      "full_minutes": 19.501593278410535,
+      "stability_estimate_kind": "5 times original attribution timing; noisy inputs not measured"
+    },
+    {
+      "method": "lime",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "source_run": "resnet50-imagenet-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 7.119850655678117,
+      "added_stability_and_overhead_minutes": 35.03009293440846,
+      "full_minutes": 42.14994359008657,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    },
+    {
+      "method": "lime",
+      "model": "resnet50",
+      "dataset": "voc",
+      "source_run": "resnet50-voc-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 6.962827228145518,
+      "added_stability_and_overhead_minutes": 34.98721561544031,
+      "full_minutes": 41.950042843585834,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    },
+    {
+      "method": "lime",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "source_run": "densenet121-imagenet-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 7.938780896690635,
+      "added_stability_and_overhead_minutes": 37.0778264686863,
+      "full_minutes": 45.016607365376935,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    },
+    {
+      "method": "lime",
+      "model": "densenet121",
+      "dataset": "voc",
+      "source_run": "densenet121-voc-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 7.929364764446897,
+      "added_stability_and_overhead_minutes": 36.134068198846464,
+      "full_minutes": 44.06343296329336,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    },
+    {
+      "method": "lime",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "source_run": "vgg16-imagenet-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 8.223294901676127,
+      "added_stability_and_overhead_minutes": 40.04421850265256,
+      "full_minutes": 48.26751340432869,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    },
+    {
+      "method": "lime",
+      "model": "vgg16",
+      "dataset": "voc",
+      "source_run": "vgg16-voc-8card",
+      "evidence": "8-card 8-image original plus 5-noise and MoRF wall time",
+      "base_minutes": 8.13923316867052,
+      "added_stability_and_overhead_minutes": 41.59169815213924,
+      "full_minutes": 49.73093132080976,
+      "stability_estimate_kind": "full minus ideal base; contains imbalance and remaining measured overhead"
+    }
+  ],
+  "methods": [
+    {
+      "method": "gradcam",
+      "base_minutes": 1.6983780432492495,
+      "added_stability_and_overhead_minutes": 0.7959753434018542,
+      "full_minutes": 2.494353386651104,
+      "planning_minutes": [
+        10,
+        15
+      ]
+    },
+    {
+      "method": "ig",
+      "base_minutes": 2.6145823958019414,
+      "added_stability_and_overhead_minutes": 5.359250949307656,
+      "full_minutes": 7.973833345109597,
+      "planning_minutes": [
+        15,
+        25
+      ]
+    },
+    {
+      "method": "occlusion",
+      "base_minutes": 6.806361238239333,
+      "added_stability_and_overhead_minutes": 26.298755308768403,
+      "full_minutes": 33.10511654700773,
+      "planning_minutes": [
+        45,
+        60
+      ]
+    },
+    {
+      "method": "rise",
+      "base_minutes": 21.052863251107436,
+      "added_stability_and_overhead_minutes": 89.91511451856543,
+      "full_minutes": 110.96797776967287,
+      "planning_minutes": [
+        150,
+        180
+      ]
+    },
+    {
+      "method": "kernelshap",
+      "base_minutes": 20.934787890175357,
+      "added_stability_and_overhead_minutes": 89.2751945691028,
+      "full_minutes": 110.20998245927815,
+      "planning_minutes": [
+        150,
+        180
+      ]
+    },
+    {
+      "method": "lime",
+      "base_minutes": 46.313351615307816,
+      "added_stability_and_overhead_minutes": 224.86511987217332,
+      "full_minutes": 271.17847148748115,
+      "planning_minutes": [
+        360,
+        360
+      ]
+    }
+  ],
+  "total_base_minutes": 99.42032443388113,
+  "total_full_minutes": 535.9297349952006,
+  "planning_hours": [
+    12.166666666666666,
+    13.666666666666666
+  ],
+  "recommended_booking_hours": 16,
+  "limitations": [
+    "First five methods assume noise attribution equals original cost and perfect eight-card scaling; CPU stability correlation and full I/O overhead are not fully measured.",
+    "Occlusion uses denser 15/8 benchmark as a planning proxy for formal 32/16; no reduction credited.",
+    "DenseNet Grad-CAM benchmark layer denseblock4 differs from formal norm5.",
+    "VOC RISE sigmoid semantics must be aligned before formal run.",
+    "LIME official 2000-sample candidate, not accepted E adapter.",
+    "No comparable RTX 2080 Ti LIME benchmark; do not infer hardware speed ratio.",
+    "Planning ranges are discretionary operational allowance, not confidence intervals; no training, coding, queue wait or scientific gate work."
+  ]
+}

@@ -28,6 +28,12 @@ python -m pytest -q tests/test_dcu_statistics.py
 下方 `anova.py`/`correlation.py`/`pareto.py` 为早期工程工具示例，不是本次 DCU 统计主流程。
 尤其普通 pooled ANOVA 不适合直接处理本次重复图像设计，`max_sensitivity` 也不是本次指标。
 
+2026-10-14 更新：六方法 DCU 正式输入现已齐全，统一交接入口见
+[36 组数据交接](../docs/DCU_TEAM_HANDOFF_20261014.md)。交接包已包含全样本、单模型正确组、
+三模型共同正确组及各自重算汇总。当时统计结论尚待分析，现已由上方 10 月 15 日入口交付；
+下方中期/单方法示例保留为历史流程。
+本轮 Pareto 的稳定性指标为 `stability_spearman:max`，不要沿用旧示例的 `max_sensitivity:min`。
+
 ## 已提供
 
 - `schema.py`：检查字段、空值、非有限值、负耗时和重复实验记录。
