@@ -12,7 +12,7 @@
 | 对C的环形复核 | [PR24复核](B_M5_C_RING_REVIEW.md)、[逐文件/测试回执](../analysis/b_m5_20261026/c_review.json) |
 | 轻量机器可读证据 | [evidence.json](../analysis/b_m5_20261026/evidence.json)、[冻结源码hash](../analysis/b_m5_20261026/frozen_source_inventory.csv) |
 | 本轮验证及命令 | [验证记录](B_M5_VALIDATION.md) |
-| 未发送的简短交接文字 | [交接草稿](B_M5_HANDOFF_TEXTS.md) |
+| 已发布交接与Comment review | [发布记录及正文](B_M5_HANDOFF_TEXTS.md)、[机器可读回执](../analysis/b_m5_20261026/publication_receipts.json) |
 
 ## 已完成与需协调的最少事项
 
@@ -22,4 +22,4 @@
 - D：回复IG/KernelSHAP均值CI与秩结论的具体核对项；目前只能写“B已核对、待D确认”。
 - C：处理环形复核的hash口径/四图门禁及文档状态意见；保留其历史材料，不要求重复合入旧工具。
 
-不代发评论或approval、不merge/关闭Issue/发布main。草稿PR仅提交本轮可审查材料。原ZIP、图片、权重、NPY、预览拼图和大结果不入Git。
+2026-10-26，经用户明确授权，已在#19/#22/#21发布交接评论，并对#24提交一次Comment review；链接及实际发布时间见发布记录，E/D/C确认仍待回复。未提交Approve或Request changes，未merge/关闭Issue/发布main；#25保持Draft。原ZIP、图片、权重、NPY、预览拼图和大结果不入Git。

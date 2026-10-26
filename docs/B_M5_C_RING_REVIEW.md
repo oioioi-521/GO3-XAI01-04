@@ -1,6 +1,6 @@
 # B→C 环形复核：PR #24
 
-2026-10-26 · B / #19 → C / #20。审查固定 head `507981464a770ee92dc43b00567f9b42f81071f4`，base 为 main `5bf6a014455d44f0c8ae7a6de148caf1b9b1acbf`。PR 是 open/draft、未合并；不能当作已发布入口。B 在独立 detached worktree 中查看并运行轻量检查，未改写 C 文件，未发 review、approval 或评论。
+2026-10-26 · B / #19 → C / #20。审查固定 head `507981464a770ee92dc43b00567f9b42f81071f4`，base 为 main `5bf6a014455d44f0c8ae7a6de148caf1b9b1acbf`。PR 是 open/draft、未合并；不能当作已发布入口。B 在独立 detached worktree 中查看并运行轻量检查，未改写 C 文件。初版未发布；2026-10-26经用户授权、再次核对同一最新HEAD后已提交一次[Comment review](https://github.com/oioioi-521/GO3-XAI01-04/pull/24#pullrequestreview-5652946501)，未提交Approve或Request changes；时间/实际正文见[发布记录](B_M5_HANDOFF_TEXTS.md)。
 
 ## 本轮亲自执行与只查阅的证据
 
@@ -26,7 +26,7 @@ README仍将统一DCU包作为正式输入、旧GPU材料另列；C模型/指标
 
 1. **严格字节hash与文本规范化冲突。** `preprocessing/verify_data_version.py` 的diff把流式原字节hash改成对所有CSV/JSON先CRLF→LF；`tests/test_data_version.py`新增允许两种字节得到同hash。实测3项测试通过，证明这确实是候选行为。最新#20要求维持严格字节hash及LF约定、不在清理中引入旧兼容改动；C_INTEGRATION却称其为等效LF校验。请C按当前要求恢复严格字节比较，或明确把此函数命名/文档标为规范化文本身份且取得相应口径确认。原ZIP验证仍严格逐字节，未发现其被修改；不能把两种hash概念混称。本项是具体待处理意见，B未擅改。
 2. **复现总状态未纳入图字节比较。** `scripts/reproduce_analysis.py` 中 `passed` 只要求图数=4；`figure_byte_matches_published`在后面回执中计算，没加入`passed`。C已有回执四项均true，当前结果无已知差异；但将来即使四图字节不同，总状态仍可能passed。建议先算该字典并要求all，新增一个“4图存在但1图hash不同须失败”的针对性回归。B未重跑四图，属于代码审查发现，不把假设失败写成实际失败。
-3. **文档状态更新。** C_INTEGRATION/PR描述仍称旧PR开放；协议开头虽加当前状态，后文仍有未加日期的“Issue #8开放/需补跑”。请将历史段加明确日期并修正现行状态；保留原始证据正文，避免读者从当前入口误启动历史队列。
+3. **文档状态更新（发布前复核后的限定）。** C_INTEGRATION/PR描述仍称旧PR开放；实际#8/#14/#15/#16已关闭。STABILITY_PROTOCOL开头已经标明10/26当前完成状态，且明确后文10/1补跑/#8文字为历史，认可这部分更新；建议再用历史段标题/日期减少单独摘录歧义，而非称其完全未更新。需同步的是旧PR状态、当前基线与待整合范围；保留原始证据正文，不启动历史队列。
 4. **基线后续差异与A材料。** C固定head只含2989537，尚不含dafb655的RQ修正/案例选择性打包；也未整合PR#23正文。这些仍是待合稿工作，不能称最终报告已整合。E分支现已有真实PNG及Demo草稿，C交付的“需要大归档”可补充小包/全量目录入口，保留数据许可。
 
-建议C修订后复查上述两处逻辑/哈希门禁和文档差异；本轮没有给PR approval、没有代替D的统计审查，没有变更合并或发布状态。
+建议C修订后复查上述两处逻辑/哈希门禁和文档差异。交接发布时HEAD未变，只重新核对源码/状态，没有重跑实验或重复声称全量测试；已发布Comment review，不是approval，也没有代替D统计审查或改变合并/发布状态。
