@@ -1,4 +1,9 @@
-# W2 成员 C 交接说明：RISE + pipeline
+# W2 成员 C 历史交接说明：RISE + pipeline
+
+> 本文记录 2026-09-16 的初始实现。正式配置、4000-mask 门禁结果和当前运行要求以
+> [`RISE_FORMAL_HANDOFF.md`](RISE_FORMAL_HANDOFF.md) 与
+> [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md) 为准。稳定性 runner/schema
+> 最终复核见 [`STABILITY_C_RUNNER_REVIEW.md`](STABILITY_C_RUNNER_REVIEW.md)。
 
 ## 已完成
 
@@ -15,7 +20,7 @@
 # 1. 无需下载模型权重的管线冒烟测试（随机权重，不可作为实验结论）
 python experiments/run_unit.py --config configs/rise_smoke_imagenet.yaml
 
-# 2. 有效的 ImageNet W2 小规模结果（首次运行会下载 torchvision 权重）
+# 2. 正式 ImageNet 单元（当前配置不再是小规模 debug）
 python experiments/run_unit.py --config configs/rise_resnet50_imagenet.yaml
 
 # 3. 再次执行同一命令会跳过已完成图片；显式重跑整个单元
@@ -40,9 +45,11 @@ ImageNet 模型输出 1000 个 ImageNet 类别，不能把 VOC 的 0–19 标签
 - `models/checkpoints/densenet121_voc20.pt`
 
 checkpoint 应为完整 `state_dict`（也可包装在 `{"state_dict": ...}` 中），类别顺序必须与
-`preprocessing/extract_voc_labels.py` 中的 `VOC_CLASSES` 一致。在 checkpoint 到位前，只运行三个 ImageNet 单元；不要用错误类别语义生成 VOC 结果。
+`preprocessing/extract_voc_labels.py` 中的 `VOC_CLASSES` 一致。三份权重已经 Issue #4
+验收；本机于 2026-10-09 从 `muti-data` 接收并通过大小、SHA-256、严格加载、20 类
+有限前向及 RISE 首图检查，详见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)。
+三个 VOC 正式单元已安排顺序跑批。
 
-## W4 正式运行前调整
+## W4 正式运行前调整（已于 2026-09-23 完成）
 
-将对应 YAML 的 `dataset.split` 从 `debug` 改为 `eval`，删除 `runtime.max_images` 或设为 `null`，并将
-`attribution.num_masks` 从 256 提升到至少 4000。正式跑批前由 B 复核模型 checkpoint、目标类别和首批热力图。
+6 份 YAML 已统一为 `eval`、`max_images: null`、4000 masks、21 点 raw MoRF、一次不计时 warmup，并保存 float32 NPY。正式跑批前仍须由 B 复核 VOC checkpoint、目标类别和首批热力图。
