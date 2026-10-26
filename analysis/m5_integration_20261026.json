@@ -1,0 +1,524 @@
+{
+  "status": "passed",
+  "baseline": "29895378e930138e042fd29ad029d0f14e8b9186",
+  "candidate_commit": "40d4e6012ab3186116418978acecfa81caa7d514",
+  "pull_requests": {
+    "14": {
+      "head": "a2246ea66efb58815ef324cb3938162fba941c7f",
+      "ancestor_of_candidate": true,
+      "files": [
+        {
+          "path": "configs/occlusion_densenet121_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea",
+          "source_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea",
+          "candidate_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea"
+        },
+        {
+          "path": "configs/occlusion_densenet121_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f",
+          "source_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f",
+          "candidate_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f"
+        },
+        {
+          "path": "configs/occlusion_gate_densenet121_imagenet.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "c28e03d115f1be93285bda03e3e1d419e3254b0b",
+          "candidate_blob": "c28e03d115f1be93285bda03e3e1d419e3254b0b"
+        },
+        {
+          "path": "configs/occlusion_gate_densenet121_voc.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "1088952aa152b55f449169a0838fd5969742e54a",
+          "candidate_blob": "1088952aa152b55f449169a0838fd5969742e54a"
+        },
+        {
+          "path": "configs/occlusion_gate_resnet50_imagenet.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "c917a3e3c095515097c53bf1bb6eb636782b77a8",
+          "candidate_blob": "c917a3e3c095515097c53bf1bb6eb636782b77a8"
+        },
+        {
+          "path": "configs/occlusion_gate_resnet50_voc.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "e2d2dc4325c7b248541015a9c4b4d434c9cf39a4",
+          "candidate_blob": "e2d2dc4325c7b248541015a9c4b4d434c9cf39a4"
+        },
+        {
+          "path": "configs/occlusion_gate_vgg16_imagenet.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "0b7331047586d45260ec49d0517ddd736e6fd3cc",
+          "candidate_blob": "0b7331047586d45260ec49d0517ddd736e6fd3cc"
+        },
+        {
+          "path": "configs/occlusion_gate_vgg16_voc.yaml",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "03e320a401c4429db76b5ca836301ec5121b79fa",
+          "candidate_blob": "03e320a401c4429db76b5ca836301ec5121b79fa"
+        },
+        {
+          "path": "configs/occlusion_resnet50_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e",
+          "source_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e",
+          "candidate_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e"
+        },
+        {
+          "path": "configs/occlusion_resnet50_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "75190be400f76f1f4fb497c769226f9b92bfc631",
+          "source_blob": "75190be400f76f1f4fb497c769226f9b92bfc631",
+          "candidate_blob": "75190be400f76f1f4fb497c769226f9b92bfc631"
+        },
+        {
+          "path": "configs/occlusion_vgg16_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1",
+          "source_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1",
+          "candidate_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1"
+        },
+        {
+          "path": "configs/occlusion_vgg16_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13",
+          "source_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13",
+          "candidate_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13"
+        },
+        {
+          "path": "docs/B_OCCLUSION_EVAL_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "1fa3226df4ceb69c5138e2becdfb6cc9705687f7",
+          "candidate_blob": "1fa3226df4ceb69c5138e2becdfb6cc9705687f7"
+        },
+        {
+          "path": "docs/B_OCCLUSION_EVAL_MANIFEST.json",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "671eb90e6fd88eaba2a158bd0606a8ab43105920",
+          "candidate_blob": "671eb90e6fd88eaba2a158bd0606a8ab43105920"
+        },
+        {
+          "path": "docs/B_OCCLUSION_GATE_REVIEW.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "b198a25b91f71a808e9583cb16aab3d490982793",
+          "candidate_blob": "b198a25b91f71a808e9583cb16aab3d490982793"
+        },
+        {
+          "path": "docs/B_OCCLUSION_STABILITY_EVAL_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "60c71d4f2f6a2645c30ee229791e341c427a658d",
+          "candidate_blob": "60c71d4f2f6a2645c30ee229791e341c427a658d"
+        },
+        {
+          "path": "docs/B_OCCLUSION_STABILITY_EVAL_MANIFEST.json",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "e5b6b8b3bb2de54cfd779ee2705f0df62e29feb9",
+          "candidate_blob": "e5b6b8b3bb2de54cfd779ee2705f0df62e29feb9"
+        },
+        {
+          "path": "docs/B_OCCLUSION_STABILITY_GATE_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "d99572e470b6c6748f8fb4445564789bf62a6382",
+          "candidate_blob": "d99572e470b6c6748f8fb4445564789bf62a6382"
+        },
+        {
+          "path": "docs/B_OCCLUSION_STABILITY_REVIEW.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "ccad5a55e4d9175ec0176b7602970fa3a46a1498",
+          "candidate_blob": "ccad5a55e4d9175ec0176b7602970fa3a46a1498"
+        },
+        {
+          "path": "docs/B_OCCLUSION_WINDOWS_CODE_INTEGRITY.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "3c09c858720d2ddae8d6bcd82e858098e2236d73",
+          "candidate_blob": "3c09c858720d2ddae8d6bcd82e858098e2236d73"
+        },
+        {
+          "path": "experiments/run_occlusion_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "1d348536e4024c72a6c06ab840827ade7ab51c0d",
+          "candidate_blob": "1d348536e4024c72a6c06ab840827ade7ab51c0d"
+        },
+        {
+          "path": "preprocessing/verify_data_version.py",
+          "decision": "integrated",
+          "baseline_blob": "236ec3d3303e926376c6c785454eb19fad033578",
+          "source_blob": "88cfb0194112a698f1d7e738c30e9cfca01158f2",
+          "candidate_blob": "88cfb0194112a698f1d7e738c30e9cfca01158f2"
+        },
+        {
+          "path": "scripts/build_occlusion_eval_handoff.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "355ee9efbd3b0085656df9b2dfd2098058f0d90e",
+          "candidate_blob": "355ee9efbd3b0085656df9b2dfd2098058f0d90e"
+        },
+        {
+          "path": "scripts/package_occlusion_eval_handoff.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "0bc2cedfd929717dd5be215af3b877d6b5f650e6",
+          "candidate_blob": "0bc2cedfd929717dd5be215af3b877d6b5f650e6"
+        },
+        {
+          "path": "scripts/package_occlusion_stability_eval.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "c2afa514bb278d8821928a537870e19381128aff",
+          "candidate_blob": "c2afa514bb278d8821928a537870e19381128aff"
+        },
+        {
+          "path": "scripts/package_occlusion_stability_gates.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "ec0288e9e932298deceba370be3da57fcc6122bf",
+          "candidate_blob": "ec0288e9e932298deceba370be3da57fcc6122bf"
+        },
+        {
+          "path": "scripts/prepare_occlusion_stability_eval.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "39a57937de3499af36076d6918e8977ef18209e9",
+          "candidate_blob": "39a57937de3499af36076d6918e8977ef18209e9"
+        },
+        {
+          "path": "scripts/prepare_occlusion_stability_gates.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "f4f996972448726406cfbfe03ef1f58b9cfe5441",
+          "candidate_blob": "f4f996972448726406cfbfe03ef1f58b9cfe5441"
+        },
+        {
+          "path": "scripts/run_occlusion_stability_eval.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "9a1e9cce6c1c49d07537c07a947cc3ba27fea8cd",
+          "candidate_blob": "9a1e9cce6c1c49d07537c07a947cc3ba27fea8cd"
+        },
+        {
+          "path": "scripts/run_occlusion_stability_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "427c996208b78a44552ee2e30e734766a0b04e3e",
+          "candidate_blob": "427c996208b78a44552ee2e30e734766a0b04e3e"
+        },
+        {
+          "path": "scripts/validate_occlusion_stability_eval.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "5a61d099b99ed1669f1ff88a0af9fed9477be22d",
+          "candidate_blob": "5a61d099b99ed1669f1ff88a0af9fed9477be22d"
+        },
+        {
+          "path": "scripts/validate_occlusion_stability_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "5532c0130b7b47aada14641a268b41caf2c3164f",
+          "candidate_blob": "5532c0130b7b47aada14641a268b41caf2c3164f"
+        },
+        {
+          "path": "tests/test_data_version.py",
+          "decision": "integrated",
+          "baseline_blob": "e38f20ad33776f40b0c865edf413ce3383c42a18",
+          "source_blob": "ac177465375706f53ee37eb9964f3b08018d022a",
+          "candidate_blob": "ac177465375706f53ee37eb9964f3b08018d022a"
+        },
+        {
+          "path": "tests/test_occlusion_eval_configs.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "69ce09f883ac8c33a8963ffcbfe7d5b776938e5d",
+          "candidate_blob": "69ce09f883ac8c33a8963ffcbfe7d5b776938e5d"
+        },
+        {
+          "path": "tests/test_occlusion_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "a48d4cd2dd23fb294e900c42ece366a99cc92d23",
+          "candidate_blob": "a48d4cd2dd23fb294e900c42ece366a99cc92d23"
+        },
+        {
+          "path": "tests/test_occlusion_stability_gate_tools.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "477d425becfa0f40cf5eca6c3e77ebdd7471484a",
+          "candidate_blob": "477d425becfa0f40cf5eca6c3e77ebdd7471484a"
+        }
+      ],
+      "counts": {
+        "already_in_baseline": 6,
+        "integrated": 30
+      }
+    },
+    "15": {
+      "head": "cb1f1abb98cec0e69dc6231897f81a6ff26cda44",
+      "ancestor_of_candidate": true,
+      "files": [
+        {
+          "path": "README.md",
+          "decision": "reconciled_in_candidate",
+          "baseline_blob": "767d7fdcfe02506fcf1d289130a56913edb97b88",
+          "source_blob": "436a7bb660b4e93efc3a51c993ab1234923a07b4",
+          "candidate_blob": "cf93e93cd3618e4d4f2961e2313baabb09c54669"
+        },
+        {
+          "path": "analysis/pilots/rise_budget_40.csv",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "c977b7806c684f3e8e9ddb1c137ed549318089c7",
+          "candidate_blob": "c977b7806c684f3e8e9ddb1c137ed549318089c7"
+        },
+        {
+          "path": "analysis/pilots/rise_budget_smoke.csv",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "45f88721cda03c62bf3873a36ea6c8b1f8788a87",
+          "candidate_blob": "45f88721cda03c62bf3873a36ea6c8b1f8788a87"
+        },
+        {
+          "path": "analysis/rise_formal_batch.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "acd7384caec18ad52b62077dc3fb9d26ceb322d8",
+          "candidate_blob": "acd7384caec18ad52b62077dc3fb9d26ceb322d8"
+        },
+        {
+          "path": "analysis/rise_sampling_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "b6f249c0d8ddefdf23106fb5f4fe8022402ed0a3",
+          "candidate_blob": "b6f249c0d8ddefdf23106fb5f4fe8022402ed0a3"
+        },
+        {
+          "path": "configs/rise_densenet121_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "bb6641d6df811a373af10e93319179dcf74c42b7",
+          "source_blob": "bb6641d6df811a373af10e93319179dcf74c42b7",
+          "candidate_blob": "bb6641d6df811a373af10e93319179dcf74c42b7"
+        },
+        {
+          "path": "configs/rise_densenet121_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "32b1d13983658f3c29d30fd4ab676944cc35de50",
+          "source_blob": "32b1d13983658f3c29d30fd4ab676944cc35de50",
+          "candidate_blob": "32b1d13983658f3c29d30fd4ab676944cc35de50"
+        },
+        {
+          "path": "configs/rise_resnet50_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "4c41c5f43656f6618bcdb2b4a350c22424e11367",
+          "source_blob": "4c41c5f43656f6618bcdb2b4a350c22424e11367",
+          "candidate_blob": "4c41c5f43656f6618bcdb2b4a350c22424e11367"
+        },
+        {
+          "path": "configs/rise_resnet50_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "aa7e93bec9283ae0f6afab134846652c376e7f5c",
+          "source_blob": "aa7e93bec9283ae0f6afab134846652c376e7f5c",
+          "candidate_blob": "aa7e93bec9283ae0f6afab134846652c376e7f5c"
+        },
+        {
+          "path": "configs/rise_vgg16_imagenet.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "f860ecd7816d4518943c7218c0b8ecbe2bef198b",
+          "source_blob": "f860ecd7816d4518943c7218c0b8ecbe2bef198b",
+          "candidate_blob": "f860ecd7816d4518943c7218c0b8ecbe2bef198b"
+        },
+        {
+          "path": "configs/rise_vgg16_voc.yaml",
+          "decision": "already_in_baseline",
+          "baseline_blob": "3209c400239c9c56880c7979710a4cdfeee0aa9b",
+          "source_blob": "3209c400239c9c56880c7979710a4cdfeee0aa9b",
+          "candidate_blob": "3209c400239c9c56880c7979710a4cdfeee0aa9b"
+        },
+        {
+          "path": "docs/C_VOC20_RECEIPT.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "9bf214d476aa9de41418a86d959aea07e019506e",
+          "candidate_blob": "9bf214d476aa9de41418a86d959aea07e019506e"
+        },
+        {
+          "path": "docs/RISE_FORMAL_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "18748f4e6b643bb9a0448b2450266e1336123af8",
+          "candidate_blob": "18748f4e6b643bb9a0448b2450266e1336123af8"
+        },
+        {
+          "path": "docs/RISE_FORMAL_RESULTS.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "9dd1080ab06db1560178297ba5e11f5a55728170",
+          "candidate_blob": "9dd1080ab06db1560178297ba5e11f5a55728170"
+        },
+        {
+          "path": "docs/RISE_SAMPLING_RESULTS.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "18cedb58cb84289aa2f191c3a23a6ef9b9fd79a0",
+          "candidate_blob": "18cedb58cb84289aa2f191c3a23a6ef9b9fd79a0"
+        },
+        {
+          "path": "docs/STABILITY_C_RUNNER_REVIEW.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "ce874b23ccd1447d864c6f733eb8c8d76e42d1f3",
+          "candidate_blob": "ce874b23ccd1447d864c6f733eb8c8d76e42d1f3"
+        },
+        {
+          "path": "docs/W2_C_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": "5cb745fb0b2ac46bf0ca4e4788c7085461bf6e01",
+          "source_blob": "c07e675d2ebb346146d9d1c861b0e226ddb8f88b",
+          "candidate_blob": "c07e675d2ebb346146d9d1c861b0e226ddb8f88b"
+        },
+        {
+          "path": "experiments/attribution/rise.py",
+          "decision": "already_in_baseline",
+          "baseline_blob": "81d6b621c5b451b42a4f9816232fe15917a7e894",
+          "source_blob": "81d6b621c5b451b42a4f9816232fe15917a7e894",
+          "candidate_blob": "81d6b621c5b451b42a4f9816232fe15917a7e894"
+        },
+        {
+          "path": "preprocessing/verify_data_version.py",
+          "decision": "reconciled_in_candidate",
+          "baseline_blob": "236ec3d3303e926376c6c785454eb19fad033578",
+          "source_blob": "45960638386ffd3f605b0e8bc3f0886865acd0a4",
+          "candidate_blob": "88cfb0194112a698f1d7e738c30e9cfca01158f2"
+        },
+        {
+          "path": "tests/test_data_version.py",
+          "decision": "reconciled_in_candidate",
+          "baseline_blob": "e38f20ad33776f40b0c865edf413ce3383c42a18",
+          "source_blob": "00552f5d2d1f0d859e8165ef7b2c9a7496d8bcc8",
+          "candidate_blob": "ac177465375706f53ee37eb9964f3b08018d022a"
+        },
+        {
+          "path": "tests/test_rise.py",
+          "decision": "already_in_baseline",
+          "baseline_blob": "b44f16f0e535c74c120596341507ca0e5b2d398e",
+          "source_blob": "b44f16f0e535c74c120596341507ca0e5b2d398e",
+          "candidate_blob": "b44f16f0e535c74c120596341507ca0e5b2d398e"
+        },
+        {
+          "path": "tests/test_rise_formal_batch.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "8bca8149e1519a72c0f284148db3a424369694e2",
+          "candidate_blob": "8bca8149e1519a72c0f284148db3a424369694e2"
+        },
+        {
+          "path": "tests/test_rise_sampling_gate.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "0b6f65a618171832c354a500cdeb1251ab29893c",
+          "candidate_blob": "0b6f65a618171832c354a500cdeb1251ab29893c"
+        }
+      ],
+      "counts": {
+        "reconciled_in_candidate": 3,
+        "integrated": 12,
+        "already_in_baseline": 8
+      }
+    },
+    "16": {
+      "head": "d7a4d6e8bb7862bad32ae6323a975ce72d196b51",
+      "ancestor_of_candidate": true,
+      "files": [
+        {
+          "path": "README.md",
+          "decision": "reconciled_in_candidate",
+          "baseline_blob": "767d7fdcfe02506fcf1d289130a56913edb97b88",
+          "source_blob": "f706bbac856b8c6c99420c34f96b2b7e1d45f585",
+          "candidate_blob": "cf93e93cd3618e4d4f2961e2313baabb09c54669"
+        },
+        {
+          "path": "analysis/a_stability_summary.csv",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "ab6997f2e7beb96ade5b8ab85f57d9448ebd4570",
+          "candidate_blob": "ab6997f2e7beb96ade5b8ab85f57d9448ebd4570"
+        },
+        {
+          "path": "docs/A_IG_GRADCAM_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": "003c887c7ad58b4002c4a41d4fd0c61c0e065054",
+          "source_blob": "28fd0cbdb980a3c64a7e98be9f874d78bb273293",
+          "candidate_blob": "28fd0cbdb980a3c64a7e98be9f874d78bb273293"
+        },
+        {
+          "path": "docs/A_IG_GRADCAM_RESULTS.md",
+          "decision": "integrated",
+          "baseline_blob": "3d577f7e8dd6dd53a87f9dafca7a8b27a342f9f8",
+          "source_blob": "0ccac78ebb5409c0ee2c911e08eeeb227a681646",
+          "candidate_blob": "0ccac78ebb5409c0ee2c911e08eeeb227a681646"
+        },
+        {
+          "path": "docs/A_STABILITY_RESULTS.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "91b41177b4822b891c782361856fc70afb781736",
+          "candidate_blob": "91b41177b4822b891c782361856fc70afb781736"
+        },
+        {
+          "path": "docs/A_STABILITY_RUNBOOK.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "085c150b2145c337fe2f0316d2894ee7c6b0e66c",
+          "candidate_blob": "085c150b2145c337fe2f0316d2894ee7c6b0e66c"
+        },
+        {
+          "path": "docs/A_TO_C_CHECKPOINT_HANDOFF.md",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "1da35822aa123f3f8a52ec0c955397058801b05a",
+          "candidate_blob": "1da35822aa123f3f8a52ec0c955397058801b05a"
+        },
+        {
+          "path": "docs/STABILITY_PROTOCOL.md",
+          "decision": "integrated",
+          "baseline_blob": "f975e0eb950db50bb9a3061879c98523d6d25d30",
+          "source_blob": "7729700dc3bfb6c872305bcbd7c936554e7973d9",
+          "candidate_blob": "7729700dc3bfb6c872305bcbd7c936554e7973d9"
+        },
+        {
+          "path": "scripts/run_a_stability.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "0f41d07f8ae8e8ca15e7c449bf1a5d7e7b83d3f5",
+          "candidate_blob": "0f41d07f8ae8e8ca15e7c449bf1a5d7e7b83d3f5"
+        },
+        {
+          "path": "tests/test_a_stability_batch.py",
+          "decision": "integrated",
+          "baseline_blob": null,
+          "source_blob": "6af0743a06fd9c2f13827fd109650115fb3b86e6",
+          "candidate_blob": "6af0743a06fd9c2f13827fd109650115fb3b86e6"
+        }
+      ],
+      "counts": {
+        "reconciled_in_candidate": 1,
+        "integrated": 9
+      }
+    }
+  },
+  "protected_baseline_files": 191,
+  "protected_changes": [],
+  "note": "Inventory includes every branch-only path since its merge base. Historical documents retain original run identity; README and handoff index define current status."
+}

@@ -1,2 +1,3 @@
 data/*.csv text eol=lf
 data/*.json text eol=lf
+*.py text eol=lf
