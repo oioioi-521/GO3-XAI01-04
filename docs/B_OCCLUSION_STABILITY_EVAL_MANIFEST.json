@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "status": "completed_pending_group_acceptance",
+  "algorithm_source_commit": "9891eecc4ec869c0bc14a054a2cd85a0beca4266",
+  "algorithm_merge_commit": "00d73b4d10f9fbea32656951be05ddc336aab893",
+  "base_eval_run_commit": "6d5645fecfcfdc0af1665435186a81f775faf8e2",
+  "frozen_protocol": {
+    "path": "configs/stability_protocol_v1.yaml",
+    "git_blob_sha256": "324315f1ecf62a807ec91e77b2cba1ea53593e9a7ad98a2a90cce09a9e32dcdf",
+    "note": "Windows core.autocrlf converts the working-tree copy to CRLF; its byte hash is not the frozen Git blob hash."
+  },
+  "base_backup": {
+    "path": "results/occlusion_stability_eval/backup/backup_manifest.json",
+    "sha256": "17f7eeb96d1ddc5f697c9903c96a7dd84621fe6bf3bd2e2476803ac54d7926fe",
+    "files": 5568,
+    "bytes": 558559434
+  },
+  "aggregation": "Each image: arithmetic mean of five repeat scores and valid_repeats/5. Unit: mean and sample standard deviation across 460 image values. Undefined repeats score 0 and retain status.",
+  "counts": {"units": 6, "unit_images": 2760, "trace_rows": 13800, "new_stability_per_image_rows": 5520, "valid_repeats": 13800, "degenerate_repeats": 0},
+  "timing_note": "process_wall_seconds_total sums every process invocation, including immediate resume and a failed pre-model-load attempt in VGG16/ImageNet. It is not the original efficiency_time_ms.",
+  "provenance_limit": "Legacy reference maps passed current-model recomputation within rtol=1e-4, atol=1e-5 and received verified_recomputation sidecars. This does not prove their original generation-time weight identity.",
+  "units": [
+    {"unit": "resnet50_imagenet", "base_config_hash": "ba1ecb269647", "stability_config_hash": "21eb94fdd740", "checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca", "spearman_mean": 0.9167526737342651, "spearman_sample_std": 0.070778509982131, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 126.92802291409032, "process_wall_seconds_total": 399.18550070002675, "cuda_peak_allocated_mib": 300.978515625, "failed_attempts": 0, "validation_report": "results/occlusion_stability_eval/resnet50_imagenet/validation_report.json"},
+    {"unit": "resnet50_voc", "base_config_hash": "1e267b87c4ef", "stability_config_hash": "b5523d68e7e9", "checkpoint_sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f", "spearman_mean": 0.9153174375258399, "spearman_sample_std": 0.05697071939637194, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 126.92264608684522, "process_wall_seconds_total": 396.96566559991334, "cuda_peak_allocated_mib": 293.24267578125, "failed_attempts": 0, "validation_report": "results/occlusion_stability_eval/resnet50_voc/validation_report.json"},
+    {"unit": "densenet121_imagenet", "base_config_hash": "32e3c7d7a0fa", "stability_config_hash": "08f31fbeb979", "checkpoint_sha256": "a639ec97d7c33b07ae66f0b5fb7d0192f95a3b11b7576c66c0126c2a727c4395", "spearman_mean": 0.9878165084442528, "spearman_sample_std": 0.012083350818566499, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 155.24073165208708, "process_wall_seconds_total": 500.75699090003036, "cuda_peak_allocated_mib": 224.77978515625, "failed_attempts": 0, "validation_report": "results/occlusion_stability_eval/densenet121_imagenet/validation_report.json"},
+    {"unit": "densenet121_voc", "base_config_hash": "650c5c6bc824", "stability_config_hash": "3ecdd05d0880", "checkpoint_sha256": "ab61772eaf3459842f4b1e34be9ec15062e02a940d521390d80df0371168feca", "spearman_mean": 0.9878852961545574, "spearman_sample_std": 0.01265792559221776, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 157.22513273722777, "process_wall_seconds_total": 499.0388423000695, "cuda_peak_allocated_mib": 220.875, "failed_attempts": 0, "validation_report": "results/occlusion_stability_eval/densenet121_voc/validation_report.json"},
+    {"unit": "vgg16_imagenet", "base_config_hash": "c675f036cd41", "stability_config_hash": "e9d3f9ab5823", "checkpoint_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0", "spearman_mean": 0.9901195511317115, "spearman_sample_std": 0.01289029247212623, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 260.9732067823896, "process_wall_seconds_total": 811.0955455999356, "cuda_peak_allocated_mib": 1354.83154296875, "failed_attempts": 1, "validation_report": "results/occlusion_stability_eval/vgg16_imagenet/validation_report.json"},
+    {"unit": "vgg16_voc", "base_config_hash": "c97adcbd896e", "stability_config_hash": "79262a50113f", "checkpoint_sha256": "61640717641bfc1e9ae5d6172de667ce45755e6f046f458c848f70cb4a6c9d58", "spearman_mean": 0.9920776523893475, "spearman_sample_std": 0.008619470350340434, "valid_rate_mean": 1.0, "perturbed_attribution_ms_mean": 260.71778530477667, "process_wall_seconds_total": 784.2001124001108, "cuda_peak_allocated_mib": 1339.0673828125, "failed_attempts": 0, "validation_report": "results/occlusion_stability_eval/vgg16_voc/validation_report.json"}
+  ]
+}
