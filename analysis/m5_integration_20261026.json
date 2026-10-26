@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "baseline": "29895378e930138e042fd29ad029d0f14e8b9186",
-  "candidate_commit": "40d4e6012ab3186116418978acecfa81caa7d514",
+  "candidate_commit": "6574ecd56bee10e0fa1212343ffd745ca93a46a8",
   "pull_requests": {
     "14": {
       "head": "a2246ea66efb58815ef324cb3938162fba941c7f",
@@ -355,17 +355,17 @@
         },
         {
           "path": "docs/RISE_FORMAL_HANDOFF.md",
-          "decision": "integrated",
+          "decision": "reconciled_in_candidate",
           "baseline_blob": null,
           "source_blob": "18748f4e6b643bb9a0448b2450266e1336123af8",
-          "candidate_blob": "18748f4e6b643bb9a0448b2450266e1336123af8"
+          "candidate_blob": "b4f270a0c95cfaf77dd8b01fca9272682af723e2"
         },
         {
           "path": "docs/RISE_FORMAL_RESULTS.md",
-          "decision": "integrated",
+          "decision": "reconciled_in_candidate",
           "baseline_blob": null,
           "source_blob": "9dd1080ab06db1560178297ba5e11f5a55728170",
-          "candidate_blob": "9dd1080ab06db1560178297ba5e11f5a55728170"
+          "candidate_blob": "3021371e93776873075a5fee4f7edfe2a7f17976"
         },
         {
           "path": "docs/RISE_SAMPLING_RESULTS.md",
@@ -432,8 +432,8 @@
         }
       ],
       "counts": {
-        "reconciled_in_candidate": 3,
-        "integrated": 12,
+        "reconciled_in_candidate": 5,
+        "integrated": 10,
         "already_in_baseline": 8
       }
     },
@@ -492,10 +492,10 @@
         },
         {
           "path": "docs/STABILITY_PROTOCOL.md",
-          "decision": "integrated",
+          "decision": "reconciled_in_candidate",
           "baseline_blob": "f975e0eb950db50bb9a3061879c98523d6d25d30",
           "source_blob": "7729700dc3bfb6c872305bcbd7c936554e7973d9",
-          "candidate_blob": "7729700dc3bfb6c872305bcbd7c936554e7973d9"
+          "candidate_blob": "725dcb525f2ec9acb7098c56befcba712e49cf5a"
         },
         {
           "path": "scripts/run_a_stability.py",
@@ -513,8 +513,8 @@
         }
       ],
       "counts": {
-        "reconciled_in_candidate": 1,
-        "integrated": 9
+        "reconciled_in_candidate": 2,
+        "integrated": 8
       }
     }
   },

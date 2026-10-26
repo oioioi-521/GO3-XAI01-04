@@ -6,6 +6,7 @@
 | --- | --- |
 | 三个 PR 的文件去向 | [整合说明](C_M5_INTEGRATION.md)、[逐文件 JSON](../analysis/m5_integration_20261026.json) |
 | CPU 环境、命令、结果与差异 | [复现记录](C_M5_REPRODUCTION.md)、[验收回执](../analysis/c_m5_reproduction_receipt.json) |
+| 全仓回归 262 passed | [测试回执](../analysis/c_m5_test_receipt.json) |
 | 安装使用 | [README](../README.md) |
 | 输入与归档 / 权重 | [DCU 交接](DCU_TEAM_HANDOFF_20261014.md)、[checkpoint manifest](VOC20_CHECKPOINT_MANIFEST.json) |
 | 正式统计与四图 | [D 交付](D_DELIVERY_INDEX.md)、[统计报告](DCU_STATISTICAL_ANALYSIS_20261015.md) |

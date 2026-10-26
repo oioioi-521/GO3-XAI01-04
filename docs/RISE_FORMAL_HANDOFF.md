@@ -1,5 +1,7 @@
 # RISE 正式跑批交接
 
+2026-10-26：本页保留 C 的旧 GPU 跑批记录。统一 DCU 批次的六个 RISE 单元及稳定性已齐全，正式比较使用 [DCU 交接](DCU_TEAM_HANDOFF_20261014.md)与 [D 统计](DCU_STATISTICAL_ANALYSIS_20261015.md)，不将下方历史待办解释成当前实验缺口。
+
 状态（2026-10-09）：代码与 6 个正式配置已对齐统一契约，采样预算门禁已通过并冻结为 4000 masks；三个 ImageNet 正式单元已于 2026-09-30 全部完成并通过续跑与严格完整性验收。三个 VOC checkpoint 已从本机 `muti-data` 接收，大小、SHA-256、严格加载和首图归因均通过，VOC 正式批次按模型顺序运行中。接收证据见 [`C_VOC20_RECEIPT.md`](C_VOC20_RECEIPT.md)，门禁数据与决策见 [`RISE_SAMPLING_RESULTS.md`](RISE_SAMPLING_RESULTS.md)，正式结果见 [`RISE_FORMAL_RESULTS.md`](RISE_FORMAL_RESULTS.md)。
 
 ## 已锁定的正式契约
