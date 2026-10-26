@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "baseline": "29895378e930138e042fd29ad029d0f14e8b9186",
-  "candidate_commit": "6574ecd56bee10e0fa1212343ffd745ca93a46a8",
+  "candidate_commit": "1cdad37a8535444279f318b708c80ed916e9c0ea",
   "pull_requests": {
     "14": {
       "head": "a2246ea66efb58815ef324cb3938162fba941c7f",
@@ -376,10 +376,10 @@
         },
         {
           "path": "docs/STABILITY_C_RUNNER_REVIEW.md",
-          "decision": "integrated",
+          "decision": "reconciled_in_candidate",
           "baseline_blob": null,
           "source_blob": "ce874b23ccd1447d864c6f733eb8c8d76e42d1f3",
-          "candidate_blob": "ce874b23ccd1447d864c6f733eb8c8d76e42d1f3"
+          "candidate_blob": "b2d37f8ac790ed304ab9f68cb3f0151924e3c51d"
         },
         {
           "path": "docs/W2_C_HANDOFF.md",
@@ -432,8 +432,8 @@
         }
       ],
       "counts": {
-        "reconciled_in_candidate": 5,
-        "integrated": 10,
+        "reconciled_in_candidate": 6,
+        "integrated": 9,
         "already_in_baseline": 8
       }
     },
