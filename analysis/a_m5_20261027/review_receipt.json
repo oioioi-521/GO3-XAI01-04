@@ -1,0 +1,404 @@
+{
+  "status": "passed",
+  "b_head": "6113368d67134c13c21731a5c58deb1461db9bff",
+  "e_head": "6b4c4ec980fd3ea354a46851fa052877f21255ee",
+  "cases": 4,
+  "method_maps": 24,
+  "npy_png_shape_dtype_hash_checked": true,
+  "per_map_assets": [
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "56f9fb5bb5d0072f00485a81248a04e4c90be6f83f340f099c03db9cf9024ded",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.26449140906333923,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "91c129b468a1557335d33aa0cbfe74f4e69e57775b2a8aea494b2bdc962b5527",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.03348003327846527,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "52cebc5ce45ff025cee965cb0f0574065eeb100aaabbd016943cd22dbd739325",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.17222504317760468,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "cf21ef209907f40fdc1cfe2711b7bda62a902ddda11a3aa1df6ce4a5bad381bd",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.26372823119163513,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "83eeca55476254ab257547a49d2459bb5c7a42c1d55b15bc6d280fc9fd4fbc46",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.13659603893756866,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "215",
+      "target": "7",
+      "npy_sha256": "83a2d6e6f0b2e1e660138c5c0872df1716879b0123dbeadb1f1cc35c897bf26b",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.17310181260108948,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "1884db31f150763aa24ae3f10e30250eab95313e723e0ef204bf4d66ad8ba7ee",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.19260212779045105,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "eeb6fc02392aae2e4cd5278785c6215de1aa8805203120583e3e44c427b8cb89",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.018184423446655273,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "b2229acae3feb52d7d2068062b05035fdbb4c6bee0acb5b077ac13b3ec715625",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.19002918899059296,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "62bfe74e065ea8659e41a3069bb0b70792577d127da116f31f7fe41737774bc0",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.2014925479888916,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "9f46c65cc6c6d3f7896835d4992d91b5aa70c6ecfbb43218e0990dac6f38ac58",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.12068913131952286,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "3803",
+      "target": "2",
+      "npy_sha256": "40576de7782476f461403d558df19494d416baedca1b4cd10a00e3c67eec188c",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.1601002812385559,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "e6f100834a2f8031712ce08758a279ce1f6d887afcb356fc49686daf4affe71d",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.22826863825321198,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "102057f7585dfee1674c1b06a130be77e4c185c3b511a81c063c1f926acb5c38",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.03341538459062576,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "d4bd2f92e71aa81cd90121519e6a74979f3f152682d8e5ce70275654537069bd",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.20662230253219604,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "e960726a9d05c3220ec7f3e630efa8691adf4a57208df51b64e1cf47eaaa3f6c",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.21802933514118195,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "ed9a96af20831d5d030d53e5f27b48be1619237a3570ba348a48295bea614f1b",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.15328553318977356,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "7612",
+      "target": "11",
+      "npy_sha256": "34bc8817d37f0af2f9bb66cfb86b2f245f1631717a23a338b8de443cef12a745",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.22326399385929108,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "gradcam",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "e00fd2f8faee66141f2828cab8467279bb3100ffa2f53b75772607ba049f07c6",
+      "npy_min": 0.0,
+      "npy_max": 0.0,
+      "npy_std": 0.0,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "ig",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "9578b59644f5915dd0c2bf3fb1f6db82b336687427c0ec5e57d1870721ea5170",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.026977812871336937,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "937c54819f508db55fcdc2da24e6ffda28a329e3af25804c30a680d2b9c78589",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.16399487853050232,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "lime",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "e47485142a658648d28d8c9dcb2864518a98449d4de3172f98c7f44ebe6fb8b3",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.2870045602321625,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "occlusion",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "1af48e5a611b68d63794b1ee82c21d3880d7805defe70c83ca8263dcf9af3175",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.20790965855121613,
+      "seven_file_hashes_match": true
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "rise",
+      "image_id": "298",
+      "target": "14",
+      "npy_sha256": "fe0062caa72e5cff9fe1f7c52aba1520d81c74d6917bef085fd6a6ef0a8d8dba",
+      "npy_min": 0.0,
+      "npy_max": 1.0,
+      "npy_std": 0.17262497544288635,
+      "seven_file_hashes_match": true
+    }
+  ],
+  "b_case_index_all_fields_match": true,
+  "repeated_b_outputs_identical": {
+    "case_candidates.csv": true,
+    "selection_scores.csv": true,
+    "frozen_source_inventory.csv": true,
+    "ig_kernelshap_exception.csv": true
+  },
+  "e_demo_cases": 3,
+  "e_demo_method_rows_checked": 18,
+  "constant_gradcam_trace_statuses": [
+    "both_constant",
+    "both_constant",
+    "reference_constant",
+    "both_constant",
+    "reference_constant"
+  ],
+  "scope": "A checked existing files and scalar evidence; no model/attribution/MoRF/noise-map regeneration; no B/E acceptance implied",
+  "run": {
+    "b_head": "6113368d67134c13c21731a5c58deb1461db9bff",
+    "script_sha256": "7f004181b6cd2b311da5344d487acd3f3632fe8e677fa1cd042a76507f8832cd",
+    "adaptation": "ROOT points to A checkout; shared validator/statistics/data/checkpoint-manifest Git blobs identical to B; selection source unchanged",
+    "pytest_exit": 0
+  },
+  "formal_input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "analysis_input_sha256": "a1ae2e245e3a96fd2790c4d61a3bbb8c61c5f25bbc5ee2d06f10436f19c2894a",
+  "d_head": "7f147c35d8afc6424a06e47a8fd7d5fed3a406aa",
+  "c_head": "507981464a770ee92dc43b00567f9b42f81071f4",
+  "taskbook_sha256": "6928c42a069bfc20dcc08ad3bc0b10281501f47cb94b6522f1e52efae064fb0f",
+  "test_counts": {
+    "b_selection": 3,
+    "existing_case_packager": 12,
+    "passed": 15
+  },
+  "b_formal_receipt": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "document_checks": {
+    "case_table_numeric_cells": 48,
+    "local_links_and_anchors": 43,
+    "fixed_remote_blob_links": 5,
+    "passed": true
+  }
+}
