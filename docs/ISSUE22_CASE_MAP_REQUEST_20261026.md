@@ -1,5 +1,12 @@
 # Issue #22：三张 VOC 案例的归因文件补件清单
 
+**2026-10-27 更新：18 组文件已收到并通过验收，不再需要重发。**
+新包 `dcu_cases_voc_resnet50_215_3803_7612.zip` 包含三张原图及六方法 18 组 NPY/PNG/原 sidecar，
+身份、target、配置、文件哈希及逐图表子集均核对通过。
+见 [当前交付状态](D_M5_HANDOFF_20261027.md) 和
+[验收记录](../analysis/dcu_20261027/delivery_receipt.json)。B/E 最终选图保持待确认。
+下文是 10/26 仅收到统计轻量包时的历史补件记录；`case_request_20261026.json` 保留原申请状态，不冒充验收回执。
+
 2026-10-26 检查 `dcu_team_handoff_20261014(1).zip`：13,707,240 bytes，722 个条目，ZIP CRC 通过。
 SHA256：`14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc`。
 这是已验收的统计轻量包副本；**0 个 NPY、1 个 PNG、0 个 maps_index.json**。

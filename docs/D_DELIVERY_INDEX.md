@@ -1,5 +1,13 @@
 # D 的图表与结果交付入口
 
+## 10/27 新交付
+
+[D 当前交付与剩余事项](D_M5_HANDOFF_20261027.md)：新分析/案例包验收、18 组真实案例已收齐、
+[B 例外复算确认及 A 指南复核](D_M5_STATISTICAL_CONFIRMATION_20261027.md)、
+[KernelSHAP 说明与答辩材料](D_KERNELSHAP_METHODS_AND_DEFENSE.md)、
+[任务书要求映射与因子分析方案](D_M5_REQUIREMENTS_PLAN_20261027.md)。
+主效应/交互的正式结果及三因素要求收口仍待完成；下面按日期保留既有统计与历史记录。
+
 更新日期：2026-10-16。请在 `feat/kernelshap-analysis` 分支查看；未合并 main。
 
 六方法 36 组 DCU 正式结果已完成并整理成
