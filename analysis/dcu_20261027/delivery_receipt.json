@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "status": "verified_received",
+  "analysis": {
+    "zip_sha256": "a1ae2e245e3a96fd2790c4d61a3bbb8c61c5f25bbc5ee2d06f10436f19c2894a",
+    "bytes": 40245585,
+    "members": 1003,
+    "manifest_files": 1001,
+    "checksum_entries": 1002,
+    "identical_original_members": 722
+  },
+  "cases": {
+    "zip_sha256": "a46fa18f447e104fc707451de4a03e8b2c2eb56679c15a675f6cc5aaacde9eb3",
+    "bytes": 1962318,
+    "members": 114,
+    "manifest_files": 112,
+    "checksum_entries": 113,
+    "verified_groups": 18,
+    "npy": 18,
+    "png": 18,
+    "original_images": 3,
+    "metadata_targets": {
+      "215": 7,
+      "3803": 2,
+      "7612": 11
+    },
+    "selected_tables_identical_to_frozen_input": true
+  },
+  "original_handoff_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "checks": "CRC; exact manifest and SHA256SUMS coverage; nested handoff and all 722 original members byte-identical; case table subsets; all 18 original map/PNG/sidecar identities, target/config/context/hash bindings; source photographs",
+  "limits": "No packaged code executed or attribution rerun. Source archive hashes are cross-checked declarations, not rehashed full archives. Three IDs remain B/E candidates; this is not their final acceptance or independent C reproduction."
+}
