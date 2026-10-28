@@ -1,12 +1,21 @@
 # D 的图表与结果交付入口
 
+## 10/28 新交付：重复测量主效应与方法×模型交互
+
+[正式阶段结果与复现](D_M5_REPEATED_MEASURES_20261028.md)：共同命中组（ImageNet332、VOC353），
+效应专属误差项、GG校正及Holm；附偏η²、直接差中差和两种原图bootstrap区间、全eval敏感性。
+[方法/模型曲线](../analysis/dcu_20261028/method_model_profiles.png)与
+[双中心化交互图](../analysis/dcu_20261028/method_model_interaction.png)已生成并目视检查。
+41项相关测试通过；完整数据集因子/混合三因素分析及最终合稿/展示验收仍未完成。
+
 ## 10/27 新交付
 
 [D 当前交付与剩余事项](D_M5_HANDOFF_20261027.md)：新分析/案例包验收、18 组真实案例已收齐、
 [B 例外复算确认及 A 指南复核](D_M5_STATISTICAL_CONFIRMATION_20261027.md)、
 [KernelSHAP 说明与答辩材料](D_KERNELSHAP_METHODS_AND_DEFENSE.md)、
 [任务书要求映射与因子分析方案](D_M5_REQUIREMENTS_PLAN_20261027.md)。
-主效应/交互的正式结果及三因素要求收口仍待完成；下面按日期保留既有统计与历史记录。
+这是10/27当时的交付；主效应/交互的10/28阶段结果见上方，完整三因素要求仍待收口。
+下面按日期保留既有统计与历史记录。
 
 更新日期：2026-10-16。请在 `feat/kernelshap-analysis` 分支查看；未合并 main。
 
