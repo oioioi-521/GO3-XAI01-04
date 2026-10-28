@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "title": "E M5 provisional formal-eval cases with verified six-method map previews",
+  "title": "E M5 selected formal-eval display cases with verified six-method map previews",
   "source_handoff_zip": {
     "filename": "dcu_team_handoff_20261014.zip",
     "sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
@@ -26,9 +26,9 @@
       "checkpoint_sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f",
       "input_image": "assets/cases/215/image.jpg",
       "input_image_sha256": "32af7c30fe57417b18695b4b61cf7a88c2a22253350ae1944bf580f884d3760b",
-      "selection_label": "典型中心样本",
-      "selection_rule": "按六方法四项指标名次最接近该单元中位画像；置信度高，代表性候选。",
-      "status": "provisional_case_candidate_pending_B_review_map_files_verified",
+      "selection_label": "中位名次画像代表",
+      "selection_rule": "六方法四项逐图指标的名次画像与 model-correct cohort 中位画像 L1 距离为 0；并列按高置信度、再按较小 image_id。",
+      "status": "selected_display_case_pending_independent_reproduction_map_files_verified",
       "methods": [
         {
           "method": "ig",
@@ -38,7 +38,7 @@
           "efficiency_time_ms": 126.77252385765314,
           "map_png": "assets/cases/215/maps/ig.png",
           "map_sha256": "91c129b468a1557335d33aa0cbfe74f4e69e57775b2a8aea494b2bdc962b5527",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/ig-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "e0cd0eae4fe2b28148c4f4e7da6a4c5fe32fb7a031c0d5fe8ff1b80f24803647",
@@ -76,7 +76,7 @@
           "efficiency_time_ms": 24.414814077317715,
           "map_png": "assets/cases/215/maps/gradcam.png",
           "map_sha256": "56f9fb5bb5d0072f00485a81248a04e4c90be6f83f340f099c03db9cf9024ded",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/gradcam-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "0592448f2b8b10213fcf71a11d6fe608a1339c4aad663a0b93e37fb00c1bd830",
@@ -114,7 +114,7 @@
           "efficiency_time_ms": 148.37864320725205,
           "map_png": "assets/cases/215/maps/occlusion.png",
           "map_sha256": "83eeca55476254ab257547a49d2459bb5c7a42c1d55b15bc6d280fc9fd4fbc46",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/occlusion-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "b190a8631a2cd2709a414dcba45da9e7b110de8866009c95251cc56ff5836dde",
@@ -152,7 +152,7 @@
           "efficiency_time_ms": 2179.3161891400814,
           "map_png": "assets/cases/215/maps/rise.png",
           "map_sha256": "83a2d6e6f0b2e1e660138c5c0872df1716879b0123dbeadb1f1cc35c897bf26b",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/rise-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "4e3e656c45517090ff821ce5d9736e2332f74624ebcda3b295c87c4e0806bee1",
@@ -190,7 +190,7 @@
           "efficiency_time_ms": 2166.162136942148,
           "map_png": "assets/cases/215/maps/kernelshap.png",
           "map_sha256": "52cebc5ce45ff025cee965cb0f0574065eeb100aaabbd016943cd22dbd739325",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/kernelshap-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "c9fe20a43cccb0a9dd85ffd96ece8a3cbaf31d71ab41ff6cfc60c656f53c2488",
@@ -228,7 +228,7 @@
           "efficiency_time_ms": 4212.613765150309,
           "map_png": "assets/cases/215/maps/lime.png",
           "map_sha256": "cf21ef209907f40fdc1cfe2711b7bda62a902ddda11a3aa1df6ce4a5bad381bd",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/lime/lime-resnet50-voc__00/unit.yaml",
             "unit_yaml_sha256": "583381ea095194111c5d118dfd3411bf910cbe678810ecebf0ed3b693dc3744b",
@@ -276,9 +276,9 @@
       "checkpoint_sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f",
       "input_image": "assets/cases/3803/image.jpg",
       "input_image_sha256": "2923d14cbd8037d2a8a4ded1e1256a7c7dc952e62543775e78403ba1aeada32c",
-      "selection_label": "质量-稳定性名次分歧最大",
-      "selection_rule": "在 VOC/ResNet50 命中组中，质量与噪声稳定性方法名次差异最大。",
-      "status": "provisional_case_candidate_pending_B_review_map_files_verified",
+      "selection_label": "质量与稳定性名次取舍",
+      "selection_rule": "raw MoRF AUC 与输入噪声 Spearman 的方法名次差平方和为 70，与 image_id 4675 并列；按较小 image_id 选中 3803。",
+      "status": "selected_display_case_pending_independent_reproduction_map_files_verified",
       "methods": [
         {
           "method": "ig",
@@ -288,7 +288,7 @@
           "efficiency_time_ms": 123.56242630630732,
           "map_png": "assets/cases/3803/maps/ig.png",
           "map_sha256": "eeb6fc02392aae2e4cd5278785c6215de1aa8805203120583e3e44c427b8cb89",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/ig-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "e0cd0eae4fe2b28148c4f4e7da6a4c5fe32fb7a031c0d5fe8ff1b80f24803647",
@@ -326,7 +326,7 @@
           "efficiency_time_ms": 24.692055769264694,
           "map_png": "assets/cases/3803/maps/gradcam.png",
           "map_sha256": "1884db31f150763aa24ae3f10e30250eab95313e723e0ef204bf4d66ad8ba7ee",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/gradcam-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "0592448f2b8b10213fcf71a11d6fe608a1339c4aad663a0b93e37fb00c1bd830",
@@ -364,7 +364,7 @@
           "efficiency_time_ms": 147.54348807036877,
           "map_png": "assets/cases/3803/maps/occlusion.png",
           "map_sha256": "9f46c65cc6c6d3f7896835d4992d91b5aa70c6ecfbb43218e0990dac6f38ac58",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/occlusion-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "b190a8631a2cd2709a414dcba45da9e7b110de8866009c95251cc56ff5836dde",
@@ -402,7 +402,7 @@
           "efficiency_time_ms": 2180.392795242369,
           "map_png": "assets/cases/3803/maps/rise.png",
           "map_sha256": "40576de7782476f461403d558df19494d416baedca1b4cd10a00e3c67eec188c",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/rise-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "4e3e656c45517090ff821ce5d9736e2332f74624ebcda3b295c87c4e0806bee1",
@@ -440,7 +440,7 @@
           "efficiency_time_ms": 2169.7792261838918,
           "map_png": "assets/cases/3803/maps/kernelshap.png",
           "map_sha256": "b2229acae3feb52d7d2068062b05035fdbb4c6bee0acb5b077ac13b3ec715625",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/kernelshap-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "c9fe20a43cccb0a9dd85ffd96ece8a3cbaf31d71ab41ff6cfc60c656f53c2488",
@@ -478,7 +478,7 @@
           "efficiency_time_ms": 4236.379064619541,
           "map_png": "assets/cases/3803/maps/lime.png",
           "map_sha256": "62bfe74e065ea8659e41a3069bb0b70792577d127da116f31f7fe41737774bc0",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/lime/lime-resnet50-voc__03/unit.yaml",
             "unit_yaml_sha256": "d35046fc76c8e76155451d1397fffe5a552f432944b0cfef20d7ba7a550865e2",
@@ -526,9 +526,9 @@
       "checkpoint_sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f",
       "input_image": "assets/cases/7612/image.jpg",
       "input_image_sha256": "6503b248d1f211c97c49c3b5f39ff0821bc891c4d28d68d892aa1d04a203ad76",
-      "selection_label": "正确组低置信样本",
-      "selection_rule": "VOC/ResNet50 正确样本中预测置信度最低；用于展示困难样本。",
-      "status": "provisional_case_candidate_pending_B_review_map_files_verified",
+      "selection_label": "低置信但命中真值",
+      "selection_rule": "387 张命中样本中置信度最低（0.539305）；预测仍命中真值类别，不是误分类。",
+      "status": "selected_display_case_pending_independent_reproduction_map_files_verified",
       "methods": [
         {
           "method": "ig",
@@ -538,7 +538,7 @@
           "efficiency_time_ms": 125.95949973911048,
           "map_png": "assets/cases/7612/maps/ig.png",
           "map_sha256": "102057f7585dfee1674c1b06a130be77e4c185c3b511a81c063c1f926acb5c38",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/ig-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "e0cd0eae4fe2b28148c4f4e7da6a4c5fe32fb7a031c0d5fe8ff1b80f24803647",
@@ -576,7 +576,7 @@
           "efficiency_time_ms": 23.960131220519543,
           "map_png": "assets/cases/7612/maps/gradcam.png",
           "map_sha256": "e6f100834a2f8031712ce08758a279ce1f6d887afcb356fc49686daf4affe71d",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/gradcam-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "0592448f2b8b10213fcf71a11d6fe608a1339c4aad663a0b93e37fb00c1bd830",
@@ -614,7 +614,7 @@
           "efficiency_time_ms": 148.57868384569883,
           "map_png": "assets/cases/7612/maps/occlusion.png",
           "map_sha256": "ed9a96af20831d5d030d53e5f27b48be1619237a3570ba348a48295bea614f1b",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/occlusion-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "b190a8631a2cd2709a414dcba45da9e7b110de8866009c95251cc56ff5836dde",
@@ -652,7 +652,7 @@
           "efficiency_time_ms": 2179.1279083117843,
           "map_png": "assets/cases/7612/maps/rise.png",
           "map_sha256": "34bc8817d37f0af2f9bb66cfb86b2f245f1631717a23a338b8de443cef12a745",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/rise-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "4e3e656c45517090ff821ce5d9736e2332f74624ebcda3b295c87c4e0806bee1",
@@ -690,7 +690,7 @@
           "efficiency_time_ms": 2192.702855914831,
           "map_png": "assets/cases/7612/maps/kernelshap.png",
           "map_sha256": "d4bd2f92e71aa81cd90121519e6a74979f3f152682d8e5ce70275654537069bd",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/five/kernelshap-resnet50-voc/unit.yaml",
             "unit_yaml_sha256": "c9fe20a43cccb0a9dd85ffd96ece8a3cbaf31d71ab41ff6cfc60c656f53c2488",
@@ -728,7 +728,7 @@
           "efficiency_time_ms": 4197.124890983105,
           "map_png": "assets/cases/7612/maps/lime.png",
           "map_sha256": "e960726a9d05c3220ec7f3e630efa8691adf4a57208df51b64e1cf47eaaa3f6c",
-          "map_status": "official_preview_hash_verified_case_selection_pending_B_review",
+          "map_status": "official_preview_hash_verified_selected_display_example",
           "config": {
             "unit_yaml": "team-handoff-20261014/configs/lime/lime-resnet50-voc__07/unit.yaml",
             "unit_yaml_sha256": "1bcc545e24d40e645dcc14df7f81a49e7fcb4f5ba8662d5f2f32e4eaf01a28aa",
@@ -763,9 +763,9 @@
     }
   ],
   "limitations": [
-    "Candidate selection is provisional and has not been reviewed with B.",
-    "The handoff ZIP contains aggregate/per-image metric CSVs and configs but no formal NPY/PNG attribution maps.",
-    "No map hash is asserted; map entries are explicitly marked awaiting official map archive.",
+    "E selected 215, 3803 and 7612 using reproducible, outcome-dependent rules; selection was not preregistered. Cross-member acknowledgement and independent Demo reproduction remain pending.",
+    "The primary handoff ZIP contains metrics and configs; formal attribution previews and NPY hashes come from the separately hashed case package below.",
+    "Formal PNG, NPY and provenance hashes are recorded per map and checked against the case package index.",
     "VOC target is one metadata label; this is not VOC mAP or a multi-label exact-match metric."
   ],
   "source_map_package": {
@@ -798,7 +798,7 @@
     },
     "display_note": "PNG files are the archive-provided 224x224 grayscale previews. Quantitative maps remain float32 NPY; previews are not used for metric calculations."
   },
-  "case_selection_status": "Candidate IDs only; B has not finalized the case selection.",
+  "case_selection_status": "E selected display cases 215, 3803 and 7612 using reproducible rules; not preregistered. Independent Demo reproduction and Issue #22 synchronization remain pending.",
   "map_display_policy": {
     "preview": "Original archive-provided 224x224 grayscale PNG export, copied byte-for-byte.",
     "quantitative_source": "float32 NPY; NPY is not copied into this lightweight Demo.",

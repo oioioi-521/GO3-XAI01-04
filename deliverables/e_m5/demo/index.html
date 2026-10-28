@@ -14,17 +14,17 @@ footer{margin-top:18px;border-top:1px solid var(--line);padding:13px 0 0;display
 @media(max-width:980px){header{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.source-image{max-height:320px}.map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.provenance{margin-left:0}}@media(max-width:560px){.map-grid{grid-template-columns:1fr}.controls{width:100%}select{flex:1}.casebar{align-items:flex-start}}
 </style></head>
 <body>
-<header><div><h1>六方法归因对照</h1><div class="sub">M5 固定 Demo · 18 张正式 PNG 预览已核验；候选选图待 B 复核</div></div><div class="controls"><label for="caseSelect" class="sub">案例</label><select id="caseSelect"><option>加载中…</option></select><span id="status" class="status">正在读取清单</span></div></header>
+<header><div><h1>六方法归因对照</h1><div class="sub">M5 固定 Demo · 展示案例 215 / 3803 / 7612 已按规则选定；18 张正式 PNG 预览已核验</div></div><div class="controls"><label for="caseSelect" class="sub">案例</label><select id="caseSelect"><option>加载中…</option></select><span id="status" class="status">正在读取清单</span></div></header>
 <main><section class="casebar"><div id="caseTitle" class="case-title">读取案例清单…</div><span id="target" class="pill"></span><span id="cohort" class="pill"></span><div id="provenance" class="provenance"></div></section>
 <div class="layout"><section class="source-card"><h2>输入图像与目标</h2><div class="source-image-frame"><img id="sourceImage" class="source-image" alt="VOC eval 输入图像"><div id="sourceMissing" class="placeholder">本机原图资源未找到<br><span class="warn">按 README 从 VOC 数据包恢复后显示</span></div></div><div class="source-meta"><div class="meta"><small>模型 / split</small><b id="modelSplit">—</b></div><div class="meta"><small>目标类预测置信度</small><b id="confidence">—</b></div><div class="meta"><small>checkpoint SHA-256</small><b id="checkpoint">—</b></div><div class="meta"><small>原图 SHA-256</small><b id="imageHash">—</b></div></div><div class="note">案例按正式 handoff 的 image_id、metadata target、checkpoint 与逐图指标绑定。VOC 在本项目中按单目标 sigmoid 预测评估，不代表 VOC mAP。</div></section>
-<section><div id="mapGrid" class="map-grid"></div><div class="note warn">展示正式归档 224×224 灰度 PNG 预览；原始 float32 NPY 未放入轻量 Demo。PNG 用于案例展示，定量计算使用 NPY，不以预览灰度作跨方法绝对值比较。案例选择仍待 B 复核。</div></section></div>
+<section><div id="mapGrid" class="map-grid"></div><div class="note warn">展示正式归档 224×224 灰度 PNG 预览；原始 float32 NPY 未放入轻量 Demo。PNG 用于案例展示，定量计算使用 NPY，不以预览灰度作跨方法绝对值比较。三例按结果规则事后选取，并非实验前预注册；7612 是低置信度但预测命中的样本。</div></section></div>
 <footer><span>raw MoRF AUC ↓ 越低越好；Gaussian RGB noise Spearman ↑ 越高表示本协议下越稳定。</span><span>PNG preview only · raw NPY hashes and provenance recorded in cases.json</span></footer></main>
 <script>
 const methods=[['ig','IG'],['gradcam','Grad-CAM'],['occlusion','Occlusion'],['rise','RISE'],['kernelshap','KernelSHAP'],['lime','LIME-8000']];
 const $=id=>document.getElementById(id);let cases=[];
 function metric(v,n=3){return Number.isFinite(Number(v))?Number(v).toFixed(n):'—'}
 function renderCase(c){
- $('caseTitle').textContent=`VOC eval · image ${c.image_id}`;$('target').textContent=`真值 target：${c.target_class_name} (${c.target_class_id})`;$('cohort').textContent='ResNet50 · model-correct';$('provenance').textContent=`置信度 ${metric(c.confidence,4)} · provisional case`;
+ $('caseTitle').textContent=`VOC eval · image ${c.image_id}`;$('target').textContent=`真值 target：${c.target_class_name} (${c.target_class_id})`;$('cohort').textContent='ResNet50 · model-correct';$('provenance').textContent=`${c.selection_label} · 置信度 ${metric(c.confidence,4)}`;
  $('modelSplit').textContent=`${c.model} / ${c.split}`;$('confidence').textContent=metric(c.confidence,4);$('checkpoint').textContent=c.checkpoint_sha256;$('imageHash').textContent=c.input_image_sha256;
  const source=$('sourceImage'),sourceMissing=$('sourceMissing');source.onerror=()=>{source.alt='本地原图缺失';source.style.display='none';sourceMissing.style.display='block'};source.onload=()=>{source.style.display='block';sourceMissing.style.display='none'};source.src=c.input_image;
  let loaded=0;const grid=$('mapGrid');grid.innerHTML='';
