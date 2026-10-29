@@ -1,0 +1,147 @@
+{
+  "pr": "https://github.com/oioioi-521/GO3-XAI01-04/pull/26",
+  "reviewed_head": "755edca74c88ca74ce6384baa75f31bc396f7ad3",
+  "scope": "D local static/content/source review; not independent-device rehearsal or teacher/final acceptance",
+  "pptx_sha256": "32cce5a3c2536f73fd186d6ae737d8b72ca0b0dbec0a4719acfde840f332b1a6",
+  "pdf_sha256": "6ca9402cec7e1227fae601480447a8c55abbd956d74a93c236608eed3446c40e",
+  "pptx_slides": 12,
+  "case_zip_sha256": "a46fa18f447e104fc707451de4a03e8b2c2eb56679c15a675f6cc5aaacde9eb3",
+  "handoff_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "byte_identical_pngs": 18,
+  "byte_identical_sidecars": 18,
+  "float32_npy_hashes_and_arrays_verified": 18,
+  "frozen_metric_values_matched": 72,
+  "config_protocol_stability_bindings_checked": 54,
+  "source_images_hash_verified": 3,
+  "old_D_profile_image_byte_identical": true,
+  "source_images_restored_only_under_ignored_snapshot": true,
+  "records": [
+    {
+      "image_id": "215",
+      "method": "ig",
+      "png_sha256": "20afbb394c1e93b64135a28dcce9615b98df0697020ab98f6bbb9676c930f823",
+      "npy_sha256": "91c129b468a1557335d33aa0cbfe74f4e69e57775b2a8aea494b2bdc962b5527",
+      "sidecar_sha256": "ae42ac39ab01add728fd4c6551c525fa2bcc46a056fa3b2c486d8348c88983b6"
+    },
+    {
+      "image_id": "215",
+      "method": "gradcam",
+      "png_sha256": "a74467edc833113060094a638195b304521bba28a205b25daefe6d8c266e6274",
+      "npy_sha256": "56f9fb5bb5d0072f00485a81248a04e4c90be6f83f340f099c03db9cf9024ded",
+      "sidecar_sha256": "97ddcb3813b31f1d08760db336b156ec28ded639d8ad1ec30c6f59fa18d7ee8a"
+    },
+    {
+      "image_id": "215",
+      "method": "occlusion",
+      "png_sha256": "299768c94752a008241492e042e14856d07758bb5dc7b9257eb1da56672f9c1c",
+      "npy_sha256": "83eeca55476254ab257547a49d2459bb5c7a42c1d55b15bc6d280fc9fd4fbc46",
+      "sidecar_sha256": "9f7485698444769049108929c55d9ea8b654afdc618eadf5d5c45561fe3aff26"
+    },
+    {
+      "image_id": "215",
+      "method": "rise",
+      "png_sha256": "b874a64e1a8475c8088d7b6e048aac8779c06044c69df1652d3e81094ec13f77",
+      "npy_sha256": "83a2d6e6f0b2e1e660138c5c0872df1716879b0123dbeadb1f1cc35c897bf26b",
+      "sidecar_sha256": "1fadc4c324e35b678a1443116786baa5142fb4ca4aff125764852f789fe79a11"
+    },
+    {
+      "image_id": "215",
+      "method": "kernelshap",
+      "png_sha256": "3161f305ad4f4d51003bc895557911129a5b06faf0ecf5616a5663c6519a864c",
+      "npy_sha256": "52cebc5ce45ff025cee965cb0f0574065eeb100aaabbd016943cd22dbd739325",
+      "sidecar_sha256": "f445d31461033eb272b194c96e3dc5f38dfd1983c9511bc01b8281f1b24506ca"
+    },
+    {
+      "image_id": "215",
+      "method": "lime",
+      "png_sha256": "4102085d8ed86ef6318ddfa109b5911be3da9b865f2afda2c3e06fca97ff6d5d",
+      "npy_sha256": "cf21ef209907f40fdc1cfe2711b7bda62a902ddda11a3aa1df6ce4a5bad381bd",
+      "sidecar_sha256": "5ba1d4a3daec5fbc5d858f068b7d5c89205f3752c13e38aba33f8f35d2c08fb9"
+    },
+    {
+      "image_id": "3803",
+      "method": "ig",
+      "png_sha256": "ca86d9a679af6c011306396d0c12811bde91b7154ce9c68935867c833ed3bdaa",
+      "npy_sha256": "eeb6fc02392aae2e4cd5278785c6215de1aa8805203120583e3e44c427b8cb89",
+      "sidecar_sha256": "e0d11f2bb9fb61819a7aa6302bb641d53541f8b81ef9f8ed0310dafae09dfaaf"
+    },
+    {
+      "image_id": "3803",
+      "method": "gradcam",
+      "png_sha256": "34ef40151a0f3677443fea6014b0c4af9f5b018b70b7e48cc77670d8371a06e3",
+      "npy_sha256": "1884db31f150763aa24ae3f10e30250eab95313e723e0ef204bf4d66ad8ba7ee",
+      "sidecar_sha256": "8714d4548ba0e00e05b364f49fd8137228fc1253f44be798b4e74203e6ca398d"
+    },
+    {
+      "image_id": "3803",
+      "method": "occlusion",
+      "png_sha256": "e2cd62b70208896b4f847359971b10612f6313fc3ae6cea4f1efaee389bf1ade",
+      "npy_sha256": "9f46c65cc6c6d3f7896835d4992d91b5aa70c6ecfbb43218e0990dac6f38ac58",
+      "sidecar_sha256": "0f7b2f93acab61b1132c89e5508c1ed5ca5ebabf47a75e9cbbfe6fe0688efda8"
+    },
+    {
+      "image_id": "3803",
+      "method": "rise",
+      "png_sha256": "d9bdefdd586af07e50bae173f41aa62ea00f05e20dabef63d110d36f40a2e5ce",
+      "npy_sha256": "40576de7782476f461403d558df19494d416baedca1b4cd10a00e3c67eec188c",
+      "sidecar_sha256": "5e8b14722a133bdb9d576113d75e9581070f8468699c09a0840a170afa5ec8e8"
+    },
+    {
+      "image_id": "3803",
+      "method": "kernelshap",
+      "png_sha256": "14714c896f9aa85ed9ddde7e1b9e16aa6e264be0dfb196f7ae85397655de919b",
+      "npy_sha256": "b2229acae3feb52d7d2068062b05035fdbb4c6bee0acb5b077ac13b3ec715625",
+      "sidecar_sha256": "586224befdba2f1ee7bdcc0cf60a70f2aeb70ccc3d0f9dd4014343863a4eda0a"
+    },
+    {
+      "image_id": "3803",
+      "method": "lime",
+      "png_sha256": "4d396fa261c117b960f4dc4a3ab260a2842494e281e5e16452ed264db6c118ad",
+      "npy_sha256": "62bfe74e065ea8659e41a3069bb0b70792577d127da116f31f7fe41737774bc0",
+      "sidecar_sha256": "4fdeb84bfb8746503e286dc72d1c4bd37078ca614a997ce653343e3f81a88138"
+    },
+    {
+      "image_id": "7612",
+      "method": "ig",
+      "png_sha256": "7955bb97e5a800ad5c9f73dc4abbc2a8396ae8698f66edabba09edc4cc2b2990",
+      "npy_sha256": "102057f7585dfee1674c1b06a130be77e4c185c3b511a81c063c1f926acb5c38",
+      "sidecar_sha256": "7b7db8312c62ccbf06c7a7fa8ffb2c6ce50432b84ffab3ae732386aa9fee36db"
+    },
+    {
+      "image_id": "7612",
+      "method": "gradcam",
+      "png_sha256": "e472163e6fce31341a69db4917deba765fe2f906ab18231e29eb1f50ec9ae46d",
+      "npy_sha256": "e6f100834a2f8031712ce08758a279ce1f6d887afcb356fc49686daf4affe71d",
+      "sidecar_sha256": "93dcb011423e3ad81f0c5ae9822357a82353830d8ded3511fdd63317c11043c3"
+    },
+    {
+      "image_id": "7612",
+      "method": "occlusion",
+      "png_sha256": "45e6b5a253e7e773eb7e7adbc9193b81a480eb173fd9a4b90540feaab520c30b",
+      "npy_sha256": "ed9a96af20831d5d030d53e5f27b48be1619237a3570ba348a48295bea614f1b",
+      "sidecar_sha256": "8a37dd274f62e18f7112305b03658af6aa2d858cd788118451a2e0f4a86ac23f"
+    },
+    {
+      "image_id": "7612",
+      "method": "rise",
+      "png_sha256": "b43dbd3807384d71b6e077a29812628226387d523fbb66eded8cb0e0e0d3912c",
+      "npy_sha256": "34bc8817d37f0af2f9bb66cfb86b2f245f1631717a23a338b8de443cef12a745",
+      "sidecar_sha256": "ed6c3c8280986737d5caa763713fb2b812e74a30727373a7414874bfc1ab052a"
+    },
+    {
+      "image_id": "7612",
+      "method": "kernelshap",
+      "png_sha256": "365b8c80c7d5c40ecbf34ae1a59faa7454e09258a753e2689cb3e417c1fc74b6",
+      "npy_sha256": "d4bd2f92e71aa81cd90121519e6a74979f3f152682d8e5ce70275654537069bd",
+      "sidecar_sha256": "c04c92d995563017db6d2e249e00644f4ec4cd4cce687ba13626d2b1290c8886"
+    },
+    {
+      "image_id": "7612",
+      "method": "lime",
+      "png_sha256": "4a5ef64a5e45d72a7700a45375faa55b008251b5227e07d083f407f05d293a84",
+      "npy_sha256": "e960726a9d05c3220ec7f3e630efa8691adf4a57208df51b64e1cf47eaaa3f6c",
+      "sidecar_sha256": "3bcd362f02764c61625eac5444e95267e272b3cd3e0f6d5a1b7156d5537e3593"
+    }
+  ],
+  "review_code_sha256": "9d771ba9966df7f6e6a33665f53473fcf5f1f981bfda1f9203a6d77eae97b45f"
+}

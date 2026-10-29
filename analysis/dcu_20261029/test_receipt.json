@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-29",
+  "exit_code": 0,
+  "result": "...............................................                          [100%]\n47 passed in 6.58s",
+  "arguments": [
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_dcu_mixed_factorial.py",
+    "tests/test_dcu_repeated_measures.py",
+    "tests/test_dcu_statistics.py",
+    "tests/test_validate_dcu_delivery.py",
+    "tests/test_package_dcu_cases.py",
+    "--basetemp=results/.pytest_mixed_final2_20261029",
+    "--tb=short"
+  ],
+  "log_sha256": "938f561e5f56f3eb8186f8fd846ba0e708a49066e734ff71d1c499ed890f56bd",
+  "test_file_sha256": {
+    "tests/test_dcu_mixed_factorial.py": "8d3bd17678a5cf5649b9673ef48145ce863f691a7b0a8a8cbb4d2877b34eb750",
+    "tests/test_dcu_repeated_measures.py": "65fb676941f7e8be7d14a1d703bfb0423d5ae44579d12bbb8bad5446881caeb5",
+    "tests/test_dcu_statistics.py": "f79c0b571ca93973f771f7068ddd60b83c96c9e0574d8a5764295077723b5c71",
+    "tests/test_validate_dcu_delivery.py": "6317e0e2bc97b86c2607718693ee119c54f4742e691e4f46e69c921ed24e05fc",
+    "tests/test_package_dcu_cases.py": "4aa7ee592a8e89b4b79bccd9cbdef8483604de6056ec3deac6c87944418d7e48"
+  },
+  "scope": "47 related CPU statistics/delivery tests; not full GPU suite or teacher acceptance"
+}
