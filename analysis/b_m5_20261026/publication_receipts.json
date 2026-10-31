@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "repository": "oioioi-521/GO3-XAI01-04",
+  "author": "YaoYang-123456",
+  "authorization": "Explicit user authorization for three Issue comments and one COMMENT review",
+  "delivery_commit": "1e71afde70b4ed1222d891646abea90b74ccc376",
+  "reviewed_pr24_head": "507981464a770ee92dc43b00567f9b42f81071f4",
+  "prepublication_duplicate_check": "Issue #19/#21/#22 and PR #24/#25 comments/reviews empty; no same handoff or member reply found",
+  "publications": [
+    {
+      "target": 19,
+      "kind": "issue_comment",
+      "id": 6417574200,
+      "url": "https://github.com/oioioi-521/GO3-XAI01-04/issues/19#issuecomment-6417574200",
+      "published_at_utc": "2026-10-26T13:46:26Z",
+      "published_at_client": "2026-10-26T09:46:26-04:00",
+      "author": "YaoYang-123456",
+      "state": null,
+      "commit_id": null,
+      "body_sha256": "9b7d52b63f7427b6d7b1095bd95e22342625357b788c46a7c0dbb2d817d9eec8",
+      "reused_existing": false
+    },
+    {
+      "target": 22,
+      "kind": "issue_comment",
+      "id": 6417575729,
+      "url": "https://github.com/oioioi-521/GO3-XAI01-04/issues/22#issuecomment-6417575729",
+      "published_at_utc": "2026-10-26T13:46:29Z",
+      "published_at_client": "2026-10-26T09:46:29-04:00",
+      "author": "YaoYang-123456",
+      "state": null,
+      "commit_id": null,
+      "body_sha256": "6aac1882121e0172eb3e5db0e74435d82978807efb9a46ac47ca0c305389fae8",
+      "reused_existing": false
+    },
+    {
+      "target": 21,
+      "kind": "issue_comment",
+      "id": 6417577319,
+      "url": "https://github.com/oioioi-521/GO3-XAI01-04/issues/21#issuecomment-6417577319",
+      "published_at_utc": "2026-10-26T13:46:33Z",
+      "published_at_client": "2026-10-26T09:46:33-04:00",
+      "author": "YaoYang-123456",
+      "state": null,
+      "commit_id": null,
+      "body_sha256": "bed83687f707c0f67ce28ec6aef95d554d667441d64932b482a313de50692016",
+      "reused_existing": false
+    },
+    {
+      "target": 24,
+      "kind": "comment_review",
+      "id": 5652946501,
+      "url": "https://github.com/oioioi-521/GO3-XAI01-04/pull/24#pullrequestreview-5652946501",
+      "published_at_utc": "2026-10-26T13:46:39Z",
+      "published_at_client": "2026-10-26T09:46:39-04:00",
+      "author": "YaoYang-123456",
+      "state": "COMMENTED",
+      "commit_id": "507981464a770ee92dc43b00567f9b42f81071f4",
+      "body_sha256": "ad7d29bfee46ce0cd84f3c87486388548fc780483580d8eefada12845d0b6b03",
+      "reused_existing": false
+    }
+  ],
+  "all_four_read_back_verified": true,
+  "new_experiments": false,
+  "issues_closed": false,
+  "merged": false,
+  "pr25_draft": true
+}
