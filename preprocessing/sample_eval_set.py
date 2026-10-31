@@ -33,22 +33,26 @@ def sample_dataset(dataset, labels_path, target_eval):
     """按类别分层划分 eval/debug。target_eval 为 None 时评估集取全部剩余。"""
     df = pd.read_csv(labels_path)
     # debug 集:每类按比例抽,共 DEBUG_PER_DATASET 张
-    debug = (
-        df.groupby("class_id", group_keys=False)
-        .apply(lambda g: g.sample(n=min(len(g), max(1, int(round(len(g) / len(df) * DEBUG_PER_DATASET)))),
-                                  random_state=SEED), include_groups=False)
-        .sample(n=min(DEBUG_PER_DATASET, len(df)), random_state=SEED)
-    )
+    # Avoid groupby.apply(include_groups=False): it drops class_id from the
+    # returned rows in pandas 2.x and previously produced 80 unusable debug
+    # records with an empty target label.
+    debug_candidates = pd.concat([
+        group.sample(
+            n=min(len(group), max(1, int(round(len(group) / len(df) * DEBUG_PER_DATASET)))),
+            random_state=SEED,
+        )
+        for _, group in df.groupby("class_id", sort=True)
+    ])
+    debug = debug_candidates.sample(n=min(DEBUG_PER_DATASET, len(df)), random_state=SEED)
     debug_ids = set(debug["image_id"])
     rest = df[~df["image_id"].isin(debug_ids)]
     if target_eval is not None:
         # 每类最多取 target_eval // 类别数 + 1,总量控制在 target_eval 附近
         per_class = max(1, target_eval // df["class_id"].nunique())
-        eval_df = (
-            rest.groupby("class_id", group_keys=False)
-            .apply(lambda g: g.sample(n=min(len(g), per_class), random_state=SEED),
-                   include_groups=False)
-        )
+        eval_df = pd.concat([
+            group.sample(n=min(len(group), per_class), random_state=SEED)
+            for _, group in rest.groupby("class_id", sort=True)
+        ])
     else:
         eval_df = rest
     debug = debug.copy()
@@ -75,6 +79,9 @@ def main():
         print(f"{dataset}: 评估 {sum(frames[-1]['split']=='eval')} + debug {sum(frames[-1]['split']=='debug')}")
 
     meta = pd.concat(frames, ignore_index=True)
+    # Keep the historical CSV representation (e.g. 23.0) stable so fixing
+    # debug labels does not rewrite every otherwise unchanged eval row.
+    meta["class_id"] = meta["class_id"].astype(float)
     meta.to_csv(OUT_CSV, index=False)
     print(f"\n输出 -> data/metadata.csv,共 {len(meta)} 行")
     if skipped:

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-31",
+  "actor": "A / hycx233",
+  "base_commit": "507981464a770ee92dc43b00567f9b42f81071f4",
+  "tests": ["tests/test_data_version.py", "tests/test_reproduce_analysis.py"],
+  "result": "6 passed in 0.02s",
+  "scope": "Frozen tracked data bytes and final reproduction gate regression; figure tests use explicit fixtures, not a new full statistical reproduction.",
+  "cases": [
+    "Tracked files match the frozen DATA_VERSION manifest",
+    "CSV and JSON keep declared LF checkout attributes",
+    "CRLF byte changes and value changes fail strict identity",
+    "Table comparison detects changed values and missing rows",
+    "Four identical figure files allow passed with other checks satisfied",
+    "Four existing figures with one byte mismatch produce differences_require_review and exit 1"
+  ],
+  "full_statistics_recomputed": false,
+  "gpu_experiments_run": false,
+  "c_independent_new_statistics_acceptance": false
+}

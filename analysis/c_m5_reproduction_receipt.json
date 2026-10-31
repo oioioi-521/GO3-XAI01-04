@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "code_commit": "6574ecd56bee10e0fa1212343ffd745ca93a46a8",
+  "working_tree": "",
+  "python": "3.12.14",
+  "dependencies": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.15.3",
+    "PyYAML": "6.0.3",
+    "matplotlib": "3.10.7",
+    "pytest": "8.4.2"
+  },
+  "torch_installed": false,
+  "tables": {
+    "summaries": {
+      "rows": 432,
+      "exact_match": true
+    },
+    "method_omnibus": {
+      "rows": 54,
+      "exact_match": true
+    },
+    "method_pairs": {
+      "rows": 810,
+      "exact_match": true
+    },
+    "pareto": {
+      "rows": 108,
+      "exact_match": true
+    },
+    "correlations": {
+      "rows": 324,
+      "exact_match": true
+    },
+    "model_omnibus": {
+      "rows": 36,
+      "exact_match": true
+    },
+    "model_pairs": {
+      "rows": 108,
+      "exact_match": true
+    }
+  },
+  "protocol_exact_match": true,
+  "text_exact_match_after_eol_normalization": {
+    "report": true,
+    "paired_quality_tables": true
+  },
+  "source_hash_matches_published": {
+    "analysis_code_sha256": true,
+    "validator_code_sha256": true
+  },
+  "validation_exact_match": true,
+  "validation": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "commands": [
+    [
+      "python",
+      "-m",
+      "analysis.dcu_statistics",
+      "<handoff.zip>",
+      "--output",
+      "<output-dir>\\statistics.json"
+    ],
+    [
+      "python",
+      "-m",
+      "analysis.plot_dcu_statistics",
+      "--input",
+      "<output-dir>\\statistics.json",
+      "--output-dir",
+      "<output-dir>\\figures"
+    ],
+    [
+      "python",
+      "-m",
+      "analysis.report_dcu_statistics",
+      "--input",
+      "<output-dir>\\statistics.json",
+      "--report",
+      "<output-dir>\\statistical_report.md"
+    ]
+  ],
+  "artifacts": {
+    "statistics.json": "8dbd251d1c9cb8dd248309aaa6782e5ead9c8ec0f9c026b3fe4a40f43e775fcf",
+    "statistical_report.md": "4bf082be82690ed630ffe9073803864f31ea2d2ce8521a96cd553c8839d20b58",
+    "paired_quality_tables.md": "9f1cd163daa0279861831749dd5036a0b08871872cb1769243bac6b99ebbe190",
+    "figures\\faithfulness_stability_correlation.png": "988d2840e3d50da348ce25aff8d5576c5097f11e5591e4373fa68435829dd4d6",
+    "figures\\paired_quality_effects.png": "cac7f8803e9fb37481b735d2404fee9ca8b5dd57a072ab86c06664448c3bd02c",
+    "figures\\quality_pareto.png": "c7cd64b04883485cd10bfa95eb64a19266d09e51a347957187b5e92fe650b661",
+    "figures\\six_method_means.png": "acc72b5b520da07ce877c2e6d82c1e81dc63793beab56b0a3e9a52985a523379"
+  },
+  "figure_byte_matches_published": {
+    "faithfulness_stability_correlation.png": true,
+    "paired_quality_effects.png": true,
+    "quality_pareto.png": true,
+    "six_method_means.png": true
+  },
+  "scope": "Independent table analysis and figure regeneration; no archive code execution, GPU attribution, or unsaved noise-map replication."
+}

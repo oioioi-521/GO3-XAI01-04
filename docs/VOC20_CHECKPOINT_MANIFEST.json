@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "task_type": "multilabel",
+  "output_activation": "sigmoid",
+  "checkpoint_binary_tracked_by_git": false,
+  "training_commit": "f791d1e8a346b66d21c807caabeb1a293cce84b3",
+  "classes": [
+    "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow",
+    "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
+  ],
+  "shared_data": {
+    "train_manifest": {"path": "data/voc20_multilabel_train.csv", "sha256": "bd85e486dd49088a258a9af646133bc49d1eec600c09e571b94e0ba0c242bdb3"},
+    "validation_manifest": {"path": "data/voc20_multilabel_validation.csv", "sha256": "3312ee9c30d44d6145424a86edec4891e639b5997ddf0ff6a18c5ba427165f47"},
+    "frozen_exclusions": {"path": "data/voc20_multilabel_frozen_exclusions.txt", "sha256": "e1fd56c2101a1f1240dca631cf5ace0de7e5647cf83d72be99e314fe52fcbdfa"},
+    "version": {"path": "data/VOC20_MULTILABEL_VERSION.json", "sha256": "8ccad56335351bee0470028afc5bd42ec10662b961fe80152e76060c858f73c9"}
+  },
+  "checkpoints": [
+    {
+      "model": "resnet50",
+      "path": "models/checkpoints/resnet50_voc20.pt",
+      "bytes": 94518331,
+      "sha256": "1e54867cf18ed02383ba329c944a9143871fc37fe268bec6e769a8d364ae134f",
+      "config": {"path": "configs/train_voc20_resnet50.yaml", "sha256": "eac7bb166359f56841b452ca6a3488b553ee9b58372aea4a756231dc1285e31a"},
+      "best_epoch": 30,
+      "metrics": {"mAP": 0.7727036824179845, "macro_f1": 0.6033162703039231, "micro_f1": 0.6185155626496409, "threshold": 0.5}
+    },
+    {
+      "model": "densenet121",
+      "path": "models/checkpoints/densenet121_voc20.pt",
+      "bytes": 28512970,
+      "sha256": "ab61772eaf3459842f4b1e34be9ec15062e02a940d521390d80df0371168feca",
+      "config": {"path": "configs/train_voc20_densenet121.yaml", "sha256": "2329dca5439cb2457292a1ade20775f775ef49a1028477900134bb6e798800c4"},
+      "best_epoch": 29,
+      "metrics": {"mAP": 0.7882749025280846, "macro_f1": 0.6204774049545086, "micro_f1": 0.6372507424692405, "threshold": 0.5}
+    },
+    {
+      "model": "vgg16",
+      "path": "models/checkpoints/vgg16_voc20.pt",
+      "bytes": 537383181,
+      "sha256": "61640717641bfc1e9ae5d6172de667ce45755e6f046f458c848f70cb4a6c9d58",
+      "config": {"path": "configs/train_voc20_vgg16.yaml", "sha256": "dc8b51de0fb52fe85221623ea975af70eed079296cf9b65d25d600efa1129dad"},
+      "best_epoch": 24,
+      "metrics": {"mAP": 0.8181587022429143, "macro_f1": 0.7378451527057879, "micro_f1": 0.7551229508196722, "threshold": 0.5}
+    }
+  ]
+}

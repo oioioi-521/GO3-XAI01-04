@@ -1,0 +1,12 @@
+seed: 42
+model: {name: densenet121}
+data: {train_manifest: data/voc20_multilabel_train.csv, validation_manifest: data/voc20_multilabel_validation.csv}
+runtime: {batch_size: 24}
+optimizer: {lr: 0.0001}
+early_stopping: {patience: 6, min_delta: 0.0}
+metrics: {threshold: 0.5}
+epochs: 30
+output:
+  checkpoint: models/checkpoints/densenet121_voc20.pt
+  last_checkpoint: models/checkpoints/resume/densenet121_voc20.last.pt
+  record: results/training/densenet121_voc20.json

@@ -1,0 +1,32 @@
+# CPU pilot extension: same Occlusion parameters as the one-image pilot, with
+# five frozen debug images. This is not the formal 40-image debug experiment.
+method: occlusion
+dataset:
+  name: imagenet
+  split: debug
+model:
+  name: resnet50
+  weights: default
+  num_classes: 1000
+  checkpoint: null
+attribution:
+  window_height: 32
+  window_width: 32
+  stride_height: 16
+  stride_width: 16
+  perturbations_per_eval: 16
+metrics:
+  names: [efficiency_time_ms, faithfulness_morf_auc]
+  deletion_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+runtime:
+  device: cpu
+  seed: 42
+  max_images: 5
+  resume: true
+output:
+  per_image_csv: results/occlusion_imagenet_debug_5/per_image.csv
+  units_csv: results/occlusion_imagenet_debug_5/units.csv
+  config_dir: results/occlusion_imagenet_debug_5/configs
+  run_log: results/occlusion_imagenet_debug_5/run_log.jsonl
+  maps_dir: results/occlusion_imagenet_debug_5/maps
+  save_maps: true
