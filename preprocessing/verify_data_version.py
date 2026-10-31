@@ -11,16 +11,9 @@ DATA_ROOT = PROJECT_ROOT / "data"
 
 
 def sha256(path: Path) -> str:
-    """Hash tracked text as Git's declared LF form, independent of checkout EOL.
-
-    Windows may retain CRLF for unchanged tracked files after switching from a
-    branch predating ``data/*.csv text eol=lf``. This does not change their
-    parsed contents or the canonical Git blob recorded by DATA_VERSION.json.
-    """
+    """Check frozen file bytes; checkout EOL changes must remain detectable."""
     digest = hashlib.sha256()
     content = path.read_bytes()
-    if path.suffix.lower() in {".csv", ".json"}:
-        content = content.replace(b"\r\n", b"\n")
     digest.update(content)
     return digest.hexdigest()
 

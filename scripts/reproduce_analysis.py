@@ -77,11 +77,14 @@ def main() -> None:
     figures = sorted((output / "figures").glob("*.png"))
     source_checks = {key: actual[key] == published[key]
                      for key in ("analysis_code_sha256", "validator_code_sha256")}
+    figure_checks = {
+        p.name: sha256(p) == sha256(published_path.parent / p.name) for p in figures}
     passed = (all(row["exact_match"] for row in comparison.values())
               and actual["protocol"] == published["protocol"]
               and actual["receipt"] == published["receipt"]
               and all(source_checks.values())
-              and all(text_checks.values()) and len(figures) == 4)
+              and all(text_checks.values()) and len(figures) == 4
+              and all(figure_checks.values()))
     receipt = {
         "status": "passed" if passed else "differences_require_review",
         "input_sha256": EXPECTED_ZIP,
@@ -103,8 +106,7 @@ def main() -> None:
                      for c in commands],
         "artifacts": {str(p.relative_to(output)): sha256(p) for p in
                       [statistics, report, output / "paired_quality_tables.md", *figures]},
-        "figure_byte_matches_published": {
-            p.name: sha256(p) == sha256(published_path.parent / p.name) for p in figures},
+        "figure_byte_matches_published": figure_checks,
         "scope": "Independent table analysis and figure regeneration; no archive code execution, GPU attribution, or unsaved noise-map replication.",
     }
     (output / "receipt.json").write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + "\n",
