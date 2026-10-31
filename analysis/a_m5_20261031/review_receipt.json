@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-31",
+  "actor": "A / hycx233",
+  "source_commit": "272ca25fccb30cc1511bbd3684f2c99397e66e93",
+  "taskbook_sha256": "6928c42a069bfc20dcc08ad3bc0b10281501f47cb94b6522f1e52efae064fb0f",
+  "taskbook_pages": [
+    9,
+    63,
+    64,
+    65
+  ],
+  "taskbook_visual_pages": [
+    64
+  ],
+  "mixed_factorial_audit": {
+    "status": "passed",
+    "factorial_rows_independently_recomputed": 42,
+    "observed_dataset_cell_differences_checked": 108,
+    "full_rank_group_covariances_checked": 84,
+    "input_receipt_identical": true,
+    "raw_observations_modified": false,
+    "algorithm": "independent simple-difference QR basis, group-dummy least squares, raw covariance WTS; separate Holm reconstruction",
+    "checks": "SS_H/error/F/GG epsilon/GG dfs/partial eta squared/nominal p/observed WTS/plus-one bootstrap arithmetic/108 means/CI order/source SHA",
+    "limits": "Does not independently repeat every bootstrap draw or validate substantive dataset comparability; not C/teacher acceptance.",
+    "input": {
+      "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+      "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+      "manifest_files_checked": 720,
+      "checksum_entries_checked": 721,
+      "rows": {
+        "per_image": 66240,
+        "units": 144,
+        "trace": 82800,
+        "model_correct": 55608,
+        "common_correct": 49320
+      },
+      "units": 36,
+      "paired_seed_entries": 4600,
+      "invalid_trace_count": 28,
+      "config_snapshots_checked": 90,
+      "semantic_protocol_hash": "1197d166f84b",
+      "invalid_by_method": {
+        "gradcam": 28
+      },
+      "cohort_counts": [
+        {
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "eval_images": "460",
+          "model_correct": "371",
+          "common_correct": "332"
+        },
+        {
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "eval_images": "460",
+          "model_correct": "408",
+          "common_correct": "332"
+        },
+        {
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "eval_images": "460",
+          "model_correct": "363",
+          "common_correct": "332"
+        },
+        {
+          "dataset": "voc",
+          "model": "densenet121",
+          "eval_images": "460",
+          "model_correct": "388",
+          "common_correct": "353"
+        },
+        {
+          "dataset": "voc",
+          "model": "resnet50",
+          "eval_images": "460",
+          "model_correct": "387",
+          "common_correct": "353"
+        },
+        {
+          "dataset": "voc",
+          "model": "vgg16",
+          "eval_images": "460",
+          "model_correct": "400",
+          "common_correct": "353"
+        }
+      ],
+      "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+      "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+    },
+    "result_sha256": "f3e7bb51aef4753c94b0794ba612f416f6a9496e745886915246f74e93036dd5",
+    "verification_code_sha256": "a04cbb7e9741da6e90c1bf39380e7428d9eff962726aa234c22c6f5db43ab7fc"
+  },
+  "statistical_tests": {
+    "date": "2026-10-31",
+    "actor": "A",
+    "arguments": [
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_dcu_mixed_factorial.py",
+      "tests/test_dcu_repeated_measures.py",
+      "--basetemp",
+      "/home/hycx233/Courses/machine-learning/output/a-m5-update-20261031/pytest",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "result": "................                                                         [100%]\n16 passed in 1.20s\n",
+    "log_sha256": "e049a7128afe2f6737d0c8bedb2b2b0fec47f249c5db8879d8eb49b6998cc910"
+  },
+  "e_v6": {
+    ".pdf": {
+      "git_path": "deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261029_v6.pdf",
+      "sha256": "6ca9402cec7e1227fae601480447a8c55abbd956d74a93c236608eed3446c40e"
+    },
+    ".pptx": {
+      "git_path": "deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261029_v6.pptx",
+      "sha256": "32cce5a3c2536f73fd186d6ae737d8b72ca0b0dbec0a4719acfde840f332b1a6"
+    },
+    "slide_count": 12,
+    "stage_figure_in_ppt": true
+  },
+  "table_numeric_cells_checked": 54,
+  "direct_did_values_checked": 6,
+  "all_eval_sensitivity_p_values_checked": 2,
+  "three_objective_front_flags_checked": 36,
+  "frozen_results_unchanged": true,
+  "pr_fixes": [
+    {
+      "name": "b_pr25",
+      "parent": "6113368d67134c13c21731a5c58deb1461db9bff",
+      "head": "f224484ea1edab646ee31a1fcaa51c1dac3bef7f",
+      "branch": "docs/b-m5-review-20261026",
+      "paths": [
+        "docs/B_M5_CASE_ANALYSIS.md"
+      ],
+      "signature": "G"
+    },
+    {
+      "name": "c_pr24",
+      "parent": "507981464a770ee92dc43b00567f9b42f81071f4",
+      "head": "eb275ed535a1ba660608a9606fd3847f83460405",
+      "branch": "integrate/m5-delivery-20261026",
+      "paths": [
+        "preprocessing/verify_data_version.py",
+        "scripts/reproduce_analysis.py",
+        "tests/test_data_version.py",
+        "tests/test_reproduce_analysis.py",
+        "docs/C_M5_DELIVERY.md",
+        "analysis/a_pr24_gate_review_20261031.json"
+      ],
+      "signature": "G"
+    }
+  ],
+  "scope": "A executed observations audit and 16 selected statistics tests; no full bootstrap regeneration, GPU/MoRF/noise maps, C full reproduction, or independent-device demo.",
+  "document_links": {
+    "local_occurrences": 49,
+    "fixed_git_occurrences": 7,
+    "all_valid": true
+  },
+  "artifact_sha256": {
+    "analysis/dcu_20261028/repeated_measures.json": "38558dfceb0b07153923cdbade022889202dd1317a14a489cc26018b5ce5dc67",
+    "analysis/dcu_20261029/mixed_factorial.json": "f3e7bb51aef4753c94b0794ba612f416f6a9496e745886915246f74e93036dd5",
+    "analysis/plot_final_pareto_3d.py": "17c662c089b444e58328dacf792753f126befa52db4667b638bd33c966aaa7b6",
+    "analysis/a_m5_20261031/recorded_time_pareto_3d.png": "0675d82bbebb43d93d8d245d478e7e0b3a100d5196ba0b09ab8f019beeebb6fd",
+    "docs/FINAL_REPORT_DRAFT.md": "c1d50d0397318478f8d5f4d93f147d784e040fbd0920cf248c091913569646ee",
+    "docs/FINAL_REPORT_HANDOFF.md": "27a6d396a480efb346ab48a8a1e048ab5d301f00a4aa7a08b0c1e474b96452e9",
+    "docs/A_M5_REVIEW_20261031.md": "f2d8160965bb3c04b35e8e55a00f46e2ed0074af9433952ab0e4f8f8841892a3"
+  }
+}
