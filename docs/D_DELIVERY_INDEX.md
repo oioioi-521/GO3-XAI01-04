@@ -1,12 +1,31 @@
 # D 的图表与结果交付入口
 
+## 10/29 新交付：混合三因素实际统计与E v6复核
+
+[D当前交付与剩余工作](D_M5_CLOSEOUT_20261029.md)；
+[数据集×方法×模型正式结果](D_M5_MIXED_FACTORIAL_20261029.md)现已计算全部七项因子效应，
+共42行、108个单元差/双口径CI；名义GG-ANOVA与异方差bootstrap WTS分别校正。
+附[观察任务评分差图](../analysis/dcu_20261029/observed_task_differences.png)、独立算法复算及47项相关测试。
+[E的12页v6及18组案例来源复核](D_TO_E_M5_REVIEW_20261029.md)已完成D范围检查。
+尚待A/教师接受统计口径、C独立复现、A/E合稿冻结和独立设备Demo/彩排；无需新GPU实验。
+下面10/28及更早条目按日期保留，其“完整三因素未完成”是当时状态。
+
+## 10/28 阶段交付：重复测量主效应与方法×模型交互
+
+[正式阶段结果与复现](D_M5_REPEATED_MEASURES_20261028.md)：共同命中组（ImageNet332、VOC353），
+效应专属误差项、GG校正及Holm；附偏η²、直接差中差和两种原图bootstrap区间、全eval敏感性。
+[方法/模型曲线](../analysis/dcu_20261028/method_model_profiles.png)与
+[双中心化交互图](../analysis/dcu_20261028/method_model_interaction.png)已生成并目视检查。
+当时41项相关测试通过；数据集因子已由上方10/29混合设计补齐，最终合稿/展示验收仍待确认。
+
 ## 10/27 新交付
 
 [D 当前交付与剩余事项](D_M5_HANDOFF_20261027.md)：新分析/案例包验收、18 组真实案例已收齐、
 [B 例外复算确认及 A 指南复核](D_M5_STATISTICAL_CONFIRMATION_20261027.md)、
 [KernelSHAP 说明与答辩材料](D_KERNELSHAP_METHODS_AND_DEFENSE.md)、
 [任务书要求映射与因子分析方案](D_M5_REQUIREMENTS_PLAN_20261027.md)。
-主效应/交互的正式结果及三因素要求收口仍待完成；下面按日期保留既有统计与历史记录。
+这是10/27当时的交付；10/28阶段及10/29混合设计结果见上方，计算与最终验收分开记录。
+下面按日期保留既有统计与历史记录。
 
 更新日期：2026-10-16。请在 `feat/kernelshap-analysis` 分支查看；未合并 main。
 

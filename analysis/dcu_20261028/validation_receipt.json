@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "related_tests_passed": 41,
+  "independent_raw_marginal_ss_error_checks": 24,
+  "all_360_did_means_checked": true,
+  "cell_mean_checks_against_prior_summaries": 144,
+  "max_prior_mean_difference": 0.0,
+  "local_links_checked": 52,
+  "figures_visually_inspected": 2,
+  "source_code_sha256": "e34efabb57b538f7c54bf71a1048bf108ce0f2dfd6e2afb5a944a440673b71de",
+  "figure_sha256": {
+    "method_model_interaction.png": "b4ebf860a151be90642b79a41ee8a31bbdee2f66214ab32448bbd348915b9a0c",
+    "method_model_profiles.png": "565841f341b460018be5d163676833d37a132693934d2b27389c6ca6cc5b14c2"
+  },
+  "limits": "Code/reference and synthetic diagnostics plus raw-CSV arithmetic checks; not C independent reproduction, final course acceptance, or complete three-factor analysis."
+}

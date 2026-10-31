@@ -1,2 +1,8 @@
 data/*.csv text eol=lf
 data/*.json text eol=lf
+# Keep new audited source/output byte hashes stable across Windows/Linux clones.
+analysis/*mixed_factorial.py text eol=lf
+analysis/review_e_m5_snapshot.py text eol=lf
+tests/test_dcu_mixed_factorial.py text eol=lf
+analysis/dcu_20261029/*.json text eol=lf
+analysis/dcu_20261029/*.md text eol=lf
