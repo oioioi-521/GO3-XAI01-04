@@ -9,3 +9,5 @@ analysis/dcu_20261029/*.md text eol=lf
 analysis/review_a_v3_statistics.py text eol=lf
 analysis/dcu_20261101/*.json text eol=lf
 analysis/dcu_20261101/*.patch text eol=lf
+analysis/review_final_display_20261102.py text eol=lf
+analysis/dcu_20261102/*.json text eol=lf
