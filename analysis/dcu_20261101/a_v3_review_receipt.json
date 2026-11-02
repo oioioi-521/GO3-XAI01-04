@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-01",
+  "actor": "D",
+  "reviewed_A_head": "7e2821e2050a9cb3171f4a9587d210e670b2dba2",
+  "D_source": "272ca25fccb30cc1511bbd3684f2c99397e66e93",
+  "status": "numeric_and_source_checks_passed",
+  "stage_table_rows": 4,
+  "stage_numeric_cells": 12,
+  "mixed_table_rows": 7,
+  "mixed_numeric_cells": 42,
+  "direct_did_numeric_cells": 6,
+  "method_choice_numeric_checks": {
+    "IG_lowest_auc_in_five_of_six": true,
+    "RISE_highest_stability_in_six": true,
+    "GradCAM_lowest_recorded_time_in_six": true,
+    "quality_front_sizes_2_to_4": true,
+    "LIME_quality_front_only_ImageNet_ResNet50": true,
+    "IG_GradCAM_faithfulness_morf_auc_raw": true,
+    "IG_GradCAM_stability_spearman": true
+  },
+  "pareto_table_sets_checked": 12,
+  "three_objective_flags_checked": 36,
+  "raw_model_correct_means_checked": 108,
+  "subject_counts_checked": 36,
+  "log10_display_dominance_preserved": true,
+  "negative_controls": [
+    "altered_mixed_eta_rejected",
+    "altered_front_flag_rejected"
+  ],
+  "panels": [
+    {
+      "dataset": "imagenet",
+      "model": "resnet50",
+      "n": 408,
+      "quality": [
+        "ig",
+        "gradcam",
+        "rise",
+        "lime"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "rise",
+        "lime"
+      ]
+    },
+    {
+      "dataset": "imagenet",
+      "model": "densenet121",
+      "n": 371,
+      "quality": [
+        "rise",
+        "kernelshap"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "rise",
+        "kernelshap"
+      ]
+    },
+    {
+      "dataset": "imagenet",
+      "model": "vgg16",
+      "n": 363,
+      "quality": [
+        "ig",
+        "rise",
+        "kernelshap"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "occlusion",
+        "rise",
+        "kernelshap"
+      ]
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "n": 387,
+      "quality": [
+        "ig",
+        "gradcam",
+        "rise",
+        "kernelshap"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "rise",
+        "kernelshap"
+      ]
+    },
+    {
+      "dataset": "voc",
+      "model": "densenet121",
+      "n": 388,
+      "quality": [
+        "ig",
+        "rise",
+        "kernelshap"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "rise",
+        "kernelshap"
+      ]
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "n": 400,
+      "quality": [
+        "ig",
+        "rise",
+        "kernelshap"
+      ],
+      "recorded_three_objective": [
+        "ig",
+        "gradcam",
+        "occlusion",
+        "rise",
+        "kernelshap"
+      ]
+    }
+  ],
+  "report_sha256": "c1d50d0397318478f8d5f4d93f147d784e040fbd0920cf248c091913569646ee",
+  "plot_code_sha256": "17c662c089b444e58328dacf792753f126befa52db4667b638bd33c966aaa7b6",
+  "published_plot_sha256": "0675d82bbebb43d93d8d245d478e7e0b3a100d5196ba0b09ab8f019beeebb6fd",
+  "frozen_handoff_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "review_code_sha256": "d6d0668f5cf68b41f477066d65f62db0eef496370bd0c50c8c784984f71ad4da",
+  "limits": "D report/source/numeric audit; visual findings recorded separately. No full bootstrap/GPU rerun, no C/teacher acceptance or actual rehearsal."
+}
