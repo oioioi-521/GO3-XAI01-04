@@ -17,6 +17,7 @@ def render(data, output):
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
     from matplotlib.ticker import MaxNLocator
+    from matplotlib.transforms import Bbox
 
     fig = plt.figure(figsize=(18, 11))
     for i, dataset in enumerate(DATASETS):
@@ -60,7 +61,17 @@ def render(data, output):
     fig.subplots_adjust(left=.015, right=.94, bottom=.12, top=.86, wspace=.16, hspace=.20)
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output, dpi=170, bbox_inches="tight", metadata={"Software": "A final report; frozen DCU means"})
+    # Axes3D tight bounds can omit projected axis-title extents. Measure them
+    # at the export DPI so every title is included in the saved image.
+    fig.set_dpi(170)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    bounds = [fig.get_tightbbox(renderer)]
+    for ax in fig.axes:
+        for label in (ax.xaxis.label, ax.yaxis.label, ax.zaxis.label):
+            bounds.append(label.get_window_extent(renderer).transformed(fig.dpi_scale_trans.inverted()))
+    export_box = Bbox.union(bounds).padded(.10)
+    fig.savefig(output, dpi=170, bbox_inches=export_box, metadata={"Software": "A final report; frozen DCU means"})
     plt.close(fig)
 
 
