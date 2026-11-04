@@ -1,0 +1,195 @@
+{
+  "check_date": "2026-11-04",
+  "reviewer": "B / YaoYang-123456",
+  "report_head": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+  "ppt_head": "d00553f9ca7fc41208e24296619c1406a339d8da",
+  "b_reference": "f224484ea1edab646ee31a1fcaa51c1dac3bef7f",
+  "analysis_head": "7f9db4fd972a21fbd22ff724deedfe671cc995d8",
+  "report_case_values_checked": 48,
+  "e_csv_metric_values_checked": 72,
+  "demo_json_metric_values_checked": 72,
+  "ppt_slide11_metric_values_checked": 18,
+  "ppt_sha_prefixes_checked": 12,
+  "frozen_executed_source_hashes_checked": 15,
+  "frozen_source_material": "Previously saved inert extraction; 15 original SHA identities match; original ZIP not rehashed this round",
+  "saved_factor_effects_checked": 28,
+  "pdf_pages_visually_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "ppt_body_and_notes_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "slide11_media": [
+    {
+      "method": "ig",
+      "ppt_member": "ppt/media/image7.png",
+      "sha256": "20afbb394c1e93b64135a28dcce9615b98df0697020ab98f6bbb9676c930f823"
+    },
+    {
+      "method": "gradcam",
+      "ppt_member": "ppt/media/image8.png",
+      "sha256": "a74467edc833113060094a638195b304521bba28a205b25daefe6d8c266e6274"
+    },
+    {
+      "method": "occlusion",
+      "ppt_member": "ppt/media/image9.png",
+      "sha256": "299768c94752a008241492e042e14856d07758bb5dc7b9257eb1da56672f9c1c"
+    },
+    {
+      "method": "rise",
+      "ppt_member": "ppt/media/image10.png",
+      "sha256": "b874a64e1a8475c8088d7b6e048aac8779c06044c69df1652d3e81094ec13f77"
+    },
+    {
+      "method": "kernelshap",
+      "ppt_member": "ppt/media/image11.png",
+      "sha256": "3161f305ad4f4d51003bc895557911129a5b06faf0ecf5616a5663c6519a864c"
+    },
+    {
+      "method": "lime",
+      "ppt_member": "ppt/media/image12.png",
+      "sha256": "4102085d8ed86ef6318ddfa109b5911be3da9b865f2afda2c3e06fca97ff6d5d"
+    }
+  ],
+  "new_experiments": false,
+  "full_statistics_or_case_selection_rerun": false,
+  "npys_rechecked_this_round": false,
+  "schema": 1,
+  "conclusion": "report_B_scope_and_visible_ppt_compatible_but_four_notes_corrections_required",
+  "source_artifacts": [
+    {
+      "commit": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+      "path": "docs/A_M5_REVIEW_20261027.md",
+      "sha256": "4efaa4903af09ec394ada1677ae559e3e3eb0533f7dee8c2035b38d63421fbe4",
+      "bytes": 4517
+    },
+    {
+      "commit": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+      "path": "docs/A_M5_REVIEW_20261102.md",
+      "sha256": "debdf5403dba09e9d8be5efb88f0b1ea517270e9a63566587ec7080245131d0f",
+      "bytes": 4092
+    },
+    {
+      "commit": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+      "path": "docs/FINAL_REPORT_DRAFT.md",
+      "sha256": "8fb3dd819b2f370afb15b49ae2f52dfb633fcd408353d9e90a79b8a63f49c499",
+      "bytes": 41722
+    },
+    {
+      "commit": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+      "path": "docs/FINAL_REPORT_HANDOFF.md",
+      "sha256": "6b838111c4944ceb6e19bfd3a95ffe77716f8da4835dfb351679132b1ed689d1",
+      "bytes": 11197
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/case_candidates.csv",
+      "sha256": "9b4852f51c8c3b6dcb23860d93101615c888781374354eea53d4e2de31b950da",
+      "bytes": 12093
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/CASE_CANDIDATES.md",
+      "sha256": "82514a63a268e8cd89547da0e6f099c2440e1ef1957cdd0875f8416651680c0c",
+      "bytes": 3407
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/E_M5_DELIVERY_NOTE.md",
+      "sha256": "fb6361edf35558c54c1de7285fdce46528ac1ac568c92de1b2152cd126c16908",
+      "bytes": 5537
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261101_v7.pdf",
+      "sha256": "4c5993864e95cf7936e989dfab40867b67eb6e44eafe49a324e96a6e31db0af8",
+      "bytes": 4473244
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261101_v7.pptx",
+      "sha256": "ae017a7883ee8fc4baf1e53f280cb0d30fdefa1a373f2f4f4a51aa97e1e39ff9",
+      "bytes": 1859924
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/REPRODUCE_DEMO.md",
+      "sha256": "e13298fe66ca31d6c457d786ca99605d3928dde332e69ce17be2106a37d7e7a2",
+      "bytes": 3247
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/demo/cases.json",
+      "sha256": "6bb7db71152ddb4812c9331bcca57e596e29cff85458f1407567779688552686",
+      "bytes": 51589
+    },
+    {
+      "commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+      "path": "deliverables/e_m5/demo/README.md",
+      "sha256": "e361e1e4358790cc7cb250e0e653794b80f318203a8dadc88d0408ad56b35dd6",
+      "bytes": 2992
+    }
+  ],
+  "findings": [
+    {
+      "id": "N1",
+      "page": 1,
+      "member": "ppt/notesSlides/notesSlide1.xml",
+      "issue": "v7 still described as local and unpushed",
+      "owner": "E / PR #26"
+    },
+    {
+      "id": "N6",
+      "page": 6,
+      "member": "ppt/notesSlides/notesSlide6.xml",
+      "issue": "ImageNet panel incorrectly described as VOC source; visible figure is ImageNet",
+      "owner": "E / PR #26"
+    },
+    {
+      "id": "N11",
+      "page": 11,
+      "member": "ppt/notesSlides/notesSlide11.xml",
+      "issue": "Already selected cases still called candidates awaiting B selection review",
+      "owner": "E / PR #26"
+    },
+    {
+      "id": "N12",
+      "page": 12,
+      "member": "ppt/notesSlides/notesSlide12.xml",
+      "issue": "v7 still described as uncommitted/unpushed; same unresolved wording already reported by D on 11/2",
+      "owner": "E / PR #26"
+    }
+  ],
+  "inherited_collaboration": {
+    "A_NPY_verification": "A 2026-10-27; not reexecuted by B",
+    "D_IG_KS_confirmation": "7f147c35d8afc6424a06e47a8fd7d5fed3a406aa",
+    "E_case_confirmation": "https://github.com/oioioi-521/GO3-XAI01-04/issues/22#issuecomment-6464441650",
+    "C_gates_fix": "eb275ed535a1ba660608a9606fd3847f83460405; A six-regression receipt only read",
+    "D_v7_statistics_confirmation": "7f9db4fd972a21fbd22ff724deedfe671cc995d8; already delivered on 11/2"
+  },
+  "publication_scope": "One Issue #19 result comment authorized; no approval, merge, Issue closure, new experiment, Demo or rehearsal signoff",
+  "review_record_local_links_checked": 17,
+  "review_record_fixed_git_targets_checked": 9
+}

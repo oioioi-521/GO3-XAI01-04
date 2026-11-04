@@ -1,0 +1,21 @@
+{
+  "local_links_checked": 38,
+  "case_rows_checked": 24,
+  "occlusion_rows_checked": 6,
+  "repeat_byte_identity": {
+    "case_candidates.csv": true,
+    "selection_scores.csv": true,
+    "frozen_source_inventory.csv": true,
+    "ig_kernelshap_exception.csv": true
+  },
+  "secrets_scan": "passed",
+  "files": 17,
+  "b_program_sha256": "7f004181b6cd2b311da5344d487acd3f3632fe8e677fa1cd042a76507f8832cd",
+  "scoped_tests": {
+    "tests": "15",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.813"
+  }
+}
