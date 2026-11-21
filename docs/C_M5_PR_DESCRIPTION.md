@@ -1,26 +1,18 @@
-## 结果
+本 PR 将 A 报告 v4、B 案例与共同口径、D 最终统计及 11/20 收尾、E 展示 v7/固定 Demo 纳入同一候选，并提供 C 从冻结 DCU 包独立执行的三批统计复现证据。README 已更新报告、PPT/PDF、Demo 和新增统计入口。
 
-将固定分析基线 `29895378e930138e042fd29ad029d0f14e8b9186` 与 #14/#15/#16 的独有工具、测试及历史材料合入交付候选，保留三个 head 的祖先关系。README、当前分工与 C 交付索引已更新；独立 CPU 环境从冻结轻量 ZIP 重建七张统计表、四图和报告。
-
-Refs #20。PR 保持 Draft；main 发布、旧 PR 状态处理和成员签收待评审。
-
-## 整合范围
-
-- #14：Occlusion 门禁、稳定性执行/验收/打包及测试；#15：RISE 预算/批处理、测试和历史交接；#16：A 稳定性 runner、测试、结果及 checkpoint 说明。
-- 保留 DCU 配置、RISE 激活语义、D 统计与 LIME 门禁修复。191 个受保护基线文件按 Git blob 核验一致。README 与重复 LF 校验冲突逐项记录。
-- 新增 `scripts/reproduce_analysis.py` 和 `scripts/audit_m5_integration.py`，提供保留前次证据的复现入口与逐文件清单；Python 源码固定 LF。
+Refs #20。分支 `integrate/m5-delivery-20261026`，面向 `main`，保持 Draft。固定来源：A #23 `138b865e161d4808ab696864ce68b8daf5edafd5`、B #25 `73310e85614193e2e40d456a007ae16fc725fd8b`、D `468a686de1700e89456a9dcddeb4b2cf175afcf9`、E #26 `e2003bf78b8f15cbf65294580ad453d67d7da2e1`。A 的两处原字节/四图验收修复 `eb275ed` 已保留；#14/#15/#16 已关闭，其祖先关系保留。
 
 ## 验证
 
-- 全仓 262 passed，0 failed，0 skipped；原 D 盘 runner 环境使用独立补充依赖，未升级旧环境。
-- 独立 Python 3.12 CPU 环境 16 passed，无 torch，依赖兼容性检查通过。
-- 输入 SHA-256：`14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc`；36 单元、66,240 行指标、82,800 条 trace、90 配置通过验收。
-- 七张表共 1,872 条派生记录逐值一致；报告与附表规范化换行后全文一致；四图逐字节一致并完成目视检查。
-- LF 统计 JSON SHA-256：`6c098e27cc36e98c46172845ca5d5c5f7477cb0df29b23325dbe27d7ecbbe473`，与 D 发布一致。
-- 原始 ZIP、照片、权重、NPY 未入库；未重跑 GPU 归因或未归档噪声图。
+- C 从 SHA `14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc` 冻结包重算原七表1,872条记录，逐值一致，四图原字节一致。
+- 独立重算10/28、10/29共894条新增记录；保留10,000次CI抽样、9,999次WTS bootstrap，另做42项公式/108单元差核验。三图原字节一致，两篇报告及附表经换行规范化后全文一致。
+- 新 JSON 有浮点末位差异：使用明示容差，p值不用绝对容差，符号/零及离散字段严格一致；输入/协议/源码严格相同。状态 `passed_with_float_differences`，首次严格比较失败证据保留，不声称逐值完全相同。
+- 全仓299 passed，新增比较门禁10 passed；CPU相关子集53 passed，与全仓不重复相加。与10/26历史262项记录区分。
+- 191个原受保护blob中188个不变；3个报告文件按D最新来源更新；逐文件来源及祖先审计通过。
+- 三例原图、18 PNG、18来源侧车及72个冻结指标通过，41项本机HTTP检查通过。增加侧车LF规则解决Windows checkout原字节哈希变化，未改清单hash。
 
-## 审查入口与剩余事项
+当前证据见 [交付入口](docs/C_M5_DELIVERY.md)、[11/21复现说明](docs/C_M5_REPRODUCTION_20261121.md)、[本轮轻量回执目录](analysis/c_m5_20261121)。各来源原文与历史执行归属保留。原图、NPY、权重、ZIP、完整输出不入Git，没有重跑GPU归因。
 
-从 `docs/C_M5_DELIVERY.md` 开始；文件去向见 `docs/C_M5_INTEGRATION.md` 与 `analysis/m5_integration_20261026.json`；复现命令、环境和回执见 `docs/C_M5_REPRODUCTION.md`；C 的章节与答辩要点见 `docs/C_M5_REPORT_CONTRIBUTION.md`。
+## 待验收
 
-请 A/B/D 核对本人工具与历史材料的保留范围，E 核对 Demo 数据路径。最终报告、PPT、Demo 与 main 发布尚未完成。D 的统计收尾由 #21 继续，报告与展示由 #18/#22 继续；旧 PR 等待本候选评审确认后处理。
+B/E修订后备注确认、E→A/LIME问答、独立设备三例6/6地图/切换/来源展开/静态备用及全组实际计时。D最终统计和11/20备注确认已交。可用浏览器控制因启动错误1920未能启动，本轮只验本机资源/HTTP，不代签交互或异机演示；保持Draft，不合并main或关闭Issue。

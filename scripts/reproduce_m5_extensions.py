@@ -31,7 +31,7 @@ def compare_values(expected, actual):
     result = dict(exact_match=expected == actual, within_tolerance=True,
                   float_differences=0, max_absolute_difference=0.,
                   max_relative_difference=0., examples=[], failures=[])
-    p_fields = {"p_value", "p_holm", "sign_p_value", "sign_p_holm", "asymptotic_p"}
+    p_fields = {"p_value", "p_uncorrected", "p_holm", "sign_p_value", "sign_p_holm", "asymptotic_p"}
 
     def fail(path):
         result["within_tolerance"] = False

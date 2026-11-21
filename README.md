@@ -1,18 +1,20 @@
 # XAI01-04 归因方法模式发现
 
-《机器学习综合实践》五人项目：在固定预算下比较六种归因方法、三种模型和两种数据集，研究优势模式、三指标权衡和指标冲突。36/36 个 DCU 正式单元及 D 的首版配对统计已完成；当前处于 M4/M5 交付整合阶段。
+《机器学习综合实践》五人项目：在固定预算下比较六种归因方法、三种模型和两种数据集，研究优势模式、三指标权衡和指标冲突。2026-11-21：C 已整合 A 报告 v4、B 案例复核、D 最终统计及 11/20 收尾、E 展示 v7，并独立复现 10/15、10/28、10/29 三批统计；当前为待评审候选。
 
 ## 交付入口
 
 | 内容 | 入口 | 当前状态 |
 | --- | --- | --- |
-| C 的集成与复现 | [交付索引](docs/C_M5_DELIVERY.md)、[PR 整合清单](docs/C_M5_INTEGRATION.md)、[独立复现记录](docs/C_M5_REPRODUCTION.md) | 本分支交付候选，待组内评审 |
+| C 的集成与复现 | [交付索引](docs/C_M5_DELIVERY.md)、[整合清单](docs/C_M5_INTEGRATION.md)、[11/21 独立复现](docs/C_M5_REPRODUCTION_20261121.md) | 新增统计已复现，浮点末位差异完整披露 |
 | 统一数据与大归档 | [36 单元交接与获取要求](docs/DCU_TEAM_HANDOFF_20261014.md) | 组内受控交接，原始数据不进 Git |
-| 正式统计与四张图 | [D 交付索引](docs/D_DELIVERY_INDEX.md)、[统计报告](docs/DCU_STATISTICAL_ANALYSIS_20261015.md) | 固定 DCU 批次，保留共享机器计时边界 |
-| 报告与展示 | [给 A/E 的图表清单](docs/D_TO_E_HANDOFF_20261016.md)、[C 的章节与答辩要点](docs/C_M5_REPORT_CONTRIBUTION.md) | A 汇总报告，E 汇总 PPT / Demo，尚未冻结发布 |
+| 正式统计 | [原配对统计](docs/DCU_STATISTICAL_ANALYSIS_20261015.md)、[10/28 重复测量](docs/D_M5_REPEATED_MEASURES_20261028.md)、[10/29 混合设计](docs/D_M5_MIXED_FACTORIAL_20261029.md) | 冻结 DCU 输入；同任务比较与跨任务原始评分差分开解释 |
+| 报告 v4 | [报告正文](docs/FINAL_REPORT_DRAFT.md)、[A 交接](docs/FINAL_REPORT_HANDOFF.md)、[B 案例](docs/B_M5_CASE_ANALYSIS.md) | 已接入；历史待办以 C 当前索引校正 |
+| 展示 v7 | [PPTX](deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261101_v7.pptx)、[PDF](deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261101_v7.pdf) | 已含四页备注修订及 D 11/20 确认 |
+| 三例 Demo | [启动与来源](deliverables/e_m5/demo/README.md)、[独立演示步骤](deliverables/e_m5/REPRODUCE_DEMO.md)、[C 本机检查](analysis/c_m5_20261121/demo_receipt.json) | 本机资源/HTTP 已核对；异机浏览器演练待实测 |
 | 当前分工 | [TEAM_AND_ROADMAP](docs/TEAM_AND_ROADMAP.md) | #18–#22，另保留历史实验分工 |
 
-候选基于 `29895378e930138e042fd29ad029d0f14e8b9186`，吸收 #14/#15/#16 的固定 head，保留原提交祖先关系。分支为 `integrate/m5-delivery-20261026`；评审前不将其视为 main 发布版。
+候选分支为 `integrate/m5-delivery-20261026`，面向 main 的 [PR #24](https://github.com/oioioi-521/GO3-XAI01-04/pull/24) 保持 Draft。原整合起点 `2989537` 及 #14/#15/#16 的祖先关系保留；三个旧 PR 已关闭，当前来源固定版本见[整合清单](docs/C_M5_INTEGRATION.md)。异机 Demo、B/E 修订后确认、E→A 与全组实际计时仍需完成后评审发布。
 
 ## CPU 独立分析复现
 
@@ -22,6 +24,7 @@
 python -m venv .venv-analysis
 & ./.venv-analysis/Scripts/python.exe -m pip install -r requirements-analysis.txt
 & ./.venv-analysis/Scripts/python.exe scripts/reproduce_analysis.py --handoff 'D:/path/dcu_team_handoff_20261014.zip' --output-dir results/reproduction
+& ./.venv-analysis/Scripts/python.exe scripts/reproduce_m5_extensions.py --handoff 'D:/path/dcu_team_handoff_20261014.zip' --output-dir results/reproduction_extensions
 & ./.venv-analysis/Scripts/python.exe -m pytest -q tests/test_dcu_statistics.py tests/test_reproduce_analysis.py
 ```
 
@@ -35,6 +38,8 @@ SHA-256 14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc
 脚本先核对整包 SHA，再调用本仓库的校验/分析模块，重建七张统计表、四张 PNG、统计报告和配对表；不执行 ZIP 内源码。输出包含 `receipt.json`、三份步骤日志和产物哈希。输出目录必须位于本 checkout 的 `results/` 下且尚不存在；重复验收请换目录，保留前次证据。
 
 Python 源文件固定为 LF，确保 Windows 源码哈希与 D 已发布记录一致。结果与差异解释见[独立复现记录](docs/C_M5_REPRODUCTION.md)。CPU 统计复现、现成归因图展示和 GPU 重新归因分别验收。
+
+第二条复现命令以原发布预算重建 10/28、10/29 的 894 条派生记录、三张图、两篇报告及附表，并另做 42 项混合设计公式核验。图片须原字节一致，输入/源码/协议/离散字段严格相同；数值容差及首次失败证据见 [11/21 记录](docs/C_M5_REPRODUCTION_20261121.md)，通过状态明确为 `passed_with_float_differences`，不声称 JSON 逐值完全相同。
 
 ## 归因开发与测试
 
@@ -59,6 +64,6 @@ RISE 历史预算与批处理入口见 [RISE_FORMAL_HANDOFF](docs/RISE_FORMAL_HA
 
 ## 数据与文件约定
 
-冻结 metadata / 标签和小型派生统计入 Git；原始图片、checkpoint、逐图大表、NPY、ZIP 和完整输出通过组内受控渠道获取。归档名、大小和 SHA 见[交接说明](docs/DCU_TEAM_HANDOFF_20261014.md)，VOC 权重见 [manifest](docs/VOC20_CHECKPOINT_MANIFEST.json)。报告、PPT、Demo 与受控数据访问入口待评审后在交付索引更新。
+冻结 metadata / 标签和小型派生统计入 Git；原始图片、checkpoint、逐图大表、NPY、ZIP 和完整输出通过组内受控渠道获取。归档名、大小和 SHA 见[交接说明](docs/DCU_TEAM_HANDOFF_20261014.md)，VOC 权重见 [manifest](docs/VOC20_CHECKPOINT_MANIFEST.json)。Demo 原图留在忽略目录；其来源侧车固定 LF，并按原字节 SHA 验收。
 
 课程要求与早期技术方案见[小组工作指导](XAI01-04_小组工作指导.md)；课程 `project-pool.pdf` 另行提供。

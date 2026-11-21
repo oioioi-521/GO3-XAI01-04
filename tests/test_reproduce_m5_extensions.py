@@ -8,6 +8,7 @@ def test_roundoff_is_disclosed_and_accepted():
     assert not result["exact_match"]
     assert result["within_tolerance"]
     assert result["float_differences"] == 1
+    assert not compare_values({"p_uncorrected": 1e-145}, {"p_uncorrected": 1e-140})["within_tolerance"]
 
 
 @pytest.mark.parametrize("expected,actual", [
