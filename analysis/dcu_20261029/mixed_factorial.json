@@ -1,0 +1,4573 @@
+{
+  "cohorts": [
+    {
+      "cohort": "common_correct",
+      "dataset": "imagenet",
+      "n": 332,
+      "classes": 194,
+      "singleton_classes": 111,
+      "subject_key": "dataset + image_id"
+    },
+    {
+      "cohort": "common_correct",
+      "dataset": "voc",
+      "n": 353,
+      "classes": 18,
+      "singleton_classes": 1,
+      "subject_key": "dataset + image_id"
+    },
+    {
+      "cohort": "all",
+      "dataset": "imagenet",
+      "n": 460,
+      "classes": 259,
+      "singleton_classes": 144,
+      "subject_key": "dataset + image_id"
+    },
+    {
+      "cohort": "all",
+      "dataset": "voc",
+      "n": 460,
+      "classes": 19,
+      "singleton_classes": 0,
+      "subject_key": "dataset + image_id"
+    }
+  ],
+  "tests": [
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 322.8398896911608,
+        "ss_error": 124.07263063628733,
+        "df1": 1,
+        "df2": 683,
+        "F": 1777.1819903250575,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 683.0,
+        "p_value": 3.1210783169347143e-192,
+        "p_uncorrected": 3.1210783169347143e-192,
+        "partial_eta_squared": 0.7223782619798151,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 2.4968626535477714e-191,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1855.3344289236081,
+        "df": 1,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -1.3736702298312462
+      ],
+      "contrast_rms_per_cell": 0.3237771782092525
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "method",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 29.345486537311324,
+        "ss_error": 48.45595152972651,
+        "df1": 5,
+        "df2": 3415,
+        "F": 413.6327256454303,
+        "epsilon_gg": 0.6468069321095238,
+        "df1_gg": 3.2340346605476187,
+        "df2_gg": 2208.8456731540236,
+        "p_value": 3.555001788537643e-226,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.37718437173392216,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 3.555001788537643e-225,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1916.6820065697593,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          4.524860876077625,
+          11.424217551365764
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.1756663029073946,
+        -0.0828258452352692,
+        0.0025155513183160623,
+        0.06439417528262799,
+        0.03176033650119889
+      ],
+      "contrast_rms_per_cell": 0.048808257156348026
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_method",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 3.0543913123683,
+        "ss_error": 48.45595152972651,
+        "df1": 5,
+        "df2": 3415,
+        "F": 43.052487888257616,
+        "epsilon_gg": 0.6468069321095238,
+        "df1_gg": 3.2340346605476187,
+        "df2_gg": 2208.8456731540236,
+        "p_value": 7.129558074006051e-29,
+        "p_uncorrected": 3.6426940087340285e-43,
+        "partial_eta_squared": 0.05929666051207522,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 2.8518232296024203e-28,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 328.8681516587692,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 6.187218082179225e-69,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          4.524860876077625,
+          11.424217551365764
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.0675721514635306,
+        0.08211407961477987,
+        0.062420485767040824,
+        -0.043008136414677635,
+        0.02824722772345427
+      ],
+      "contrast_rms_per_cell": 0.03149306840817011
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 54.614434622416184,
+        "ss_error": 40.58232202201285,
+        "df1": 2,
+        "df2": 1366,
+        "F": 919.1602892233941,
+        "epsilon_gg": 0.8934314755948816,
+        "df1_gg": 1.7868629511897631,
+        "df2_gg": 1220.4273956626082,
+        "p_value": 5.554511104045949e-227,
+        "p_uncorrected": 1.2449953850231612e-253,
+        "partial_eta_squared": 0.5737005812751317,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 6.1099622144505436e-226,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1859.633980734825,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          2.583771345966205,
+          1.2945131302295763
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.14820532628773816,
+        0.24049799707494893
+      ],
+      "contrast_rms_per_cell": 0.06658499386211292
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 38.06254542491756,
+        "ss_error": 40.58232202201285,
+        "df1": 2,
+        "df2": 1366,
+        "F": 640.5921896513815,
+        "epsilon_gg": 0.8934314755948816,
+        "df1_gg": 1.7868629511897631,
+        "df2_gg": 1220.4273956626082,
+        "p_value": 2.348535422064235e-176,
+        "p_uncorrected": 5.63929608569524e-197,
+        "partial_eta_squared": 0.48398003150812324,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.6439747954449647e-175,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1058.5767050552051,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.3582795484775085e-230,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          2.583771345966205,
+          1.2945131302295763
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.10676222345466886,
+        -0.4594278577989354
+      ],
+      "contrast_rms_per_cell": 0.11117357022010009
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "method_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 19.095593060444507,
+        "ss_error": 54.38599359172058,
+        "df1": 10,
+        "df2": 6830,
+        "F": 239.80972303628346,
+        "epsilon_gg": 0.5093192711608018,
+        "df1_gg": 5.093192711608018,
+        "df2_gg": 3478.6506220282763,
+        "p_value": 4.518112550820514e-224,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.25986909007335474,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 4.066301295738463e-223,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1136.2933769017977,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 7.901726047626307e-238,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          30.263106098192637,
+          13.93525769297001
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.005428287082634981,
+        -0.05381292984800974,
+        -0.0036985065144229685,
+        -0.010395541809207105,
+        0.029957014363321308,
+        0.11254843571485476,
+        -0.10015323310971572,
+        -0.012214724918130186,
+        -0.03241484853930218,
+        -0.007797031317614304
+      ],
+      "contrast_rms_per_cell": 0.03937215793002007
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_method_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 2.812707437029994,
+        "ss_error": 54.38599359172058,
+        "df1": 10,
+        "df2": 6830,
+        "F": 35.323050157236445,
+        "epsilon_gg": 0.5093192711608018,
+        "df1_gg": 5.093192711608018,
+        "df2_gg": 3478.6506220282763,
+        "p_value": 5.866665578719513e-36,
+        "p_uncorrected": 5.572393384339887e-68,
+        "partial_eta_squared": 0.04917432365494112,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 2.9333327893597564e-35,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 244.84609987040318,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 6.57493855444843e-47,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          30.263106098192637,
+          13.93525769297001
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.029746073228380177,
+        -0.034951193782473355,
+        -0.006427797442446344,
+        -0.016731493025227168,
+        0.00950030176455929,
+        0.05005411377937098,
+        -0.08755250685734489,
+        -0.0544174837106067,
+        -0.02732327789700331,
+        0.006588648244823432
+      ],
+      "contrast_rms_per_cell": 0.030221423682481405
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "dataset",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 0.0767560799382404,
+        "ss_error": 21.77507559691891,
+        "df1": 1,
+        "df2": 683,
+        "F": 2.407541703562951,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 683.0,
+        "p_value": 0.1212150792410027,
+        "p_uncorrected": 0.1212150792410027,
+        "partial_eta_squared": 0.0035125696130787645,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 0.1212150792410027,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 2.406897557057426,
+        "df": 1,
+        "p_value": 0.1148,
+        "asymptotic_p": 0.12080156391998229,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 1147,
+        "mc_se": 0.00318780425998837,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.1148,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.02118094265608894
+      ],
+      "contrast_rms_per_cell": 0.0049923960613479645
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "method",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 198.7078253880128,
+        "ss_error": 49.109149487555754,
+        "df1": 5,
+        "df2": 3415,
+        "F": 2763.5877663571323,
+        "epsilon_gg": 0.34024024448243884,
+        "df1_gg": 1.7012012224121942,
+        "df2_gg": 1161.9204349075287,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.8018329877837708,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 5583.447471814312,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          1878.3834511623722,
+          583.8561903544172
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.3303977653758279,
+        -0.1724797950978519,
+        -0.1718702551387553,
+        -0.12514174336959594,
+        0.32595322460880394
+      ],
+      "contrast_rms_per_cell": 0.12700772247961442
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "dataset_method",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 1.969535866905382,
+        "ss_error": 49.109149487555754,
+        "df1": 5,
+        "df2": 3415,
+        "F": 27.39190173589236,
+        "epsilon_gg": 0.34024024448243884,
+        "df1_gg": 1.7012012224121942,
+        "df2_gg": 1161.9204349075287,
+        "p_value": 6.733776580637858e-11,
+        "p_uncorrected": 2.8480864404030983e-27,
+        "partial_eta_squared": 0.03855885979127624,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 2.0201329741913572e-10,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 470.901440249415,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.5206496291222442e-99,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          1878.3834511623722,
+          583.8561903544172
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.0787682933075422,
+        0.03712281421486674,
+        0.026838366693652832,
+        0.011827150805109848,
+        0.05539884366143932
+      ],
+      "contrast_rms_per_cell": 0.02528917057181777
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 3.5374978191906243,
+        "ss_error": 2.531864899425538,
+        "df1": 2,
+        "df2": 1366,
+        "F": 954.2811747401668,
+        "epsilon_gg": 0.939250706033852,
+        "df1_gg": 1.878501412067704,
+        "df2_gg": 1283.0164644422418,
+        "p_value": 1.756910255960977e-244,
+        "p_uncorrected": 4.6041377233246174e-260,
+        "partial_eta_squared": 0.5828450173755948,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 2.1082923071531724e-243,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1658.1953546394227,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.5508609831704219,
+          1.9719177319688628
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.06482876789515166,
+        -0.03108567840261918
+      ],
+      "contrast_rms_per_cell": 0.016946137790977808
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "dataset_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 0.021481226102515214,
+        "ss_error": 2.531864899425538,
+        "df1": 2,
+        "df2": 1366,
+        "F": 5.794810549072658,
+        "epsilon_gg": 0.939250706033852,
+        "df1_gg": 1.878501412067704,
+        "df2_gg": 1283.0164644422418,
+        "p_value": 0.0038103251616412523,
+        "p_uncorrected": 0.0031186155274619933,
+        "partial_eta_squared": 0.008412970684917509,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 0.007620650323282505,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 15.081832652979799,
+        "df": 2,
+        "p_value": 0.0007,
+        "asymptotic_p": 0.0005309109111077349,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 6,
+        "mc_se": 0.00026448251359967073,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.5508609831704219,
+          1.9719177319688628
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.00674528940100886,
+        0.008947451642361423
+      ],
+      "contrast_rms_per_cell": 0.0026410837421592106
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "method_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 10.063306554846827,
+        "ss_error": 11.954682577782375,
+        "df1": 10,
+        "df2": 6830,
+        "F": 574.9411021363469,
+        "epsilon_gg": 0.37251010271222046,
+        "df1_gg": 3.7251010271222045,
+        "df2_gg": 2544.2440015244656,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.4570493015610437,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 6254.784181629662,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          195.48024423389325,
+          150.19955570301042
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.05216756434128606,
+        0.005522935133721088,
+        -0.039182931781933196,
+        -0.02650000847356458,
+        -0.01739791737923027,
+        -0.08904863938657412,
+        0.00609938107312814,
+        -0.023894464516421608,
+        -0.014886522237595852,
+        -0.025557081553761705
+      ],
+      "contrast_rms_per_cell": 0.028582024970573345
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "effect": "dataset_method_model",
+      "family": "common_correct/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 1.8341005696355446,
+        "ss_error": 11.954682577782375,
+        "df1": 10,
+        "df2": 6830,
+        "F": 104.786612351313,
+        "epsilon_gg": 0.37251010271222046,
+        "df1_gg": 3.7251010271222045,
+        "df2_gg": 2544.2440015244656,
+        "p_value": 1.2321597264466721e-77,
+        "p_uncorrected": 3.671806949150123e-203,
+        "partial_eta_squared": 0.13301395417035022,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 7.392958358680033e-77,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 893.8527029217347,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.3396149279134525e-185,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          195.48024423389325,
+          150.19955570301042
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.023171281679920233,
+        0.01642051187884521,
+        0.012090272656187312,
+        0.0005778656994801581,
+        0.06582452202355173,
+        0.0166221293894583,
+        0.02693500862102282,
+        0.02052214404524525,
+        0.010587749331865093,
+        0.0624434551791625
+      ],
+      "contrast_rms_per_cell": 0.02440417954645939
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 0.03158962486883338,
+        "ss_error": 0.3819031117120768,
+        "df1": 1,
+        "df2": 683,
+        "F": 56.4952552721788,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 683.0,
+        "p_value": 1.7738325773915309e-13,
+        "p_uncorrected": 1.7738325773915309e-13,
+        "partial_eta_squared": 0.07639704902688678,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.7738325773915309e-13,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 56.260420557778026,
+        "df": 1,
+        "p_value": 0.0001,
+        "asymptotic_p": 6.348050229529393e-14,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.013588174814440634
+      ],
+      "contrast_rms_per_cell": 0.0032027635184130768
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "method",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 48950.122859830495,
+        "ss_error": 1.5309035751486133,
+        "df1": 5,
+        "df2": 3415,
+        "F": 21838693.472264383,
+        "epsilon_gg": 0.5210638675947545,
+        "df1_gg": 2.6053193379737727,
+        "df2_gg": 1779.4331078360867,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.9999687262133666,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 220871606.08650297,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          11.638224150607181,
+          12.599135462278758
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        2.559690854271537,
+        -1.7497366150156937,
+        -5.1742245566358225,
+        -4.024525707179238,
+        -4.352499933804802
+      ],
+      "contrast_rms_per_cell": 1.9934233270568393
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_method",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 0.19676325137330952,
+        "ss_error": 1.5309035751486133,
+        "df1": 5,
+        "df2": 3415,
+        "F": 87.78430129077495,
+        "epsilon_gg": 0.5210638675947545,
+        "df1_gg": 2.6053193379737727,
+        "df2_gg": 1779.4331078360867,
+        "p_value": 8.60061060055431e-47,
+        "p_uncorrected": 4.45207711894755e-87,
+        "partial_eta_squared": 0.11388958122754853,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 2.580183180166293e-46,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 479.2068418513428,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 2.4540067520937033e-101,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          11.638224150607181,
+          12.599135462278758
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.02739394346613766,
+        0.019199566342921415,
+        0.0011606562590502634,
+        0.0013211647333752907,
+        -0.00528387059936275
+      ],
+      "contrast_rms_per_cell": 0.007993272776033412
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "model",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 882.8240625718524,
+        "ss_error": 0.5959537381108656,
+        "df1": 2,
+        "df2": 1366,
+        "F": 1011771.2100404757,
+        "epsilon_gg": 0.9065173020442345,
+        "df1_gg": 1.813034604088469,
+        "df2_gg": 1238.3026345924243,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.9993254015902875,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1556274.984339586,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.3738462283106774,
+          1.8472627875438437
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        -1.0995558699392234,
+        0.28457608912909144
+      ],
+      "contrast_rms_per_cell": 0.2677069979600221
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_model",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 0.05304184128905658,
+        "ss_error": 0.5959537381108656,
+        "df1": 2,
+        "df2": 1366,
+        "F": 60.7892446740324,
+        "epsilon_gg": 0.9065173020442345,
+        "df1_gg": 1.813034604088469,
+        "df2_gg": 1238.3026345924243,
+        "p_value": 7.701186741515182e-24,
+        "p_uncorrected": 5.117560074596403e-26,
+        "partial_eta_squared": 0.08172912570236675,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.5402373483030363e-23,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 156.20645522034454,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.2028160929618995e-34,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.3738462283106774,
+          1.8472627875438437
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.011069804031374586,
+        0.013692486791167857
+      ],
+      "contrast_rms_per_cell": 0.004150132232293216
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "method_model",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 1396.1071282803675,
+        "ss_error": 2.9038930324443593,
+        "df1": 10,
+        "df2": 6830,
+        "F": 328366.49214067135,
+        "epsilon_gg": 0.4303529261671645,
+        "df1_gg": 4.3035292616716445,
+        "df2_gg": 2939.310485721733,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.9979243244061656,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 8800209.194865447,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          129.22321131577843,
+          205.4064072754592
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        -0.04954588009827096,
+        -0.014753654120644286,
+        -0.3403252515026874,
+        -0.08423827392607908,
+        -0.15646090943683913,
+        -0.6932901263707334,
+        0.5868890664208526,
+        0.8445128986786339,
+        0.35101821905220215,
+        0.4779688977445833
+      ],
+      "contrast_rms_per_cell": 0.3366526328172926
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_method_model",
+      "family": "common_correct/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          332,
+          353
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 0.3308074585654955,
+        "ss_error": 2.9038930324443593,
+        "df1": 10,
+        "df2": 6830,
+        "F": 77.80641079952129,
+        "epsilon_gg": 0.4303529261671645,
+        "df1_gg": 4.3035292616716445,
+        "df2_gg": 2939.310485721733,
+        "p_value": 4.180799080675783e-67,
+        "p_uncorrected": 6.215814461491269e-152,
+        "partial_eta_squared": 0.10226834276771612,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.6723196322703132e-66,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1393.488259891432,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 2.5260849588183857e-293,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          129.22321131577843,
+          205.4064072754592
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.02186057295417218,
+        0.022223950933060847,
+        0.009135443602301563,
+        0.005894499342500387,
+        -0.0006999589590021005,
+        0.01856456372628812,
+        0.02037867854935904,
+        0.006196880227091639,
+        0.004844199759964196,
+        0.004610685084887989
+      ],
+      "contrast_rms_per_cell": 0.010364307390683883
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 388.0452353082752,
+        "ss_error": 183.0240486444521,
+        "df1": 1,
+        "df2": 918,
+        "F": 1946.33179984457,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 918.0,
+        "p_value": 4.733321492195073e-229,
+        "p_uncorrected": 4.733321492195073e-229,
+        "partial_eta_squared": 0.6795064035354373,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 3.786657193756058e-228,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1946.3317998445705,
+        "df": 1,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -1.298904614277931
+      ],
+      "contrast_rms_per_cell": 0.306154753623474
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "method",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 27.45993903312036,
+        "ss_error": 58.06773709440625,
+        "df1": 5,
+        "df2": 4590,
+        "F": 434.1175546658738,
+        "epsilon_gg": 0.6436075696494172,
+        "df1_gg": 3.218037848247086,
+        "df2_gg": 2954.158744690825,
+        "p_value": 1.886215037753032e-247,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.3210649496915599,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.6975935339777287e-246,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1722.576108146785,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          5.103016146547301,
+          11.655656789364249
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.14526705313110494,
+        -0.06845018102000047,
+        0.0004205349633683436,
+        0.056382845651936804,
+        0.029675135687599555
+      ],
+      "contrast_rms_per_cell": 0.04072111097221705
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_method",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 3.181747598972393,
+        "ss_error": 58.06773709440625,
+        "df1": 5,
+        "df2": 4590,
+        "F": 50.30063925356627,
+        "epsilon_gg": 0.6436075696494172,
+        "df1_gg": 3.218037848247086,
+        "df2_gg": 2954.158744690825,
+        "p_value": 9.538068753893257e-34,
+        "p_uncorrected": 6.712850488659103e-51,
+        "partial_eta_squared": 0.051947336616798595,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 3.815227501557303e-33,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 360.8199744454158,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 8.190277148791032e-76,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          5.103016146547301,
+          11.655656789364249
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.05936790667357668,
+        0.07270281123256929,
+        0.05427985251071281,
+        -0.043179100592522376,
+        0.014584272091483781
+      ],
+      "contrast_rms_per_cell": 0.027722519138502474
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 70.48277038986109,
+        "ss_error": 48.30284171806474,
+        "df1": 2,
+        "df2": 1836,
+        "F": 1339.531607592648,
+        "epsilon_gg": 0.9082500484086884,
+        "df1_gg": 1.8165000968173768,
+        "df2_gg": 1667.5470888783518,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.5933611751381311,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 2561.7144189261153,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          2.645101293259591,
+          1.263838818999726
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.14326614423205605,
+        0.23682592523281926
+      ],
+      "contrast_rms_per_cell": 0.06523960408690975
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 51.47042410984299,
+        "ss_error": 48.30284171806474,
+        "df1": 2,
+        "df2": 1836,
+        "F": 978.2001980054297,
+        "epsilon_gg": 0.9082500484086884,
+        "df1_gg": 1.8165000968173768,
+        "df2_gg": 1667.5470888783518,
+        "p_value": 1.1451911093853526e-263,
+        "p_uncorrected": 6.192943743936073e-290,
+        "partial_eta_squared": 0.515873903522622,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.1451911093853525e-262,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1599.9600993377562,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          2.645101293259591,
+          1.263838818999726
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.13091938638923584,
+        -0.45458174943452934
+      ],
+      "contrast_rms_per_cell": 0.11150098471201729
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "method_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 16.24988807011174,
+        "ss_error": 64.35007162719768,
+        "df1": 10,
+        "df2": 9180,
+        "F": 231.81632702422218,
+        "epsilon_gg": 0.49584116165439235,
+        "df1_gg": 4.958411616543923,
+        "df2_gg": 4551.821863987322,
+        "p_value": 1.860136137737971e-219,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.20161161533005326,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.3020952964165798e-218,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 920.6476401700245,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 2.289441783172013e-191,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          32.90278815031567,
+          11.249660854530639
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.005784317535656421,
+        -0.04273300393969388,
+        -0.002139710773273329,
+        -0.007637569632302564,
+        0.023086363395579637,
+        0.09038904289404448,
+        -0.07935458407783222,
+        -0.008484423549647,
+        -0.025202905000052473,
+        -0.005741245551510014
+      ],
+      "contrast_rms_per_cell": 0.031325284263442714
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "effect": "dataset_method_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 2.6419498034500584,
+        "ss_error": 64.35007162719768,
+        "df1": 10,
+        "df2": 9180,
+        "F": 37.68931188791547,
+        "epsilon_gg": 0.49584116165439235,
+        "df1_gg": 4.958411616543923,
+        "df2_gg": 4551.821863987322,
+        "p_value": 1.0220371015692995e-37,
+        "p_uncorrected": 2.850866213372493e-73,
+        "partial_eta_squared": 0.03943678287398878,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 5.110185507846497e-37,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 260.237786918716,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 3.8078999937219e-50,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          32.90278815031567,
+          11.249660854530639
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.025227393623814872,
+        -0.029197404552624356,
+        -0.0048133917225730615,
+        -0.014546611987161751,
+        0.008781845657303375,
+        0.03959031109010315,
+        -0.07224702442365903,
+        -0.04807201552442797,
+        -0.02398894123847998,
+        0.003538605978718935
+      ],
+      "contrast_rms_per_cell": 0.025261673072803633
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "dataset",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 0.08974246460401863,
+        "ss_error": 27.702702768744306,
+        "df1": 1,
+        "df2": 918,
+        "F": 2.973846385827694,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 918.0,
+        "p_value": 0.08495705639886965,
+        "p_uncorrected": 0.08495705639886965,
+        "partial_eta_squared": 0.0032290237095200284,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 0.08495705639886965,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 2.9738463858276107,
+        "df": 1,
+        "p_value": 0.0842,
+        "asymptotic_p": 0.08462043591668214,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 841,
+        "mc_se": 0.0027768752222597256,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.0842,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.019753091624176822
+      ],
+      "contrast_rms_per_cell": 0.004655848345618208
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "method",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 259.4000296477873,
+        "ss_error": 63.084347763134836,
+        "df1": 5,
+        "df2": 4590,
+        "F": 3774.775132981979,
+        "epsilon_gg": 0.3576108992739792,
+        "df1_gg": 1.788054496369896,
+        "df2_gg": 1641.4340276675646,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.8043801430952722,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 8281.314871145252,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          1229.6412580314282,
+          487.15455686495795
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.3173588441066656,
+        -0.16951512994556706,
+        -0.16858962481310244,
+        -0.1226160528085473,
+        0.33022322866635795
+      ],
+      "contrast_rms_per_cell": 0.12515691350482716
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "dataset_method",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 2.748299328381689,
+        "ss_error": 63.084347763134836,
+        "df1": 5,
+        "df2": 4590,
+        "F": 39.99310245589545,
+        "epsilon_gg": 0.3576108992739792,
+        "df1_gg": 1.788054496369896,
+        "df2_gg": 1641.4340276675646,
+        "p_value": 4.0349918642818686e-16,
+        "p_uncorrected": 2.2522113554471203e-40,
+        "partial_eta_squared": 0.041746754077216,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 1.2104975592845606e-15,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 595.9756638873527,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.4975274905218604e-126,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          1229.6412580314282,
+          487.15455686495795
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.07255272757043801,
+        0.038632202367524654,
+        0.029224251910128285,
+        0.012537261909757208,
+        0.06466484625456814
+      ],
+      "contrast_rms_per_cell": 0.02576510076602651
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 4.546245158844464,
+        "ss_error": 3.7718007809489493,
+        "df1": 2,
+        "df2": 1836,
+        "F": 1106.4881997211994,
+        "epsilon_gg": 0.9532433828116058,
+        "df1_gg": 1.9064867656232116,
+        "df2_gg": 1750.1548508421083,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.5465520618364575,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 2007.9392336688811,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.5264032808480952,
+          1.6530364541010247
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.06289466620227342,
+        -0.03139795834342647
+      ],
+      "contrast_rms_per_cell": 0.016568998536139946
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "dataset_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 0.034366147370447256,
+        "ss_error": 3.7718007809489493,
+        "df1": 2,
+        "df2": 1836,
+        "F": 8.364207209833964,
+        "epsilon_gg": 0.9532433828116058,
+        "df1_gg": 1.9064867656232116,
+        "df2_gg": 1750.1548508421083,
+        "p_value": 0.0003134810727512199,
+        "p_uncorrected": 0.00024205815744895493,
+        "partial_eta_squared": 0.009029069932469184,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 0.0006269621455024397,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 17.219580636713978,
+        "df": 2,
+        "p_value": 0.0002,
+        "asymptotic_p": 0.000182312133913102,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 1,
+        "mc_se": 0.00014140721339450828,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.5264032808480952,
+          1.6530364541010247
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.000992942002597981,
+        0.01218327124482171
+      ],
+      "contrast_rms_per_cell": 0.002881145914441209
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "method_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 13.150528714512829,
+        "ss_error": 17.961681403278885,
+        "df1": 10,
+        "df2": 9180,
+        "F": 672.1077547739496,
+        "epsilon_gg": 0.40611191861265095,
+        "df1_gg": 4.0611191861265095,
+        "df2_gg": 3728.1074128641358,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.4226806345394478,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 1.4e-299,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 8172.668361174419,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          101.38969063121507,
+          172.21058841294638
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        -0.050705645705990204,
+        0.004949105188165415,
+        -0.03897878666180257,
+        -0.02580311094745507,
+        -0.022125282523843527,
+        -0.08684820733786361,
+        0.0051950376019102885,
+        -0.024129325366082803,
+        -0.014669610999740545,
+        -0.025628128452694274
+      ],
+      "contrast_rms_per_cell": 0.028180029325902866
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "effect": "dataset_method_model",
+      "family": "all/mixed_quality",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 2.2909358545611367,
+        "ss_error": 17.961681403278885,
+        "df1": 10,
+        "df2": 9180,
+        "F": 117.08698463514719,
+        "epsilon_gg": 0.40611191861265095,
+        "df1_gg": 4.0611191861265095,
+        "df2_gg": 3728.1074128641358,
+        "p_value": 1.6236944919384523e-95,
+        "p_uncorrected": 1.5461793121872581e-230,
+        "partial_eta_squared": 0.11311801459509087,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 9.742166951630714e-95,
+        "family_size": 14
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1070.6295738802983,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1.1303654525854233e-223,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          101.38969063121507,
+          172.21058841294638
+        ],
+        "p_holm": 0.0014,
+        "family_size": 14
+      },
+      "contrast_mean": [
+        0.022536724807431872,
+        0.015988759994245736,
+        0.012804907920939572,
+        0.0009042612539623442,
+        0.05749844217021399,
+        0.010627072564055803,
+        0.029192115229944332,
+        0.02286323052322367,
+        0.01191651380296704,
+        0.0640027122821401
+      ],
+      "contrast_rms_per_cell": 0.023523735852213592
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 1,
+        "ss_hypothesis": 0.03672504997630672,
+        "ss_error": 0.4884157942401769,
+        "df1": 1,
+        "df2": 918,
+        "F": 69.02642436184408,
+        "epsilon_gg": 1.0,
+        "df1_gg": 1.0,
+        "df2_gg": 918.0,
+        "p_value": 3.4663437850294195e-16,
+        "p_uncorrected": 3.4663437850294195e-16,
+        "partial_eta_squared": 0.06993371469915072,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 3.4663437850294195e-16,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 69.026424361776,
+        "df": 1,
+        "p_value": 0.0001,
+        "asymptotic_p": 9.715298236510097e-17,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          1,
+          1
+        ],
+        "covariance_condition_numbers": [
+          1.0,
+          1.0
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.012636222945634046
+      ],
+      "contrast_rms_per_cell": 0.002978386311147628
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "method",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 65812.4771302331,
+        "ss_error": 1.9779575482390936,
+        "df1": 5,
+        "df2": 4590,
+        "F": 30544565.55922553,
+        "epsilon_gg": 0.5222780454537567,
+        "df1_gg": 2.6113902272687834,
+        "df2_gg": 2397.256228632743,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.999969946457118,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 300202928.57873356,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          11.706266814586433,
+          13.591142472662012
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        2.560056555254296,
+        -1.7501363554567217,
+        -5.174581831448173,
+        -4.024154309592778,
+        -4.352966731087517
+      ],
+      "contrast_rms_per_cell": 1.9935354026412786
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_method",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 5,
+        "ss_hypothesis": 0.25108412818287934,
+        "ss_error": 1.9779575482390936,
+        "df1": 5,
+        "df2": 4590,
+        "F": 116.53193966528,
+        "epsilon_gg": 0.5222780454537567,
+        "df1_gg": 2.6113902272687834,
+        "df2_gg": 2397.256228632743,
+        "p_value": 3.0854169770670022e-62,
+        "p_uncorrected": 2.4231057402247467e-116,
+        "partial_eta_squared": 0.1126421864780546,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 9.256250931201006e-62,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 668.3000842037598,
+        "df": 5,
+        "p_value": 0.0001,
+        "asymptotic_p": 3.5051350332637656e-142,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          5,
+          5
+        ],
+        "covariance_condition_numbers": [
+          11.706266814586433,
+          13.591142472662012
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.02642636090150363,
+        0.0189857510242204,
+        0.0004067722314982092,
+        0.0006432024786633406,
+        -0.0056815188996584
+      ],
+      "contrast_rms_per_cell": 0.007787704420481822
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "model",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 1189.0624019152212,
+        "ss_error": 0.7648880211692926,
+        "df1": 2,
+        "df2": 1836,
+        "F": 1427083.7753341915,
+        "epsilon_gg": 0.8985593046733564,
+        "df1_gg": 1.7971186093467129,
+        "df2_gg": 1649.7548833802823,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.9993571436563619,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 2143232.205676359,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.2627484407160219,
+          1.8457191753215978
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        -1.1007306889662125,
+        0.2843432483540129
+      ],
+      "contrast_rms_per_cell": 0.2679613500858063
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_model",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 2,
+        "ss_hypothesis": 0.07499462562540801,
+        "ss_error": 0.7648880211692926,
+        "df1": 2,
+        "df2": 1836,
+        "F": 90.00672571506658,
+        "epsilon_gg": 0.8985593046733564,
+        "df1_gg": 1.7971186093467129,
+        "df2_gg": 1649.7548833802823,
+        "p_value": 1.8775407709885311e-34,
+        "p_uncorrected": 5.1304177852137e-38,
+        "partial_eta_squared": 0.08929179083722581,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 3.7550815419770622e-34,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 244.751097462051,
+        "df": 2,
+        "p_value": 0.0001,
+        "asymptotic_p": 7.128111201120611e-54,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          2,
+          2
+        ],
+        "covariance_condition_numbers": [
+          1.2627484407160219,
+          1.8457191753215978
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.010950164440168608,
+        0.014358185414910685
+      ],
+      "contrast_rms_per_cell": 0.004256130152012682
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "method_model",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 1876.992048724764,
+        "ss_error": 3.8113360815477493,
+        "df1": 10,
+        "df2": 9180,
+        "F": 452093.08858157863,
+        "epsilon_gg": 0.4115288606727033,
+        "df1_gg": 4.115288606727033,
+        "df2_gg": 3777.834940975416,
+        "p_value": 1e-300,
+        "p_uncorrected": 1e-300,
+        "partial_eta_squared": 0.9979735595371974,
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "status": "ok",
+        "p_holm": 7e-300,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 12857695.140209492,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          108.3639393722055,
+          170.96871082070336
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        -0.050672728515927516,
+        -0.01564951661179042,
+        -0.3409568833937161,
+        -0.08432223903964353,
+        -0.15695361703305216,
+        -0.6932322565824145,
+        0.586714951798827,
+        0.8444029870133587,
+        0.35111855679553355,
+        0.4778010045662968
+      ],
+      "contrast_rms_per_cell": 0.33666738849872074
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "effect": "dataset_method_model",
+      "family": "all/recorded_logtime_exploratory",
+      "nominal_anova": {
+        "n_by_dataset": [
+          460,
+          460
+        ],
+        "contrast_dimension": 10,
+        "ss_hypothesis": 0.4178482879431094,
+        "ss_error": 3.8113360815477493,
+        "df1": 10,
+        "df2": 9180,
+        "F": 100.64311310379223,
+        "epsilon_gg": 0.4115288606727033,
+        "df1_gg": 4.115288606727033,
+        "df2_gg": 3777.834940975416,
+        "p_value": 1.130306711225621e-83,
+        "p_uncorrected": 7.5365671079005355e-199,
+        "partial_eta_squared": 0.09880115205131461,
+        "weights": [
+          1.0,
+          -1.0
+        ],
+        "status": "ok",
+        "p_holm": 4.521226844902484e-83,
+        "family_size": 7
+      },
+      "heteroscedastic_wts": {
+        "status": "ok",
+        "WTS": 1923.22029332073,
+        "df": 10,
+        "p_value": 0.0001,
+        "asymptotic_p": 1e-300,
+        "bootstrap_iterations": 9999,
+        "bootstrap_exceedances": 0,
+        "mc_se": 9.999499987499375e-05,
+        "covariance_ranks": [
+          10,
+          10
+        ],
+        "covariance_condition_numbers": [
+          108.3639393722055,
+          170.96871082070336
+        ],
+        "p_holm": 0.0007,
+        "family_size": 7
+      },
+      "contrast_mean": [
+        0.0205997289290782,
+        0.021543662276543245,
+        0.00939620357939791,
+        0.00629210616782809,
+        -0.0006560121678095832,
+        0.016954411084054155,
+        0.02094681267633347,
+        0.006265617345545871,
+        0.0034033629634371287,
+        0.004783515452958131
+      ],
+      "contrast_rms_per_cell": 0.010046369401455906
+    }
+  ],
+  "observed_dataset_differences": [
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 0.04842322011175284,
+      "mean_voc": 0.4610746963419252,
+      "difference_imagenet_minus_voc": -0.4126514762301724,
+      "conditional_ci95": [
+        -0.4192821034049391,
+        -0.40571356947771653
+      ],
+      "iid_image_ci95": [
+        -0.42408884012828196,
+        -0.40067252654512864
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 0.10514001650960149,
+      "mean_voc": 0.5721166062118649,
+      "difference_imagenet_minus_voc": -0.4669765897022634,
+      "conditional_ci95": [
+        -0.47607942358823446,
+        -0.45752680985947997
+      ],
+      "iid_image_ci95": [
+        -0.481970225987623,
+        -0.45221675466852257
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 0.24001904229453977,
+      "mean_voc": 0.6638516226503735,
+      "difference_imagenet_minus_voc": -0.4238325803558337,
+      "conditional_ci95": [
+        -0.43956419352687304,
+        -0.4079552707768124
+      ],
+      "iid_image_ci95": [
+        -0.4452321299726657,
+        -0.4025789760666854
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 0.132938585873884,
+      "mean_voc": 0.5781382026820953,
+      "difference_imagenet_minus_voc": -0.4451996168082113,
+      "conditional_ci95": [
+        -0.4574620265110943,
+        -0.432606475717801
+      ],
+      "iid_image_ci95": [
+        -0.4640920665566083,
+        -0.42676455241830646
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 0.13980781483458332,
+      "mean_voc": 0.5235125282330824,
+      "difference_imagenet_minus_voc": -0.38370471339849904,
+      "conditional_ci95": [
+        -0.39525215509686773,
+        -0.37171807639135135
+      ],
+      "iid_image_ci95": [
+        -0.4007541141206822,
+        -0.36667707545073513
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 0.07937579496247492,
+      "mean_voc": 0.5340193408744531,
+      "difference_imagenet_minus_voc": -0.4546435459119782,
+      "conditional_ci95": [
+        -0.46428092089309364,
+        -0.44483263843993026
+      ],
+      "iid_image_ci95": [
+        -0.4695662436593768,
+        -0.43947413356883813
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 0.054929674490837445,
+      "mean_voc": 0.35055466529203544,
+      "difference_imagenet_minus_voc": -0.295624990801198,
+      "conditional_ci95": [
+        -0.30583155305270787,
+        -0.2855558599633502
+      ],
+      "iid_image_ci95": [
+        -0.31659170118505425,
+        -0.27463006478591107
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 0.07104382349503596,
+      "mean_voc": 0.4804860742250853,
+      "difference_imagenet_minus_voc": -0.40944225073004936,
+      "conditional_ci95": [
+        -0.41970118022713815,
+        -0.3991794579869482
+      ],
+      "iid_image_ci95": [
+        -0.43190850269109754,
+        -0.3867554486714343
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 0.10274882266769209,
+      "mean_voc": 0.49983823423936075,
+      "difference_imagenet_minus_voc": -0.39708941157166866,
+      "conditional_ci95": [
+        -0.41578250573544934,
+        -0.3783440368934063
+      ],
+      "iid_image_ci95": [
+        -0.4236255869134712,
+        -0.36987059280316487
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 0.0666973559713238,
+      "mean_voc": 0.4552921909870575,
+      "difference_imagenet_minus_voc": -0.38859483501573366,
+      "conditional_ci95": [
+        -0.39974926492506035,
+        -0.37746037777935715
+      ],
+      "iid_image_ci95": [
+        -0.41110959143249765,
+        -0.3662315476378795
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 0.052368316325325376,
+      "mean_voc": 0.39805064928683614,
+      "difference_imagenet_minus_voc": -0.34568233296151074,
+      "conditional_ci95": [
+        -0.3558109733028271,
+        -0.3354334809374907
+      ],
+      "iid_image_ci95": [
+        -0.3622904176230526,
+        -0.3286922425010571
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 0.0694357668237581,
+      "mean_voc": 0.4501752774455392,
+      "difference_imagenet_minus_voc": -0.38073951062178113,
+      "conditional_ci95": [
+        -0.39186615500345184,
+        -0.3697378294140512
+      ],
+      "iid_image_ci95": [
+        -0.40282790855485967,
+        -0.358409939299745
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 0.02666898701670971,
+      "mean_voc": 0.125416165138608,
+      "difference_imagenet_minus_voc": -0.0987471781218983,
+      "conditional_ci95": [
+        -0.10516626670120893,
+        -0.0924570812198658
+      ],
+      "iid_image_ci95": [
+        -0.11046554845047107,
+        -0.08714380135163406
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 0.3013722027851134,
+      "mean_voc": 0.3974942994137788,
+      "difference_imagenet_minus_voc": -0.09612209662866539,
+      "conditional_ci95": [
+        -0.1222390537393499,
+        -0.06918280466614107
+      ],
+      "iid_image_ci95": [
+        -0.13447893245384895,
+        -0.058661045291859476
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 0.04962611392263816,
+      "mean_voc": 0.29267668068176794,
+      "difference_imagenet_minus_voc": -0.24305056675912978,
+      "conditional_ci95": [
+        -0.2592587122268898,
+        -0.22695519691692675
+      ],
+      "iid_image_ci95": [
+        -0.27088304828981713,
+        -0.21587856215674958
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 0.0662364375157596,
+      "mean_voc": 0.3051286708595226,
+      "difference_imagenet_minus_voc": -0.23889223334376303,
+      "conditional_ci95": [
+        -0.2570929022409576,
+        -0.22062203586281506
+      ],
+      "iid_image_ci95": [
+        -0.26420892416563496,
+        -0.21408670635675156
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 0.04122860429398939,
+      "mean_voc": 0.20761261640839468,
+      "difference_imagenet_minus_voc": -0.1663840121144053,
+      "conditional_ci95": [
+        -0.17636466769536838,
+        -0.15623011486063562
+      ],
+      "iid_image_ci95": [
+        -0.1862533014992148,
+        -0.14727153821634661
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 0.06397956711975071,
+      "mean_voc": 0.24459083380953278,
+      "difference_imagenet_minus_voc": -0.18061126668978206,
+      "conditional_ci95": [
+        -0.1935928712989328,
+        -0.167505071419294
+      ],
+      "iid_image_ci95": [
+        -0.20132331484494503,
+        -0.1599374701910556
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 0.6654535626578265,
+      "mean_voc": 0.5634607437472654,
+      "difference_imagenet_minus_voc": 0.10199281891056111,
+      "conditional_ci95": [
+        0.08469271266623761,
+        0.11896344301001424
+      ],
+      "iid_image_ci95": [
+        0.07569507123730045,
+        0.1276153476023193
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 0.9902609713311711,
+      "mean_voc": 0.9853502671491594,
+      "difference_imagenet_minus_voc": 0.0049107041820116715,
+      "conditional_ci95": [
+        0.003261176823563178,
+        0.006629724329961741
+      ],
+      "iid_image_ci95": [
+        0.0028458252130652536,
+        0.006956739371021398
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 0.9150172678556383,
+      "mean_voc": 0.9155033847181482,
+      "difference_imagenet_minus_voc": -0.00048611686250987773,
+      "conditional_ci95": [
+        -0.007234035089155294,
+        0.006394868221466808
+      ],
+      "iid_image_ci95": [
+        -0.009984541204821576,
+        0.008784577995415281
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 0.9960283880190026,
+      "mean_voc": 0.9979940615035973,
+      "difference_imagenet_minus_voc": -0.0019656734845946433,
+      "conditional_ci95": [
+        -0.002379136953807878,
+        -0.0015352566159812595
+      ],
+      "iid_image_ci95": [
+        -0.002623447473854695,
+        -0.0013270455808211568
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9937515982296538,
+      "mean_voc": 0.9805625252934027,
+      "difference_imagenet_minus_voc": 0.013189072936251045,
+      "conditional_ci95": [
+        0.01161858033829288,
+        0.014877757533865294
+      ],
+      "iid_image_ci95": [
+        0.011379103752409466,
+        0.015040913194606657
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 0.6738821193354804,
+      "mean_voc": 0.7643042809610526,
+      "difference_imagenet_minus_voc": -0.09042216162557226,
+      "conditional_ci95": [
+        -0.10258028661407266,
+        -0.07822547504199531
+      ],
+      "iid_image_ci95": [
+        -0.10756295238894242,
+        -0.07385553254463427
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 0.7552940604495677,
+      "mean_voc": 0.7041729043479283,
+      "difference_imagenet_minus_voc": 0.051121156101639365,
+      "conditional_ci95": [
+        0.03587977989818316,
+        0.0659931070995881
+      ],
+      "iid_image_ci95": [
+        0.027867717543450937,
+        0.07382218139019733
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 0.9989376221202599,
+      "mean_voc": 0.9985560173873296,
+      "difference_imagenet_minus_voc": 0.0003816047329303629,
+      "conditional_ci95": [
+        0.00011078991378343505,
+        0.0006942159659794056
+      ],
+      "iid_image_ci95": [
+        -8.47211036796608e-05,
+        0.0008152348852878715
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 0.9880624268347895,
+      "mean_voc": 0.9878077639658531,
+      "difference_imagenet_minus_voc": 0.0002546628689363839,
+      "conditional_ci95": [
+        -0.001065697668546861,
+        0.0016887814139112081
+      ],
+      "iid_image_ci95": [
+        -0.0015514278080208637,
+        0.0020257471096766914
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 0.9991020304972441,
+      "mean_voc": 0.9995443655848376,
+      "difference_imagenet_minus_voc": -0.00044233508759350393,
+      "conditional_ci95": [
+        -0.0005471388133144045,
+        -0.0003334646606645314
+      ],
+      "iid_image_ci95": [
+        -0.0006053576378358489,
+        -0.0002923142028155745
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9959672362921076,
+      "mean_voc": 0.995148638492225,
+      "difference_imagenet_minus_voc": 0.0008185977998825811,
+      "conditional_ci95": [
+        0.0003870691327486353,
+        0.0012789654963147907
+      ],
+      "iid_image_ci95": [
+        0.00028677322604863943,
+        0.0013679798267479336
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 0.7332871547620917,
+      "mean_voc": 0.734835829213136,
+      "difference_imagenet_minus_voc": -0.0015486744510442296,
+      "conditional_ci95": [
+        -0.013557097723164473,
+        0.010305921577370284
+      ],
+      "iid_image_ci95": [
+        -0.018118752977145124,
+        0.014864724501982975
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 0.7899976693872911,
+      "mean_voc": 0.7698951275627791,
+      "difference_imagenet_minus_voc": 0.020102541824511988,
+      "conditional_ci95": [
+        0.007341461431580968,
+        0.032815334299286236
+      ],
+      "iid_image_ci95": [
+        0.0001570604512050712,
+        0.03952170665286828
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 0.934381573113147,
+      "mean_voc": 0.9593994917047394,
+      "difference_imagenet_minus_voc": -0.025017918591592414,
+      "conditional_ci95": [
+        -0.03349571634402219,
+        -0.01598921401861869
+      ],
+      "iid_image_ci95": [
+        -0.036850853173031974,
+        -0.01340992116533607
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 0.9905932425311846,
+      "mean_voc": 0.9923657159617636,
+      "difference_imagenet_minus_voc": -0.001772473430578958,
+      "conditional_ci95": [
+        -0.0027105312362850575,
+        -0.000760578430199799
+      ],
+      "iid_image_ci95": [
+        -0.0034183063213521795,
+        -0.0002242568631269854
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 0.9977711904945696,
+      "mean_voc": 0.9985442553977164,
+      "difference_imagenet_minus_voc": -0.0007730649031467696,
+      "conditional_ci95": [
+        -0.001208041168681101,
+        -0.0003047157930741984
+      ],
+      "iid_image_ci95": [
+        -0.0013848456441050872,
+        -0.00016731704952953344
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9963905212687486,
+      "mean_voc": 0.9962248944903743,
+      "difference_imagenet_minus_voc": 0.00016562677837428375,
+      "conditional_ci95": [
+        -0.00018102569844635484,
+        0.0005333673190766857
+      ],
+      "iid_image_ci95": [
+        -0.0004934780371415509,
+        0.0007691220002281366
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 0.7232238801417895,
+      "mean_voc": 0.703869118735994,
+      "difference_imagenet_minus_voc": 0.019354761405795506,
+      "conditional_ci95": [
+        0.0060222169975682974,
+        0.03271330344211203
+      ],
+      "iid_image_ci95": [
+        -2.6669021641184335e-06,
+        0.03830909505496813
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 4.887735660802033,
+      "mean_voc": 4.833215343957958,
+      "difference_imagenet_minus_voc": 0.05452031684407466,
+      "conditional_ci95": [
+        0.05073996174147015,
+        0.05828600645191617
+      ],
+      "iid_image_ci95": [
+        0.048949145798540615,
+        0.05998086870840926
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 3.2201010062436985,
+      "mean_voc": 3.2205265793967817,
+      "difference_imagenet_minus_voc": -0.00042557315308311416,
+      "conditional_ci95": [
+        -0.0029530378203719287,
+        0.002009681649789884
+      ],
+      "iid_image_ci95": [
+        -0.0034791286327828463,
+        0.0027108183301721932
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 4.988995470891517,
+      "mean_voc": 5.004960087958105,
+      "difference_imagenet_minus_voc": -0.01596461706658836,
+      "conditional_ci95": [
+        -0.01671855341102806,
+        -0.01519498143444542
+      ],
+      "iid_image_ci95": [
+        -0.017055362102759174,
+        -0.014791425754065404
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 7.689283923024951,
+      "mean_voc": 7.687727947476571,
+      "difference_imagenet_minus_voc": 0.001555975548380495,
+      "conditional_ci95": [
+        0.0013335552829137009,
+        0.0017751057998252051
+      ],
+      "iid_image_ci95": [
+        0.001295135841351902,
+        0.001811391687341124
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 7.696866285855362,
+      "mean_voc": 7.694668643945647,
+      "difference_imagenet_minus_voc": 0.0021976419097144984,
+      "conditional_ci95": [
+        -0.002157646994044926,
+        0.006264939790012544
+      ],
+      "iid_image_ci95": [
+        -0.0029313960291573295,
+        0.007279891138254666
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 8.357710059700752,
+      "mean_voc": 8.347511272869408,
+      "difference_imagenet_minus_voc": 0.010198786831344009,
+      "conditional_ci95": [
+        0.009636532054755963,
+        0.010748015886176354
+      ],
+      "iid_image_ci95": [
+        0.009447202914061226,
+        0.010937765829527945
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 5.763354392831031,
+      "mean_voc": 5.7553296122982305,
+      "difference_imagenet_minus_voc": 0.008024780532800868,
+      "conditional_ci95": [
+        0.0016440917635175412,
+        0.01455904328457491
+      ],
+      "iid_image_ci95": [
+        0.00031266531236315845,
+        0.01588438729446415
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 4.018488551030327,
+      "mean_voc": 4.021688514586344,
+      "difference_imagenet_minus_voc": -0.003199963556017593,
+      "conditional_ci95": [
+        -0.005544997373860316,
+        -0.0008247173532810242
+      ],
+      "iid_image_ci95": [
+        -0.005778634148334438,
+        -0.0007053557101446733
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 5.819691036845568,
+      "mean_voc": 5.821797605108281,
+      "difference_imagenet_minus_voc": -0.002106568262712827,
+      "conditional_ci95": [
+        -0.004432452024836287,
+        0.0002445684855826955
+      ],
+      "iid_image_ci95": [
+        -0.005119730651679144,
+        0.0009871919714750969
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 7.975894787237421,
+      "mean_voc": 7.97122465405941,
+      "difference_imagenet_minus_voc": 0.004670133178011682,
+      "conditional_ci95": [
+        0.0038030229227811406,
+        0.005550466716535162
+      ],
+      "iid_image_ci95": [
+        0.003403978909703076,
+        0.005958314180045399
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 8.266162067614273,
+      "mean_voc": 8.2627188339804,
+      "difference_imagenet_minus_voc": 0.0034432336338721115,
+      "conditional_ci95": [
+        0.0008790954075836411,
+        0.005911790314135024
+      ],
+      "iid_image_ci95": [
+        0.0005250985642227147,
+        0.00631563438369067
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 8.786901372938173,
+      "mean_voc": 8.783997383574642,
+      "difference_imagenet_minus_voc": 0.002903989363531423,
+      "conditional_ci95": [
+        0.001622289818522349,
+        0.00418905521457047
+      ],
+      "iid_image_ci95": [
+        0.0014358038297646036,
+        0.004434627094804621
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 4.969800762084687,
+      "mean_voc": 4.976189727147098,
+      "difference_imagenet_minus_voc": -0.006388965062410712,
+      "conditional_ci95": [
+        -0.007092835215005033,
+        -0.005682202866058717
+      ],
+      "iid_image_ci95": [
+        -0.007175576807246453,
+        -0.005579332079853927
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 2.078814174442346,
+      "mean_voc": 2.0861336889534687,
+      "difference_imagenet_minus_voc": -0.007319514511122893,
+      "conditional_ci95": [
+        -0.010070753594525883,
+        -0.004673354917643891
+      ],
+      "iid_image_ci95": [
+        -0.010588297563426363,
+        -0.00398682069221158
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 5.351848427948583,
+      "mean_voc": 5.351900132742901,
+      "difference_imagenet_minus_voc": -5.1704794318041536e-05,
+      "conditional_ci95": [
+        -0.0002505208965939642,
+        0.0001449021398891359
+      ],
+      "iid_image_ci95": [
+        -0.00030206976509423723,
+        0.0002007753999229366
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 8.381719574456811,
+      "mean_voc": 8.38123759871109,
+      "difference_imagenet_minus_voc": 0.0004819757457212859,
+      "conditional_ci95": [
+        0.000362784696091456,
+        0.0006187830395545823
+      ],
+      "iid_image_ci95": [
+        0.00031171389657989044,
+        0.0006819962467426775
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 8.115584896382046,
+      "mean_voc": 8.115335127569912,
+      "difference_imagenet_minus_voc": 0.0002497688121341213,
+      "conditional_ci95": [
+        -0.002269365901165088,
+        0.0027450394671669097
+      ],
+      "iid_image_ci95": [
+        -0.002821938405134805,
+        0.0033617455909893826
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "common_correct",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 8.963557474619048,
+      "mean_voc": 8.958697427280875,
+      "difference_imagenet_minus_voc": 0.004860047338173246,
+      "conditional_ci95": [
+        0.004538713110320014,
+        0.005174770691215169
+      ],
+      "iid_image_ci95": [
+        0.004422885721079695,
+        0.00528126864155154
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 0.038468973348094355,
+      "mean_voc": 0.44319288176686866,
+      "difference_imagenet_minus_voc": -0.4047239084187743,
+      "conditional_ci95": [
+        -0.4101997285938452,
+        -0.3991810931113603
+      ],
+      "iid_image_ci95": [
+        -0.41482646480973767,
+        -0.39444840679172793
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 0.0876253168614905,
+      "mean_voc": 0.5384530012374339,
+      "difference_imagenet_minus_voc": -0.4508276843759434,
+      "conditional_ci95": [
+        -0.45985574306135635,
+        -0.4416432326007318
+      ],
+      "iid_image_ci95": [
+        -0.46431766555903975,
+        -0.4370887941186843
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 0.19313416903074224,
+      "mean_voc": 0.6109094099830026,
+      "difference_imagenet_minus_voc": -0.4177752409522604,
+      "conditional_ci95": [
+        -0.4326603123317624,
+        -0.4025922858329368
+      ],
+      "iid_image_ci95": [
+        -0.4378206412630211,
+        -0.39735479172636784
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 0.10707824941206996,
+      "mean_voc": 0.5411156123423058,
+      "difference_imagenet_minus_voc": -0.4340373629302358,
+      "conditional_ci95": [
+        -0.4455042130054331,
+        -0.4226872432640559
+      ],
+      "iid_image_ci95": [
+        -0.45030915132967175,
+        -0.4174702777317045
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 0.11288398522795076,
+      "mean_voc": 0.4894035347453926,
+      "difference_imagenet_minus_voc": -0.3765195495174418,
+      "conditional_ci95": [
+        -0.3873241997714871,
+        -0.36571393991495943
+      ],
+      "iid_image_ci95": [
+        -0.3917969653274992,
+        -0.3610506081067243
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 0.0649504755893798,
+      "mean_voc": 0.4993360294919947,
+      "difference_imagenet_minus_voc": -0.4343855539026149,
+      "conditional_ci95": [
+        -0.44381434625971294,
+        -0.42489406556979425
+      ],
+      "iid_image_ci95": [
+        -0.4480360996457998,
+        -0.4205621438811258
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 0.04452257908989463,
+      "mean_voc": 0.3272779827775515,
+      "difference_imagenet_minus_voc": -0.28275540368765684,
+      "conditional_ci95": [
+        -0.2911861695127273,
+        -0.274137825091434
+      ],
+      "iid_image_ci95": [
+        -0.30081184554830975,
+        -0.26482906823290386
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 0.05688289390816308,
+      "mean_voc": 0.4361968608006187,
+      "difference_imagenet_minus_voc": -0.3793139668924556,
+      "conditional_ci95": [
+        -0.3891301366106745,
+        -0.369202983714291
+      ],
+      "iid_image_ci95": [
+        -0.3994025412749743,
+        -0.35990601058667815
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 0.08148833237424379,
+      "mean_voc": 0.45309385035348976,
+      "difference_imagenet_minus_voc": -0.37160551797924596,
+      "conditional_ci95": [
+        -0.38845576319450353,
+        -0.3551114531605918
+      ],
+      "iid_image_ci95": [
+        -0.39470262276676654,
+        -0.348060624381285
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 0.05420911384414427,
+      "mean_voc": 0.416222730813467,
+      "difference_imagenet_minus_voc": -0.3620136169693227,
+      "conditional_ci95": [
+        -0.37248983933885166,
+        -0.35136315273374175
+      ],
+      "iid_image_ci95": [
+        -0.3816598483679475,
+        -0.3430578406125954
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 0.04200687342632274,
+      "mean_voc": 0.36360771321570096,
+      "difference_imagenet_minus_voc": -0.3216008397893782,
+      "conditional_ci95": [
+        -0.33099174372532975,
+        -0.31200174320706225
+      ],
+      "iid_image_ci95": [
+        -0.33682253615355207,
+        -0.30622066552444843
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 0.055501924120032874,
+      "mean_voc": 0.4029638210554486,
+      "difference_imagenet_minus_voc": -0.34746189693541574,
+      "conditional_ci95": [
+        -0.3579893818255612,
+        -0.33660993564211605
+      ],
+      "iid_image_ci95": [
+        -0.3673671545832466,
+        -0.32733801667104356
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 0.021617767126538276,
+      "mean_voc": 0.11345484154501362,
+      "difference_imagenet_minus_voc": -0.09183707441847534,
+      "conditional_ci95": [
+        -0.09695942249787855,
+        -0.08655318063676591
+      ],
+      "iid_image_ci95": [
+        -0.10170002482127818,
+        -0.08236659101898194
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 0.24322072618013646,
+      "mean_voc": 0.3378165398840792,
+      "difference_imagenet_minus_voc": -0.09459581370394277,
+      "conditional_ci95": [
+        -0.11728774882066019,
+        -0.07133958053256464
+      ],
+      "iid_image_ci95": [
+        -0.12637734135681472,
+        -0.061629159106091326
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 0.03963841211942686,
+      "mean_voc": 0.25651053143817043,
+      "difference_imagenet_minus_voc": -0.21687211931874356,
+      "conditional_ci95": [
+        -0.23161079987646585,
+        -0.20209594629350094
+      ],
+      "iid_image_ci95": [
+        -0.24034137550363205,
+        -0.19270368845305338
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 0.05245810431924639,
+      "mean_voc": 0.2684024060236128,
+      "difference_imagenet_minus_voc": -0.21594430170436643,
+      "conditional_ci95": [
+        -0.2323808501458916,
+        -0.19940601345185868
+      ],
+      "iid_image_ci95": [
+        -0.237043074528586,
+        -0.19456419830295546
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 0.032818374013170434,
+      "mean_voc": 0.18165751879467912,
+      "difference_imagenet_minus_voc": -0.14883914478150867,
+      "conditional_ci95": [
+        -0.15810002093994074,
+        -0.13933201618022298
+      ],
+      "iid_image_ci95": [
+        -0.16554216720761777,
+        -0.13240524191569247
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "faithfulness_morf_auc_raw",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 0.051017907811082404,
+      "mean_voc": 0.21069447675583194,
+      "difference_imagenet_minus_voc": -0.15967656894474955,
+      "conditional_ci95": [
+        -0.17142069725685524,
+        -0.14785706870314166
+      ],
+      "iid_image_ci95": [
+        -0.17708091519156233,
+        -0.14226598433365262
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 0.6735440261779913,
+      "mean_voc": 0.5725639203059926,
+      "difference_imagenet_minus_voc": 0.10098010587199868,
+      "conditional_ci95": [
+        0.08574043998673153,
+        0.11628400053909145
+      ],
+      "iid_image_ci95": [
+        0.07928936545479283,
+        0.12240386919285964
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 0.9895582579037872,
+      "mean_voc": 0.9764894740430192,
+      "difference_imagenet_minus_voc": 0.01306878386076793,
+      "conditional_ci95": [
+        0.009671356126100516,
+        0.016715868149448608
+      ],
+      "iid_image_ci95": [
+        0.009346618599521161,
+        0.01711730931740853
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 0.9166529592135856,
+      "mean_voc": 0.9153883365584514,
+      "difference_imagenet_minus_voc": 0.0012646226551341622,
+      "conditional_ci95": [
+        -0.004810329184077844,
+        0.0073274383823303275
+      ],
+      "iid_image_ci95": [
+        -0.007245538612492516,
+        0.009377465637644964
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 0.9951543025538908,
+      "mean_voc": 0.997432293463086,
+      "difference_imagenet_minus_voc": -0.0022779909091952266,
+      "conditional_ci95": [
+        -0.0027624175662142813,
+        -0.001764288750024909
+      ],
+      "iid_image_ci95": [
+        -0.003073202965919794,
+        -0.0015602151268319822
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9928472049689443,
+      "mean_voc": 0.9788350931677007,
+      "difference_imagenet_minus_voc": 0.01401211180124362,
+      "conditional_ci95": [
+        0.012474175909495035,
+        0.01561133984028494
+      ],
+      "iid_image_ci95": [
+        0.012363194321206823,
+        0.0157344321206746
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 0.6762699477004019,
+      "mean_voc": 0.7649190456592874,
+      "difference_imagenet_minus_voc": -0.08864909795888543,
+      "conditional_ci95": [
+        -0.09960681692879779,
+        -0.07770816897370579
+      ],
+      "iid_image_ci95": [
+        -0.10293074394715464,
+        -0.0741871531434694
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 0.761712897378716,
+      "mean_voc": 0.7122869240833933,
+      "difference_imagenet_minus_voc": 0.04942597329532261,
+      "conditional_ci95": [
+        0.03644535897363385,
+        0.06256737005809895
+      ],
+      "iid_image_ci95": [
+        0.03036670497532998,
+        0.06843084892829955
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 0.9988525624999637,
+      "mean_voc": 0.9922644616010062,
+      "difference_imagenet_minus_voc": 0.00658810089895745,
+      "conditional_ci95": [
+        0.001720140635715614,
+        0.013015849342434792
+      ],
+      "iid_image_ci95": [
+        0.0016512034857900455,
+        0.013504842670655279
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 0.9878033210799703,
+      "mean_voc": 0.9878627615340225,
+      "difference_imagenet_minus_voc": -5.944045405226195e-05,
+      "conditional_ci95": [
+        -0.0012911342124628244,
+        0.0012335030588378857
+      ],
+      "iid_image_ci95": [
+        -0.0016478557909972073,
+        0.0015315479177862481
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 0.9981618865687139,
+      "mean_voc": 0.9993158432873855,
+      "difference_imagenet_minus_voc": -0.0011539567186716893,
+      "conditional_ci95": [
+        -0.00134249241610091,
+        -0.0009657570365468271
+      ],
+      "iid_image_ci95": [
+        -0.0019204385373232018,
+        -0.0006727651502940385
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9956690660230699,
+      "mean_voc": 0.9947859027549356,
+      "difference_imagenet_minus_voc": 0.0008831632681343127,
+      "conditional_ci95": [
+        0.0004716349558014837,
+        0.0013328419815236887
+      ],
+      "iid_image_ci95": [
+        0.0003164107463968308,
+        0.0014250703227030898
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 0.7214203057404794,
+      "mean_voc": 0.7352659587141732,
+      "difference_imagenet_minus_voc": -0.013845652973693778,
+      "conditional_ci95": [
+        -0.02441189459857665,
+        -0.002837742926405921
+      ],
+      "iid_image_ci95": [
+        -0.028176441305654484,
+        0.0007905424845499536
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 0.7964470959524744,
+      "mean_voc": 0.7767933503350064,
+      "difference_imagenet_minus_voc": 0.01965374561746802,
+      "conditional_ci95": [
+        0.008619723596719349,
+        0.031075035490123498
+      ],
+      "iid_image_ci95": [
+        0.0034496417631438847,
+        0.03575757936031321
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 0.9318018515288721,
+      "mean_voc": 0.9591160734985373,
+      "difference_imagenet_minus_voc": -0.027314221969665264,
+      "conditional_ci95": [
+        -0.03452278967031053,
+        -0.019584212351028713
+      ],
+      "iid_image_ci95": [
+        -0.0382653713478179,
+        -0.016913765315376226
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 0.9901223207226602,
+      "mean_voc": 0.9920775359350636,
+      "difference_imagenet_minus_voc": -0.001955215212403494,
+      "conditional_ci95": [
+        -0.0028169079455784645,
+        -0.0010291757012842408
+      ],
+      "iid_image_ci95": [
+        -0.003404763693493312,
+        -0.000590939223389503
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 0.9968039060794776,
+      "mean_voc": 0.9979363107506929,
+      "difference_imagenet_minus_voc": -0.0011324046712153368,
+      "conditional_ci95": [
+        -0.0016171904299221273,
+        -0.0005922040974762817
+      ],
+      "iid_image_ci95": [
+        -0.0018141593033239617,
+        -0.00043909262715088887
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 0.9959433895297255,
+      "mean_voc": 0.995844942324756,
+      "difference_imagenet_minus_voc": 9.844720496954285e-05,
+      "conditional_ci95": [
+        -0.00025165039929041233,
+        0.000486297692990073
+      ],
+      "iid_image_ci95": [
+        -0.0006023081188997997,
+        0.0007279203637978374
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "stability_spearman",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 0.718623773254595,
+      "mean_voc": 0.7044055766396826,
+      "difference_imagenet_minus_voc": 0.014218196614912415,
+      "conditional_ci95": [
+        0.00266660145093483,
+        0.02614464243993146
+      ],
+      "iid_image_ci95": [
+        -0.0013598871868532258,
+        0.030641280002540797
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "ig",
+      "mean_imagenet": 4.885168132721331,
+      "mean_voc": 4.832681984079795,
+      "difference_imagenet_minus_voc": 0.05248614864153556,
+      "conditional_ci95": [
+        0.04925168996466436,
+        0.05575747372975976
+      ],
+      "iid_image_ci95": [
+        0.04781891362766975,
+        0.057175112124505365
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "gradcam",
+      "mean_imagenet": 3.21981856881187,
+      "mean_voc": 3.219297816225186,
+      "difference_imagenet_minus_voc": 0.0005207525866839369,
+      "conditional_ci95": [
+        -0.0015487028228523437,
+        0.00260070051081621
+      ],
+      "iid_image_ci95": [
+        -0.002045579316802537,
+        0.003076759190158994
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "occlusion",
+      "mean_imagenet": 4.988944179526822,
+      "mean_voc": 5.004996447368063,
+      "difference_imagenet_minus_voc": -0.01605226784124092,
+      "conditional_ci95": [
+        -0.016742261231177634,
+        -0.01535562024388184
+      ],
+      "iid_image_ci95": [
+        -0.016942294798046965,
+        -0.015068281110379944
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "rise",
+      "mean_imagenet": 7.689251197109561,
+      "mean_voc": 7.68782977590675,
+      "difference_imagenet_minus_voc": 0.0014214212028109685,
+      "conditional_ci95": [
+        0.0012050586970384857,
+        0.0016280732075897753
+      ],
+      "iid_image_ci95": [
+        0.0011779359053975646,
+        0.0016565214116249338
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "mean_imagenet": 7.696304104577702,
+      "mean_voc": 7.693653038592801,
+      "difference_imagenet_minus_voc": 0.0026510659849003915,
+      "conditional_ci95": [
+        -0.0009959706856780936,
+        0.0060972377761361095
+      ],
+      "iid_image_ci95": [
+        -0.0015350742544501194,
+        0.0069520748992015985
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "resnet50",
+      "method": "lime",
+      "mean_imagenet": 8.357832870054807,
+      "mean_voc": 8.347665246186105,
+      "difference_imagenet_minus_voc": 0.010167623868701625,
+      "conditional_ci95": [
+        0.009662684023012114,
+        0.010659902593156767
+      ],
+      "iid_image_ci95": [
+        0.009522410606669895,
+        0.010815729200568214
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "ig",
+      "mean_imagenet": 5.764260426328472,
+      "mean_voc": 5.7567906673296525,
+      "difference_imagenet_minus_voc": 0.007469758998819742,
+      "conditional_ci95": [
+        0.0017831671189590282,
+        0.013126263490708999
+      ],
+      "iid_image_ci95": [
+        0.0008556735697090592,
+        0.014255878335703607
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "gradcam",
+      "mean_imagenet": 4.018165134316246,
+      "mean_voc": 4.021461313514123,
+      "difference_imagenet_minus_voc": -0.003296179197876725,
+      "conditional_ci95": [
+        -0.005388942393918583,
+        -0.001266081692142751
+      ],
+      "iid_image_ci95": [
+        -0.005501981897843633,
+        -0.0011341000265790546
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "occlusion",
+      "mean_imagenet": 5.819215210019113,
+      "mean_voc": 5.822369420929914,
+      "difference_imagenet_minus_voc": -0.0031542109108011473,
+      "conditional_ci95": [
+        -0.005139258416864556,
+        -0.0011403554721742609
+      ],
+      "iid_image_ci95": [
+        -0.005765381276843473,
+        -0.0005288036053059614
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "rise",
+      "mean_imagenet": 7.976046202670965,
+      "mean_voc": 7.971259266774531,
+      "difference_imagenet_minus_voc": 0.00478693589643342,
+      "conditional_ci95": [
+        0.004042726831280707,
+        0.00555372035712911
+      ],
+      "iid_image_ci95": [
+        0.0036913775214471476,
+        0.005873155746034375
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "kernelshap",
+      "mean_imagenet": 8.26657950867626,
+      "mean_voc": 8.262122186757203,
+      "difference_imagenet_minus_voc": 0.004457321919057122,
+      "conditional_ci95": [
+        0.0022958328965004605,
+        0.0065736960403370405
+      ],
+      "iid_image_ci95": [
+        0.0019710661710925503,
+        0.006887890007987529
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "densenet121",
+      "method": "lime",
+      "mean_imagenet": 8.787129287108982,
+      "mean_voc": 8.784130651694422,
+      "difference_imagenet_minus_voc": 0.0029986354145599137,
+      "conditional_ci95": [
+        0.001875724324087269,
+        0.004116995960939329
+      ],
+      "iid_image_ci95": [
+        0.001715215457406627,
+        0.004291819127987218
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "ig",
+      "mean_imagenet": 4.969726877778953,
+      "mean_voc": 4.976301279871719,
+      "difference_imagenet_minus_voc": -0.00657440209276583,
+      "conditional_ci95": [
+        -0.007185361397579815,
+        -0.00596324545848721
+      ],
+      "iid_image_ci95": [
+        -0.00727831979640583,
+        -0.0058768734573052765
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "gradcam",
+      "mean_imagenet": 2.0779739106767403,
+      "mean_voc": 2.086548078485286,
+      "difference_imagenet_minus_voc": -0.008574167808545585,
+      "conditional_ci95": [
+        -0.010827473414445288,
+        -0.006415826186848961
+      ],
+      "iid_image_ci95": [
+        -0.01116627600815374,
+        -0.0059831624692825
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "occlusion",
+      "mean_imagenet": 5.351859560661825,
+      "mean_voc": 5.3519119862312925,
+      "difference_imagenet_minus_voc": -5.2425569467828836e-05,
+      "conditional_ci95": [
+        -0.0002225888688843547,
+        0.0001132089103343725
+      ],
+      "iid_image_ci95": [
+        -0.00026123594488400845,
+        0.00015252540016603687
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "rise",
+      "mean_imagenet": 8.381836824498121,
+      "mean_voc": 8.381267723791568,
+      "difference_imagenet_minus_voc": 0.0005691007065529163,
+      "conditional_ci95": [
+        0.00043436052714671545,
+        0.0007107375074828945
+      ],
+      "iid_image_ci95": [
+        0.00038976823762610914,
+        0.0007649210691391238
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "mean_imagenet": 8.114801476714844,
+      "mean_voc": 8.115767804709826,
+      "difference_imagenet_minus_voc": -0.0009663279949823078,
+      "conditional_ci95": [
+        -0.003202079960102333,
+        0.001175849288588048
+      ],
+      "iid_image_ci95": [
+        -0.0036633094278312847,
+        0.0017400519852313033
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    },
+    {
+      "cohort": "all",
+      "metric": "efficiency_time_ms",
+      "model": "vgg16",
+      "method": "lime",
+      "mean_imagenet": 8.96359173744618,
+      "mean_voc": 8.958839567649889,
+      "difference_imagenet_minus_voc": 0.004752169796290673,
+      "conditional_ci95": [
+        0.00445725157727721,
+        0.005041159446806454
+      ],
+      "iid_image_ci95": [
+        0.0043771977900853186,
+        0.005126476990798911
+      ],
+      "interpretation": "nominal observed-score task difference, not a common latent-quality effect"
+    }
+  ],
+  "receipt": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "protocol": {
+    "seed": 20261029,
+    "dataset_between": [
+      "imagenet",
+      "voc"
+    ],
+    "model_within": [
+      "resnet50",
+      "densenet121",
+      "vgg16"
+    ],
+    "method_within": [
+      "ig",
+      "gradcam",
+      "occlusion",
+      "rise",
+      "kernelshap",
+      "lime"
+    ],
+    "main_cohort": "common_correct",
+    "sensitivity": "all",
+    "p_bootstrap": 9999,
+    "ci_resamples": 10000,
+    "nominal": "equal-cell Type III mixed ANOVA; subject nested in dataset; effect-specific subject-within-dataset error; pooled GG epsilon",
+    "robust": "heteroscedastic WTS with independent group Gaussian parametric bootstrap; each bootstrap covariance re-estimated using normal/Wishart sufficient statistics; plus-one correction; no pseudoinverse or jitter to conceal singularities",
+    "primary_inference": "report nominal ANOVA and heteroscedastic WTS together; 14 quality tests per cohort; recorded log1p(ms) separate exploratory 7-test family; Holm separately for each procedure",
+    "metric_scales": {
+      "faithfulness_morf_auc_raw": "raw target-probability MoRF AUC",
+      "stability_spearman": "input-noise Spearman",
+      "efficiency_time_ms": "log1p(recorded wrapper milliseconds)"
+    },
+    "contrast": "dataset=ImageNet minus VOC; within main effects average datasets EQUALLY, regardless of n; dataset interactions difference of corresponding within contrasts",
+    "uncertainty": "independent image bootstrap in each dataset, paired over models/methods/metrics; class-stratified and IID-image percentile marginal CIs; singleton-class and fixed-checkpoint limitations retained",
+    "assumptions": "independent original-image vectors, finite fourth moments and positive definite group contrast covariance for WTS; bootstrap is asymptotic, not an exact finite-sample test; nominal ANOVA additionally uses pooled covariance and GG approximation",
+    "scope": "all 7 factorial terms computed for nominal raw task scores, not causal dataset effects or a common quality scale. Softmax/sigmoid, class space, image population, preprocessing and shared two-round timing confounds remain. Teacher/A/C/E acceptance and final freeze are separate."
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.15.3",
+    "PyYAML": "6.0.3"
+  },
+  "analysis_code_sha256": "5e9807fab23457f9266fde5ab7ccfffe5cc60d3bb53ca1881af84414bf4242ef"
+}

@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "factorial_rows_independently_recomputed": 42,
+  "observed_dataset_cell_differences_checked": 108,
+  "full_rank_group_covariances_checked": 84,
+  "input_receipt_identical": true,
+  "raw_observations_modified": false,
+  "algorithm": "independent simple-difference QR basis, group-dummy least squares, raw covariance WTS; separate Holm reconstruction",
+  "checks": "SS_H/error/F/GG epsilon/GG dfs/partial eta squared/nominal p/observed WTS/plus-one bootstrap arithmetic/108 means/CI order/source SHA",
+  "limits": "Does not independently repeat every bootstrap draw or validate substantive dataset comparability; not C/teacher acceptance.",
+  "input": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "result_sha256": "f3e7bb51aef4753c94b0794ba612f416f6a9496e745886915246f74e93036dd5",
+  "verification_code_sha256": "a04cbb7e9741da6e90c1bf39380e7428d9eff962726aa234c22c6f5db43ab7fc"
+}
