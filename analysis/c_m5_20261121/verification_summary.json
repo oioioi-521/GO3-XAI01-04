@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-21",
+  "actor": "C",
+  "local_document_links_checked": 77,
+  "missing_links": [],
+  "new_figures_visually_inspected": 3,
+  "receipt_statuses": {
+    "demo_receipt.json": "passed_local_assets_and_http",
+    "extensions_first_attempt.json": "differences_require_review",
+    "extensions_receipt.json": "passed_with_float_differences",
+    "integration_inventory.json": "passed",
+    "original_receipt.json": "passed",
+    "test_receipt.json": "passed"
+  },
+  "raw_data_weights_npy_zip_added": false,
+  "independent_device_or_rehearsal_signed_off": false
+}
