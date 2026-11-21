@@ -1,0 +1,285 @@
+{
+  "status": "passed",
+  "baseline": "29895378e930138e042fd29ad029d0f14e8b9186",
+  "candidate_commit": "507981464a770ee92dc43b00567f9b42f81071f4",
+  "protected_baseline_files": 191,
+  "protected_changes": [],
+  "b_tools_inventory": {
+    "head": "a2246ea66efb58815ef324cb3938162fba941c7f",
+    "ancestor_of_candidate": true,
+    "files": [
+      {
+        "path": "configs/occlusion_densenet121_imagenet.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea",
+        "source_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea",
+        "candidate_blob": "2a7255ec928e48087bcb6de664c6454cc5038bea"
+      },
+      {
+        "path": "configs/occlusion_densenet121_voc.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f",
+        "source_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f",
+        "candidate_blob": "ffb3a1c4918ad9742930e722a7b0745f2556bd0f"
+      },
+      {
+        "path": "configs/occlusion_gate_densenet121_imagenet.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "c28e03d115f1be93285bda03e3e1d419e3254b0b",
+        "candidate_blob": "c28e03d115f1be93285bda03e3e1d419e3254b0b"
+      },
+      {
+        "path": "configs/occlusion_gate_densenet121_voc.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "1088952aa152b55f449169a0838fd5969742e54a",
+        "candidate_blob": "1088952aa152b55f449169a0838fd5969742e54a"
+      },
+      {
+        "path": "configs/occlusion_gate_resnet50_imagenet.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "c917a3e3c095515097c53bf1bb6eb636782b77a8",
+        "candidate_blob": "c917a3e3c095515097c53bf1bb6eb636782b77a8"
+      },
+      {
+        "path": "configs/occlusion_gate_resnet50_voc.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "e2d2dc4325c7b248541015a9c4b4d434c9cf39a4",
+        "candidate_blob": "e2d2dc4325c7b248541015a9c4b4d434c9cf39a4"
+      },
+      {
+        "path": "configs/occlusion_gate_vgg16_imagenet.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "0b7331047586d45260ec49d0517ddd736e6fd3cc",
+        "candidate_blob": "0b7331047586d45260ec49d0517ddd736e6fd3cc"
+      },
+      {
+        "path": "configs/occlusion_gate_vgg16_voc.yaml",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "03e320a401c4429db76b5ca836301ec5121b79fa",
+        "candidate_blob": "03e320a401c4429db76b5ca836301ec5121b79fa"
+      },
+      {
+        "path": "configs/occlusion_resnet50_imagenet.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e",
+        "source_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e",
+        "candidate_blob": "c00f3d38b4904cadb81b8d3de68a79fa09850b7e"
+      },
+      {
+        "path": "configs/occlusion_resnet50_voc.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "75190be400f76f1f4fb497c769226f9b92bfc631",
+        "source_blob": "75190be400f76f1f4fb497c769226f9b92bfc631",
+        "candidate_blob": "75190be400f76f1f4fb497c769226f9b92bfc631"
+      },
+      {
+        "path": "configs/occlusion_vgg16_imagenet.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1",
+        "source_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1",
+        "candidate_blob": "0465006aedb1a42dcb171c9005cdcd099643bba1"
+      },
+      {
+        "path": "configs/occlusion_vgg16_voc.yaml",
+        "decision": "already_in_baseline",
+        "baseline_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13",
+        "source_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13",
+        "candidate_blob": "67fdeca6d6eb59937a3ad0544cbf4e45c6516b13"
+      },
+      {
+        "path": "docs/B_OCCLUSION_EVAL_HANDOFF.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "1fa3226df4ceb69c5138e2becdfb6cc9705687f7",
+        "candidate_blob": "1fa3226df4ceb69c5138e2becdfb6cc9705687f7"
+      },
+      {
+        "path": "docs/B_OCCLUSION_EVAL_MANIFEST.json",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "671eb90e6fd88eaba2a158bd0606a8ab43105920",
+        "candidate_blob": "671eb90e6fd88eaba2a158bd0606a8ab43105920"
+      },
+      {
+        "path": "docs/B_OCCLUSION_GATE_REVIEW.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "b198a25b91f71a808e9583cb16aab3d490982793",
+        "candidate_blob": "b198a25b91f71a808e9583cb16aab3d490982793"
+      },
+      {
+        "path": "docs/B_OCCLUSION_STABILITY_EVAL_HANDOFF.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "60c71d4f2f6a2645c30ee229791e341c427a658d",
+        "candidate_blob": "60c71d4f2f6a2645c30ee229791e341c427a658d"
+      },
+      {
+        "path": "docs/B_OCCLUSION_STABILITY_EVAL_MANIFEST.json",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "e5b6b8b3bb2de54cfd779ee2705f0df62e29feb9",
+        "candidate_blob": "e5b6b8b3bb2de54cfd779ee2705f0df62e29feb9"
+      },
+      {
+        "path": "docs/B_OCCLUSION_STABILITY_GATE_HANDOFF.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "d99572e470b6c6748f8fb4445564789bf62a6382",
+        "candidate_blob": "d99572e470b6c6748f8fb4445564789bf62a6382"
+      },
+      {
+        "path": "docs/B_OCCLUSION_STABILITY_REVIEW.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "ccad5a55e4d9175ec0176b7602970fa3a46a1498",
+        "candidate_blob": "ccad5a55e4d9175ec0176b7602970fa3a46a1498"
+      },
+      {
+        "path": "docs/B_OCCLUSION_WINDOWS_CODE_INTEGRITY.md",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "3c09c858720d2ddae8d6bcd82e858098e2236d73",
+        "candidate_blob": "3c09c858720d2ddae8d6bcd82e858098e2236d73"
+      },
+      {
+        "path": "experiments/run_occlusion_gate.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "1d348536e4024c72a6c06ab840827ade7ab51c0d",
+        "candidate_blob": "1d348536e4024c72a6c06ab840827ade7ab51c0d"
+      },
+      {
+        "path": "preprocessing/verify_data_version.py",
+        "decision": "integrated",
+        "baseline_blob": "236ec3d3303e926376c6c785454eb19fad033578",
+        "source_blob": "88cfb0194112a698f1d7e738c30e9cfca01158f2",
+        "candidate_blob": "88cfb0194112a698f1d7e738c30e9cfca01158f2"
+      },
+      {
+        "path": "scripts/build_occlusion_eval_handoff.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "355ee9efbd3b0085656df9b2dfd2098058f0d90e",
+        "candidate_blob": "355ee9efbd3b0085656df9b2dfd2098058f0d90e"
+      },
+      {
+        "path": "scripts/package_occlusion_eval_handoff.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "0bc2cedfd929717dd5be215af3b877d6b5f650e6",
+        "candidate_blob": "0bc2cedfd929717dd5be215af3b877d6b5f650e6"
+      },
+      {
+        "path": "scripts/package_occlusion_stability_eval.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "c2afa514bb278d8821928a537870e19381128aff",
+        "candidate_blob": "c2afa514bb278d8821928a537870e19381128aff"
+      },
+      {
+        "path": "scripts/package_occlusion_stability_gates.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "ec0288e9e932298deceba370be3da57fcc6122bf",
+        "candidate_blob": "ec0288e9e932298deceba370be3da57fcc6122bf"
+      },
+      {
+        "path": "scripts/prepare_occlusion_stability_eval.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "39a57937de3499af36076d6918e8977ef18209e9",
+        "candidate_blob": "39a57937de3499af36076d6918e8977ef18209e9"
+      },
+      {
+        "path": "scripts/prepare_occlusion_stability_gates.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "f4f996972448726406cfbfe03ef1f58b9cfe5441",
+        "candidate_blob": "f4f996972448726406cfbfe03ef1f58b9cfe5441"
+      },
+      {
+        "path": "scripts/run_occlusion_stability_eval.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "9a1e9cce6c1c49d07537c07a947cc3ba27fea8cd",
+        "candidate_blob": "9a1e9cce6c1c49d07537c07a947cc3ba27fea8cd"
+      },
+      {
+        "path": "scripts/run_occlusion_stability_gate.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "427c996208b78a44552ee2e30e734766a0b04e3e",
+        "candidate_blob": "427c996208b78a44552ee2e30e734766a0b04e3e"
+      },
+      {
+        "path": "scripts/validate_occlusion_stability_eval.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "5a61d099b99ed1669f1ff88a0af9fed9477be22d",
+        "candidate_blob": "5a61d099b99ed1669f1ff88a0af9fed9477be22d"
+      },
+      {
+        "path": "scripts/validate_occlusion_stability_gate.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "5532c0130b7b47aada14641a268b41caf2c3164f",
+        "candidate_blob": "5532c0130b7b47aada14641a268b41caf2c3164f"
+      },
+      {
+        "path": "tests/test_data_version.py",
+        "decision": "integrated",
+        "baseline_blob": "e38f20ad33776f40b0c865edf413ce3383c42a18",
+        "source_blob": "ac177465375706f53ee37eb9964f3b08018d022a",
+        "candidate_blob": "ac177465375706f53ee37eb9964f3b08018d022a"
+      },
+      {
+        "path": "tests/test_occlusion_eval_configs.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "69ce09f883ac8c33a8963ffcbfe7d5b776938e5d",
+        "candidate_blob": "69ce09f883ac8c33a8963ffcbfe7d5b776938e5d"
+      },
+      {
+        "path": "tests/test_occlusion_gate.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "a48d4cd2dd23fb294e900c42ece366a99cc92d23",
+        "candidate_blob": "a48d4cd2dd23fb294e900c42ece366a99cc92d23"
+      },
+      {
+        "path": "tests/test_occlusion_stability_gate_tools.py",
+        "decision": "integrated",
+        "baseline_blob": null,
+        "source_blob": "477d425becfa0f40cf5eca6c3e77ebdd7471484a",
+        "candidate_blob": "477d425becfa0f40cf5eca6c3e77ebdd7471484a"
+      }
+    ],
+    "counts": {
+      "already_in_baseline": 6,
+      "integrated": 30
+    }
+  },
+  "tests": {
+    "tests": "35",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "25.432"
+  },
+  "scope": "B personally ran ancestry/blob audit and 38 selected CPU regression tests (35 tool/reproduction tests plus 3 data-version tests). C full analysis reproduction and 262/16 tests only read, not rerun by B.",
+  "additional_data_version_tests": {
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.277"
+  },
+  "personally_executed_tests_total": 38
+}

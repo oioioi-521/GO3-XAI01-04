@@ -1,0 +1,379 @@
+{
+  "formal_input": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "supplemental_input": {
+    "sha256": "a1ae2e245e3a96fd2790c4d61a3bbb8c61c5f25bbc5ee2d06f10436f19c2894a",
+    "manifest_files_checked": 1001,
+    "checksum_entries_checked": 1002,
+    "original_members_identical": 722,
+    "scope": "analysis_only_no_image_assets",
+    "asset_catalog_sha256": "69b2e67bd70da5a3e14d29a55594baf594dc57b5aa001f4076b6fcfe2638a3b0",
+    "catalog_rows_crosschecked": 16560
+  },
+  "selection": {
+    "status": "B_reproducible_proposal_pending_E_confirmation",
+    "candidates": [
+      {
+        "role": "central",
+        "dataset": "voc",
+        "model": "resnet50",
+        "image_id": "215",
+        "central_distance": 0.0,
+        "rank_discordance": 54.0,
+        "confidence": 0.9662320017814636,
+        "numeric_id": 215.0
+      },
+      {
+        "role": "tradeoff",
+        "dataset": "voc",
+        "model": "resnet50",
+        "image_id": "3803",
+        "central_distance": 8.0,
+        "rank_discordance": 70.0,
+        "confidence": 0.8687189221382141,
+        "numeric_id": 3803.0
+      },
+      {
+        "role": "low_confidence",
+        "dataset": "voc",
+        "model": "resnet50",
+        "image_id": "7612",
+        "central_distance": 10.0,
+        "rank_discordance": 30.0,
+        "confidence": 0.5393052101135254,
+        "numeric_id": 7612.0
+      },
+      {
+        "role": "constant_gradcam",
+        "dataset": "voc",
+        "model": "vgg16",
+        "image_id": "298",
+        "invalid_repeats": 5
+      }
+    ],
+    "candidate_pool": 387
+  },
+  "previews": [
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "215",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "3803",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "gradcam",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "ig",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "kernelshap",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "lime",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "occlusion",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50",
+      "method": "rise",
+      "image_id": "7612",
+      "png_and_sidecar_bytes_verified": true,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "gradcam",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "ig",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "kernelshap",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "lime",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "occlusion",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16",
+      "method": "rise",
+      "image_id": "298",
+      "png_and_sidecar_bytes_verified": false,
+      "original_bytes_verified": true,
+      "npy_bytes_verified": false
+    }
+  ],
+  "e_head": "6b4c4ec980fd3ea354a46851fa052877f21255ee",
+  "voc_isolation": {
+    "train_count": 4037,
+    "validation_count": 474,
+    "frozen_count": 500,
+    "pairwise_disjoint": true,
+    "training_manifest_checks": [
+      {
+        "path": "data/voc20_multilabel_train.csv",
+        "expected": "bd85e486dd49088a258a9af646133bc49d1eec600c09e571b94e0ba0c242bdb3",
+        "checkout_raw_sha256": "4205fd815b5916089d86699c82697a23acfb8baa15a413fe5e3b4b3aec5e3d54",
+        "raw_match": false,
+        "crlf_representation_matches": true
+      },
+      {
+        "path": "data/voc20_multilabel_validation.csv",
+        "expected": "3312ee9c30d44d6145424a86edec4891e639b5997ddf0ff6a18c5ba427165f47",
+        "checkout_raw_sha256": "393d0b2aa2f1e8801688851071e82266534417de8748134ab8c5df4a0c457342",
+        "raw_match": false,
+        "crlf_representation_matches": true
+      },
+      {
+        "path": "data/voc20_multilabel_frozen_exclusions.txt",
+        "expected": "e1fd56c2101a1f1240dca631cf5ace0de7e5647cf83d72be99e314fe52fcbdfa",
+        "checkout_raw_sha256": "e1fd56c2101a1f1240dca631cf5ace0de7e5647cf83d72be99e314fe52fcbdfa",
+        "raw_match": true,
+        "crlf_representation_matches": true
+      },
+      {
+        "path": "data/VOC20_MULTILABEL_VERSION.json",
+        "expected": "8ccad56335351bee0470028afc5bd42ec10662b961fe80152e76060c858f73c9",
+        "checkout_raw_sha256": "cb47ccbc5f0bc14ccbf7c919fd432502134b005307cb2a43bb72da71e0e7dab9",
+        "raw_match": false,
+        "crlf_representation_matches": true
+      }
+    ],
+    "checkpoint_binary_rehash_performed": false
+  },
+  "formal_budget_snapshots_checked": 90,
+  "boundaries": "No model, GPU, attribution, bootstrap, permutation or noise-map regeneration. NPY hashes are catalog claims, not local byte verification."
+}
