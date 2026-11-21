@@ -6,16 +6,16 @@ C 在已整合 A/B/D/E 的候选上，从冻结 DCU 轻量 ZIP 完整重算原�
 
 输入为本地 `../new/inputs/dcu_team_handoff_20261014.zip`：13,707,240 字节，SHA-256 `14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc`。ZIP 通过原校验器核对；只使用表格和配置，不执行归档内源码。
 
-沿用独立 CPU 环境 Python 3.12.14、NumPy 2.3.5、pandas 3.0.1、SciPy 1.15.3、PyYAML 6.0.3、Matplotlib 3.10.7、pytest 8.4.2。统计/验证模块源码 SHA 与 D 发布身份严格相同。新增最终运行开始于干净提交 `a7b3fd0`，完整号及环境见[执行回执](../analysis/c_m5_20261121/extensions_receipt.json)。
+沿用独立 CPU 环境 Python 3.12.14、NumPy 2.3.5、pandas 3.0.1、SciPy 1.15.3、PyYAML 6.0.3、Matplotlib 3.10.7、pytest 8.4.2。统计/验证模块源码 SHA 与 D 发布身份严格相同。首次容差通过运行从干净提交 `a7b3fd0` 开始；最终补全 `p_uncorrected` 的零绝对容差比较后，在 `5653fc7` 再完整运行，启动时仅有待提交的轻量回执目录，分析/比较代码均已提交。完整提交号、实际工作树及环境见[最终执行回执](../analysis/c_m5_20261121/extensions_receipt.json)。
 
 以下从仓库根目录执行；其他机器按 README 创建 `.venv-analysis`：
 
 ```powershell
 & ./.venv/Scripts/python.exe scripts/reproduce_analysis.py --handoff ../new/inputs/dcu_team_handoff_20261014.zip --output-dir results/c_original_20261121
-& ./.venv/Scripts/python.exe scripts/reproduce_m5_extensions.py --handoff ../new/inputs/dcu_team_handoff_20261014.zip --output-dir results/c_extensions_verified_20261121
+& ./.venv/Scripts/python.exe scripts/reproduce_m5_extensions.py --handoff ../new/inputs/dcu_team_handoff_20261014.zip --output-dir results/c_extensions_final_20261121
 ```
 
-输出目录须不存在。首次输出 `results/c_extensions_20261121` 保留，不覆盖其差异证据；重跑使用新目录。完整输出和日志留在本地 results，Git 仅保存轻量验收回执。
+输出目录须不存在。首次输出 `results/c_extensions_20261121` 和中间通过输出 `results/c_extensions_verified_20261121` 保留，不覆盖其证据；最终重跑使用新目录。完整输出和日志留在本地 results，Git 仅保存轻量验收回执。最终完整运行约37秒。
 
 ## 实际复现范围
 

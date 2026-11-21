@@ -11,7 +11,7 @@ Refs #20。分支 `integrate/m5-delivery-20261026`，面向 `main`，保持 Draf
 - 191个原受保护blob中188个不变；3个报告文件按D最新来源更新；逐文件来源及祖先审计通过。
 - 三例原图、18 PNG、18来源侧车及72个冻结指标通过，41项本机HTTP检查通过。增加侧车LF规则解决Windows checkout原字节哈希变化，未改清单hash。
 
-当前证据见 [交付入口](docs/C_M5_DELIVERY.md)、[11/21复现说明](docs/C_M5_REPRODUCTION_20261121.md)、[本轮轻量回执目录](analysis/c_m5_20261121)。各来源原文与历史执行归属保留。原图、NPY、权重、ZIP、完整输出不入Git，没有重跑GPU归因。
+当前证据见 [交付入口](C_M5_DELIVERY.md)、[11/21复现说明](C_M5_REPRODUCTION_20261121.md)、[本轮轻量回执目录](../analysis/c_m5_20261121)。各来源原文与历史执行归属保留。原图、NPY、权重、ZIP、完整输出不入Git，没有重跑GPU归因。
 
 ## 待验收
 

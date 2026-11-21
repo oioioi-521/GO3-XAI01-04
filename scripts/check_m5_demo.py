@@ -10,6 +10,7 @@ import io
 import json
 from pathlib import Path
 import platform
+import subprocess
 import threading
 from urllib.request import urlopen
 from zipfile import ZipFile
@@ -69,6 +70,8 @@ def main():
         server.server_close()
         worker.join(timeout=5)
     receipt = dict(date="2026-11-21", actor="C", status="passed_local_assets_and_http", platform=platform.platform(),
+        code_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        checker_code_sha256=digest(Path(__file__).read_bytes()),
         input_sha256=EXPECTED, cases=checked, frozen_metric_values=72, localhost_get_checks=len(assets),
         sidecar_bytes="LF checkout required by .gitattributes; raw SHA checks, no normalized hashing",
         browser_interaction_verified=False, independent_device_verified=False,
