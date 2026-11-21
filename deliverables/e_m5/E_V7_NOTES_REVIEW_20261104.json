@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-04",
+  "actor": "A / hycx233",
+  "source_commit": "d00553f9ca7fc41208e24296619c1406a339d8da",
+  "b_review_commit": "73310e85614193e2e40d456a007ae16fc725fd8b",
+  "d_review_commit": "7f9db4fd972a21fbd22ff724deedfe671cc995d8",
+  "source_pptx_sha256": "ae017a7883ee8fc4baf1e53f280cb0d30fdefa1a373f2f4f4a51aa97e1e39ff9",
+  "pptx_sha256": "69081383bcace59d4301c3eb4e665118a3b01e7abfe4838f6a13456d904b8158",
+  "changed_package_entries": [
+    "ppt/notesSlides/notesSlide1.xml",
+    "ppt/notesSlides/notesSlide6.xml",
+    "ppt/notesSlides/notesSlide11.xml",
+    "ppt/notesSlides/notesSlide12.xml"
+  ],
+  "other_package_entries_byte_identical": true,
+  "all_xml_parse": true,
+  "zip_crc_passed": true,
+  "slide_count": 12,
+  "pdf_sha256": "4c5993864e95cf7936e989dfab40867b67eb6e44eafe49a324e96a6e31db0af8",
+  "pdf_rebuilt": false,
+  "checks": [
+    "all 12 notes scanned for stale v7/candidate state",
+    "P6 ImageNet task and IG/KernelSHAP rank versus mean wording",
+    "P11 source/hash/metric paragraph unchanged",
+    "all visible slides/media/layouts byte identical to reviewed v7",
+    "existing PDF P6 visually checked against ImageNet label"
+  ],
+  "scope": "Notes-only correction; no slide rendering changes, data/statistical recomputation, independent-device Demo, E-to-A or timed rehearsal signoff."
+}
