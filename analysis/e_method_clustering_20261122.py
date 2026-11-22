@@ -1,8 +1,7 @@
 """Cluster six attribution methods in the frozen DCU metric space.
 
-CPU-only analysis. The checked-in D statistics JSON contains the exact unit
-means derived from the frozen handoff ZIP; this script uses those means rather
-than per-image rows because the clustering unit is the method, not the image.
+CPU-only analysis. It can read the unit means directly from the frozen handoff
+ZIP or use the checked-in D statistics JSON as a reproducible fallback.
 """
 from __future__ import annotations
 
@@ -10,10 +9,12 @@ import argparse
 import csv
 import hashlib
 import importlib.metadata
+import io
 import json
 import os
 from pathlib import Path
 import tempfile
+import zipfile
 
 _CACHE_DIR = Path(tempfile.gettempdir()) / "go3-xai01-04-e-method-clustering-cache"
 _CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -30,6 +31,7 @@ from scipy.spatial.distance import pdist, squareform
 
 
 EXPECTED_ZIP_SHA256 = "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc"
+EXPECTED_ZIP_SIZE = 13_707_240
 METRICS = (
     ("faithfulness_morf_auc_raw", "raw_morf_auc", -1, "Raw MoRF AUC (lower is better)"),
     ("stability_spearman", "noise_stability_spearman", 1, "Noise Spearman (higher is better)"),
@@ -76,7 +78,7 @@ def silhouette_mean(distance: np.ndarray, labels: np.ndarray) -> float:
     return float(np.mean(scores))
 
 
-def load_means(path: Path) -> tuple[list[str], list[tuple[str, str]], dict]:
+def load_statistics_means(path: Path) -> tuple[list[str], list[tuple[str, str]], dict]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     receipt = payload.get("receipt", {})
     require(receipt.get("zip_sha256") == EXPECTED_ZIP_SHA256,
@@ -89,7 +91,7 @@ def load_means(path: Path) -> tuple[list[str], list[tuple[str, str]], dict]:
     expected_methods = sorted(DISPLAY_NAMES)
     require(methods == expected_methods, f"expected six fixed methods; got {methods}")
     require(len(cells) == 6, f"expected six dataset/model conditions; got {cells}")
-    means = {}
+    means, metadata = {}, {}
     for row in payload["summaries"]:
         if row.get("cohort") != "model_correct":
             continue
@@ -97,11 +99,133 @@ def load_means(path: Path) -> tuple[list[str], list[tuple[str, str]], dict]:
         if row["metric"] in {m[0] for m in METRICS}:
             require(key not in means, f"duplicate summary row: {key}")
             means[key] = float(row["mean"])
+            metadata[key] = {"n": int(row["n"]), "config_hash": ""}
     expected_keys = {(dataset, model, method, metric[0])
                      for dataset, model in cells for method in methods for metric in METRICS}
     require(means.keys() == expected_keys, "incomplete or unexpected metric summary matrix")
     require(np.isfinite(list(means.values())).all(), "non-finite unit means")
-    return methods, cells, {"receipt": receipt, "means": means}
+    return methods, cells, {
+        "receipt": receipt,
+        "means": means,
+        "unit_metadata": metadata,
+        "provenance": {
+            "kind": "checked-in derived unit means",
+            "statistics_json_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "handoff_zip_sha256": receipt["zip_sha256"],
+        },
+    }
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def load_handoff_zip(path: Path) -> tuple[list[str], list[tuple[str, str]], dict]:
+    require(path.is_file(), f"handoff ZIP not found: {path}")
+    size = path.stat().st_size
+    require(size == EXPECTED_ZIP_SIZE, f"unexpected handoff ZIP size: {size}")
+    archive_sha256 = file_sha256(path)
+    require(archive_sha256 == EXPECTED_ZIP_SHA256,
+            f"handoff ZIP SHA-256 mismatch: {archive_sha256}")
+
+    with zipfile.ZipFile(path) as archive:
+        bad_member = archive.testzip()
+        require(bad_member is None, f"ZIP CRC failure: {bad_member}")
+        csv_members = [name for name in archive.namelist()
+                       if name.endswith("/data/units_model_correct.csv")]
+        require(len(csv_members) == 1, f"expected one units_model_correct.csv, got {csv_members}")
+        csv_member = csv_members[0]
+        package_root = csv_member.removesuffix("/data/units_model_correct.csv")
+        relative_csv = "data/units_model_correct.csv"
+        csv_bytes = archive.read(csv_member)
+        csv_sha256 = hashlib.sha256(csv_bytes).hexdigest()
+
+        manifest = json.loads(archive.read(f"{package_root}/manifest.json").decode("utf-8"))
+        manifest_entry = manifest.get("files", {}).get(relative_csv)
+        require(manifest_entry is not None, "manifest is missing units_model_correct.csv")
+        require(manifest_entry.get("bytes") == len(csv_bytes), "manifest CSV byte count mismatch")
+        require(manifest_entry.get("sha256") == csv_sha256, "manifest CSV SHA-256 mismatch")
+
+        checksum_text = archive.read(f"{package_root}/SHA256SUMS").decode("utf-8")
+        checksum_entries = [line.split(maxsplit=1) for line in checksum_text.splitlines() if line.strip()]
+        matches = [digest for digest, name in checksum_entries
+                   if name.lstrip("*./") == relative_csv]
+        require(matches == [csv_sha256], "SHA256SUMS CSV entry missing or mismatched")
+
+    expected_fields = ["method", "model", "dataset", "metric", "mean", "std", "n", "config_hash"]
+    rows = list(csv.DictReader(io.StringIO(csv_bytes.decode("utf-8-sig"))))
+    require(rows and list(rows[0]) == expected_fields, "unexpected units_model_correct.csv schema")
+    require(len(rows) == 144 and manifest_entry.get("rows") == 144,
+            f"expected 144 unit-metric rows, got {len(rows)}")
+    metric_names = {metric[0] for metric in METRICS} | {"stability_valid_rate"}
+    require({row["metric"] for row in rows} == metric_names, "unexpected or missing metrics in CSV")
+    methods = sorted({row["method"] for row in rows})
+    cells = sorted({(row["dataset"], row["model"]) for row in rows})
+    require(methods == sorted(DISPLAY_NAMES), f"expected six fixed methods; got {methods}")
+    require(len(cells) == 6, f"expected six dataset/model conditions; got {cells}")
+
+    means, metadata, unit_ns = {}, {}, {}
+    all_keys = set()
+    for row in rows:
+        key = (row["dataset"], row["model"], row["method"], row["metric"])
+        require(key not in all_keys, f"duplicate CSV row: {key}")
+        all_keys.add(key)
+        mean, std, n = float(row["mean"]), float(row["std"]), int(row["n"])
+        require(np.isfinite([mean, std]).all() and std >= 0 and n > 0,
+                f"invalid aggregate values in CSV row: {key}")
+        require(row["config_hash"], f"missing config hash in CSV row: {key}")
+        unit_key = (row["dataset"], row["model"], row["method"])
+        unit_ns.setdefault(unit_key, set()).add(n)
+        if row["metric"] in {metric[0] for metric in METRICS}:
+            means[key] = mean
+            metadata[key] = {"n": n, "config_hash": row["config_hash"]}
+
+    expected_keys = {(dataset, model, method, metric[0])
+                     for dataset, model in cells for method in methods for metric in METRICS}
+    require(means.keys() == expected_keys, "incomplete metric matrix in frozen ZIP CSV")
+    expected_all_keys = {(dataset, model, method, metric)
+                         for dataset, model in cells for method in methods for metric in metric_names}
+    require(all_keys == expected_all_keys, "incomplete 4-metric unit matrix in frozen ZIP CSV")
+    require(all(len(counts) == 1 for counts in unit_ns.values()),
+            "inconsistent sample count across metrics within a method/model/dataset unit")
+    require(np.isfinite(list(means.values())).all(), "non-finite unit means in frozen ZIP CSV")
+    return methods, cells, {
+        "means": means,
+        "unit_metadata": metadata,
+        "provenance": {
+            "kind": "direct frozen handoff ZIP input",
+            "handoff_zip_sha256": archive_sha256,
+            "handoff_zip_size_bytes": size,
+            "zip_crc_valid": True,
+            "csv_member": csv_member,
+            "csv_rows": len(rows),
+            "csv_sha256": csv_sha256,
+            "manifest_file_count": len(manifest["files"]),
+            "csv_manifest_row_count": manifest_entry["rows"],
+        },
+    }
+
+
+def compare_sources(archive_means: dict, summary_means: dict) -> dict:
+    require(archive_means.keys() == summary_means.keys(),
+            "frozen ZIP and checked-in statistics have different unit-metric keys")
+    differences = [abs(archive_means[key] - summary_means[key]) for key in archive_means]
+    max_difference = max(differences, default=0.0)
+    tolerance = 1e-15
+    require(max_difference <= tolerance,
+            f"unit means differ from checked-in summary by {max_difference:g} > {tolerance:g}")
+    return {
+        "matching_unit_metric_keys": len(differences),
+        "exact_float_matches": sum(difference == 0 for difference in differences),
+        "last_digit_differences": sum(difference != 0 for difference in differences),
+        "max_absolute_difference": max_difference,
+        "absolute_tolerance": tolerance,
+        "interpretation": "All direct ZIP means agree with the checked-in accepted summary within float serialization precision.",
+    }
 
 
 def make_features(methods: list[str], cells: list[tuple[str, str]], means: dict,
@@ -150,8 +274,6 @@ def analyze_matrix(methods: list[str], matrix: np.ndarray, columns: list[str],
                          for i in sorted(set(labels.values()))},
         })
     best = max(k_candidates, key=lambda item: (item["silhouette"], -item["k"]))
-    cluster_id = {method: int(cid) for cid, members in best["clusters"].items() for method in members}
-
     profiles = {}
     for cid, members in best["clusters"].items():
         idx = [methods.index(method) for method in members]
@@ -240,21 +362,36 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--statistics-json", type=Path,
                         default=Path("analysis/dcu_20261015/statistics.json"))
+    parser.add_argument("--handoff-zip", type=Path,
+                        help="optional frozen dcu_team_handoff_20261014.zip; if supplied, read its units CSV directly")
     parser.add_argument("--output-dir", type=Path,
                         default=Path("analysis/e_method_clustering_20261122"))
     args = parser.parse_args()
     require(args.statistics_json.is_file(), f"statistics JSON not found: {args.statistics_json}")
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    methods, cells, source = load_means(args.statistics_json)
+    summary_methods, summary_cells, summary_source = load_statistics_means(args.statistics_json)
+    if args.handoff_zip:
+        methods, cells, source = load_handoff_zip(args.handoff_zip)
+        require(methods == summary_methods and cells == summary_cells,
+                "frozen ZIP and checked-in statistics describe different methods/conditions")
+        source_comparison = compare_sources(source["means"], summary_source["means"])
+    else:
+        methods, cells, source = summary_methods, summary_cells, summary_source
+        source_comparison = None
     means = source["means"]
-    raw_header = ["dataset", "model", "method"] + [metric[1] for metric in METRICS]
+    raw_header = ["dataset", "model", "method"]
+    for _, short_name, _, _ in METRICS:
+        raw_header.extend([short_name, f"{short_name}_n", f"{short_name}_config_hash"])
     raw_rows = []
     for dataset, model in cells:
         for method in methods:
-            raw_rows.append([dataset, model, method] + [
-                f"{means[(dataset, model, method, metric[0])]:.17g}" for metric in METRICS
-            ])
+            row = [dataset, model, method]
+            for source_metric, short_name, _, _ in METRICS:
+                key = (dataset, model, method, source_metric)
+                unit_metadata = source["unit_metadata"][key]
+                row.extend([f"{means[key]:.17g}", unit_metadata["n"], unit_metadata["config_hash"]])
+            raw_rows.append(row)
     write_csv(args.output_dir / "unit_means.csv", raw_header, raw_rows)
 
     all_matrix, all_columns, all_meta = make_features(methods, cells, means, include_time=True)
@@ -271,13 +408,15 @@ def main() -> None:
 
     payload = {
         "input": {
-            "path": str(args.statistics_json),
-            "statistics_json_sha256": hashlib.sha256(args.statistics_json.read_bytes()).hexdigest(),
+            "statistics_json_path": str(args.statistics_json),
+            "statistics_json_sha256": summary_source["provenance"]["statistics_json_sha256"],
             "cohort": "model_correct",
-            "source_handoff_zip_sha256_recorded_in_statistics": source["receipt"]["zip_sha256"],
-            "source_units": source["receipt"]["units"],
-            "input_kind": "checked-in derived unit-mean statistics; raw handoff ZIP was not available in this checkout",
-            "note": "The frozen archive SHA is verified through the D statistics receipt; this run does not claim to re-read or re-hash the archive itself.",
+            "source": source["provenance"],
+            "accepted_statistics_receipt": {
+                "handoff_zip_sha256": summary_source["receipt"]["zip_sha256"],
+                "units": summary_source["receipt"]["units"],
+            },
+            "comparison_to_accepted_statistics": source_comparison,
         },
         "methods": methods,
         "environment": {
@@ -308,6 +447,8 @@ def main() -> None:
 
     print(json.dumps({
         "output_dir": str(args.output_dir),
+        "input_kind": source["provenance"]["kind"],
+        "source_comparison": source_comparison,
         "with_time": {"k": all_result["selected_k"], "silhouette": all_result["selected_silhouette"], "clusters": all_result["clusters"]},
         "without_time": {"k": quality_result["selected_k"], "silhouette": quality_result["selected_silhouette"], "clusters": quality_result["clusters"]},
         "metric_gaps_without_time": quality_result["between_cluster_metric_gaps"],

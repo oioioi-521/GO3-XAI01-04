@@ -1,12 +1,31 @@
 {
   "input": {
-    "path": "analysis/dcu_20261015/statistics.json",
+    "statistics_json_path": "analysis/dcu_20261015/statistics.json",
     "statistics_json_sha256": "6c098e27cc36e98c46172845ca5d5c5f7477cb0df29b23325dbe27d7ecbbe473",
     "cohort": "model_correct",
-    "source_handoff_zip_sha256_recorded_in_statistics": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
-    "source_units": 36,
-    "input_kind": "checked-in derived unit-mean statistics; raw handoff ZIP was not available in this checkout",
-    "note": "The frozen archive SHA is verified through the D statistics receipt; this run does not claim to re-read or re-hash the archive itself."
+    "source": {
+      "kind": "direct frozen handoff ZIP input",
+      "handoff_zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+      "handoff_zip_size_bytes": 13707240,
+      "zip_crc_valid": true,
+      "csv_member": "team-handoff-20261014/data/units_model_correct.csv",
+      "csv_rows": 144,
+      "csv_sha256": "8115114fa94d815d5dde419216376d0aa4a799457b5dfeda862e32d090b304e8",
+      "manifest_file_count": 720,
+      "csv_manifest_row_count": 144
+    },
+    "accepted_statistics_receipt": {
+      "handoff_zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+      "units": 36
+    },
+    "comparison_to_accepted_statistics": {
+      "matching_unit_metric_keys": 108,
+      "exact_float_matches": 55,
+      "last_digit_differences": 53,
+      "max_absolute_difference": 9.992007221626409e-16,
+      "absolute_tolerance": 1e-15,
+      "interpretation": "All direct ZIP means agree with the checked-in accepted summary within float serialization precision."
+    }
   },
   "methods": [
     "gradcam",
@@ -352,23 +371,23 @@
     "distance": "Euclidean on condition-wise direction-aligned z-scores",
     "linkage": "Ward",
     "merge_heights": [
-      2.23743726683697,
-      4.499896418322632,
+      2.2374372668369698,
+      4.499896418322633,
       6.288569054608839,
-      7.2707114026520845,
-      9.916423833524732
+      7.270711402652085,
+      9.916423833524728
     ],
     "linkage_matrix": [
       [
         5.0,
         2.0,
-        2.23743726683697,
+        2.2374372668369698,
         2.0
       ],
       [
         4.0,
         0.0,
-        4.499896418322632,
+        4.499896418322633,
         2.0
       ],
       [
@@ -380,70 +399,70 @@
       [
         3.0,
         1.0,
-        7.2707114026520845,
+        7.270711402652085,
         2.0
       ],
       [
         8.0,
         9.0,
-        9.916423833524732,
+        9.916423833524728,
         6.0
       ]
     ],
     "pairwise_distances": {
       "gradcam": {
         "gradcam": 0.0,
-        "ig": 7.467762038929653,
+        "ig": 7.467762038929649,
         "kernelshap": 5.454800134552102,
-        "lime": 8.906161139183354,
-        "occlusion": 4.499896418322632,
-        "rise": 4.427556189206766
+        "lime": 8.906161139183352,
+        "occlusion": 4.499896418322633,
+        "rise": 4.427556189206768
       },
       "ig": {
-        "gradcam": 7.467762038929653,
+        "gradcam": 7.467762038929649,
         "ig": 0.0,
-        "kernelshap": 6.629598242884752,
-        "lime": 7.2707114026520845,
-        "occlusion": 8.070824054237578,
-        "rise": 7.387418953778197
+        "kernelshap": 6.629598242884749,
+        "lime": 7.270711402652085,
+        "occlusion": 8.070824054237574,
+        "rise": 7.387418953778198
       },
       "kernelshap": {
         "gradcam": 5.454800134552102,
-        "ig": 6.629598242884752,
+        "ig": 6.629598242884749,
         "kernelshap": 0.0,
-        "lime": 6.489492772586075,
+        "lime": 6.4894927725860745,
         "occlusion": 5.78841957706427,
-        "rise": 2.23743726683697
+        "rise": 2.2374372668369698
       },
       "lime": {
-        "gradcam": 8.906161139183354,
-        "ig": 7.2707114026520845,
-        "kernelshap": 6.489492772586075,
+        "gradcam": 8.906161139183352,
+        "ig": 7.270711402652085,
+        "kernelshap": 6.4894927725860745,
         "lime": 0.0,
-        "occlusion": 9.104193176941122,
-        "rise": 6.4640087455077895
+        "occlusion": 9.104193176941124,
+        "rise": 6.464008745507796
       },
       "occlusion": {
-        "gradcam": 4.499896418322632,
-        "ig": 8.070824054237578,
+        "gradcam": 4.499896418322633,
+        "ig": 8.070824054237574,
         "kernelshap": 5.78841957706427,
-        "lime": 9.104193176941122,
+        "lime": 9.104193176941124,
         "occlusion": 0.0,
-        "rise": 4.635029157534811
+        "rise": 4.635029157534812
       },
       "rise": {
-        "gradcam": 4.427556189206766,
-        "ig": 7.387418953778197,
-        "kernelshap": 2.23743726683697,
-        "lime": 6.4640087455077895,
-        "occlusion": 4.635029157534811,
+        "gradcam": 4.427556189206768,
+        "ig": 7.387418953778198,
+        "kernelshap": 2.2374372668369698,
+        "lime": 6.464008745507796,
+        "occlusion": 4.635029157534812,
         "rise": 0.0
       }
     },
     "candidate_k": [
       {
         "k": 2,
-        "silhouette": 0.28049913148467087,
+        "silhouette": 0.2804991314846707,
         "clusters": {
           "1": [
             "gradcam",
@@ -459,7 +478,7 @@
       },
       {
         "k": 3,
-        "silhouette": 0.2444216435541984,
+        "silhouette": 0.24442164355419838,
         "clusters": {
           "1": [
             "gradcam",
@@ -498,7 +517,7 @@
     ],
     "selection_rule": "Choose the highest mean silhouette among k=2,3,4; ties favor smaller k. The selected k=2 cut also matches the largest terminal Ward merge-height jump.",
     "selected_k": 2,
-    "selected_silhouette": 0.28049913148467087,
+    "selected_silhouette": 0.2804991314846707,
     "clusters": {
       "1": [
         "gradcam",
@@ -513,27 +532,27 @@
     },
     "direction_aligned_z_profiles_by_metric": {
       "1": {
-        "raw_morf_auc": -0.3806012417695686,
-        "noise_stability_spearman": 0.6876037505498042,
+        "raw_morf_auc": -0.3806012417695688,
+        "noise_stability_spearman": 0.6876037505498043,
         "wrapper_time_ms": 0.22895110566284838
       },
       "2": {
         "raw_morf_auc": 0.7612024835391381,
-        "noise_stability_spearman": -1.3752075010996092,
+        "noise_stability_spearman": -1.3752075010996085,
         "wrapper_time_ms": -0.4579022113256969
       }
     },
     "between_cluster_metric_gaps": [
       {
         "metric_group": "noise_stability_spearman",
-        "absolute_mean_oriented_z_gap": 2.0628112516494133,
-        "cluster_1_mean_oriented_z": 0.6876037505498042,
-        "cluster_2_mean_oriented_z": -1.3752075010996092
+        "absolute_mean_oriented_z_gap": 2.062811251649413,
+        "cluster_1_mean_oriented_z": 0.6876037505498043,
+        "cluster_2_mean_oriented_z": -1.3752075010996085
       },
       {
         "metric_group": "raw_morf_auc",
         "absolute_mean_oriented_z_gap": 1.1418037253087068,
-        "cluster_1_mean_oriented_z": -0.3806012417695686,
+        "cluster_1_mean_oriented_z": -0.3806012417695688,
         "cluster_2_mean_oriented_z": 0.7612024835391381
       },
       {
@@ -550,98 +569,98 @@
     "distance": "Euclidean on condition-wise direction-aligned z-scores",
     "linkage": "Ward",
     "merge_heights": [
-      2.0996256621882607,
-      3.2589526589756366,
-      3.985257763035601,
-      4.722543396622809,
-      9.528174225653881
+      2.0996256621882603,
+      3.258952658975637,
+      3.9852577630356034,
+      4.72254339662281,
+      9.52817422565388
     ],
     "linkage_matrix": [
       [
         2.0,
         5.0,
-        2.0996256621882607,
+        2.0996256621882603,
         2.0
       ],
       [
         1.0,
         3.0,
-        3.2589526589756366,
+        3.258952658975637,
         2.0
       ],
       [
         6.0,
         0.0,
-        3.985257763035601,
+        3.9852577630356034,
         3.0
       ],
       [
         8.0,
         4.0,
-        4.722543396622809,
+        4.72254339662281,
         4.0
       ],
       [
         7.0,
         9.0,
-        9.528174225653881,
+        9.52817422565388,
         6.0
       ]
     ],
     "pairwise_distances": {
       "gradcam": {
         "gradcam": 0.0,
-        "ig": 7.465212030116388,
-        "kernelshap": 4.2250999402286045,
-        "lime": 5.886529231519148,
+        "ig": 7.465212030116384,
+        "kernelshap": 4.225099940228605,
+        "lime": 5.886529231519147,
         "occlusion": 4.494227274140171,
-        "rise": 2.859399169842028
+        "rise": 2.8593991698420305
       },
       "ig": {
-        "gradcam": 7.465212030116388,
+        "gradcam": 7.465212030116384,
         "ig": 0.0,
-        "kernelshap": 5.772895275785382,
-        "lime": 3.2589526589756366,
-        "occlusion": 8.070728686835004,
-        "rise": 6.65634251152411
+        "kernelshap": 5.7728952757853795,
+        "lime": 3.258952658975637,
+        "occlusion": 8.070728686835,
+        "rise": 6.656342511524111
       },
       "kernelshap": {
-        "gradcam": 4.2250999402286045,
-        "ig": 5.772895275785382,
+        "gradcam": 4.225099940228605,
+        "ig": 5.7728952757853795,
         "kernelshap": 0.0,
-        "lime": 5.592703852887987,
+        "lime": 5.592703852887986,
         "occlusion": 4.806105564543604,
-        "rise": 2.0996256621882607
+        "rise": 2.0996256621882603
       },
       "lime": {
-        "gradcam": 5.886529231519148,
-        "ig": 3.2589526589756366,
-        "kernelshap": 5.592703852887987,
+        "gradcam": 5.886529231519147,
+        "ig": 3.258952658975637,
+        "kernelshap": 5.592703852887986,
         "lime": 0.0,
         "occlusion": 6.411577638281965,
-        "rise": 5.536770024474122
+        "rise": 5.536770024474128
       },
       "occlusion": {
         "gradcam": 4.494227274140171,
-        "ig": 8.070728686835004,
+        "ig": 8.070728686835,
         "kernelshap": 4.806105564543604,
         "lime": 6.411577638281965,
         "occlusion": 0.0,
-        "rise": 3.3842955627998155
+        "rise": 3.384295562799816
       },
       "rise": {
-        "gradcam": 2.859399169842028,
-        "ig": 6.65634251152411,
-        "kernelshap": 2.0996256621882607,
-        "lime": 5.536770024474122,
-        "occlusion": 3.3842955627998155,
+        "gradcam": 2.8593991698420305,
+        "ig": 6.656342511524111,
+        "kernelshap": 2.0996256621882603,
+        "lime": 5.536770024474128,
+        "occlusion": 3.384295562799816,
         "rise": 0.0
       }
     },
     "candidate_k": [
       {
         "k": 2,
-        "silhouette": 0.45105015007378135,
+        "silhouette": 0.4510501500737812,
         "clusters": {
           "1": [
             "gradcam",
@@ -657,7 +676,7 @@
       },
       {
         "k": 3,
-        "silhouette": 0.2925293980138536,
+        "silhouette": 0.2925293980138534,
         "clusters": {
           "1": [
             "gradcam",
@@ -675,7 +694,7 @@
       },
       {
         "k": 4,
-        "silhouette": 0.27645419428268353,
+        "silhouette": 0.2764541942826837,
         "clusters": {
           "1": [
             "gradcam"
@@ -696,7 +715,7 @@
     ],
     "selection_rule": "Choose the highest mean silhouette among k=2,3,4; ties favor smaller k. The selected k=2 cut also matches the largest terminal Ward merge-height jump.",
     "selected_k": 2,
-    "selected_silhouette": 0.45105015007378135,
+    "selected_silhouette": 0.4510501500737812,
     "clusters": {
       "1": [
         "gradcam",
@@ -711,25 +730,25 @@
     },
     "direction_aligned_z_profiles_by_metric": {
       "1": {
-        "raw_morf_auc": -0.3806012417695686,
-        "noise_stability_spearman": 0.6876037505498042
+        "raw_morf_auc": -0.3806012417695688,
+        "noise_stability_spearman": 0.6876037505498043
       },
       "2": {
         "raw_morf_auc": 0.7612024835391381,
-        "noise_stability_spearman": -1.3752075010996092
+        "noise_stability_spearman": -1.3752075010996085
       }
     },
     "between_cluster_metric_gaps": [
       {
         "metric_group": "noise_stability_spearman",
-        "absolute_mean_oriented_z_gap": 2.0628112516494133,
-        "cluster_1_mean_oriented_z": 0.6876037505498042,
-        "cluster_2_mean_oriented_z": -1.3752075010996092
+        "absolute_mean_oriented_z_gap": 2.062811251649413,
+        "cluster_1_mean_oriented_z": 0.6876037505498043,
+        "cluster_2_mean_oriented_z": -1.3752075010996085
       },
       {
         "metric_group": "raw_morf_auc",
         "absolute_mean_oriented_z_gap": 1.1418037253087068,
-        "cluster_1_mean_oriented_z": -0.3806012417695686,
+        "cluster_1_mean_oriented_z": -0.3806012417695688,
         "cluster_2_mean_oriented_z": 0.7612024835391381
       }
     ]

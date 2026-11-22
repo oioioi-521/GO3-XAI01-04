@@ -21,11 +21,11 @@
 
 ## 输入与范围
 
-分析使用 `analysis/dcu_20261015/statistics.json` 中 `model_correct` cohort 的 36 个 model×dataset×method 单元均值。该快照的验收回执记录冻结交接 ZIP SHA-256 为 `14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc`，并记录 36 个单元。六个条件的样本数为：ImageNet ResNet50/DenseNet121/VGG16 分别 408/371/363，VOC 分别 387/388/400。
+主分析直接读取冻结交接包内 `team-handoff-20261014/data/units_model_correct.csv` 的 36×4 个单元均值。六个条件的样本数为：ImageNet ResNet50/DenseNet121/VGG16 分别 408/371/363，VOC 分别 387/388/400。
 
-本次读取的 `statistics.json` SHA-256 为 `6c098e27cc36e98c46172845ca5d5c5f7477cb0df29b23325dbe27d7ecbbe473`。分析运行环境：NumPy 2.3.5、SciPy 1.16.3、Matplotlib 3.10.6。
+ZIP 大小为 13,707,240 字节，SHA-256 `14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc`；722 个成员的 CRC 检查通过。目标 CSV 为 13,294 字节，SHA-256 `8115114fa94d815d5dde419216376d0aa4a799457b5dfeda862e32d090b304e8`，与包内 `manifest.json` 和 `SHA256SUMS` 一致；manifest 有 720 个文件条目，目标表含 144 行。没有解压或执行包内文件。
 
-本工作区没有 `dcu_team_handoff_20261014.zip` 原始轻量包，所以此次没有重新读取 ZIP 内的 `data/units_model_correct.csv`，也没有重新核验 ZIP 字节；使用的是仓库中由该冻结包导出的已验收方法×条件均值，并在机器可读结果里保留了来源边界和源 JSON SHA-256。`data_share_v1.zip` 是图像包，不作为本次统计输入。没有运行 GPU，也没有生成新归因图。
+与仓库中 D 已验收的 `analysis/dcu_20261015/statistics.json` 对照：108 个所用 metric keys 全部对应，55 个均值浮点值完全相同，其余 53 个只存在末位差异，最大绝对差 `9.992007221626409e-16`，小于 `1e-15` 的显式比较容差；聚类成员和报告精度下的结论未变。分析运行环境：NumPy 2.3.5、SciPy 1.16.3、Matplotlib 3.10.6。没有运行 GPU 或生成新归因图。
 
 ## 方法
 
@@ -40,14 +40,15 @@
 
 ```bash
 python -m pip install -r analysis/requirements-analysis.txt
-python analysis/e_method_clustering_20261122.py
+python analysis/e_method_clustering_20261122.py \
+  --handoff-zip /path/to/dcu_team_handoff_20261014.zip
 ```
 
-可指定输入快照与输出目录：
+脚本会先核验 ZIP 字节 SHA、CRC、manifest、`SHA256SUMS` 与目标 CSV SHA，再从 CSV 读取聚类均值；不会提取或执行包内源码。若暂时没有 ZIP，也可不传 `--handoff-zip`，从仓库中 D 已验收的汇总快照复现。可指定输出目录：
 
 ```bash
 python analysis/e_method_clustering_20261122.py \
-  --statistics-json analysis/dcu_20261015/statistics.json \
+  --handoff-zip /path/to/dcu_team_handoff_20261014.zip \
   --output-dir analysis/e_method_clustering_20261122
 ```
 
