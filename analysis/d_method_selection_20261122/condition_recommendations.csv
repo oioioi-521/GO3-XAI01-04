@@ -1,0 +1,37 @@
+dataset,model,objective,profile,leaf,recommended,candidate_methods,retain_multiple
+imagenet,densenet121,efficiency,full,8,gradcam,gradcam,False
+imagenet,densenet121,faithfulness,full,4,ig,ig / occlusion / kernelshap,True
+imagenet,densenet121,stability,full,6,rise,gradcam / rise / kernelshap,True
+imagenet,resnet50,efficiency,full,8,gradcam,gradcam,False
+imagenet,resnet50,faithfulness,full,3,ig,ig / kernelshap,True
+imagenet,resnet50,stability,full,6,rise,gradcam / rise / kernelshap,True
+imagenet,vgg16,efficiency,full,8,gradcam,gradcam,False
+imagenet,vgg16,faithfulness,full,3,ig,ig / kernelshap,True
+imagenet,vgg16,stability,full,6,rise,gradcam / rise / kernelshap,True
+voc,densenet121,efficiency,full,8,gradcam,gradcam,False
+voc,densenet121,faithfulness,full,4,ig,ig / occlusion / kernelshap,True
+voc,densenet121,stability,full,7,rise,rise,False
+voc,resnet50,efficiency,full,8,gradcam,gradcam,False
+voc,resnet50,faithfulness,full,3,ig,ig / kernelshap,True
+voc,resnet50,stability,full,7,rise,rise,False
+voc,vgg16,efficiency,full,8,gradcam,gradcam,False
+voc,vgg16,faithfulness,full,3,ig,ig / kernelshap,True
+voc,vgg16,stability,full,7,rise,rise,False
+imagenet,densenet121,efficiency,no_grad_logits,8,occlusion,occlusion,False
+imagenet,densenet121,faithfulness,no_grad_logits,3,lime,rise / kernelshap / lime,True
+imagenet,densenet121,stability,no_grad_logits,6,rise,rise / kernelshap,True
+imagenet,resnet50,efficiency,no_grad_logits,8,occlusion,occlusion,False
+imagenet,resnet50,faithfulness,no_grad_logits,3,lime,rise / kernelshap / lime,True
+imagenet,resnet50,stability,no_grad_logits,6,rise,rise / kernelshap,True
+imagenet,vgg16,efficiency,no_grad_logits,8,occlusion,occlusion,False
+imagenet,vgg16,faithfulness,no_grad_logits,4,kernelshap,occlusion / rise / kernelshap / lime,True
+imagenet,vgg16,stability,no_grad_logits,6,rise,rise / kernelshap,True
+voc,densenet121,efficiency,no_grad_logits,8,occlusion,occlusion,False
+voc,densenet121,faithfulness,no_grad_logits,3,lime,rise / kernelshap / lime,True
+voc,densenet121,stability,no_grad_logits,7,rise,rise,False
+voc,resnet50,efficiency,no_grad_logits,8,occlusion,occlusion,False
+voc,resnet50,faithfulness,no_grad_logits,3,lime,rise / kernelshap / lime,True
+voc,resnet50,stability,no_grad_logits,7,rise,rise,False
+voc,vgg16,efficiency,no_grad_logits,8,occlusion,occlusion,False
+voc,vgg16,faithfulness,no_grad_logits,4,kernelshap,occlusion / rise / kernelshap / lime,True
+voc,vgg16,stability,no_grad_logits,7,rise,rise,False

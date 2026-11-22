@@ -15,3 +15,7 @@ analysis/review_final_display_20261102.py text eol=lf
 analysis/dcu_20261102/*.json text eol=lf
 analysis/review_notes_closeout_20261120.py text eol=lf
 analysis/dcu_20261120/*.json text eol=lf
+analysis/d_method_selection_20261122/*.json text eol=lf
+analysis/d_method_selection_20261122/*.csv text eol=lf
+analysis/d_method_selection_20261122/*.md text eol=lf
+analysis/d_method_selection_20261122/*.svg text eol=lf

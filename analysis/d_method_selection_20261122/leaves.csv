@@ -1,0 +1,11 @@
+profile,leaf,rule,recommended,train_scenarios,train_original_images,test_scenarios,test_original_images,train_modal_share,retain_multiple,candidate_methods,train_share_ig,train_share_gradcam,train_share_occlusion,train_share_rise,train_share_kernelshap,train_share_lime
+full,3,objective_is_efficiency = no AND objective_is_stability = no AND model_is_densenet121 = no,ig,1170,626,388,211,0.694017094017,True,ig / kernelshap,0.694017094017,0.0111111111111,0.0444444444444,0.0264957264957,0.138461538462,0.0854700854701
+full,4,objective_is_efficiency = no AND objective_is_stability = no AND model_is_densenet121 = yes,ig,573,573,186,186,0.521815008726,True,ig / occlusion / kernelshap,0.521815008726,0.0296684118674,0.101221640489,0.0994764397906,0.1815008726,0.0663176265271
+full,6,objective_is_efficiency = no AND objective_is_stability = yes AND dataset_is_voc = no,rise,873,323,269,102,0.624284077892,True,gradcam / rise / kernelshap,0,0.249713631157,0.00687285223368,0.624284077892,0.119129438717,0
+full,7,objective_is_efficiency = no AND objective_is_stability = yes AND dataset_is_voc = yes,rise,870,316,305,111,0.925287356322,False,rise,0,0.0471264367816,0.00689655172414,0.925287356322,0.0206896551724,0
+full,8,objective_is_efficiency = yes,gradcam,1743,639,574,213,1,False,gradcam,0,1,0,0,0,0
+no_grad_logits,3,objective_is_efficiency = no AND objective_is_stability = no AND model_is_vgg16 = no,lime,1173,626,381,206,0.359761295823,True,rise / kernelshap / lime,0,0,0.0997442455243,0.191815856777,0.348678601876,0.359761295823
+no_grad_logits,4,objective_is_efficiency = no AND objective_is_stability = no AND model_is_vgg16 = yes,kernelshap,570,570,193,193,0.417543859649,True,occlusion / rise / kernelshap / lime,0,0,0.215789473684,0.212280701754,0.417543859649,0.154385964912
+no_grad_logits,6,objective_is_efficiency = no AND objective_is_stability = yes AND dataset_is_voc = no,rise,873,323,269,102,0.835051546392,True,rise / kernelshap,0,0,0.00687285223368,0.835051546392,0.158075601375,0
+no_grad_logits,7,objective_is_efficiency = no AND objective_is_stability = yes AND dataset_is_voc = yes,rise,870,316,305,111,0.972413793103,False,rise,0,0,0.00689655172414,0.972413793103,0.0206896551724,0
+no_grad_logits,8,objective_is_efficiency = yes,occlusion,1743,639,574,213,1,False,occlusion,0,0,1,0,0,0
