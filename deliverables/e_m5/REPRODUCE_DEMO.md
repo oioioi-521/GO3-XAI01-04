@@ -21,7 +21,7 @@
    ```
 
 2. 打开 `http://localhost:8000`，逐一选择已选定的展示案例 `215`、`3803`、`7612`。
-3. 每个案例应显示六张方法 PNG、对应的 raw MoRF AUC / noise Spearman / 记录耗时；右上状态应为 `正式地图预览 6/6`。
+3. 每个案例应显示六张方法 PNG、对应的 raw MoRF AUC / noise Spearman / 稳定性有效率 / 记录耗时；右上状态应为 `正式地图预览 6/6`。
 4. 展开任一方法卡片的“文件与运行来源 SHA-256”，查看 PNG、NPY、provenance sidecar、配置和 source archive 哈希。完整哈希、路径、target、checkpoint 和输入图绑定记录见 `demo/cases.json`。
 
 ## 输入图恢复

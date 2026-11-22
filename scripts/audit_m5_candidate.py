@@ -10,10 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "29895378e930138e042fd29ad029d0f14e8b9186"
 SOURCES = {
     "C_gate_fix": "eb275ed535a1ba660608a9606fd3847f83460405",
-    "A_report_v4": "138b865e161d4808ab696864ce68b8daf5edafd5",
+    "A_report_v4": "f8c49a04ac69a5086415c671fed616654eff38d2",
     "B_cases_review": "73310e85614193e2e40d456a007ae16fc725fd8b",
     "D_statistics_closeout": "468a686de1700e89456a9dcddeb4b2cf175afcf9",
-    "E_display_v7": "e2003bf78b8f15cbf65294580ad453d67d7da2e1",
+    "E_display_v7": "fb03a22716d14d3d7df4e10dc1d40303b4f4b3f7",
 }
 AUTHORIZED_D_UPDATES = {
     "analysis/report_dcu_statistics.py", "docs/DCU_STATISTICAL_ANALYSIS_20261015.md",

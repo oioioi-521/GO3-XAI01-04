@@ -1,0 +1,53 @@
+{
+  "browser": "158.0.8127.36",
+  "platform": "linux",
+  "errors": [],
+  "cases": [
+    {
+      "id": "215",
+      "source_sha256": "32af7c30fe57417b18695b4b61cf7a88c2a22253350ae1944bf580f884d3760b",
+      "maps": 6,
+      "source_disclosures": 6,
+      "visible_metric_values": 24
+    },
+    {
+      "id": "3803",
+      "source_sha256": "2923d14cbd8037d2a8a4ded1e1256a7c7dc952e62543775e78403ba1aeada32c",
+      "maps": 6,
+      "source_disclosures": 6,
+      "visible_metric_values": 24
+    },
+    {
+      "id": "7612",
+      "source_sha256": "6503b248d1f211c97c49c3b5f39ff0821bc891c4d28d68d892aa1d04a203ad76",
+      "maps": 6,
+      "source_disclosures": 6,
+      "visible_metric_values": 24
+    }
+  ],
+  "switch_order": [
+    "215",
+    "3803",
+    "7612",
+    "215"
+  ],
+  "pdf_tab_opened": "PDF.js: v7 PDF page 11 / 12",
+  "return_to_demo": true,
+  "date": "2026-11-22",
+  "actor": "A / hycx233",
+  "device": "A 的 Arch Linux 工作站（独立于 C 的 Windows 环境）",
+  "viewport": [
+    1536,
+    960
+  ],
+  "candidate_reviewed": "bf368d1b714902977315b0c9dab8046d62b1ff1e",
+  "demo_commit": "fb03a22716d14d3d7df4e10dc1d40303b4f4b3f7",
+  "case_input": "DCU 全量包 dataset/voc/raw，按 cases.json 核对三份原图 SHA-256",
+  "verified_against_frozen_csv": 72,
+  "png_and_sidecar_sha256_verified": 36,
+  "pptx_sha256": "69081383bcace59d4301c3eb4e665118a3b01e7abfe4838f6a13456d904b8158",
+  "pdf_sha256": "4c5993864e95cf7936e989dfab40867b67eb6e44eafe49a324e96a6e31db0af8",
+  "static_backup": "正式 PDF 第 11 页在第二个浏览器标签渲染并切回 Demo。LibreOffice Impress 独立打开 PPTX 并导出 12 页，目视两种文件的第 11 页，215 原图、六方法、哈希前缀与底部来源说明可读。",
+  "findings": "原候选每例只显示 18 个指标值，地图被裁切，原图与 checkpoint 长哈希越界。修复后每例 24 个指标值、地图尺寸和哈希容器宽度检查通过。",
+  "group_timed_rehearsal": false
+}
