@@ -1,0 +1,762 @@
+{
+  "input": {
+    "statistics_json_path": "analysis/dcu_20261015/statistics.json",
+    "statistics_json_sha256": "6c098e27cc36e98c46172845ca5d5c5f7477cb0df29b23325dbe27d7ecbbe473",
+    "cohort": "model_correct",
+    "source": {
+      "kind": "direct frozen handoff ZIP input",
+      "handoff_zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+      "handoff_zip_size_bytes": 13707240,
+      "zip_crc_valid": true,
+      "csv_member": "team-handoff-20261014/data/units_model_correct.csv",
+      "csv_rows": 144,
+      "csv_sha256": "8115114fa94d815d5dde419216376d0aa4a799457b5dfeda862e32d090b304e8",
+      "manifest_file_count": 720,
+      "csv_manifest_row_count": 144
+    },
+    "accepted_statistics_receipt": {
+      "handoff_zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+      "units": 36
+    },
+    "comparison_to_accepted_statistics": {
+      "matching_unit_metric_keys": 108,
+      "exact_float_matches": 55,
+      "last_digit_differences": 53,
+      "max_absolute_difference": 9.992007221626409e-16,
+      "absolute_tolerance": 1e-15,
+      "interpretation": "All direct ZIP means agree with the checked-in accepted summary within float serialization precision."
+    }
+  },
+  "methods": [
+    "gradcam",
+    "ig",
+    "kernelshap",
+    "lime",
+    "occlusion",
+    "rise"
+  ],
+  "environment": {
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "matplotlib": "3.10.6"
+  },
+  "display_names": {
+    "ig": "IG",
+    "gradcam": "Grad-CAM",
+    "occlusion": "Occlusion",
+    "rise": "RISE",
+    "kernelshap": "KernelSHAP",
+    "lime": "LIME"
+  },
+  "conditions": [
+    {
+      "dataset": "imagenet",
+      "model": "densenet121"
+    },
+    {
+      "dataset": "imagenet",
+      "model": "resnet50"
+    },
+    {
+      "dataset": "imagenet",
+      "model": "vgg16"
+    },
+    {
+      "dataset": "voc",
+      "model": "densenet121"
+    },
+    {
+      "dataset": "voc",
+      "model": "resnet50"
+    },
+    {
+      "dataset": "voc",
+      "model": "vgg16"
+    }
+  ],
+  "feature_construction": {
+    "primary": {
+      "columns": [
+        {
+          "column": "imagenet__densenet121__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__densenet121__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__densenet121__wrapper_time_ms__oriented_z",
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__resnet50__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__resnet50__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__resnet50__wrapper_time_ms__oriented_z",
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__vgg16__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__vgg16__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__vgg16__wrapper_time_ms__oriented_z",
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__densenet121__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "densenet121",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__densenet121__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "densenet121",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__densenet121__wrapper_time_ms__oriented_z",
+          "dataset": "voc",
+          "model": "densenet121",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__resnet50__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "resnet50",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__resnet50__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "resnet50",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__resnet50__wrapper_time_ms__oriented_z",
+          "dataset": "voc",
+          "model": "resnet50",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__vgg16__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "vgg16",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__vgg16__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "vgg16",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__vgg16__wrapper_time_ms__oriented_z",
+          "dataset": "voc",
+          "model": "vgg16",
+          "source_metric": "efficiency_time_ms",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        }
+      ],
+      "metric_groups": [
+        "raw_morf_auc",
+        "noise_stability_spearman",
+        "wrapper_time_ms"
+      ]
+    },
+    "without_time": {
+      "columns": [
+        {
+          "column": "imagenet__densenet121__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__densenet121__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "densenet121",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__resnet50__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__resnet50__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "resnet50",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__vgg16__raw_morf_auc__oriented_z",
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "imagenet__vgg16__noise_stability_spearman__oriented_z",
+          "dataset": "imagenet",
+          "model": "vgg16",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__densenet121__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "densenet121",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__densenet121__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "densenet121",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__resnet50__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "resnet50",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__resnet50__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "resnet50",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__vgg16__raw_morf_auc__oriented_z",
+          "dataset": "voc",
+          "model": "vgg16",
+          "source_metric": "faithfulness_morf_auc_raw",
+          "direction_multiplier": -1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        },
+        {
+          "column": "voc__vgg16__noise_stability_spearman__oriented_z",
+          "dataset": "voc",
+          "model": "vgg16",
+          "source_metric": "stability_spearman",
+          "direction_multiplier": 1,
+          "standardization": "population z-score across six methods within this condition",
+          "interpretation": "higher means relatively better within this condition"
+        }
+      ],
+      "metric_groups": [
+        "raw_morf_auc",
+        "noise_stability_spearman"
+      ]
+    },
+    "per_method_row_count": 6,
+    "normalization_reason": "Each of the six dataset/model conditions contributes equal-variance, direction-aligned metric features; raw scales are never pooled across datasets or models."
+  },
+  "with_time": {
+    "n_methods": 6,
+    "n_features": 18,
+    "distance": "Euclidean on condition-wise direction-aligned z-scores",
+    "linkage": "Ward",
+    "merge_heights": [
+      2.2374372668369698,
+      4.499896418322633,
+      6.288569054608839,
+      7.270711402652085,
+      9.916423833524728
+    ],
+    "linkage_matrix": [
+      [
+        5.0,
+        2.0,
+        2.2374372668369698,
+        2.0
+      ],
+      [
+        4.0,
+        0.0,
+        4.499896418322633,
+        2.0
+      ],
+      [
+        7.0,
+        6.0,
+        6.288569054608839,
+        4.0
+      ],
+      [
+        3.0,
+        1.0,
+        7.270711402652085,
+        2.0
+      ],
+      [
+        8.0,
+        9.0,
+        9.916423833524728,
+        6.0
+      ]
+    ],
+    "pairwise_distances": {
+      "gradcam": {
+        "gradcam": 0.0,
+        "ig": 7.467762038929649,
+        "kernelshap": 5.454800134552102,
+        "lime": 8.906161139183352,
+        "occlusion": 4.499896418322633,
+        "rise": 4.427556189206768
+      },
+      "ig": {
+        "gradcam": 7.467762038929649,
+        "ig": 0.0,
+        "kernelshap": 6.629598242884749,
+        "lime": 7.270711402652085,
+        "occlusion": 8.070824054237574,
+        "rise": 7.387418953778198
+      },
+      "kernelshap": {
+        "gradcam": 5.454800134552102,
+        "ig": 6.629598242884749,
+        "kernelshap": 0.0,
+        "lime": 6.4894927725860745,
+        "occlusion": 5.78841957706427,
+        "rise": 2.2374372668369698
+      },
+      "lime": {
+        "gradcam": 8.906161139183352,
+        "ig": 7.270711402652085,
+        "kernelshap": 6.4894927725860745,
+        "lime": 0.0,
+        "occlusion": 9.104193176941124,
+        "rise": 6.464008745507796
+      },
+      "occlusion": {
+        "gradcam": 4.499896418322633,
+        "ig": 8.070824054237574,
+        "kernelshap": 5.78841957706427,
+        "lime": 9.104193176941124,
+        "occlusion": 0.0,
+        "rise": 4.635029157534812
+      },
+      "rise": {
+        "gradcam": 4.427556189206768,
+        "ig": 7.387418953778198,
+        "kernelshap": 2.2374372668369698,
+        "lime": 6.464008745507796,
+        "occlusion": 4.635029157534812,
+        "rise": 0.0
+      }
+    },
+    "candidate_k": [
+      {
+        "k": 2,
+        "silhouette": 0.2804991314846707,
+        "clusters": {
+          "1": [
+            "gradcam",
+            "kernelshap",
+            "occlusion",
+            "rise"
+          ],
+          "2": [
+            "ig",
+            "lime"
+          ]
+        }
+      },
+      {
+        "k": 3,
+        "silhouette": 0.24442164355419838,
+        "clusters": {
+          "1": [
+            "gradcam",
+            "kernelshap",
+            "occlusion",
+            "rise"
+          ],
+          "2": [
+            "ig"
+          ],
+          "3": [
+            "lime"
+          ]
+        }
+      },
+      {
+        "k": 4,
+        "silhouette": 0.22235132002197866,
+        "clusters": {
+          "1": [
+            "gradcam",
+            "occlusion"
+          ],
+          "2": [
+            "ig"
+          ],
+          "3": [
+            "kernelshap",
+            "rise"
+          ],
+          "4": [
+            "lime"
+          ]
+        }
+      }
+    ],
+    "selection_rule": "Choose the highest mean silhouette among k=2,3,4; ties favor smaller k. The selected k=2 cut also matches the largest terminal Ward merge-height jump.",
+    "selected_k": 2,
+    "selected_silhouette": 0.2804991314846707,
+    "clusters": {
+      "1": [
+        "gradcam",
+        "kernelshap",
+        "occlusion",
+        "rise"
+      ],
+      "2": [
+        "ig",
+        "lime"
+      ]
+    },
+    "direction_aligned_z_profiles_by_metric": {
+      "1": {
+        "raw_morf_auc": -0.3806012417695688,
+        "noise_stability_spearman": 0.6876037505498043,
+        "wrapper_time_ms": 0.22895110566284838
+      },
+      "2": {
+        "raw_morf_auc": 0.7612024835391381,
+        "noise_stability_spearman": -1.3752075010996085,
+        "wrapper_time_ms": -0.4579022113256969
+      }
+    },
+    "between_cluster_metric_gaps": [
+      {
+        "metric_group": "noise_stability_spearman",
+        "absolute_mean_oriented_z_gap": 2.062811251649413,
+        "cluster_1_mean_oriented_z": 0.6876037505498043,
+        "cluster_2_mean_oriented_z": -1.3752075010996085
+      },
+      {
+        "metric_group": "raw_morf_auc",
+        "absolute_mean_oriented_z_gap": 1.1418037253087068,
+        "cluster_1_mean_oriented_z": -0.3806012417695688,
+        "cluster_2_mean_oriented_z": 0.7612024835391381
+      },
+      {
+        "metric_group": "wrapper_time_ms",
+        "absolute_mean_oriented_z_gap": 0.6868533169885453,
+        "cluster_1_mean_oriented_z": 0.22895110566284838,
+        "cluster_2_mean_oriented_z": -0.4579022113256969
+      }
+    ]
+  },
+  "without_time": {
+    "n_methods": 6,
+    "n_features": 12,
+    "distance": "Euclidean on condition-wise direction-aligned z-scores",
+    "linkage": "Ward",
+    "merge_heights": [
+      2.0996256621882603,
+      3.258952658975637,
+      3.9852577630356034,
+      4.72254339662281,
+      9.52817422565388
+    ],
+    "linkage_matrix": [
+      [
+        2.0,
+        5.0,
+        2.0996256621882603,
+        2.0
+      ],
+      [
+        1.0,
+        3.0,
+        3.258952658975637,
+        2.0
+      ],
+      [
+        6.0,
+        0.0,
+        3.9852577630356034,
+        3.0
+      ],
+      [
+        8.0,
+        4.0,
+        4.72254339662281,
+        4.0
+      ],
+      [
+        7.0,
+        9.0,
+        9.52817422565388,
+        6.0
+      ]
+    ],
+    "pairwise_distances": {
+      "gradcam": {
+        "gradcam": 0.0,
+        "ig": 7.465212030116384,
+        "kernelshap": 4.225099940228605,
+        "lime": 5.886529231519147,
+        "occlusion": 4.494227274140171,
+        "rise": 2.8593991698420305
+      },
+      "ig": {
+        "gradcam": 7.465212030116384,
+        "ig": 0.0,
+        "kernelshap": 5.7728952757853795,
+        "lime": 3.258952658975637,
+        "occlusion": 8.070728686835,
+        "rise": 6.656342511524111
+      },
+      "kernelshap": {
+        "gradcam": 4.225099940228605,
+        "ig": 5.7728952757853795,
+        "kernelshap": 0.0,
+        "lime": 5.592703852887986,
+        "occlusion": 4.806105564543604,
+        "rise": 2.0996256621882603
+      },
+      "lime": {
+        "gradcam": 5.886529231519147,
+        "ig": 3.258952658975637,
+        "kernelshap": 5.592703852887986,
+        "lime": 0.0,
+        "occlusion": 6.411577638281965,
+        "rise": 5.536770024474128
+      },
+      "occlusion": {
+        "gradcam": 4.494227274140171,
+        "ig": 8.070728686835,
+        "kernelshap": 4.806105564543604,
+        "lime": 6.411577638281965,
+        "occlusion": 0.0,
+        "rise": 3.384295562799816
+      },
+      "rise": {
+        "gradcam": 2.8593991698420305,
+        "ig": 6.656342511524111,
+        "kernelshap": 2.0996256621882603,
+        "lime": 5.536770024474128,
+        "occlusion": 3.384295562799816,
+        "rise": 0.0
+      }
+    },
+    "candidate_k": [
+      {
+        "k": 2,
+        "silhouette": 0.4510501500737812,
+        "clusters": {
+          "1": [
+            "gradcam",
+            "kernelshap",
+            "occlusion",
+            "rise"
+          ],
+          "2": [
+            "ig",
+            "lime"
+          ]
+        }
+      },
+      {
+        "k": 3,
+        "silhouette": 0.2925293980138534,
+        "clusters": {
+          "1": [
+            "gradcam",
+            "kernelshap",
+            "rise"
+          ],
+          "2": [
+            "ig",
+            "lime"
+          ],
+          "3": [
+            "occlusion"
+          ]
+        }
+      },
+      {
+        "k": 4,
+        "silhouette": 0.2764541942826837,
+        "clusters": {
+          "1": [
+            "gradcam"
+          ],
+          "2": [
+            "ig",
+            "lime"
+          ],
+          "3": [
+            "kernelshap",
+            "rise"
+          ],
+          "4": [
+            "occlusion"
+          ]
+        }
+      }
+    ],
+    "selection_rule": "Choose the highest mean silhouette among k=2,3,4; ties favor smaller k. The selected k=2 cut also matches the largest terminal Ward merge-height jump.",
+    "selected_k": 2,
+    "selected_silhouette": 0.4510501500737812,
+    "clusters": {
+      "1": [
+        "gradcam",
+        "kernelshap",
+        "occlusion",
+        "rise"
+      ],
+      "2": [
+        "ig",
+        "lime"
+      ]
+    },
+    "direction_aligned_z_profiles_by_metric": {
+      "1": {
+        "raw_morf_auc": -0.3806012417695688,
+        "noise_stability_spearman": 0.6876037505498043
+      },
+      "2": {
+        "raw_morf_auc": 0.7612024835391381,
+        "noise_stability_spearman": -1.3752075010996085
+      }
+    },
+    "between_cluster_metric_gaps": [
+      {
+        "metric_group": "noise_stability_spearman",
+        "absolute_mean_oriented_z_gap": 2.062811251649413,
+        "cluster_1_mean_oriented_z": 0.6876037505498043,
+        "cluster_2_mean_oriented_z": -1.3752075010996085
+      },
+      {
+        "metric_group": "raw_morf_auc",
+        "absolute_mean_oriented_z_gap": 1.1418037253087068,
+        "cluster_1_mean_oriented_z": -0.3806012417695688,
+        "cluster_2_mean_oriented_z": 0.7612024835391381
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "Only six method labels are clustered; this is descriptive structure, not population-level inference or a significance test.",
+    "Unit means conceal image-level heterogeneity and the original sample sizes vary by model-correct cohort.",
+    "Recorded wrapper time came from shared DCU batches and is not a controlled hardware ranking.",
+    "Noise stability measures agreement under the specified input noise protocol, not explanation correctness."
+  ]
+}
