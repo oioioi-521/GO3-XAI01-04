@@ -1,0 +1,20 @@
+protocol_version: rgb-gaussian-spearman-v1
+noise_distribution: gaussian
+noise_domain: rgb_0_1
+sigma: 0.005
+clip: [0.0, 1.0]
+repeats: 5
+target: metadata
+similarity: spearman
+direction: max
+top_fraction: 0.1
+seed_fields: [dataset, image_id, repeat]
+degenerate_score: 0.0
+runtime:
+  device: auto
+  warmup_runs: 1
+output:
+  trace_csv: results/stability_trace.csv
+  state_dir: results/stability_run_state
+  config_dir: results/configs
+  run_log: results/stability_run_log.jsonl

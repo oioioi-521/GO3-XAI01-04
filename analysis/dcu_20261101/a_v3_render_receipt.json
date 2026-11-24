@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-01",
+  "reviewed_A_head": "7e2821e2050a9cb3171f4a9587d210e670b2dba2",
+  "render_completed": true,
+  "source_plot_sha256": "17c662c089b444e58328dacf792753f126befa52db4667b638bd33c966aaa7b6",
+  "published_png_sha256": "0675d82bbebb43d93d8d245d478e7e0b3a100d5196ba0b09ab8f019beeebb6fd",
+  "reproduced_png_sha256": "4b7eb5ccdaa412b14564b6364cfd5ac5ba0c7c406857f9584b92e0a834832b9c",
+  "png_byte_equal": false,
+  "rgb_pixels_equal": false,
+  "published_size": [
+    2727,
+    1837
+  ],
+  "reproduced_size": [
+    2664,
+    1834
+  ],
+  "scope": "D reran the inspected fixed plotting function on frozen JSON; not new data or bootstrap, no teammate branch edits",
+  "original_bounds": {
+    "axis_titles": 18,
+    "outside_export_bounds": [
+      "panel3/y",
+      "panel3/z",
+      "panel6/y",
+      "panel6/z"
+    ]
+  },
+  "fixed_bounds": {
+    "axis_titles": 18,
+    "outside_export_bounds": []
+  },
+  "fixed_preview_size": [
+    2728,
+    1834
+  ],
+  "fixed_preview_sha256": "f8df99e132a3899dc328881b7eea0e0d9c5f29d06294c2e3ec9144d11c9272cc",
+  "fix_patch_sha256": "e3a3736caf7cdfeafd3242833e344ae6df6d2893f0e99eaac64fe10105cff62f",
+  "patch_scope": "Only include projected axis-title bounds during export; no point/cohort/front/scale changes",
+  "fixed_visual_review": "D viewed all six panels; axes titles, legends and limits readable"
+}

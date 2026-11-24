@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-22",
+  "status": "passed",
+  "integration_base": "990929c40c0e1ee4202d4f8065d977f873cafbc7",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "input_validation": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "cohort": "model_correct",
+  "source_per_metric_rows": 55608,
+  "paired_image_model_rows": 2317,
+  "scenario_rows": 13902,
+  "train_scenarios": 10458,
+  "test_scenarios": 3444,
+  "train_original_images": 639,
+  "test_original_images": 213,
+  "group_overlap": 0,
+  "feature_names": [
+    "dataset_is_voc",
+    "model_is_densenet121",
+    "model_is_vgg16",
+    "objective_is_stability",
+    "objective_is_efficiency"
+  ],
+  "split_assignments_sha256": "467a1548b829df7cf3e899ba1da0a9b93b6422a3f5d5a46bd765c2fa4fdb3c2e",
+  "tree_depths": {
+    "full": 3,
+    "no_grad_logits": 3
+  },
+  "tree_leaves": {
+    "full": 5,
+    "no_grad_logits": 5
+  },
+  "condition_patterns": 36,
+  "bootstrap_resamples": 2000,
+  "portable_policy_predictions_match": true,
+  "raw_exports_tracked": false,
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.9"
+  },
+  "python": "3.10.20",
+  "code_sha256": "efb919a90e77db570db309a610b4399efdc60f6e67dc8296d7162ec70da24bba",
+  "protocol_sha256": "4cb02cdf2fb01e93d3c7cee0d0496c2c19c1379ae760548da63bc7324699d0a4",
+  "outputs": {
+    "condition_recommendations.csv": "fc4f24b05dbc110b8b9013f43e4867b8bd0005ece3c87083e4ef864b49946a91",
+    "heldout_cells.csv": "04365a1d97c24f2d914d6d8e08ed2775a7045e0c65d7192349b7f5689e639300",
+    "heldout_metrics.csv": "cb6233f478230730999076c1c087edb1516de330ef051b9b838bac9f04e89507",
+    "heldout_policy_comparison.png": "815cf08fe20bb96bc5cd9bce0946aa64400c674c500dd35f6d78210adcefa4f9",
+    "ig_kernelshap_exception.csv": "da2a6374b45a8d092ffca464c5301748c474feccfff120be3698b8011b678480",
+    "leaves.csv": "55df843219c30fccf2b416fe27ebbacb7de432e047f938cb25e21e59d04a54f0",
+    "method_selection_tree.png": "5952e296ee1129f2eff09f63accdf933eb4557f4b300bd809a889267307379b9",
+    "method_selection_tree.svg": "8402ec25508c6f0bbc24a5aa6bd812f03f00a7fa3549820698bbe970ccf13af5",
+    "oracle_label_counts.csv": "81c6c82b3a830ca42582cbb567e85889d36948a02a361d522be86c1f5e0ae955",
+    "oracle_ties.csv": "b236497f811dc8e7315cf3b6d63d4ce8838f14994f103ed96b7e2df7f84ca854",
+    "paired_policy_intervals.csv": "8f04874bf19e79f2fa94697560b8583796cb206e5f1bd3b2397cb4f94f50a503",
+    "policy.json": "38ce28e9f88b1d506d775b2444bc43c0b167a702c84ddfea07cfa81c02a9eb42",
+    "result_tables.md": "8c1e3b3dffa7886dc1cc582c3090a90ece04a64dd47e53ed5e7bc734a6edf221",
+    "train_test_metrics.csv": "494d0964778963a5243062ad651717e28358e81cafff1da3a0ec63df3e14595a"
+  },
+  "scope": "Chosen before the first fit; no test-set tuning. Same six known task/model combinations, fixed budgets/weights/targets, conditioned on model correctness. No new GPU attribution. Shared-wrapper timing is exploratory. CI excludes model-training and new-task uncertainty."
+}

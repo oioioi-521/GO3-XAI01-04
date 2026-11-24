@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-20",
+  "actor": "D",
+  "status": "passed",
+  "old_E_head": "d00553f9ca7fc41208e24296619c1406a339d8da",
+  "E_head": "e2003bf78b8f15cbf65294580ad453d67d7da2e1",
+  "old_A_head": "3cfd4a8250b7f820e241bbcae3df93aa374f6c8a",
+  "A_head": "138b865e161d4808ab696864ce68b8daf5edafd5",
+  "pptx_path": "deliverables/e_m5/GO3-XAI01-04_E_M5_展示初稿_20261101_v7.pptx",
+  "old_pptx_sha256": "ae017a7883ee8fc4baf1e53f280cb0d30fdefa1a373f2f4f4a51aa97e1e39ff9",
+  "pptx_sha256": "69081383bcace59d4301c3eb4e665118a3b01e7abfe4838f6a13456d904b8158",
+  "pdf_sha256": "4c5993864e95cf7936e989dfab40867b67eb6e44eafe49a324e96a6e31db0af8",
+  "changed_package_entries": [
+    "ppt/notesSlides/notesSlide1.xml",
+    "ppt/notesSlides/notesSlide11.xml",
+    "ppt/notesSlides/notesSlide12.xml",
+    "ppt/notesSlides/notesSlide6.xml"
+  ],
+  "unchanged_package_entries": 87,
+  "zip_crc_and_all_xml_parse": true,
+  "slides": 12,
+  "notes": 12,
+  "pdf_bytes_unchanged": true,
+  "tracked_demo_files_unchanged": 40,
+  "report_table_lines_unchanged": 82,
+  "report_changed_lines": 4,
+  "report_sha256": "7688f460fe1104eb58b370b93cb275e6b59dca526c1ff843f892fdc7cf2dda26",
+  "analysis_and_pareto_export_source_unchanged": true,
+  "A_correction_receipt_matches": true,
+  "stale_P12_publication_status_removed": true,
+  "scope": "Fixed-ref byte/XML/text review only. No new rendering, PowerPoint application, numerical bootstrap rerun, independent-device Demo, C/B/E signoff or timed rehearsal.",
+  "review_code_sha256": "e5a1b93d2df1153ae01006d6fb9bd6cadfaa1540102d90854af7fac64bd13fc8"
+}

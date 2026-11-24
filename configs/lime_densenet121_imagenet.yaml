@@ -1,0 +1,93 @@
+# LIME candidate budget: not approved for formal evaluation.
+method: lime
+dataset:
+  name: imagenet
+  split: eval
+model:
+  name: densenet121
+  weights: default
+  num_classes: 1000
+  task_type: multiclass
+  output_activation: softmax
+  checkpoint: null
+attribution:
+  num_samples: 1000
+  batch_size: 32
+  seed: 42
+  segmentation_seed: 42
+  segmentation: quickshift
+  kernel_size: 4.0
+  max_dist: 200.0
+  ratio: 0.2
+  sigma: 0.0
+  convert2lab: true
+  kernel: exponential
+  kernel_width: 0.25
+  distance_metric: cosine
+  ridge_alpha: 1.0
+  ridge_solver: cholesky
+  feature_selection: none
+  mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  std:
+  - 0.229
+  - 0.224
+  - 0.225
+  output_activation: softmax
+metrics:
+  names:
+  - efficiency_time_ms
+  - faithfulness_morf_auc_raw
+  deletion_fractions:
+  - 0.0
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.45
+  - 0.5
+  - 0.55
+  - 0.6
+  - 0.65
+  - 0.7
+  - 0.75
+  - 0.8
+  - 0.85
+  - 0.9
+  - 0.95
+  - 1.0
+runtime:
+  device: auto
+  seed: 42
+  max_images: null
+  warmup_runs: 1
+  resume: true
+  budget_frozen: false
+output:
+  per_image_csv: results/lime_eval/per_image.csv
+  units_csv: results/lime_eval/units.csv
+  config_dir: results/lime_eval/configs
+  save_maps: true
+  maps_dir: results/lime_eval/maps
+  save_float_maps: true
+  float_maps_dir: results/lime_eval/maps_float
+  predictions_csv: results/lime_eval/predictions.csv
+  run_log: results/lime_eval/run_log.jsonl
+lime_contract:
+  target: metadata_ground_truth
+  mask_distribution: Bernoulli(0.5); first sample all visible
+  hidden_region: supplied normalized baseline; default RGB black
+  kernel_formula: sqrt(exp(-cosine_distance**2 / kernel_width**2))
+  regressor: sample-weighted Ridge; fit_intercept=true; all superpixels; no feature
+    selection
+  map: signed coefficients projected to pixels; min-max [0,1]; constant map zero;
+    CPU float32
+  seed_policy: fresh local sampling RNG per attribute call; fixed quickshift RNG independent
+    of sampling seed
+  budget_status: candidate only; freeze after real 40-image comparisons and review

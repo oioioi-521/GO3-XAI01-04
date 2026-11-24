@@ -1,0 +1,677 @@
+{
+  "status": "verified",
+  "runs": {
+    "gate-densenet121-gradcam": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "gradcam",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "parameters": {
+        "target_layer": "features.denseblock4"
+      },
+      "steady_wall_seconds": 0.5410951934754848,
+      "total_wall_seconds": 27.236625224351883,
+      "calls_per_second": 1.848103646193831,
+      "mean_attribution_ms": 51.07810068875551,
+      "median_attribution_ms": 51.07810068875551,
+      "max_device_memory_bytes": 231463424
+    },
+    "gate-densenet121-ig": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "ig",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_steps": 50,
+        "internal_batch_size": 10,
+        "approximation_method": "gausslegendre"
+      },
+      "steady_wall_seconds": 0.782812980003655,
+      "total_wall_seconds": 28.73913699761033,
+      "calls_per_second": 1.277444326479271,
+      "mean_attribution_ms": 293.763080611825,
+      "median_attribution_ms": 293.763080611825,
+      "max_device_memory_bytes": 1523268608
+    },
+    "gate-densenet121-kernelshap": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "kernelshap",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 16,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 4.659083885140717,
+      "total_wall_seconds": 36.34884362574667,
+      "calls_per_second": 0.21463446992000174,
+      "mean_attribution_ms": 3825.7041592150927,
+      "median_attribution_ms": 3825.7041592150927,
+      "max_device_memory_bytes": 302663168
+    },
+    "gate-densenet121-occlusion": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "occlusion",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "parameters": {
+        "window_height": 15,
+        "window_width": 15,
+        "stride_height": 8,
+        "stride_width": 8,
+        "perturbations_per_eval": 16
+      },
+      "steady_wall_seconds": 1.7359326500445604,
+      "total_wall_seconds": 30.340248468331993,
+      "calls_per_second": 0.5760592151857565,
+      "mean_attribution_ms": 1239.901103079319,
+      "median_attribution_ms": 1239.901103079319,
+      "max_device_memory_bytes": 338757120
+    },
+    "gate-densenet121-rise": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "rise",
+      "model": "densenet121",
+      "dataset": "imagenet",
+      "parameters": {
+        "num_masks": 4000,
+        "batch_size": 32,
+        "mask_size": 7,
+        "mask_probability": 0.5,
+        "seed": 42
+      },
+      "steady_wall_seconds": 3.6819954412057996,
+      "total_wall_seconds": 33.44526801817119,
+      "calls_per_second": 0.271591862610377,
+      "mean_attribution_ms": 2839.41104542464,
+      "median_attribution_ms": 2839.41104542464,
+      "max_device_memory_bytes": 461838336
+    },
+    "gate-resnet50-gradcam": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "gradcam",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "target_layer": "layer4.2"
+      },
+      "steady_wall_seconds": 0.2540542418137193,
+      "total_wall_seconds": 27.437248184345663,
+      "calls_per_second": 3.9361673037257616,
+      "mean_attribution_ms": 24.501674808561802,
+      "median_attribution_ms": 24.501674808561802,
+      "max_device_memory_bytes": 258972160
+    },
+    "gate-resnet50-ig": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "ig",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_steps": 50,
+        "internal_batch_size": 10,
+        "approximation_method": "gausslegendre"
+      },
+      "steady_wall_seconds": 0.35483384411782026,
+      "total_wall_seconds": 29.540562226437032,
+      "calls_per_second": 2.8182204617098376,
+      "mean_attribution_ms": 122.39255104213953,
+      "median_attribution_ms": 122.39255104213953,
+      "max_device_memory_bytes": 1142831616
+    },
+    "gate-resnet50-kernelshap": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 16,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 2.530510392971337,
+      "total_wall_seconds": 33.64441088028252,
+      "calls_per_second": 0.3951771953901345,
+      "mean_attribution_ms": 2166.651340201497,
+      "median_attribution_ms": 2166.651340201497,
+      "max_device_memory_bytes": 382348800
+    },
+    "gate-resnet50-occlusion": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "occlusion",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "window_height": 15,
+        "window_width": 15,
+        "stride_height": 8,
+        "stride_width": 8,
+        "perturbations_per_eval": 16
+      },
+      "steady_wall_seconds": 0.7821022951975465,
+      "total_wall_seconds": 28.33883411437273,
+      "calls_per_second": 1.278605121274342,
+      "mean_attribution_ms": 562.7698739990592,
+      "median_attribution_ms": 562.7698739990592,
+      "max_device_memory_bytes": 418655744
+    },
+    "gate-resnet50-rise": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "num_masks": 4000,
+        "batch_size": 32,
+        "mask_size": 7,
+        "mask_probability": 0.5,
+        "seed": 42
+      },
+      "steady_wall_seconds": 2.535661761648953,
+      "total_wall_seconds": 30.340802431106567,
+      "calls_per_second": 0.3943743661416794,
+      "mean_attribution_ms": 2178.804986178875,
+      "median_attribution_ms": 2178.804986178875,
+      "max_device_memory_bytes": 543490048
+    },
+    "gate-vgg16-gradcam": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "gradcam",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "parameters": {
+        "target_layer": "features.28"
+      },
+      "steady_wall_seconds": 0.0909608481451869,
+      "total_wall_seconds": 28.037241792306304,
+      "calls_per_second": 10.993740937901688,
+      "mean_attribution_ms": 7.478521205484867,
+      "median_attribution_ms": 7.478521205484867,
+      "max_device_memory_bytes": 700461568
+    },
+    "gate-vgg16-ig": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "ig",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_steps": 50,
+        "internal_batch_size": 10,
+        "approximation_method": "gausslegendre"
+      },
+      "steady_wall_seconds": 0.22648312151432037,
+      "total_wall_seconds": 29.33902358263731,
+      "calls_per_second": 4.415340062931668,
+      "mean_attribution_ms": 143.07055436074734,
+      "median_attribution_ms": 143.07055436074734,
+      "max_device_memory_bytes": 1452377088
+    },
+    "gate-vgg16-kernelshap": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "kernelshap",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 16,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 3.7329037515446544,
+      "total_wall_seconds": 36.150823631323874,
+      "calls_per_second": 0.2678879678015287,
+      "mean_attribution_ms": 3323.3169773593545,
+      "median_attribution_ms": 3323.3169773593545,
+      "max_device_memory_bytes": 1281193984
+    },
+    "gate-vgg16-occlusion": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "occlusion",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "parameters": {
+        "window_height": 15,
+        "window_width": 15,
+        "stride_height": 8,
+        "stride_width": 8,
+        "perturbations_per_eval": 16
+      },
+      "steady_wall_seconds": 1.033110048621893,
+      "total_wall_seconds": 30.740892452187836,
+      "calls_per_second": 0.9679510922712834,
+      "mean_attribution_ms": 941.5469681844115,
+      "median_attribution_ms": 941.5469681844115,
+      "max_device_memory_bytes": 1318180864
+    },
+    "gate-vgg16-rise": {
+      "status": "complete",
+      "workers": 1,
+      "images": 1,
+      "calls": 1,
+      "method": "rise",
+      "model": "vgg16",
+      "dataset": "imagenet",
+      "parameters": {
+        "num_masks": 4000,
+        "batch_size": 32,
+        "mask_size": 7,
+        "mask_probability": 0.5,
+        "seed": 42
+      },
+      "steady_wall_seconds": 4.766445362940431,
+      "total_wall_seconds": 35.94883777573705,
+      "calls_per_second": 0.20979995024701129,
+      "mean_attribution_ms": 4364.23070076853,
+      "median_attribution_ms": 4364.23070076853,
+      "max_device_memory_bytes": 1896106496
+    },
+    "kernelshap-1card": {
+      "status": "complete",
+      "workers": 1,
+      "images": 16,
+      "calls": 16,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 16,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 34.75539205595851,
+      "total_wall_seconds": 65.48135630786419,
+      "calls_per_second": 0.4603602219258217,
+      "mean_attribution_ms": 2170.882621954661,
+      "median_attribution_ms": 2160.5030316859484,
+      "max_device_memory_bytes": 382348800
+    },
+    "kernelshap-8card": {
+      "status": "complete",
+      "workers": 8,
+      "images": 16,
+      "calls": 16,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 16,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 4.496230052784085,
+      "total_wall_seconds": 36.565793205052614,
+      "calls_per_second": 3.5585367768476903,
+      "mean_attribution_ms": 2193.7300869612955,
+      "median_attribution_ms": 2200.680246576667,
+      "max_device_memory_bytes": 382348800
+    },
+    "kernelshap-b128-1card": {
+      "status": "complete",
+      "workers": 1,
+      "images": 16,
+      "calls": 16,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 128,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 30.528124696575105,
+      "total_wall_seconds": 60.28118141926825,
+      "calls_per_second": 0.5241068738753878,
+      "mean_attribution_ms": 1906.765361840371,
+      "median_attribution_ms": 1899.959568399936,
+      "max_device_memory_bytes": 1683052544
+    },
+    "kernelshap-b128-8card": {
+      "status": "complete",
+      "workers": 8,
+      "images": 16,
+      "calls": 16,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 128,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 3.8038488095626235,
+      "total_wall_seconds": 35.76871304772794,
+      "calls_per_second": 4.206266021871601,
+      "mean_attribution_ms": 1879.8305793316104,
+      "median_attribution_ms": 1880.8383392170072,
+      "max_device_memory_bytes": 1683052544
+    },
+    "rise-1card": {
+      "status": "complete",
+      "workers": 1,
+      "images": 16,
+      "calls": 16,
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "num_masks": 4000,
+        "batch_size": 32,
+        "mask_size": 7,
+        "mask_probability": 0.5,
+        "seed": 42
+      },
+      "steady_wall_seconds": 34.9207653934136,
+      "total_wall_seconds": 63.78172467555851,
+      "calls_per_second": 0.45818010629909495,
+      "mean_attribution_ms": 2181.2392315478064,
+      "median_attribution_ms": 2181.7190628498793,
+      "max_device_memory_bytes": 543490048
+    },
+    "rise-8card": {
+      "status": "complete",
+      "workers": 8,
+      "images": 16,
+      "calls": 16,
+      "method": "rise",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "num_masks": 4000,
+        "batch_size": 32,
+        "mask_size": 7,
+        "mask_probability": 0.5,
+        "seed": 42
+      },
+      "steady_wall_seconds": 4.376972378231585,
+      "total_wall_seconds": 35.06845615059137,
+      "calls_per_second": 3.6554948529203264,
+      "mean_attribution_ms": 2180.4106526542455,
+      "median_attribution_ms": 2181.1772701330483,
+      "max_device_memory_bytes": 543490048
+    },
+    "stress": {
+      "status": "complete",
+      "workers": 8,
+      "images": 16,
+      "calls": 64,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 128,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 15.169437535107136,
+      "total_wall_seconds": 47.288078495301306,
+      "calls_per_second": 4.219009429445401,
+      "mean_attribution_ms": 1879.5323760423344,
+      "median_attribution_ms": 1880.9905350208282,
+      "max_device_memory_bytes": 1683052544
+    },
+    "sustained-stress": {
+      "status": "complete",
+      "workers": 8,
+      "images": 16,
+      "calls": 640,
+      "method": "kernelshap",
+      "model": "resnet50",
+      "dataset": "imagenet",
+      "parameters": {
+        "n_samples": 2048,
+        "perturbations_per_eval": 128,
+        "feature_grid_size": 7,
+        "seed": 42
+      },
+      "steady_wall_seconds": 154.81211441382766,
+      "total_wall_seconds": 185.95396183710545,
+      "calls_per_second": 4.134043401081769,
+      "mean_attribution_ms": 1901.4430288472795,
+      "median_attribution_ms": 1881.044190376997,
+      "max_device_memory_bytes": 1683052544
+    }
+  },
+  "comparisons": [
+    {
+      "left": "kernelshap-1card",
+      "right": "kernelshap-8card",
+      "steady_speedup": 7.7298963015555255,
+      "total_speedup": 1.7907817817778409,
+      "max_map_abs": 0.0,
+      "min_spearman": 1.0
+    },
+    {
+      "left": "rise-1card",
+      "right": "rise-8card",
+      "steady_speedup": 7.978292384728855,
+      "total_speedup": 1.8187776616588505,
+      "max_map_abs": 0.0,
+      "min_spearman": 0.9999999999999999
+    },
+    {
+      "left": "kernelshap-1card",
+      "right": "kernelshap-b128-1card",
+      "steady_speedup": 1.138471242547619,
+      "total_speedup": 1.0862653114315666,
+      "max_map_abs": 1.5050172805786133e-06,
+      "min_spearman": 1.0
+    },
+    {
+      "left": "kernelshap-b128-1card",
+      "right": "kernelshap-b128-8card",
+      "steady_speedup": 8.025588351416447,
+      "total_speedup": 1.6853047337440439,
+      "max_map_abs": 0.0,
+      "min_spearman": 1.0
+    },
+    {
+      "left": "cpu-gradcam-reference-v2",
+      "right": "gate-resnet50-gradcam",
+      "max_map_abs": 3.2782554626464844e-07,
+      "min_spearman": 0.9999999817679414
+    },
+    {
+      "left": "cpu-ig-reference",
+      "right": "gate-resnet50-ig",
+      "max_map_abs": 0.0069228410720825195,
+      "min_spearman": 0.999957883642668
+    }
+  ],
+  "provenance": {
+    "base_commit": "1739427",
+    "branch": "feat/dcu-throughput-20261013",
+    "artifact": "results/xai_dcu_evidence_20261013_complete.tar.gz",
+    "artifact_bytes": 7352668,
+    "artifact_sha256": "4b5b03eccf1f2423150856e7a25ac65fcf72f8cefc1b673e6288725371a7980e",
+    "remote_run": "/workspace/xai/results/dcu-20261013T032210Z",
+    "benchmark_source_sha256": "df9b8dd7639bc74c4e82255517a10d847bb11db45eb3055211324074d30eec75",
+    "metadata_sha256": "a98afee190c4c653916a60446dfd79897cbb7020062a9449252d78e866c96bba",
+    "server_shell_includes_sustained_run": false,
+    "final_shell_includes_sustained_run": true
+  },
+  "worker_device_assignment_verified": true,
+  "monitor_peaks": {
+    "xai_dcu_monitor_20261013.log": {
+      "samples_per_card": 365,
+      "per_card": [
+        {
+          "card": 0,
+          "temperature_c": 68.0,
+          "power_w": 549.0,
+          "vram_percent": 4.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 1,
+          "temperature_c": 66.0,
+          "power_w": 466.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 2,
+          "temperature_c": 65.0,
+          "power_w": 468.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 3,
+          "temperature_c": 64.0,
+          "power_w": 474.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 4,
+          "temperature_c": 64.0,
+          "power_w": 490.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 5,
+          "temperature_c": 64.0,
+          "power_w": 462.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 6,
+          "temperature_c": 62.0,
+          "power_w": 470.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 7,
+          "temperature_c": 63.0,
+          "power_w": 467.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        }
+      ]
+    },
+    "xai_dcu_stress_monitor_20261013.log": {
+      "samples_per_card": 85,
+      "per_card": [
+        {
+          "card": 0,
+          "temperature_c": 62.0,
+          "power_w": 363.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 1,
+          "temperature_c": 62.0,
+          "power_w": 345.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 2,
+          "temperature_c": 62.0,
+          "power_w": 353.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 3,
+          "temperature_c": 61.0,
+          "power_w": 354.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 4,
+          "temperature_c": 62.0,
+          "power_w": 366.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 5,
+          "temperature_c": 62.0,
+          "power_w": 345.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 6,
+          "temperature_c": 60.0,
+          "power_w": 351.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        },
+        {
+          "card": 7,
+          "temperature_c": 61.0,
+          "power_w": 346.0,
+          "vram_percent": 3.0,
+          "compute_percent": 100.0
+        }
+      ]
+    }
+  },
+  "resource_cleanup": {
+    "stopped": [
+      76,
+      77,
+      78
+    ],
+    "restored_running": [
+      75
+    ]
+  }
+}

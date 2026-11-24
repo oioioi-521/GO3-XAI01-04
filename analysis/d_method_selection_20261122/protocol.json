@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-22",
+  "issue": 28,
+  "integration_base": "990929c40c0e1ee4202d4f8065d977f873cafbc7",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "cohort": "model_correct",
+  "features": ["dataset_is_voc", "model_is_densenet121", "model_is_vgg16", "objective_is_stability", "objective_is_efficiency"],
+  "profiles": {
+    "full": ["ig", "gradcam", "occlusion", "rise", "kernelshap", "lime"],
+    "no_grad_logits": ["occlusion", "rise", "kernelshap", "lime"]
+  },
+  "interface_gate": "Fixed eligibility gate, not learned: full has gradients and target-layer access; no_grad_logits supports batched perturbed inputs and logits plus the frozen probability activation. A probability-only API is not certified.",
+  "objective_metrics": {
+    "faithfulness": ["faithfulness_morf_auc_raw", "min"],
+    "stability": ["stability_spearman", "max"],
+    "efficiency": ["efficiency_time_ms", "min"]
+  },
+  "tie_absolute_tolerance": 1e-12,
+  "tie_rule": "First method in fixed eligible order for training; all methods within tolerance of the optimum count as oracle hits in evaluation.",
+  "split": {"method": "GroupShuffleSplit", "group": "dataset + image_id", "test_size": 0.25, "random_state": 20261122},
+  "fit": {"criterion": "gini", "max_depth_per_profile": 3, "min_samples_leaf": 100, "random_state": 20261122, "class_weight": null},
+  "baseline": "Training-only modal oracle label per objective and interface, with fixed-order ties; additional training-only mean rank-regret minimizer per objective and interface.",
+  "candidate_threshold": 0.10,
+  "single_candidate_minimum_share": 0.75,
+  "bootstrap": {"resamples": 2000, "group": "dataset + image_id", "stratify": "dataset", "interval": "marginal percentile 95%"},
+  "limits": "Chosen before the first fit; no test-set tuning. Same six known task/model combinations, fixed budgets/weights/targets, conditioned on model correctness. No new GPU attribution. Shared-wrapper timing is exploratory. CI excludes model-training and new-task uncertainty."
+}

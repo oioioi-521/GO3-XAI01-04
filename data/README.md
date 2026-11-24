@@ -72,4 +72,5 @@ data/
 
 - [x] 运行 `sample_eval_set.py` 生成 `metadata.csv`(ImageNet/VOC 已入矩阵,各 460 eval + 40 debug)
 - [x] `preprocessing/dataset.py` 统一加载入口(已联调测试)
+- [x] W2 数据版本冻结：规模和关键元数据 SHA-256 见 `DATA_VERSION.json`
 - [x] (2026-09-06)CHNCXR 决策:不纳入主矩阵,暂停下载;教师已提供官方完整集下载途径(见 CHNCXR 节),如需启用再启动

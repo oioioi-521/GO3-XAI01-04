@@ -1,0 +1,136 @@
+{
+  "zip_sha256": "54b86c4c9c1e7a72e9345c99eb474458d8613c28fc8758a93aea2ac84446482f",
+  "archive_files": 17,
+  "scope": "midterm sample integrity and supplied summary consistency only",
+  "sample": {
+    "image_id": "8173",
+    "target": 18,
+    "split": "debug",
+    "local_checkpoint_hash_matches": true,
+    "local_input_hash_matches": true,
+    "panel_dimensions": [
+      2045,
+      1416
+    ],
+    "panel_sha256": "bd122ce269ec5889f8a892e91d27b5e8d2823fb7d50dad4e1a6d47f617a29c0f"
+  },
+  "maps": [
+    {
+      "method": "lime",
+      "sha256": "84685cf6c83a77397f93375d1634e9bab11528ee6f99a64b61c2cf16e8721ef7",
+      "shape": [
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "constant": false
+    },
+    {
+      "method": "integrated_gradients",
+      "sha256": "9a895714db558718672cd4e3feef1b0a4f3ecceafeda6d437276b52bed0eda79",
+      "shape": [
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "constant": false
+    },
+    {
+      "method": "grad_cam",
+      "sha256": "6e176a6e8522f87d89863124baf0a7526dce0a43fc44e90e85fd6f8021620b69",
+      "shape": [
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "constant": false
+    },
+    {
+      "method": "rise",
+      "sha256": "0d43091a01f9e532688a677619629d5fa47bc5d6b7a2d8fcd52b78be1b08e362",
+      "shape": [
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "constant": false
+    },
+    {
+      "method": "occlusion",
+      "sha256": "29b81692f5fec030bc571ef7d08e1df4561e6bf045c81775e2bf725492054f22",
+      "shape": [
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "constant": false
+    }
+  ],
+  "reported_gate_summaries": [
+    {
+      "unit": "resnet50_imagenet",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.9472938560269725,
+      "seed_2000_spearman_p10": 0.7596199827565124,
+      "reported_estimated_seconds": 3872.474079300664,
+      "implied_attribution_seconds": 8441.421814400106
+    },
+    {
+      "unit": "resnet50_voc",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.9783443265727402,
+      "seed_2000_spearman_p10": 0.9019544188565592,
+      "reported_estimated_seconds": 3398.494391098229,
+      "implied_attribution_seconds": 1781.5172517000171
+    },
+    {
+      "unit": "densenet121_imagenet",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.8905094436529443,
+      "seed_2000_spearman_p10": 0.590949938641981,
+      "reported_estimated_seconds": 3810.113263798745,
+      "implied_attribution_seconds": 1738.412463300163
+    },
+    {
+      "unit": "densenet121_voc",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.9627625820664534,
+      "seed_2000_spearman_p10": 0.8421825508796483,
+      "reported_estimated_seconds": 3562.796290502988,
+      "implied_attribution_seconds": 1781.7764045000074
+    },
+    {
+      "unit": "vgg16_imagenet",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.8933468072640148,
+      "seed_2000_spearman_p10": 0.561046719283886,
+      "reported_estimated_seconds": 3366.4853753998527,
+      "implied_attribution_seconds": 2105.324049700095
+    },
+    {
+      "unit": "vgg16_voc",
+      "reported_images": 40,
+      "budget_spearman_mean": 0.9543935911669448,
+      "seed_2000_spearman_p10": 0.8387055109624277,
+      "reported_estimated_seconds": 3254.350371304575,
+      "implied_attribution_seconds": 3008.669447200082
+    }
+  ],
+  "formal_eval_started": false,
+  "formal_budget_frozen": false,
+  "warnings": [
+    "resnet50_imagenet: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed",
+    "resnet50_imagenet: gate wall time missing",
+    "resnet50_voc: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed",
+    "densenet121_imagenet: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed",
+    "densenet121_voc: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed",
+    "vgg16_imagenet: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed",
+    "vgg16_voc: reported estimated seconds differ from 120 maps per budget x mean ms; source timing logs needed"
+  ],
+  "limitations": [
+    "No LIME adapter, six YAMLs, raw gate maps/records, full logs or environment in this ZIP; code and six gate execution not independently accepted",
+    "Budget-seed agreement is not Issue #8 RGB-noise stability",
+    "One qualitative CPU panel; RISE uses 256 masks, not formal 4000 masks",
+    "Sample provenance statements for other methods are not generation-time proof; timing totals not accepted"
+  ]
+}

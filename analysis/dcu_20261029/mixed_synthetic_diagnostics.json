@@ -1,0 +1,57 @@
+{
+  "seed": 20261029,
+  "alpha": 0.05,
+  "diagnostics": [
+    {
+      "scenario": "unequal_covariance_gaussian_null",
+      "trials": 300,
+      "n_by_group": [
+        60,
+        90
+      ],
+      "dimension": 3,
+      "bootstrap_iterations": 499,
+      "rejected": 18,
+      "rate": 0.06,
+      "binomial_ci95": [
+        0.03594387441513878,
+        0.09317029607198872
+      ]
+    },
+    {
+      "scenario": "unequal_covariance_exponential_null",
+      "trials": 300,
+      "n_by_group": [
+        60,
+        90
+      ],
+      "dimension": 3,
+      "bootstrap_iterations": 499,
+      "rejected": 20,
+      "rate": 0.06666666666666667,
+      "binomial_ci95": [
+        0.04119401621389358,
+        0.10108564521140831
+      ]
+    },
+    {
+      "scenario": "injected_group_contrast",
+      "trials": 300,
+      "n_by_group": [
+        60,
+        90
+      ],
+      "dimension": 3,
+      "bootstrap_iterations": 499,
+      "rejected": 300,
+      "rate": 1.0,
+      "binomial_ci95": [
+        0.9877790253057036,
+        1.0
+      ]
+    }
+  ],
+  "broad_alarm_passed": true,
+  "analysis_code_sha256": "5e9807fab23457f9266fde5ab7ccfffe5cc60d3bb53ca1881af84414bf4242ef",
+  "limits": "Finite synthetic diagnostics for three-dimensional group contrasts only; not a proof for all seven hypotheses, real-data assumptions, exact finite-sample level, or teacher acceptance."
+}

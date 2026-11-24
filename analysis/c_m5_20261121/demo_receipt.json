@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-21",
+  "actor": "C",
+  "status": "passed_local_assets_and_http",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "code_commit": "991f8e9f595595b24db9703e00fa42c6c35a8bff",
+  "checker_code_sha256": "efbcb49201aa51687532240ac0f13bda6c0c96e4d0638c7511b8140ab04397bf",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "cases": [
+    {
+      "image_id": "215",
+      "maps": 6,
+      "sidecars": 6,
+      "original_sha256": "32af7c30fe57417b18695b4b61cf7a88c2a22253350ae1944bf580f884d3760b",
+      "frozen_metric_values": 24
+    },
+    {
+      "image_id": "3803",
+      "maps": 6,
+      "sidecars": 6,
+      "original_sha256": "2923d14cbd8037d2a8a4ded1e1256a7c7dc952e62543775e78403ba1aeada32c",
+      "frozen_metric_values": 24
+    },
+    {
+      "image_id": "7612",
+      "maps": 6,
+      "sidecars": 6,
+      "original_sha256": "6503b248d1f211c97c49c3b5f39ff0821bc891c4d28d68d892aa1d04a203ad76",
+      "frozen_metric_values": 24
+    }
+  ],
+  "frozen_metric_values": 72,
+  "localhost_get_checks": 41,
+  "sidecar_bytes": "LF checkout required by .gitattributes; raw SHA checks, no normalized hashing",
+  "browser_interaction_verified": false,
+  "independent_device_verified": false,
+  "browser_limitation": "Available browser control failed to start: CreateProcessWithLogonW error 1920.",
+  "pending": "Second-device browser: originals, each case 6/6 maps, case switching, source disclosure and static fallback; actual group rehearsal."
+}

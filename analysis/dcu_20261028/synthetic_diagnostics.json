@@ -1,0 +1,53 @@
+{
+  "seed": 20261028,
+  "alpha": 0.05,
+  "diagnostics": [
+    {
+      "scenario": "spherical_gaussian_null",
+      "trials": 1000,
+      "n": 60,
+      "rejected": 40,
+      "rejection_rate": 0.04,
+      "binomial_ci95": [
+        0.028727625285890804,
+        0.0540726968193685
+      ]
+    },
+    {
+      "scenario": "anisotropic_gaussian_null",
+      "trials": 1000,
+      "n": 60,
+      "rejected": 43,
+      "rejection_rate": 0.043,
+      "binomial_ci95": [
+        0.031291170456092594,
+        0.05748625796197284
+      ]
+    },
+    {
+      "scenario": "centered_exponential_null",
+      "trials": 1000,
+      "n": 60,
+      "rejected": 41,
+      "rejection_rate": 0.041,
+      "binomial_ci95": [
+        0.0295801685340361,
+        0.05521245931516971
+      ]
+    },
+    {
+      "scenario": "injected_interaction",
+      "trials": 1000,
+      "n": 60,
+      "rejected": 1000,
+      "rejection_rate": 1.0,
+      "binomial_ci95": [
+        0.9963179161033608,
+        1.0
+      ]
+    }
+  ],
+  "broad_alarm_passed": true,
+  "analysis_code_sha256": "e34efabb57b538f7c54bf71a1048bf108ce0f2dfd6e2afb5a944a440673b71de",
+  "limits": "Synthetic reference diagnostics only. Does not validate distributional assumptions or exact Type I error for the observed dataset, all endpoints, or other sample sizes."
+}

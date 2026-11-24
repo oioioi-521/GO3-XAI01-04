@@ -1,0 +1,88 @@
+{
+  "source_audit_sha256": "eec0b4517a8c111c7ff99f7057f4ea1e7891d355a449acf95ca95a16dd0ceba7",
+  "controller_dispatch_to_last_worker_seconds": 395.89121985435486,
+  "full_protocol_original_image_combinations": 2760,
+  "attributions_per_combination": 6,
+  "formal_started": false,
+  "estimates": {
+    "2000": {
+      "reference32": {
+        "unit_mean_seconds_min": 8.193489756124714,
+        "unit_mean_seconds_max": 9.059754534624517,
+        "six_whole_units_attribution_only_hours": 6.945811809878796,
+        "ideal_balanced_eight_card_lower_bound_hours": 5.0055845986366165
+      },
+      "vector32": {
+        "unit_mean_seconds_min": 1.471871760673821,
+        "unit_mean_seconds_max": 2.3883176517362394,
+        "six_whole_units_attribution_only_hours": 1.8310435329977837,
+        "ideal_balanced_eight_card_lower_bound_hours": 1.1270986394917903
+      },
+      "vector64": {
+        "unit_mean_seconds_min": 1.3875851090997458,
+        "unit_mean_seconds_max": 2.257523144595325,
+        "six_whole_units_attribution_only_hours": 1.730767744189749,
+        "ideal_balanced_eight_card_lower_bound_hours": 1.0165400687915584
+      },
+      "vector128": {
+        "unit_mean_seconds_min": 1.3493976922084887,
+        "unit_mean_seconds_max": 2.2154636305446425,
+        "six_whole_units_attribution_only_hours": 1.6985221167508926,
+        "ideal_balanced_eight_card_lower_bound_hours": 0.9800329732178297
+      }
+    },
+    "4000": {
+      "reference32": {
+        "unit_mean_seconds_min": 15.733994733542204,
+        "unit_mean_seconds_max": 17.61585724664231,
+        "six_whole_units_attribution_only_hours": 13.505490555759106,
+        "ideal_balanced_eight_card_lower_bound_hours": 9.622426875208557
+      },
+      "vector32": {
+        "unit_mean_seconds_min": 2.396690860701104,
+        "unit_mean_seconds_max": 4.169277491979301,
+        "six_whole_units_attribution_only_hours": 3.1964460771841305,
+        "ideal_balanced_eight_card_lower_bound_hours": 1.9348112835742843
+      },
+      "vector64": {
+        "unit_mean_seconds_min": 2.218385209950308,
+        "unit_mean_seconds_max": 3.97435002339383,
+        "six_whole_units_attribution_only_hours": 3.047001684601936,
+        "ideal_balanced_eight_card_lower_bound_hours": 1.7169610790468546
+      },
+      "vector128": {
+        "unit_mean_seconds_min": 2.138577239587903,
+        "unit_mean_seconds_max": 3.876159123455485,
+        "six_whole_units_attribution_only_hours": 2.971721994649205,
+        "ideal_balanced_eight_card_lower_bound_hours": 1.6471588022308423
+      }
+    },
+    "8000": {
+      "reference32": {
+        "unit_mean_seconds_min": 31.311235477837425,
+        "unit_mean_seconds_max": 35.10644331357131,
+        "six_whole_units_attribution_only_hours": 26.914939873738007,
+        "ideal_balanced_eight_card_lower_bound_hours": 19.03428428536281
+      },
+      "vector32": {
+        "unit_mean_seconds_min": 4.253898945016165,
+        "unit_mean_seconds_max": 7.8753920821473,
+        "six_whole_units_attribution_only_hours": 6.03780059631293,
+        "ideal_balanced_eight_card_lower_bound_hours": 3.5719343171661926
+      },
+      "vector64": {
+        "unit_mean_seconds_min": 3.8939030030742288,
+        "unit_mean_seconds_max": 7.417324146255851,
+        "six_whole_units_attribution_only_hours": 5.686615178796152,
+        "ideal_balanced_eight_card_lower_bound_hours": 3.1229414913622247
+      },
+      "vector128": {
+        "unit_mean_seconds_min": 3.753129055723548,
+        "unit_mean_seconds_max": 7.2136598738531275,
+        "six_whole_units_attribution_only_hours": 5.530472569954064,
+        "ideal_balanced_eight_card_lower_bound_hours": 2.9815614407726874
+      }
+    }
+  },
+  "caveat": "Three debug images per unit and five noise repeats at 2000 only. Extrapolation, not measured formal wall time. Six whole units means six active workers. Eight-card bound requires unimplemented balanced image sharding and excludes startup, metrics and I/O."
+}

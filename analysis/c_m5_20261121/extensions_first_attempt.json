@@ -1,0 +1,247 @@
+{
+  "status": "differences_require_review",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "code_commit": "d1ba16b38b0bb4ba0405512a6bf8e8d269fcb8b8",
+  "working_tree_at_start": "",
+  "python": "3.12.14",
+  "dependencies": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.15.3",
+    "PyYAML": "6.0.3",
+    "matplotlib": "3.10.7",
+    "pytest": "8.4.2"
+  },
+  "commands": [
+    {
+      "label": "01_repeated",
+      "arguments": [
+        "-m",
+        "analysis.dcu_repeated_measures",
+        "D:\\大三小学期\\机器学习综合实践\\new\\inputs\\dcu_team_handoff_20261014.zip",
+        "--output",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\repeated\\repeated_measures.json",
+        "--bootstrap",
+        "10000"
+      ],
+      "exit_code": 0,
+      "log_sha256": "429574c2caa17b3be143f5386bcf6348448cacfe1b962ab47512b698f0e75a7c"
+    },
+    {
+      "label": "02_mixed",
+      "arguments": [
+        "-m",
+        "analysis.dcu_mixed_factorial",
+        "D:\\大三小学期\\机器学习综合实践\\new\\inputs\\dcu_team_handoff_20261014.zip",
+        "--output",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\mixed\\mixed_factorial.json",
+        "--bootstrap",
+        "9999",
+        "--ci-resamples",
+        "10000"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3de110a3d142d0b6eb1009b1ce1a6d9f5526a33266ab013509c6b73005652c19"
+    },
+    {
+      "label": "03_repeated_report",
+      "arguments": [
+        "-m",
+        "analysis.report_dcu_repeated_measures",
+        "--input",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\repeated\\repeated_measures.json",
+        "--report",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\repeated\\report.md"
+      ],
+      "exit_code": 0,
+      "log_sha256": "a6331ce8192f71ad95576d4348865a23190cee91fa675ff536c433edf9055e30"
+    },
+    {
+      "label": "04_mixed_report",
+      "arguments": [
+        "-c",
+        "import json; from pathlib import Path; from analysis.report_dcu_mixed_factorial import figures,report,appendix; p=Path(__import__('sys').argv[1]); d=json.loads(p.read_text(encoding='utf-8')); figures(d,p.parent); (p.parent/'report.md').write_text(report(d),encoding='utf-8',newline='\\n'); (p.parent/'mixed_factorial_tables.md').write_text(appendix(d),encoding='utf-8',newline='\\n')",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\mixed\\mixed_factorial.json"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "05_mixed_independent_formula_check",
+      "arguments": [
+        "-m",
+        "analysis.verify_dcu_mixed_factorial",
+        "D:\\大三小学期\\机器学习综合实践\\new\\inputs\\dcu_team_handoff_20261014.zip",
+        "--result",
+        "D:\\大三小学期\\机器学习综合实践\\xai01-04-m5-integration\\results\\c_extensions_20261121\\mixed\\mixed_factorial.json"
+      ],
+      "exit_code": 0,
+      "log_sha256": "1e9594a644685b27ab47364ac0aaa270d2c33862d9670304af870a297e28ffe3"
+    }
+  ],
+  "comparisons": {
+    "repeated": {
+      "sections": {
+        "cohorts": {
+          "exact_match": true,
+          "rows": 4
+        },
+        "omnibus": {
+          "exact_match": false,
+          "rows": 24
+        },
+        "cell_means": {
+          "exact_match": false,
+          "rows": 144
+        },
+        "marginal_means": {
+          "exact_match": false,
+          "rows": 72
+        },
+        "centered_interactions": {
+          "exact_match": false,
+          "rows": 144
+        },
+        "direct_did": {
+          "exact_match": false,
+          "rows": 360
+        },
+        "receipt": {
+          "exact_match": true,
+          "rows": null
+        },
+        "protocol": {
+          "exact_match": true,
+          "rows": null
+        },
+        "analysis_code_sha256": {
+          "exact_match": true,
+          "rows": null
+        }
+      },
+      "unexpected_sections": [],
+      "published_environment": {
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "pandas": "3.0.1",
+        "scipy": "1.15.3",
+        "PyYAML": "6.0.3"
+      },
+      "actual_environment": {
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "pandas": "3.0.1",
+        "scipy": "1.15.3",
+        "PyYAML": "6.0.3"
+      },
+      "published_sha256": "be71963d7f6c2e59829d04ca3f60ab897d2cb882714240233c164089dfe27052"
+    },
+    "mixed": {
+      "sections": {
+        "cohorts": {
+          "exact_match": true,
+          "rows": 4
+        },
+        "tests": {
+          "exact_match": false,
+          "rows": 42
+        },
+        "observed_dataset_differences": {
+          "exact_match": false,
+          "rows": 108
+        },
+        "receipt": {
+          "exact_match": true,
+          "rows": null
+        },
+        "protocol": {
+          "exact_match": true,
+          "rows": null
+        },
+        "analysis_code_sha256": {
+          "exact_match": true,
+          "rows": null
+        }
+      },
+      "unexpected_sections": [],
+      "published_environment": {
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "pandas": "3.0.1",
+        "scipy": "1.15.3",
+        "PyYAML": "6.0.3"
+      },
+      "actual_environment": {
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "pandas": "3.0.1",
+        "scipy": "1.15.3",
+        "PyYAML": "6.0.3"
+      },
+      "published_sha256": "f3e7bb51aef4753c94b0794ba612f416f6a9496e745886915246f74e93036dd5"
+    }
+  },
+  "artifacts": {
+    "01_repeated.log": "429574c2caa17b3be143f5386bcf6348448cacfe1b962ab47512b698f0e75a7c",
+    "02_mixed.log": "3de110a3d142d0b6eb1009b1ce1a6d9f5526a33266ab013509c6b73005652c19",
+    "03_repeated_report.log": "a6331ce8192f71ad95576d4348865a23190cee91fa675ff536c433edf9055e30",
+    "04_mixed_report.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05_mixed_independent_formula_check.log": "1e9594a644685b27ab47364ac0aaa270d2c33862d9670304af870a297e28ffe3",
+    "mixed/mixed_factorial.json": "8f4f20c94441546b49af51ea6b4a33dbc02b980cdb8df5ae7111c6765f4f2671",
+    "mixed/mixed_factorial_tables.md": "72077dbccddfb0a26aeb1261be4b0609c76fce310fd567b9cc2bf08714b0ddf2",
+    "mixed/observed_task_differences.png": "5f7bedf68f9b75b661a0e68f5a3582b5544d04501dba4c77ae837895a7c6f696",
+    "mixed/report.md": "dcd2c353c7e5681d59d99cdfa961b12d729dc4cb1a5f0aa5d9d7708a6a790788",
+    "mixed/validation_receipt.json": "eeadb8decfa23b9d789a0b3bc79716f9586f8ca0a4c54aa8b714976b78f154e8",
+    "repeated/direct_did_tables.md": "425467ae02ea3cff5879c80a34c04cb5933ec839ef6a014627d565b5d10cf05f",
+    "repeated/method_model_interaction.png": "b4ebf860a151be90642b79a41ee8a31bbdee2f66214ab32448bbd348915b9a0c",
+    "repeated/method_model_profiles.png": "565841f341b460018be5d163676833d37a132693934d2b27389c6ca6cc5b14c2",
+    "repeated/repeated_measures.json": "c33db1300920308323155699b0c9a01045e34d40c25b15239d948f79f2efceb0",
+    "repeated/report.md": "8ef7e5f8af1d627e7b7c88ee2be84522593e25fb60ee0457c7e9181617485e08"
+  },
+  "scope": "C-executed CPU statistics from frozen observations, including full published resampling budgets; no GPU attribution, teacher acceptance, independent-device Demo or group rehearsal.",
+  "file_comparisons": {
+    "repeated/method_model_profiles.png": {
+      "exact_match": true,
+      "comparison": "raw bytes",
+      "published_sha256": "565841f341b460018be5d163676833d37a132693934d2b27389c6ca6cc5b14c2",
+      "rebuilt_sha256": "565841f341b460018be5d163676833d37a132693934d2b27389c6ca6cc5b14c2"
+    },
+    "repeated/method_model_interaction.png": {
+      "exact_match": true,
+      "comparison": "raw bytes",
+      "published_sha256": "b4ebf860a151be90642b79a41ee8a31bbdee2f66214ab32448bbd348915b9a0c",
+      "rebuilt_sha256": "b4ebf860a151be90642b79a41ee8a31bbdee2f66214ab32448bbd348915b9a0c"
+    },
+    "repeated/direct_did_tables.md": {
+      "exact_match": true,
+      "comparison": "text with universal newlines",
+      "published_sha256": "425467ae02ea3cff5879c80a34c04cb5933ec839ef6a014627d565b5d10cf05f",
+      "rebuilt_sha256": "425467ae02ea3cff5879c80a34c04cb5933ec839ef6a014627d565b5d10cf05f"
+    },
+    "repeated/report.md": {
+      "exact_match": true,
+      "comparison": "text with universal newlines",
+      "published_sha256": "8ef7e5f8af1d627e7b7c88ee2be84522593e25fb60ee0457c7e9181617485e08",
+      "rebuilt_sha256": "8ef7e5f8af1d627e7b7c88ee2be84522593e25fb60ee0457c7e9181617485e08"
+    },
+    "mixed/observed_task_differences.png": {
+      "exact_match": true,
+      "comparison": "raw bytes",
+      "published_sha256": "5f7bedf68f9b75b661a0e68f5a3582b5544d04501dba4c77ae837895a7c6f696",
+      "rebuilt_sha256": "5f7bedf68f9b75b661a0e68f5a3582b5544d04501dba4c77ae837895a7c6f696"
+    },
+    "mixed/mixed_factorial_tables.md": {
+      "exact_match": true,
+      "comparison": "text with universal newlines",
+      "published_sha256": "72077dbccddfb0a26aeb1261be4b0609c76fce310fd567b9cc2bf08714b0ddf2",
+      "rebuilt_sha256": "72077dbccddfb0a26aeb1261be4b0609c76fce310fd567b9cc2bf08714b0ddf2"
+    },
+    "mixed/report.md": {
+      "exact_match": true,
+      "comparison": "text with universal newlines",
+      "published_sha256": "825d507640a531f6bde58beadf3f2e22edb1dbf9e8b61327e3ddd14c337de55b",
+      "rebuilt_sha256": "dcd2c353c7e5681d59d99cdfa961b12d729dc4cb1a5f0aa5d9d7708a6a790788"
+    }
+  },
+  "duration_seconds": 50.657
+}

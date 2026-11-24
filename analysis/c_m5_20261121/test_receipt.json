@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-21",
+  "actor": "C",
+  "status": "passed",
+  "runs": [
+    {
+      "label": "full_runner",
+      "tests": 299,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 236.07,
+      "junit_sha256": "f0a141e92531374ef0107a7ffef0584407e065ffb5dd103a4919acf8550b8747",
+      "junit_local_path": "results/full_tests_20261121.xml"
+    },
+    {
+      "label": "independent_cpu_subset",
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.929,
+      "junit_sha256": "ce92dc590f72feb9c11a58a57d07d1c10ee56cfac2550fa66fb1446fd3edc040",
+      "junit_local_path": "results/cpu_tests_20261121.xml"
+    },
+    {
+      "label": "new_comparison_gate",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.13,
+      "junit_sha256": "540d0aae5857500f77cfa4ffe8cb78764239b5d3271eb667380a5b02887400e7",
+      "junit_local_path": "results\\extension_gate_tests_final_20261121.xml"
+    }
+  ],
+  "full_collection_commit": "d1ba16b",
+  "scope": "299-test full collection followed by 10 newly added comparison tests; 53 CPU tests overlap full suite and are not added to it. No new GPU inference/attribution.",
+  "runner_environment": "Existing ../xai01-04/.venv with isolated .cache/runner-test-extra; CPU resampling uses separate .venv.",
+  "cpu_warning": "One pre-existing pytest cache permission warning; full/gate tests used new results/ cache directories.",
+  "full_log_sha256": "b40c47f097bea482aef0ebaadfe6caa590cbe23b660c485c8c64dcb9c2dd2102",
+  "gate_test_base_commit": "a7b3fd0beaabb9abb7d7e28c89f1f59d9ae9fb2a",
+  "gate_test_source_commit": "5653fc73add061a8d924d63f5f7d184342a9ad39",
+  "gate_test_source_files_sha256": {
+    "scripts/reproduce_m5_extensions.py": "2a28f2be7d869d8dcfdb1e47665e4e7e73e6afba3455216477333ce1cdf0ace9",
+    "tests/test_reproduce_m5_extensions.py": "1c9b568ab7a612610bb372f394966a49bb031cbbfaa663bf48613b3d3ceb3afe"
+  },
+  "CPU_dependency_check": "uv pip check --python .venv/Scripts/python.exe: 20 packages compatible"
+}

@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-27",
+  "status": "recomputed_and_matched",
+  "receipt": {
+    "zip_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+    "source_repository_commit": "f5311404b254e69ee9adf39c31bcbbfc9f3c5315",
+    "manifest_files_checked": 720,
+    "checksum_entries_checked": 721,
+    "rows": {
+      "per_image": 66240,
+      "units": 144,
+      "trace": 82800,
+      "model_correct": 55608,
+      "common_correct": 49320
+    },
+    "units": 36,
+    "paired_seed_entries": 4600,
+    "invalid_trace_count": 28,
+    "config_snapshots_checked": 90,
+    "semantic_protocol_hash": "1197d166f84b",
+    "invalid_by_method": {
+      "gradcam": 28
+    },
+    "cohort_counts": [
+      {
+        "dataset": "imagenet",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "371",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "408",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "imagenet",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "363",
+        "common_correct": "332"
+      },
+      {
+        "dataset": "voc",
+        "model": "densenet121",
+        "eval_images": "460",
+        "model_correct": "388",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "resnet50",
+        "eval_images": "460",
+        "model_correct": "387",
+        "common_correct": "353"
+      },
+      {
+        "dataset": "voc",
+        "model": "vgg16",
+        "eval_images": "460",
+        "model_correct": "400",
+        "common_correct": "353"
+      }
+    ],
+    "checks": "ZIP CRC; all file hashes; frozen metadata/sample IDs; targets; paired seeds; config snapshots/shards; prediction/weight identities; trace aggregates; ddof=1 means/std/n; cohorts",
+    "limits": "No delivered code executed, GPU recomputation, or proof of generation-time provenance. Noise maps are not archived."
+  },
+  "original_statistics_sha256": "8dbd251d1c9cb8dd248309aaa6782e5ead9c8ec0f9c026b3fe4a40f43e775fcf",
+  "analysis_code_sha256": "2fae874136fbddc177a286e85bb004eaffd99b106d237336ac7d8deefa88bb50",
+  "resamples": 10000,
+  "family_size_per_cohort": 180,
+  "results": [
+    {
+      "cohort": "model_correct",
+      "mean_ig": 0.053252495065923854,
+      "mean_kernelshap": 0.05012559479684879,
+      "mean_advantage_ci95": [
+        -0.008423279450341515,
+        0.002070871711334575
+      ],
+      "dataset": "imagenet",
+      "model": "densenet121",
+      "metric": "faithfulness_morf_auc_raw",
+      "a": "ig",
+      "b": "kernelshap",
+      "n": 371,
+      "wins_a": 259,
+      "losses_a": 112,
+      "ties": 0,
+      "mean_advantage_a": -0.0031269002690750653,
+      "median_advantage_a": 0.0036645829677581995,
+      "rank_biserial_a": 0.3115960930933542,
+      "cohen_dz_a": -0.03738069688630726,
+      "paired_superiority_a": 0.6981132075471698,
+      "wilcoxon_statistic": 23752.0,
+      "p_value": 1.982881055239704e-07,
+      "sign_p_value": 1.567512568145643e-14,
+      "p_method": "two-sided Wilcoxon normal approximation, continuity/tie correction; zeros dropped",
+      "difference_round_decimals": 12,
+      "p_holm": 5.15549074362323e-06
+    },
+    {
+      "cohort": "common_correct",
+      "mean_ig": 0.0549296744908374,
+      "mean_kernelshap": 0.05236831632532534,
+      "mean_advantage_ci95": [
+        -0.008118646859060923,
+        0.002886296007733124
+      ],
+      "dataset": "imagenet",
+      "model": "densenet121",
+      "metric": "faithfulness_morf_auc_raw",
+      "a": "ig",
+      "b": "kernelshap",
+      "n": 332,
+      "wins_a": 233,
+      "losses_a": 99,
+      "ties": 0,
+      "mean_advantage_a": -0.002561358165512064,
+      "median_advantage_a": 0.0037603024393319997,
+      "rank_biserial_a": 0.30579977567929373,
+      "cohen_dz_a": -0.030408173537326555,
+      "paired_superiority_a": 0.7018072289156626,
+      "wilcoxon_statistic": 19187.0,
+      "p_value": 1.373719498973617e-06,
+      "sign_p_value": 1.3500675210305533e-13,
+      "p_method": "two-sided Wilcoxon normal approximation, continuity/tie correction; zeros dropped",
+      "difference_round_decimals": 12,
+      "p_holm": 3.4342987474340427e-05
+    },
+    {
+      "cohort": "all",
+      "mean_ig": 0.0445225790898946,
+      "mean_kernelshap": 0.0420068734263227,
+      "mean_advantage_ci95": [
+        -0.006819317861305518,
+        0.0017550938275570388
+      ],
+      "dataset": "imagenet",
+      "model": "densenet121",
+      "metric": "faithfulness_morf_auc_raw",
+      "a": "ig",
+      "b": "kernelshap",
+      "n": 460,
+      "wins_a": 323,
+      "losses_a": 137,
+      "ties": 0,
+      "mean_advantage_a": -0.0025157056635718993,
+      "median_advantage_a": 0.0020886627025901994,
+      "rank_biserial_a": 0.32669999056870697,
+      "cohen_dz_a": -0.03336250424158673,
+      "paired_superiority_a": 0.7021739130434783,
+      "wilcoxon_statistic": 35695.0,
+      "p_value": 1.2687797786158788e-09,
+      "sign_p_value": 2.1782029477970323e-18,
+      "p_method": "two-sided Wilcoxon normal approximation, continuity/tie correction; zeros dropped",
+      "difference_round_decimals": 12,
+      "p_holm": 3.6794613579860484e-08
+    }
+  ],
+  "checks": "CSV-derived paired counts, mean differences, rank effects, Wilcoxon p, all 180 quality p-values and Holm per cohort; class-stratified paired bootstrap CI at the existing seed",
+  "limits": "Software reanalysis of frozen observations, not a new GPU run or teacher/human acceptance. Marginal mean CIs are not simultaneous Holm intervals. Not an interaction test."
+}
