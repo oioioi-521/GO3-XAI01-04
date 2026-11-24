@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-22",
+  "actor": "D",
+  "status": "passed",
+  "input_sha256": "14b6ea625f41e6c7c0587fd0073fc70e2064df0260107dca042335c6fc2303dc",
+  "code_sha256": "efb919a90e77db570db309a610b4399efdc60f6e67dc8296d7162ec70da24bba",
+  "test_source_sha256": "c2bfbe8deb0aaf7e684217516701c9dba881497b903a3dd12740560a93b61c7b",
+  "full_pytest": {
+    "passed": 321,
+    "warnings": 2,
+    "seconds": 197.93,
+    "exit_code": 0,
+    "command": "python -m pytest -q --basetemp=results/.pytest_d_method_final_20261122",
+    "log_sha256": "9af553cdf15468fab947a5e97a56b539dfeb32230faf2f70ed62110630f5e370"
+  },
+  "focused_pytest": {
+    "passed": 13,
+    "seconds": 5.95,
+    "exit_code": 0,
+    "command": "python -m pytest tests/test_dcu_method_selection.py -q"
+  },
+  "unique_tests_covered": 322,
+  "test_scope_note": "Full suite collected 321 tests before the additional binary-edge plotting regression. Final focused 13 include that one and the 12 already in the suite; counts are not additive.",
+  "environment_recovery": {
+    "first_attempt": "31 failed, 290 passed, 2 warnings; missing lime/scikit-image and WinError 5 on two temporary-file tests",
+    "resolution": "Installed only the requirements-declared missing optional packages in project .venv; ran full suite with a fresh results/ basetemp outside the restrictive sandbox.",
+    "installed": {
+      "lime": "0.2.0.1",
+      "scikit-image": "0.25.2",
+      "imageio": "2.38.0",
+      "lazy-loader": "0.6",
+      "tifffile": "2025.5.10"
+    }
+  },
+  "pip_check": "No broken requirements found.",
+  "reproduction": {
+    "frozen_zip_recomputed": true,
+    "artifact_hashes_identical": 14,
+    "complete_receipt_identical": true,
+    "split_assignments_sha256": "467a1548b829df7cf3e899ba1da0a9b93b6422a3f5d5a46bd765c2fa4fdb3c2e"
+  },
+  "visual_review": "Tree and comparison PNGs inspected; labels/leaf support visible. Binary edge no/yes semantics additionally checked by a rendering regression.",
+  "no_new_gpu_attribution": true,
+  "no_raw_per_image_exports_staged": true,
+  "export_canonicalization": "SVG uses LF without trailing whitespace before hashing; model and scores unchanged."
+}

@@ -1,0 +1,7 @@
+profile,objective,scenarios,tied_oracle_rows
+full,faithfulness,2317,0
+full,stability,2317,0
+full,efficiency,2317,0
+no_grad_logits,faithfulness,2317,0
+no_grad_logits,stability,2317,0
+no_grad_logits,efficiency,2317,0

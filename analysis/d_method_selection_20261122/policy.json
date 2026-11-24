@@ -1,0 +1,160 @@
+{
+  "features": [
+    "dataset_is_voc",
+    "model_is_densenet121",
+    "model_is_vgg16",
+    "objective_is_stability",
+    "objective_is_efficiency"
+  ],
+  "interface_gate": "Fixed eligibility gate, not learned: full has gradients and target-layer access; no_grad_logits supports batched perturbed inputs and logits plus the frozen probability activation. A probability-only API is not certified.",
+  "eligible": {
+    "full": [
+      "ig",
+      "gradcam",
+      "occlusion",
+      "rise",
+      "kernelshap",
+      "lime"
+    ],
+    "no_grad_logits": [
+      "occlusion",
+      "rise",
+      "kernelshap",
+      "lime"
+    ]
+  },
+  "subtrees": {
+    "full": {
+      "node": 0,
+      "train_scenarios": 5229,
+      "recommended": "gradcam",
+      "feature": "objective_is_efficiency",
+      "threshold": 0.5,
+      "left": {
+        "node": 1,
+        "train_scenarios": 3486,
+        "recommended": "rise",
+        "feature": "objective_is_stability",
+        "threshold": 0.5,
+        "left": {
+          "node": 2,
+          "train_scenarios": 1743,
+          "recommended": "ig",
+          "feature": "model_is_densenet121",
+          "threshold": 0.5,
+          "left": {
+            "node": 3,
+            "train_scenarios": 1170,
+            "recommended": "ig"
+          },
+          "right": {
+            "node": 4,
+            "train_scenarios": 573,
+            "recommended": "ig"
+          }
+        },
+        "right": {
+          "node": 5,
+          "train_scenarios": 1743,
+          "recommended": "rise",
+          "feature": "dataset_is_voc",
+          "threshold": 0.5,
+          "left": {
+            "node": 6,
+            "train_scenarios": 873,
+            "recommended": "rise"
+          },
+          "right": {
+            "node": 7,
+            "train_scenarios": 870,
+            "recommended": "rise"
+          }
+        }
+      },
+      "right": {
+        "node": 8,
+        "train_scenarios": 1743,
+        "recommended": "gradcam"
+      }
+    },
+    "no_grad_logits": {
+      "node": 0,
+      "train_scenarios": 5229,
+      "recommended": "occlusion",
+      "feature": "objective_is_efficiency",
+      "threshold": 0.5,
+      "left": {
+        "node": 1,
+        "train_scenarios": 3486,
+        "recommended": "rise",
+        "feature": "objective_is_stability",
+        "threshold": 0.5,
+        "left": {
+          "node": 2,
+          "train_scenarios": 1743,
+          "recommended": "kernelshap",
+          "feature": "model_is_vgg16",
+          "threshold": 0.5,
+          "left": {
+            "node": 3,
+            "train_scenarios": 1173,
+            "recommended": "lime"
+          },
+          "right": {
+            "node": 4,
+            "train_scenarios": 570,
+            "recommended": "kernelshap"
+          }
+        },
+        "right": {
+          "node": 5,
+          "train_scenarios": 1743,
+          "recommended": "rise",
+          "feature": "dataset_is_voc",
+          "threshold": 0.5,
+          "left": {
+            "node": 6,
+            "train_scenarios": 873,
+            "recommended": "rise"
+          },
+          "right": {
+            "node": 7,
+            "train_scenarios": 870,
+            "recommended": "rise"
+          }
+        }
+      },
+      "right": {
+        "node": 8,
+        "train_scenarios": 1743,
+        "recommended": "occlusion"
+      }
+    }
+  },
+  "baselines": {
+    "full": {
+      "goal_mode": {
+        "faithfulness": "ig",
+        "stability": "rise",
+        "efficiency": "gradcam"
+      },
+      "goal_rank": {
+        "faithfulness": "ig",
+        "stability": "rise",
+        "efficiency": "gradcam"
+      }
+    },
+    "no_grad_logits": {
+      "goal_mode": {
+        "faithfulness": "kernelshap",
+        "stability": "rise",
+        "efficiency": "occlusion"
+      },
+      "goal_rank": {
+        "faithfulness": "kernelshap",
+        "stability": "rise",
+        "efficiency": "occlusion"
+      }
+    }
+  }
+}
